@@ -1,0 +1,11 @@
+<?php
+trait Outils {
+    public function redirection(string $lien='index'){
+	header('location: ' . URL . '/' . $lien);
+    }
+
+    public function ucfirst_utf8(string $chaine): string {
+	return mb_convert_case($chaine, MB_CASE_TITLE, "UTF-8");
+    }
+    
+}

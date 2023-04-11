@@ -1,0 +1,13 @@
+<?php
+namespace Generiques;
+
+interface Cancha {
+    const whitelist = [
+	'accueil' => ['index'],
+	'calendrier' => ['index'],
+	'resultats' => ['index'],
+	'classement' => ['index'],
+	'contact' => ['index'],
+	'login' => ['index']
+	];
+}
