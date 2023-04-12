@@ -1,9 +1,0 @@
-<?php
-namespace Controleurs;
-
-class Accueil {
-    public function __construct(private \PDO $pdo, private array $methode, private array $parametres){
-	var_dump($this->methode);
-    }
-    
-}

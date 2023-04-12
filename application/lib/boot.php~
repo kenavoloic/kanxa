@@ -1,5 +1,0 @@
-<?php
-
-$fichier = '..' . DIRECTORY_SEPARATOR . 'configuration' . DIRECTORY_SEPARATOR . 'identifiants.ini';
-
-echo $fichier . PHP_EOL;
