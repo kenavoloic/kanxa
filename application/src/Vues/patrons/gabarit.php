@@ -4,21 +4,20 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta charset="UTF-8"/>
-	<link href="public/css/style.css"  rel="stylesheet" type="text/css" />
+	<link href="css/style.css"  rel="stylesheet" type="text/css" />
         <title><?= $titre; ?></title>
     </head>
     <body>
 	<header>
 	    <h1><a href="#">Kanxa</a></h1>
 	    <nav>
-
 		<div id="vegan">
 		    <div class="lignes"></div>
 		    <div class="lignes"></div>
 		    <div class="lignes"></div>
 		</div>
 		<ul class="liens" id="liens">
-		    <li><a href="#" title="Prochaines parties">Calendrier</a></li>
+		    <li><a href="/dates" title="Prochaines parties">Calendrier</a></li>
 		    <li><a href="#" title="Résultats par série, par genre">Résultats</a></li>
 		    <li><a href="#" title="Classements des poules,  par série, par genre">Classements</a></li>
 		    <li><a href="#" title="Vos remarques, vos doléances">Réclamations</a></li>

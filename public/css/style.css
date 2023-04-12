@@ -1,4 +1,41 @@
-@include 'couleurs.css';
+@font-face {
+    font-family: "Oleo";
+    src: url("../fontes/OleoScript-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: "Oleo";
+    src: url("../fontes/OleoScript-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: "Fira";
+    src: url("../fontes/FiraMono-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: "Fira";
+    src: url("../fontes/FiraMono-Medium.ttf") format("truetype");
+    font-weight: 600;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: "Fira";
+    src: url("../fontes/FiraMono-Bold.ttf") format("truetype");
+    font-weight: 800;
+    font-style:normal;
+}
+
+
+
+@import 'couleurs.css';
 
 *, *::after, *::before {
     margin: 0;
@@ -7,14 +44,64 @@
 }
 
 html {
+    font-family: "Fira";
     font-size: 62.5%;
-    background-color: var(--gris3);
+    background-color: #ffffff;
 }
 
 body {
     font-size: 1.6rem;
     color: var(--blanc5);
     margin: .5rem;
-    background-color: var(--gris4);
+    background-color: #d7d7d7;
 }
 
+header {
+    color: #ff0096;
+    background-color: #66c0ff;
+    position: fixed;
+    margin-bottom: 2rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1789;
+    transition: all .125ms ease-out;
+}
+
+  header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+  header .logo {
+    font-size: 2rem;
+    color: #0a1c29;
+      padding-left: 1.2rem;
+      text-decoration: none;
+  }
+  header .hamburger {
+    cursor: pointer;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column; }
+    header .hamburger .ligne {
+      width: 4rem;
+      height: 5px;
+      margin: 5px;
+      background-color: #0a1c29;
+      border-radius: 4px; }
+header ul.liens, header ul.administration {
+    display: none; }
+header ul.liens {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    align-item: center;
+    justify-content: space-around;
+    li {
+	margin: 0 .25rem;
+    }
+}

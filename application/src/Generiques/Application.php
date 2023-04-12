@@ -32,6 +32,7 @@ class Application implements Cancha {
 	$this->parametres = $retour[2];
 
 	$nomClasse = '\\Controleurs\\' . ucfirst($this->controleur);
+	//echo $nomClasse;
 	$nouvelleInstance = new $nomClasse($this->pdo, $this->methode, $this->parametres);
 	//$nouvelleInstance->index();
     }

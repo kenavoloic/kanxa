@@ -6,9 +6,12 @@ if(session_status() !== PHP_SESSION_ACTIVE){
 
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('APPLICATION', ROOT . 'application' . DIRECTORY_SEPARATOR);
+define('URL', 'http://kanxa/');
 
 require APPLICATION . 'lib/reglages.php';
 require APPLICATION . 'lib/autoload.php';
+
+//echo dirname(dirname(__FILE__));
 //require APPLICATION . 'lib/boot.php';
 
 //$identifiants = new \Connexion\Identifiants(APPLICATION . 'configuration/identifiants.ini');
