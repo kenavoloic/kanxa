@@ -4,15 +4,21 @@ namespace Vues;
 
 trait OutilsVues {
 
+    public function getPatron(string $fichier, array $tableau=['titre'=>'Kanxa']): ?string {
+	$chemin = 'patrons' . DIRECTORY_SEPARATOR . $fichier . '.php';
+	ob_start();
+	extract($tableau);
+	include $chemin;
+	return ob_get_clean();
+    }
+
     public function getComposant(string $fichier): ?string {
-	$retour = null;
-	$chemin = 'patrons' . DIRECTORY_SEPARATOR . 'composant' . DIRECTORY_SEPARATOR . $fichier . 'php';
-	if(file_exists($chemin)){
-	    ob_start();
-	    include $chemin;
-	    $retour = ob_get_clean();
-	}
+	$chemin =  'patrons' . DIRECTORY_SEPARATOR . 'composants' . DIRECTORY_SEPARATOR . $fichier . '.php';
+	ob_start();
+	include $chemin;
+	$retour =  ob_get_clean();
 	return $retour;
     }
+    
     
 }
