@@ -1,0 +1,20 @@
+@include 'couleurs.css';
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    background-color: var(--gris3);
+}
+
+body {
+    font-size: 1.6rem;
+    color: var(--blanc5);
+    margin: .5rem;
+    background-color: var(--gris4);
+}
+

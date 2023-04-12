@@ -7,6 +7,6 @@
         <meta charset="UTF-8"/>
 	<link href="<?php echo URL . 'public/css/couleur.css'; ?>" rel="stylesheet" type="text/css" />
 	<link href="<?php echo URL . 'public/css/style.css'; ?>" rel="stylesheet" type="text/css" />	
-        <title>Tournoi</title>
+        <title>Kanxa</title>
     </head>
     <body>
