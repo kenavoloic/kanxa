@@ -1,0 +1,169 @@
+@import 'couleurs.scss';
+@import 'fontes.scss';
+@import 'theme.scss';
+
+*, *::after, *::before {
+margin:0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html {
+    font-family: "Fira", sans-serif;
+    font-size: 62.5%;
+    background-color: $primary-color; //$blanc15;
+}
+
+body {
+    font-size: 1.6rem;
+    backgound-color:  $secondary-color-darker; //$blanc13;
+    margin: .5rem;
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: $blanc15;
+    position: fixed;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+   // right: 0;
+    z-index: 1789;
+
+    margin-bottom: 5rem;
+    padding: 1rem;
+    border-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: $alternative-color;
+    transition: all .125ms ease-out;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+
+    
+    h1 {
+	font-family: "Oleo";
+	font-size: 7rem;
+	letter-spacing: -3px;
+	user-select: none;
+	color: $alternative-color;
+	margin: 0 1rem;
+	transition: .25ms ease-out;
+
+	&:hover {
+	    color: $alternative-color-dark;
+	    //letter-spacing: -4px;
+	    //transform: rotate(-90deg);
+	}
+
+	a {
+	    color: inherit;
+	    text-decoration: none;
+	}
+    }
+
+
+    nav {
+	display: flex;
+	align-items: center;
+	margin: 0 .6rem;
+	//position: absolute;
+	
+	#vegan {
+	    display: flex;
+	    width: 6rem;
+	    height: 4rem;
+	    margin: 0 1rem;
+	    flex-direction: column;
+	    justify-content: center;
+	    border: .3em solid transparent;
+	    border-radius: 5px;
+	    padding: .25rem;
+	    transition: all .125s ease-out;
+
+	    &:hover {
+		border-color: $alternative-color-dark;
+	    }
+
+	    .lignes {
+		width: 100%;
+		height: 25%;
+		background-color: $alternative-color;
+		margin: .2rem 0 .15rem 0;
+		border-radius: 6px;
+		transition: all .125s ease-in;
+
+		&:hover {
+		    background-color: $alternative-color-light;
+		}
+	    }
+
+
+	    @media screen and (min-width: 768px){
+		display: none;
+	    }
+	}
+
+	ul#liens, ul#administration {
+	    display: flex;
+	    flex-direction: row;
+	    list-style: none;
+	    padding: .3rem;
+	    margin-left: auto;
+	    color: $couleurTexte;
+	    li {
+		font-family: "Fira", sans-serif, monospace;
+		font-size: 1.2em;
+		letter-spacing: -2px;
+		margin: .25rem;
+		user-select: none;
+		border: 4px solid transparent;
+		transition: all .125s ease-out;
+
+		&:hover {
+		    color: $blanc7;
+		    //border-top-color: $alternative-color;
+		    //border-bottom-color: $alternative-color;
+		    cursor: pointer;
+		}
+		a {
+		    color: inherit; //$alternative-color;
+		    text-decoration: none;
+		}
+	    }
+	    li:last-child {
+		//background-color: pink;
+	    }
+
+	    @media screen and (max-width: 768px){
+		display: none;
+	    } 
+
+
+	    @media screen and (max-width: 768px){
+		position: absolute;
+		top: 15vh;
+		left: 0;
+		flex-direction: column;
+		height: 90vh;
+		width: 25vw;
+		background-color: $primary-color-light;
+		font-size: 1.2rem;
+	    } 
+
+	}
+
+    }
+}
+
+main {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: $alternative-color;
+}

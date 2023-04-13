@@ -1,0 +1,147 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap'); */
+@font-face {
+  font-family: "Oleo";
+  src: url("../fontes/OleoScript-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Oleo";
+  src: url("../fontes/OleoScript-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Fira";
+  src: url("../fontes/FiraMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Fira";
+  src: url("../fontes/FiraMono-Medium.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Fira";
+  src: url("../fontes/FiraMono-Bold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-family: "Fira", sans-serif;
+  font-size: 62.5%;
+  background-color: #0096FF; }
+
+body {
+  font-size: 1.6rem;
+  backgound-color: #33001e;
+  margin: .5rem;
+  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: column; }
+
+header {
+  background-color: #F3E5AB;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1789;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  border-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: #F28C28;
+  transition: all .125ms ease-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+  header h1 {
+    font-family: "Oleo";
+    font-size: 7rem;
+    letter-spacing: -3px;
+    user-select: none;
+    color: #F28C28;
+    margin: 0 1rem;
+    transition: .25ms ease-out; }
+    header h1:hover {
+      color: #aa590a; }
+    header h1 a {
+      color: inherit;
+      text-decoration: none; }
+  header nav {
+    display: flex;
+    align-items: center;
+    margin: 0 .6rem; }
+    header nav #vegan {
+      display: flex;
+      width: 6rem;
+      height: 4rem;
+      margin: 0 1rem;
+      flex-direction: column;
+      justify-content: center;
+      border: .3em solid transparent;
+      border-radius: 5px;
+      padding: .25rem;
+      transition: all .125s ease-out; }
+      header nav #vegan:hover {
+        border-color: #aa590a; }
+      header nav #vegan .lignes {
+        width: 100%;
+        height: 25%;
+        background-color: #F28C28;
+        margin: .2rem 0 .15rem 0;
+        border-radius: 6px;
+        transition: all .125s ease-in; }
+        header nav #vegan .lignes:hover {
+          background-color: #f8bf88; }
+      @media screen and (min-width: 768px) {
+        header nav #vegan {
+          display: none; } }
+    header nav ul#liens, header nav ul#administration {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      padding: .3rem;
+      margin-left: auto;
+      color: #301934; }
+      header nav ul#liens li, header nav ul#administration li {
+        font-family: "Fira", sans-serif, monospace;
+        font-size: 1.2em;
+        letter-spacing: -2px;
+        margin: .25rem;
+        user-select: none;
+        border: 4px solid transparent;
+        transition: all .125s ease-out; }
+        header nav ul#liens li:hover, header nav ul#administration li:hover {
+          color: #FFFFF0;
+          cursor: pointer; }
+        header nav ul#liens li a, header nav ul#administration li a {
+          color: inherit;
+          text-decoration: none; }
+      @media screen and (max-width: 768px) {
+        header nav ul#liens, header nav ul#administration {
+          display: none; } }
+      @media screen and (max-width: 768px) {
+        header nav ul#liens, header nav ul#administration {
+          position: absolute;
+          top: 15vh;
+          left: 0;
+          flex-direction: column;
+          height: 90vh;
+          width: 25vw;
+          background-color: #66c0ff;
+          font-size: 1.2rem; } }
+main {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #F28C28; }

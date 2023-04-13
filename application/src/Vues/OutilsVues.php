@@ -12,6 +12,16 @@ trait OutilsVues {
 	return ob_get_clean();
     }
 
+    public function getEntete(string $titre, string $fichier='entete'): string {
+	$chemin =  'patrons' . DIRECTORY_SEPARATOR . 'composants' . DIRECTORY_SEPARATOR . $fichier . '.php';
+	$tableau = ['titre' => 'Kanxa'];
+	ob_start();
+	extract($tableau);
+	include $chemin;
+	return ob_get_clean();	
+    }
+    
+
     public function getComposant(string $fichier): ?string {
 	$chemin =  'patrons' . DIRECTORY_SEPARATOR . 'composants' . DIRECTORY_SEPARATOR . $fichier . '.php';
 	ob_start();

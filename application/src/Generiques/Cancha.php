@@ -5,18 +5,18 @@ interface Cancha {
     const listeBlanche = [
 	// routes pour utilisateurs
 	'accueil' => ['index'],
-	'planning' => ['index'],
+	'rencontres' => ['index'],
 	'resultats' => ['index'],
-	'classement' => ['index'],
+	'classements' => ['index'],
 	'contact' => ['index'],
-	'login' => ['index'],
-	'cafe' => ['chocolat', 'croissants'],
 	// routes pour administrateurs	
+	'login' => ['index'],
 	'logout' => ['index'],
-	'dates' => ['index'],
+	'score' => ['index'],
+	'generales' => ['index'],
 	'inscriptions' => ['index'],
 	'poules' => ['index'],
-	'calendrier' => ['index'],
-	'resulat' => ['index']
+	'planning' => ['index'],
+	'paf' => ['index']
     ];
 }

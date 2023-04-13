@@ -6,7 +6,7 @@ if(session_status() !== PHP_SESSION_ACTIVE){
 
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('APPLICATION', ROOT . 'application' . DIRECTORY_SEPARATOR);
-define('URL', 'http://kanxa/');
+//define('URL', 'http://kanxa/');
 
 require APPLICATION . 'lib/reglages.php';
 require APPLICATION . 'lib/autoload.php';
