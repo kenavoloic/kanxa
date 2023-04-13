@@ -30,26 +30,25 @@ trait OutilsVues {
 	return $retour;
     }
 
-    // En remplacement des input dates
+    // En lieu et place  des input dates
+    // créatioin des options pour le select "jour"
     public function getJours(int $valeur=1): string {
 	$valeur = ($valeur < 1 | $valeur > 31) ? 1 : $valeur;
 	$liste = array_map(fn($x) => '<option value="' . $x .'">'.str_pad($x, 2, "0", STR_PAD_LEFT).'</option>', range(1,31));
 	$liste[$valeur - 1] = '<option value="'. $valeur .'" selected>'.str_pad($valeur, 2, "0", STR_PAD_LEFT).'</option>';
-	//$texte = "léontine";
-	//$liste[$valeur - 1] = '<option value="'. $texte .'" selected>'. $texte .'</option>';
 	return implode("\n",$liste);
     }
 
+    // création des options pour le select "mois"
     public function getMois(int $valeur=1): string {
 	$valeur = ($valeur < 1 | $valeur > 12) ? 1 : $valeur;
 	$mois = [1 => 'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 	$liste = array_map(fn($x) => '<option value="' .$x . '">' . $mois[$x] . '</option>', range(1,12));
 	$liste[$valeur - 1 ] = '<option value="' .$valeur . '" selected>' . $mois[$valeur] . '</option>';
-	//$texte = "albertine";
-	//$liste[$valeur - 1 ] = '<option value="' .$texte . '" selected>' . $mois[$valeur] . '</option>';
 	return implode("\n", $liste);
     }
 
+    // création des options pour le select "année"
     public function creationOptionsAnnee(): array {
 	$anneeActuelle = date_create('now')->format('Y');
 	$nombreAnnees  = 5;
