@@ -1,0 +1,109 @@
+-- v08
+USE tournoi;
+
+DROP TABLE IF EXISTS datesGenerales;
+CREATE TABLE datesGenerales(
+dateId INT AUTO_INCREMENT PRIMARY KEY,
+evenement VARCHAR(255) NOT NULL,
+jour INT,
+annee INT
+);
+
+INSERT INTO datesGenerales(evenement) VALUES
+('ouvertureInscriptions'),
+('clotureInscriptions'),
+('constitutionPoules'),
+('envoiListesPoules'),
+('debutTournoi'),
+('quarts'),
+('demifinales'),
+('finales');
+
+
+DROP TABLE IF EXISTS equipes;
+CREATE TABLE equipes(
+equipeId INT AUTO_INCREMENT PRIMARY KEY,
+active_p TINYINT(1) DEFAULT 1,
+serie INT,
+genre INT,
+souhait INT,
+nom1 VARCHAR(255) NOT NULL,
+prenom1 VARCHAR(255) NOT NULL,
+courriel1 VARCHAR(255) NOT NULL,
+mobile1 VARCHAR(255),
+licence1 VARCHAR(255),
+nom2 VARCHAR(255) NOT NULL,
+prenom2 VARCHAR(255) NOT NULL,
+courriel2 VARCHAR(255) NOT NULL,
+mobile2 VARCHAR(255),
+licence2 VARCHAR(255),
+paf_p TINYINT(1) DEFAULT 0,
+poule INT UNSIGNED NOT NULL DEFAULT 0,
+pouleId INT UNSIGNED NOT NULL DEFAULT 0,
+tournoiId INT UNSIGNED NOT NULL DEFAULT 0,
+classement INT UNSIGNED NOT NULL DEFAULT 0,
+j INT UNSIGNED NOT NULL DEFAULT 0,
+v INT UNSIGNED NOT NULL DEFAULT 0,
+d INT UNSIGNED NOT NULL DEFAULT 0,
+p INT UNSIGNED NOT NULL DEFAULT 0,
+totalPoints INT UNSIGNED NOT NULL DEFAULT 0,
+pointsGagnes INT UNSIGNED NOT NULL DEFAULT 0,
+pointsPerdus INT UNSIGNED NOT NULL DEFAULT 0,
+quartId INT UNSIGNED NOT NULL DEFAULT 0,
+quartScore INT UNSIGNED NOT NULL DEFAULT 0,
+demiId INT UNSIGNED NOT NULL DEFAULT 0,
+demiScore INT UNSIGNED NOT NULL DEFAULT 0,
+finaleId INT UNSIGNED NOT NULL DEFAULT 0,
+finaleScore INT UNSIGNED NOT NULL DEFAULT 0,
+huitiemeId INT UNSIGNED NOT NULL DEFAULT 0,
+huitiemeScore INT UNSIGNED NOT NULL DEFAULT 0,
+seiziemeId INT UNSIGNED NOT NULL DEFAULT 0,
+seiziemeScore INT UNSIGNED NOT NULL DEFAULT 0
+);
+
+ALTER TABLE equipes
+ADD FOREIGN KEY (serie) REFERENCES series (serieId) ON DELETE SET NULL,
+ADD FOREIGN KEY (genre) REFERENCES genres (genreId) ON DELETE SET NULL,
+ADD FOREIGN KEY (souhait) REFERENCES souhaits (souhaitId) ON DELETE SET NULL;
+
+-- ALTER TABLE equipes ADD CONSTRAINT fk_equipes_serie FOREIGN KEY (serie) REFERENCES series (serieId);
+-- ALTER TABLE equipes ADD CONSTRAINT fk_equipes_genre FOREIGN KEY (genre) REFERENCES genres (genreId);
+-- ALTER TABLE equipes ADD CONSTRAINT fk_equipes_souhait FOREIGN KEY (souhait) REFERENCES souhaits (souhaitId);
+
+DROP TABLE IF EXISTS planning;
+-- TRUNCATE TABLE planning;
+
+CREATE TABLE planning(
+planningId INT AUTO_INCREMENT PRIMARY KEY,
+jour INT NOT NULL,
+annee INT NOT NULL,
+libre_p TINYINT(1) DEFAULT 1,
+heure INT NOT NULL DEFAULT 9,
+serie INT,
+genre INT,
+phase INT,
+partieId INT
+);
+ALTER TABLE planning ADD FOREIGN KEY (serie) REFERENCES series (serieId)  ON DELETE SET NULL;
+ALTER TABLE planning ADD FOREIGN KEY (genre) REFERENCES genres (genreId) ON DELETE SET NULL;
+ALTER TABLE planning ADD FOREIGN KEY (phase) REFERENCES phases (phaseId) ON DELETE SET NULL;
+
+DROP TABLE IF EXISTS parties;
+CREATE TABLE parties(
+partieId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+serie INT,
+genre INT,
+phase INT,
+phaseId INT,
+planning INT,
+equipe1 INT,
+equipe2 INT,
+score1 INT NOT NULL DEFAULT 0,
+score2 INT NOT NULL DEFAULT 0,
+observations VARCHAR(255)
+);
+ALTER TABLE parties ADD FOREIGN KEY (serie) REFERENCES series (serieId) ON DELETE SET NULL;
+ALTER TABLE parties ADD FOREIGN KEY (genre) REFERENCES genres (genreId) ON DELETE SET NULL;
+ALTER TABLE parties ADD FOREIGN KEY (phase) REFERENCES phases (phaseId) ON DELETE SET NULL;
+ALTER TABLE parties ADD FOREIGN KEY (planning) REFERENCES planning (planningId) ON DELETE SET NULL;
+
