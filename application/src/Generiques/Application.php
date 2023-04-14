@@ -33,6 +33,10 @@ class Application implements Cancha {
 
 	$nomClasse = '\\Controleurs\\' . ucfirst($this->controleur);
 	$nouvelleInstance = new $nomClasse($this->pdo, $this->methode, $this->parametres);
+	/* if(!is_null($this->methode)){
+	   $nouvelleInstance->$this->methode($this->parametres);
+	   } */
+	
 	//$nouvelleInstance->index();
     }
 

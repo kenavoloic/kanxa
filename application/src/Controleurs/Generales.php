@@ -33,13 +33,14 @@ class Generales {
 	$t2 = $t1->execute();
 	$this->tableau = $t1->fetchAll(\PDO::FETCH_ASSOC);
 	$u1 = $t1->fetchAll(\PDO::FETCH_ASSOC);
-	var_dump(json_decode($this->tableau[0]['resultat']), true);
+	//var_dump(json_decode($this->tableau[0]['resultat']), true);
 	//$liste = json_decode($this->tableau[0]);
-	$t3 = array_values($this->tableau[0]);//[0];
+	//$t3 = array_values($this->tableau[0]);//[0];
 	//$t3 = array_values($this->tableau[0])[0];
 	//print_r($t3);]
-	$t4 = json_decode($t3[0]);//print_r(json_decode($t3[0]));
+	//$t4 = json_decode($t3[0]);//print_r(json_decode($t3[0]));
 	//$this->vue = new \Vues\Generales("Dates Générales", $t3[0]);
+	$this->vue = new \Vues\Generales("Dates Générales", $this->tableau[0]);
 	//var_dump($this->toutes);
 	
     }

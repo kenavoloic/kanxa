@@ -4,6 +4,18 @@ namespace Vues;
 
 trait OutilsVues {
 
+    // $jour = $jour - 1, car valeur en provenance de mysql pour qui le premier jour de l'année est 1
+    // et non 0 pour PHP
+    
+    /* public function nettoyageJson(array $envoi): array {
+       $dateId = filter_var($envoi['dateId'], FILTER_SANITIZE_STRING);
+       $evenement = filter_var($envoi['evenement'], FILTER_SANITIZE_STRING);
+       $jour = filter_var($envoi['jour'], FILTER_SANITIZE_NUMBER_INT);
+       $annee = filter_var($envoi['annee'], FILTER_SANITIZE_NUMBER_INT);
+       return ['dateId' => dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee];
+     * } */
+
+
     public function getPatron(string $fichier, array $tableau=['titre'=>'Kanxa']): ?string {
 	$chemin = 'patrons' . DIRECTORY_SEPARATOR . $fichier . '.php';
 	ob_start();

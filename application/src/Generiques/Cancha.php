@@ -10,8 +10,8 @@ interface Cancha {
 	'classements' => ['index'],
 	'contact' => ['index'],
 	// routes pour administrateurs	
-	'login' => ['index'],
-	'logout' => ['index'],
+	'login/connexion' => ['connexion', 'deconnexion'],
+	'logout' => ['deconnexion'],
 	'score' => ['index'],
 	'generales' => ['index'],
 	'inscriptions' => ['index'],
