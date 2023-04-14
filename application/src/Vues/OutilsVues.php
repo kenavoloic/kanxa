@@ -15,6 +15,13 @@ trait OutilsVues {
        return ['dateId' => dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee];
      * } */
 
+    public function getFooterJavaScript(string $fichier){
+	// Contrairement à un fichier php, il ne s'agit pas ici de charger le contenu du fichier
+	// mais simplement de créer une chaîne qui sera interprétée par le client, donc dans le dossier 'public'
+	$chemin = 'js' . DIRECTORY_SEPARATOR . $fichier . '.js';
+	return '<script src="' .$chemin . '"></script>';
+    }
+    
 
     public function getPatron(string $fichier, array $tableau=['titre'=>'Kanxa']): ?string {
 	$chemin = 'patrons' . DIRECTORY_SEPARATOR . $fichier . '.php';

@@ -8,8 +8,8 @@ class Generales {
     
     private $tableau;
     private $requete = "select jsonDatesGenerales() as resultat;";
-    private $r2 = "select jsonEquipeSerieGenreAvecPoule(:p1,:p2);";
-    private $r3 = "select jsonEquipeSerieGenreSansPoule(:p1,:p2);";
+    /* private $r2 = "select jsonEquipeSerieGenreAvecPoule(:p1,:p2);";
+     * private $r3 = "select jsonEquipeSerieGenreSansPoule(:p1,:p2);"; */
     private $lecture;
     private $toutes;
     private $json;
@@ -42,10 +42,6 @@ class Generales {
 	//$this->vue = new \Vues\Generales("Dates Générales", $t3[0]);
 	$this->vue = new \Vues\Generales("Dates Générales", $this->tableau[0]);
 	//var_dump($this->toutes);
-	
-    }
-
-    public function affichage(): void{
     }
     
 

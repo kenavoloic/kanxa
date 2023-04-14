@@ -16,7 +16,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    backgound-color:  $secondary-color-darker; //$blanc13;
+    background-color:  $alternative-color;//$blanc13;//$secondary-color-darker; //$blanc13;
     margin: .5rem;
     padding-top: .5rem;
     display: flex;
@@ -295,3 +295,139 @@ main#generales {
     }
 }
 
+main#brassage {
+    top: 0.25rem;
+    background-color: $alternative-color;
+
+    $gorria: #CC0000;
+    $berdea: #00CC00;
+    $urdina: #0022CC;
+    $horia: #ffcc00;
+
+    .gorria { color: $gorria;}
+    .berdea { color: $berdea;}
+    .urdina { color: $urdina;}
+    .horia { color: $horia;}
+
+    
+    article#selecteurs {
+	display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+        border-color: $blanc16;
+
+	label {
+	    color: $blanc13;
+	    padding: .25rem;
+	}
+
+	select {
+	    padding: .25rem;
+	}
+	button#brassageEffectue {
+	    padding: .2rem;
+	}
+    }
+
+    article#equipes {
+	display: flex;
+	flex-direction: column;
+    }
+    
+    div.ligne {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	span.souhait {
+	    display: inline-block;
+	    font-size: 1.4rem;
+	    color: #ffffff;
+	    font-family: serif, sans-serif;
+	    width: 8rem;
+	    margin-right: 1rem;
+	    text-align: center;
+	    user-select: none;
+	}
+
+	div.liste {
+	    display: flex;
+	    margin: .25rem;
+	    padding: .15rem;
+	    align-items: center;
+	    justify-content: space-between;
+
+	    button {
+		width: 3rem;
+		height: 2rem;
+		margin: 0 .25rem 0;
+		border: 3px solid transparent;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: all .125s ease-in;
+
+		&.gorria {
+		    background-color: $gorria;
+		    border-color: saturate($gorria, 10%);
+		    &:hover {
+			background-color: lighten($gorria, 20%);
+			border-color: darken(saturate($gorria, 10%), 15%);
+		    }
+
+		}
+
+		&.berdea {
+		    background-color: $berdea;
+		    border-color: saturate($berdea, 10%);
+		    &:hover {
+			background-color: lighten($berdea, 20%);
+			border-color: darken(saturate($berdea, 10%), 15%);
+		    }
+
+		}
+
+		&.urdina {
+		    background-color: $urdina;
+		    border-color: saturate($urdina, 10%);
+		    &:hover {
+			background-color: lighten($urdina, 20%);
+			border-color: darken(saturate($urdina, 10%), 15%);
+		    }
+
+		}
+
+		&.horia {
+		    background-color: $horia;
+		    border-color: saturate($horia, 10%);
+		    &:hover {
+			background-color: lighten($horia, 20%);
+			border-color: darken(saturate($horia, 10%), 15%);
+		    }
+
+		}
+		
+	    &.supprimer0 {
+		//width: 6rem;
+		font-size: 3rem;
+		font-weight: 500;
+		font-family: monospace;
+		background-color: #ffffff;
+		border-color: $rouge;//transparent;
+		margin: .5rem;
+		padding: .25rem;
+		transition: all .125s ease-in;
+		&:hover {
+		    //background-color: lighten($rouge, 15%);
+		    border-color: darken($rouge, 10%);
+		}
+	    }
+		
+
+	    }
+	}
+	
+    }
+}
