@@ -42,6 +42,15 @@ trait OutilsVues {
 	return $retour;
     }
 
+    public function getComposantTableau(string $fichier, array $tableau): ?string {
+	$chemin =  'patrons' . DIRECTORY_SEPARATOR . 'composants' . DIRECTORY_SEPARATOR . $fichier . '.php';
+	ob_start();
+	include $chemin;
+	extract($tableau);
+	$retour =  ob_get_clean();
+	return $retour;
+    }
+
     // En lieu et place  des input dates
     // créatioin des options pour le select "jour"
     public function getJours(int $valeur=1): string {

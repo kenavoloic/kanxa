@@ -10,12 +10,37 @@ class Generales {
     private $jours;
     private $annees;
     private $donnees;
+    private $liste;
+    private $toutes;
     
     public function __construct(private string $titre, private array $json){
 	$this->donnees = array_map([$this, 'nettoyageJson'],json_decode($json['resultat'], true));
-	//var_dump($this->donnees);
-	//$this->affichage($this->titre);
+	$this->liste = array_map([$this, 'getDateTime'], $this->donnees);
+	$this->toutes = array_map([$this, 'getJJMMAAAA'], $this->liste);
+	$this->affichage($this->titre, $this->toutes);
     }
+
+    private function getJJMMAAAA(\DateTime $envoi): array {
+	$jj = intval($envoi->format('d'));
+	$mm = intval($envoi->format('m'));
+	$aaaa = intval($envoi->format('Y'));
+	//echo $jj . ' ' . $mm . ' ' . $aaaa;
+	return [$jj, $mm, $aaaa];
+    }
+    
+
+    private function getDateTime(array $envoi): \DateTime {
+	$retour = null;
+	try {
+	    $retour =  \DateTime::createFromFormat('Y z', $envoi['annee'] . ' ' . $envoi['jour']);
+	    $retour->setTimeZone(new \DateTimeZone('Europe/Paris'));
+	}
+	catch(\Exception $exception){
+	    $retour = new \DateTime('now', new \DateTimeZone('Europe/Paris'));	    
+	}
+	return $retour;	
+    }
+    
 
     // $jour = $jour - 1, car valeur en provenance de mysql pour qui le premier jour de l'année est 1
     // et non 0 pour PHP
@@ -29,11 +54,21 @@ class Generales {
     }
     
 
-    public function affichage(string $titre){
-	//echo($envoi);
+    public function affichage(string $titre, array $listeJours){
+	$tableau = [	    
+	    'oi' => $listeJours[0],
+	    'ci' => $listeJours[1],
+	    'cp' => $listeJours[2],
+	    'elp' => $listeJours[3],
+	    'dt' => $listeJours[4],
+	    'quarts' => $listeJours[5],
+	    'demi' => $listeJours[6],
+	    'finales' => $listeJours[7]
+	];
+
 	echo $this->getEntete($titre);
 	echo $this->getComposant('headerAdministrateur');
-	echo $this->getComposant('generales');
+	echo $this->getComposantTableau('generales', $tableau);
 	echo $this->getComposant('basdepage');
     }
     
