@@ -4,6 +4,11 @@ namespace Controleurs;
 
 trait OutilsControleurs {
 
+    public function redirection(string $lien='index'): void {
+	header('location: ' . $lien);
+    }
+    
+
     // Fonction qui accepte un objet PDO et retourne une fonction
     // Le seul inconvénient est la manière d'appeler la fonction retournée
     // $f1 = jsonData(PDO $connexion)

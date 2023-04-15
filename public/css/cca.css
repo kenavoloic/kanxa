@@ -147,7 +147,7 @@ main#brassage {
   main#brassage article.poule {
     background-color: #8b96a2;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 1rem;
     border: 3px solid #FFFFFF;
     border-radius: 4px;
@@ -171,7 +171,8 @@ main#brassage {
       user-select: none; }
     main#brassage article.poule div.depot {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
       border: 1rem solid transparent;
       border-color: transparent;
       border-width: .375rem;
@@ -186,12 +187,37 @@ main#brassage {
     main#brassage article.poule span#lau {
       background-color: #ffcc00; }
   main#brassage section#poules {
-    display: flex; }
-    main#brassage section#poules .depot {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between; }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* .depot {
+	   display: flex;
+	   flex-direction: row;
+	   align-items: center;
+	   justify-content: space-between;
+	   } */ }
+
+main#brassage {
+  display: grid;
+  width: 100vw;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: .25rem;
+  grid-row-gap: .25rem; }
+  main#brassage article#selecteurs {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2; }
+  main#brassage article#equipes {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 5; }
+  main#brassage section#poules {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 5; }
 
 *, *::after, *::before {
   margin: 0;

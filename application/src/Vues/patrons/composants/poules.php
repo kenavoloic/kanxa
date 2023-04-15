@@ -18,6 +18,7 @@
 	</div>
 	<button id="brassageEffectue" disabled>Valider</button>		
     </article>
+    <div id="cadre">
     <article id="equipes">
 	<div class="ligne" id="_1"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
 	<div class="ligne" id="_2"><span class="souhait">Semaine</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
@@ -43,5 +44,5 @@
 	<article class="poule" id="d3"><h2 class="titre"><span id="hiru">Poule 3</span></h2><div class="depot" id="p3"></div></article>
 	<article class="poule" id="d4"><h2 class="titre"><span id="lau">Poule 4</span></h2><div class="depot" id="p4"></div></article>
     </section>
-
+    </div>
 </main>
