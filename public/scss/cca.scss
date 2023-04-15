@@ -299,34 +299,40 @@ main#brassage {
     top: 0.25rem;
     background-color: $alternative-color;
 
-    $gorria: #CC0000;
-    $berdea: #00CC00;
-    $urdina: #0022CC;
-    $horia: #ffcc00;
-
     .gorria { color: $gorria;}
     .berdea { color: $berdea;}
     .urdina { color: $urdina;}
     .horia { color: $horia;}
-
     
     article#selecteurs {
 	display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         padding: 1rem;
         border-radius: 5px;
         margin: 1rem 0;
         border-color: $blanc16;
 
-	label {
-	    color: $blanc13;
-	    padding: .25rem;
-	}
+	div#serie, div#genre {
+	    display: flex;
+	    align-items: center;
+	    justify-content:space-between;
+	    
+	    label {
+		color: $blanc13;
+		padding: .25rem;
+		font-size: 1.5rem;
+	    }
 
-	select {
-	    padding: .25rem;
+	    select {
+		padding: .25rem;
+		option {
+		    font-size: 1.1rem;
+		}
+	    }
 	}
+	
+	
 	button#brassageEffectue {
 	    padding: .2rem;
 	}
@@ -335,6 +341,7 @@ main#brassage {
     article#equipes {
 	display: flex;
 	flex-direction: column;
+	background-color: $gris15;
     }
     
     div.ligne {
@@ -409,25 +416,102 @@ main#brassage {
 
 		}
 		
-	    &.supprimer0 {
-		//width: 6rem;
-		font-size: 3rem;
-		font-weight: 500;
-		font-family: monospace;
-		background-color: #ffffff;
-		border-color: $rouge;//transparent;
-		margin: .5rem;
-		padding: .25rem;
-		transition: all .125s ease-in;
-		&:hover {
-		    //background-color: lighten($rouge, 15%);
-		    border-color: darken($rouge, 10%);
+		button.supprimer {
+		    vertical-align: middle;
+		    border: none;
+		    color: $noir1;
+		    border-radius: .29rem;
+		    background: $blanc16;
+		    position: relative;
+		    width: 3rem;
+		    height: 3rem;
+		    //opacity: 0.6;
+
+		    &:hover {
+			//opacity: 1;
+			background: $rouge43;//rgba(128, 128, 128, 0.5);
+		    }
+		    
+		    &:active {
+			background: $vert28;//rgba(128, 128, 128, 0.9);
+		    }
+
+		    &::before, &::after {
+			content: " ";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 2rem;
+			width: .85rem;
+			color: $rouge3;//$noir1;
+			background-color: $blanc16;
+			border: 3px solid $noir1;
+		    }
+
+		    &::before {
+			transform: translate(-50%, -50%) rotate(45deg);
+		    }
+
+		    &::after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		    }
 		}
-	    }
-		
 
 	    }
 	}
 	
     }
+
+    article.poule {
+    background-color: $gris15;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border:3px solid $blanc16;
+    border-radius: 4px;
+    
+    h2.titre {
+	color: $blanc16;
+	font-family: serif;
+	font-size: 1rem;
+	text-align: left;
+	user-select: none;
+    }
+
+
+    div.depot {
+	display: flex;
+	flex-direction: column;
+	border: 1rem solid transparent;
+	border-color: transparent;
+	border-width: .375rem;
+
+	//border-radius: 5px;
+	margin: .5rem;
+	padding: .5rem;
+	//background-color: lighten($gris21, 5%);
+    }
+
+    span#bat { background-color: $gorria;}
+    span#bi { background-color: $berdea;}
+    span#hiru { background-color: $urdina;}
+    span#lau { background-color: $horia;}
+
+
+	/* &#d1 {
+	   border-top-color: $gorria;
+	   }
+	   &#d2 {
+	   border-top-color: $berdea;	
+	   }
+	   &#d3 {
+	   border-top-color: $urdina;	
+	   }
+	   &#d4 {
+	   border-top-color: $horia;
+	   } */
+	
+    }
 }
+
+

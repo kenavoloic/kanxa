@@ -10,6 +10,11 @@ class Poules {
 	$this->vue = new \Vues\Poules("Constitution des poules");
     }
 
+    public function index(){
+	echo "Brassage des poules";
+    }
+    
+
     public function __toString(): string {
 	return "Constitution graphique des poules.";
     }

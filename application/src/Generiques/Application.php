@@ -6,13 +6,6 @@ namespace Generiques;
 class Application implements Cancha {
 
     use Outils;
-    //use \Outils\Boot;
-    //use \Connexion\Identifiants;
-    //use \PDO;
-
-    //use \PDO;
-    
-    //PDO $pdo;
 
     private $controleur;
     private $methode;
@@ -44,17 +37,42 @@ class Application implements Cancha {
 	$uri = filter_var($_SERVER["REQUEST_URI"], FILTER_SANITIZE_URL);
 	$index = $_SERVER['SCRIPT_NAME'];
 	$requete = explode('/', strtolower($uri));
+	//echo "explode" . "<br>";
+	//var_dump($requete);
+	//echo "<br>";
+	
 	$requete = array_diff($requete, array('', $index));
-	$requete = array_values($requete);
 
+	//echo "array_dif" . "<br>";
+	//var_dump($requete);
+	//echo "<br>";
+
+	//echo "array_values" . "<br>";
+	$requete = array_values($requete);
+	//var_dump($requete);
+	//echo "<br>";
+	
+
+	//var_dump($requete);
+	//echo $_SERVER['SCRIPT_NAME'];
+	//echo "<br>";
+	//echo $_SERVER['REQUEST_URI'];
+	//echo "<br>";
+	
 	$controleur = isset($requete[0]) ? $requete[0] : 'accueil';
 	$methode = isset($requete[1]) ? $requete[1] : 'index';
+	//echo $methode . "<br>";
+	//echo "$methode existe ? " . "<br>";
+	//echo is_callable([ucfirst($controleur), $methode]) ? "Ok " : "Non";
+	//echo "<br>";
+	
 	unset($requete[0], $requete[1]);
 	$parametres = (count($requete) === 0) ? [] : array_values($requete);
 
 	if($controleur !== 'accueil'){
 	    $controleur = array_key_exists($controleur, $this->listeBlanche) ? $controleur : 'accueil';
 	    $methode = method_exists(ucfirst($controleur), $methode) ? $methode : 'index';
+	    //echo "Nom de la méthode $methode" . "<br>";
 	}
 
 	$_SESSION['controleur'] = $controleur;

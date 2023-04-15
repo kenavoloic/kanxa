@@ -8,16 +8,20 @@ if(document.querySelector("#brassage") !== null){
 	div.setAttribute('class', 'liste');
 
 	let rouge = document.createElement('button');
-	rouge.setAttribute('class','rouge');
+	//rouge.setAttribute('class','rouge');
+	rouge.setAttribute('class','gorria');
 
 	let vert = document.createElement('button');
-	vert.setAttribute('class','vert');
+	//vert.setAttribute('class','vert');
+	rouge.setAttribute('class','berdea');	
 
 	let bleu = document.createElement('button');
-	bleu.setAttribute('class','bleu');
+	//bleu.setAttribute('class','bleu');
+	rouge.setAttribute('class','urdina');	
 
 	let jaune = document.createElement('button');
-	jaune.setAttribute('class','jaune');
+	//jaune.setAttribute('class','jaune');
+	rouge.setAttribute('class','horia');
 
 	div.appendChild(rouge);
 	div.appendChild(vert);
@@ -44,19 +48,13 @@ if(document.querySelector("#brassage") !== null){
 	return df;
     };
 
-    const liste = new Map([['rouge','p1'], ['vert','p2'], ['bleu', 'p3'], ['jaune', 'p4']]);
+    //const liste = new Map([['rouge','p1'], ['vert','p2'], ['bleu', 'p3'], ['jaune', 'p4']]);
+    const liste = new Map([['gorria','p1'], ['berdea','p2'], ['urdina', 'p3'], ['horia', 'p4']]);
     const clefs = Array.from(liste.keys());
     const valeurs = Array.from(liste.values());
     const tri = [];
     const seize = Array.from(document.querySelectorAll('.ligne')).map(x => [x.id, ""]);
     const equipesInscrites = new Map(seize);
-    //console.log([...equipesInscrites.keys()], [...equipesInscrites.values()]);
-
-    const _validationPoules = (v, ei) => {
-	console.log(v, ei);
-	/* let valeurs = [...equipesInscrites.values()].filter(x => x!= "");
-	   console.log(valeurs, equipesInscrites.size) */
-    };
 
 
     const equipes = document.querySelector('#equipes').addEventListener('click', (e) => {
@@ -64,8 +62,6 @@ if(document.querySelector("#brassage") !== null){
 	if(e.srcElement.tagName === 'BUTTON'){
 	    let idParent = e.srcElement.parentElement.parentElement.id;
 	    let souhait = `#${idParent} span`;
-
-	    //console.log(idParent);
 
 	    //La div list est retirée du parent 
 	    let ligneSupprimee = document.getElementById(idParent);
@@ -78,22 +74,20 @@ if(document.querySelector("#brassage") !== null){
 	    
 	    //Ajout dans l'article correspondant à liste.get(e.srcElement.className) :
 	    // p1, p2, p3 ou p4
-	    //console.log(idParent, liste.get(e.srcElement.className));
-	    //tri.push({poule:liste.get(e.srcElement.className), id: idParent});
-	    //console.log(idParent);
+
 	    if(equipesInscrites.has(idParent)){
 		//equipesInscrites.set(equipesInscrites.get(idParent), "${liste.get(e.srcElement.className)}");
 		equipesInscrites.set(idParent, liste.get(e.srcElement.className));
 	    }
 
 	    let valeurs = [...equipesInscrites.values()].filter(x => x!= "");
-	    //console.log(valeurs, equipesInscrites.size);
+
 	    if(valeurs.length === equipesInscrites.size){
-		console.log("Brassage effectué");
+		//console.log("Brassage effectué");
 		//document.querySelector("#brassageEffectue").disabled = false;
 		//document.querySelector("#brassageEffectue").addEventListener('click', (e) => validationPoules(valeurs, equipesInscrites));
-		let t = equipesInscrites.entries();
-		console.log([...t]);
+		//let t = equipesInscrites.entries();
+		//console.log([...t]);
 	    }
 	    document.getElementById(liste.get(e.srcElement.className)).appendChild(ligneSupprimee);
 	}
@@ -112,7 +106,7 @@ if(document.querySelector("#brassage") !== null){
 		if(equipesInscrites.has(idParent)){
 		    equipesInscrites.set(idParent, "");
 		}
-		console.log('Sortie ', equipesInscrites);
+		//console.log('Sortie ', equipesInscrites);
 		document.getElementById('equipes').append(ligneSupprimee);
 	    }
 	});
@@ -121,9 +115,9 @@ if(document.querySelector("#brassage") !== null){
     const validationPoules = document.querySelector("#brassageEffectue").addEventListener('click', (e) => {
 	let total = equipesInscrites.size;
 	let valeurs = [...equipesInscrites.values()].filter(x => x!== "");
-	console.log(valeurs, total);
+	//console.log(valeurs, total);
 	if(valeurs === total){
-	    console.log("Sauvegarde possible");
+	    //console.log("Sauvegarde possible");
 	    return;
 	}
 	//alert("Sauvegard impossible");

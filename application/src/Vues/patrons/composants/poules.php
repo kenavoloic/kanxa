@@ -1,17 +1,21 @@
 <main id="brassage">
     <article id="selecteurs" class="selecteurs">
+	<div id="serie">
 	<label for="serie">Série</label>
 	<select id="serie" name="serie">
 	    <option value="1">Première</option>
 	    <option value="2">Deuxième</option>
 	    <option value="3">Troisième</option>
 	</select>
+	</div>
 
+	<div id="genre">
 	<label for="genre">Genre</label>
 	<select id="genre" name="genre">
 	    <option value="1">Homme</option>
 	    <option value="2">Femme</option>
 	</select>
+	</div>
 	<button id="brassageEffectue" disabled>Valider</button>		
     </article>
     <article id="equipes">
@@ -34,10 +38,10 @@
     </article>
 
     <section id="poules">
-	<article class="poule" id="d1"><h1 class="titre"><span>Poule 1</span></h1><div class="depot" id="p1"></div></article>
-	<article class="poule" id="d2"><h1 class="titre"><span>Poule 2</span></h1><div class="depot" id="p2"></div></article>
-	<article class="poule" id="d3"><h1 class="titre"><span>Poule 3</span></h1><div class="depot" id="p3"></div></article>
-	<article class="poule" id="d4"><h1 class="titre"><span>Poule 4</span></h1><div class="depot" id="p4"></div></article>
+	<article class="poule" id="d1"><h2 class="titre"><span id="bat">Poule 1</span></h2><div class="depot" id="p1"></div></article>
+	<article class="poule" id="d2"><h2 class="titre"><span id="bi">Poule 2</span></h2><div class="depot" id="p2"></div></article>
+	<article class="poule" id="d3"><h2 class="titre"><span id="hiru">Poule 3</span></h2><div class="depot" id="p3"></div></article>
+	<article class="poule" id="d4"><h2 class="titre"><span id="lau">Poule 4</span></h2><div class="depot" id="p4"></div></article>
     </section>
 
 </main>
