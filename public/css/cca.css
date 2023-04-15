@@ -30,6 +30,169 @@
   font-weight: 800;
   font-style: normal; }
 
+main#brassage {
+  background-color: #F28C28; }
+  main#brassage .gorria {
+    color: #CC0000; }
+  main#brassage .berdea {
+    color: #00CC00; }
+  main#brassage .urdina {
+    color: #0022CC; }
+  main#brassage .horia {
+    color: #ffcc00; }
+  main#brassage article#selecteurs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    border-color: #FFFFFF; }
+    main#brassage article#selecteurs div#serie, main#brassage article#selecteurs div#genre {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      main#brassage article#selecteurs div#serie label, main#brassage article#selecteurs div#genre label {
+        color: #E2DFD2;
+        padding: .25rem;
+        font-size: 1.5rem; }
+      main#brassage article#selecteurs div#serie select, main#brassage article#selecteurs div#genre select {
+        padding: .25rem; }
+        main#brassage article#selecteurs div#serie select option, main#brassage article#selecteurs div#genre select option {
+          font-size: 1.1rem; }
+    main#brassage article#selecteurs button#brassageEffectue {
+      padding: .2rem; }
+  main#brassage article#equipes {
+    display: flex;
+    flex-direction: column;
+    background-color: #8b96a2; }
+  main#brassage div.ligne {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; }
+    main#brassage div.ligne span.souhait {
+      display: inline-block;
+      font-size: 1.4rem;
+      color: #ffffff;
+      font-family: serif, sans-serif;
+      width: 8rem;
+      margin-right: 1rem;
+      text-align: center;
+      user-select: none; }
+    main#brassage div.ligne div.liste {
+      display: flex;
+      margin: .25rem;
+      padding: .15rem;
+      align-items: center;
+      justify-content: space-between; }
+      main#brassage div.ligne div.liste button {
+        width: 3rem;
+        height: 2rem;
+        margin: 0 .25rem 0;
+        border: 3px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all .125s ease-in; }
+        main#brassage div.ligne div.liste button.gorria {
+          background-color: #CC0000;
+          border-color: #cc0000; }
+          main#brassage div.ligne div.liste button.gorria:hover {
+            background-color: #ff3333;
+            border-color: maroon; }
+        main#brassage div.ligne div.liste button.berdea {
+          background-color: #00CC00;
+          border-color: #00cc00; }
+          main#brassage div.ligne div.liste button.berdea:hover {
+            background-color: #33ff33;
+            border-color: green; }
+        main#brassage div.ligne div.liste button.urdina {
+          background-color: #0022CC;
+          border-color: #0022cc; }
+          main#brassage div.ligne div.liste button.urdina:hover {
+            background-color: #3355ff;
+            border-color: #001580; }
+        main#brassage div.ligne div.liste button.horia {
+          background-color: #ffcc00;
+          border-color: #ffcc00; }
+          main#brassage div.ligne div.liste button.horia:hover {
+            background-color: #ffe066;
+            border-color: #b38f00; }
+        main#brassage div.ligne div.liste button button.supprimer {
+          vertical-align: middle;
+          border: none;
+          color: #000000;
+          border-radius: .29rem;
+          background: #FFFFFF;
+          position: relative;
+          width: 3rem;
+          height: 3rem; }
+          main#brassage div.ligne div.liste button button.supprimer:hover {
+            background: #FF2400; }
+          main#brassage div.ligne div.liste button button.supprimer:active {
+            background: #98FB98; }
+          main#brassage div.ligne div.liste button button.supprimer::before, main#brassage div.ligne div.liste button button.supprimer::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 2rem;
+            width: .85rem;
+            color: #EE4B2B;
+            background-color: #FFFFFF;
+            border: 3px solid #000000; }
+          main#brassage div.ligne div.liste button button.supprimer::before {
+            transform: translate(-50%, -50%) rotate(45deg); }
+          main#brassage div.ligne div.liste button button.supprimer::after {
+            transform: translate(-50%, -50%) rotate(-45deg); }
+  main#brassage article.poule {
+    background-color: #8b96a2;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 3px solid #FFFFFF;
+    border-radius: 4px;
+    /* &#d1 {
+	   border-top-color: $gorria;
+	   }
+	   &#d2 {
+	   border-top-color: $berdea;	
+	   }
+	   &#d3 {
+	   border-top-color: $urdina;	
+	   }
+	   &#d4 {
+	   border-top-color: $horia;
+	   } */ }
+    main#brassage article.poule h2.titre {
+      color: #FFFFFF;
+      font-family: serif;
+      font-size: 1rem;
+      text-align: left;
+      user-select: none; }
+    main#brassage article.poule div.depot {
+      display: flex;
+      flex-direction: column;
+      border: 1rem solid transparent;
+      border-color: transparent;
+      border-width: .375rem;
+      margin: .5rem;
+      padding: .5rem; }
+    main#brassage article.poule span#bat {
+      background-color: #CC0000; }
+    main#brassage article.poule span#bi {
+      background-color: #00CC00; }
+    main#brassage article.poule span#hiru {
+      background-color: #0022CC; }
+    main#brassage article.poule span#lau {
+      background-color: #ffcc00; }
+  main#brassage section#poules {
+    display: flex; }
+    main#brassage section#poules .depot {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between; }
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -224,160 +387,3 @@ main#generales {
       border-radius: 4px; }
       main#generales form select option {
         padding: .25rem; }
-
-main#brassage {
-  top: 0.25rem;
-  background-color: #F28C28; }
-  main#brassage .gorria {
-    color: #CC0000; }
-  main#brassage .berdea {
-    color: #00CC00; }
-  main#brassage .urdina {
-    color: #0022CC; }
-  main#brassage .horia {
-    color: #ffcc00; }
-  main#brassage article#selecteurs {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 1rem 0;
-    border-color: #FFFFFF; }
-    main#brassage article#selecteurs div#serie, main#brassage article#selecteurs div#genre {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; }
-      main#brassage article#selecteurs div#serie label, main#brassage article#selecteurs div#genre label {
-        color: #E2DFD2;
-        padding: .25rem;
-        font-size: 1.5rem; }
-      main#brassage article#selecteurs div#serie select, main#brassage article#selecteurs div#genre select {
-        padding: .25rem; }
-        main#brassage article#selecteurs div#serie select option, main#brassage article#selecteurs div#genre select option {
-          font-size: 1.1rem; }
-    main#brassage article#selecteurs button#brassageEffectue {
-      padding: .2rem; }
-  main#brassage article#equipes {
-    display: flex;
-    flex-direction: column;
-    background-color: #8b96a2; }
-  main#brassage div.ligne {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; }
-    main#brassage div.ligne span.souhait {
-      display: inline-block;
-      font-size: 1.4rem;
-      color: #ffffff;
-      font-family: serif, sans-serif;
-      width: 8rem;
-      margin-right: 1rem;
-      text-align: center;
-      user-select: none; }
-    main#brassage div.ligne div.liste {
-      display: flex;
-      margin: .25rem;
-      padding: .15rem;
-      align-items: center;
-      justify-content: space-between; }
-      main#brassage div.ligne div.liste button {
-        width: 3rem;
-        height: 2rem;
-        margin: 0 .25rem 0;
-        border: 3px solid transparent;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all .125s ease-in; }
-        main#brassage div.ligne div.liste button.gorria {
-          background-color: #CC0000;
-          border-color: #cc0000; }
-          main#brassage div.ligne div.liste button.gorria:hover {
-            background-color: #ff3333;
-            border-color: maroon; }
-        main#brassage div.ligne div.liste button.berdea {
-          background-color: #00CC00;
-          border-color: #00cc00; }
-          main#brassage div.ligne div.liste button.berdea:hover {
-            background-color: #33ff33;
-            border-color: green; }
-        main#brassage div.ligne div.liste button.urdina {
-          background-color: #0022CC;
-          border-color: #0022cc; }
-          main#brassage div.ligne div.liste button.urdina:hover {
-            background-color: #3355ff;
-            border-color: #001580; }
-        main#brassage div.ligne div.liste button.horia {
-          background-color: #ffcc00;
-          border-color: #ffcc00; }
-          main#brassage div.ligne div.liste button.horia:hover {
-            background-color: #ffe066;
-            border-color: #b38f00; }
-        main#brassage div.ligne div.liste button button.supprimer {
-          vertical-align: middle;
-          border: none;
-          color: #000000;
-          border-radius: .29rem;
-          background: #FFFFFF;
-          position: relative;
-          width: 3rem;
-          height: 3rem; }
-          main#brassage div.ligne div.liste button button.supprimer:hover {
-            background: #FF2400; }
-          main#brassage div.ligne div.liste button button.supprimer:active {
-            background: #98FB98; }
-          main#brassage div.ligne div.liste button button.supprimer::before, main#brassage div.ligne div.liste button button.supprimer::after {
-            content: " ";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 2rem;
-            width: .85rem;
-            color: #EE4B2B;
-            background-color: #FFFFFF;
-            border: 3px solid #000000; }
-          main#brassage div.ligne div.liste button button.supprimer::before {
-            transform: translate(-50%, -50%) rotate(45deg); }
-          main#brassage div.ligne div.liste button button.supprimer::after {
-            transform: translate(-50%, -50%) rotate(-45deg); }
-  main#brassage article.poule {
-    background-color: #8b96a2;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    border: 3px solid #FFFFFF;
-    border-radius: 4px;
-    /* &#d1 {
-	   border-top-color: $gorria;
-	   }
-	   &#d2 {
-	   border-top-color: $berdea;	
-	   }
-	   &#d3 {
-	   border-top-color: $urdina;	
-	   }
-	   &#d4 {
-	   border-top-color: $horia;
-	   } */ }
-    main#brassage article.poule h2.titre {
-      color: #FFFFFF;
-      font-family: serif;
-      font-size: 1rem;
-      text-align: left;
-      user-select: none; }
-    main#brassage article.poule div.depot {
-      display: flex;
-      flex-direction: column;
-      border: 1rem solid transparent;
-      border-color: transparent;
-      border-width: .375rem;
-      margin: .5rem;
-      padding: .5rem; }
-    main#brassage article.poule span#bat {
-      background-color: #CC0000; }
-    main#brassage article.poule span#bi {
-      background-color: #00CC00; }
-    main#brassage article.poule span#hiru {
-      background-color: #0022CC; }
-    main#brassage article.poule span#lau {
-      background-color: #ffcc00; }
