@@ -12,9 +12,9 @@ Les finales auront toutes lieu le même jour, au même endroit. Il est habituel 
 
 ## Problématique
 
-Compte tenu de variétés des disciplines regroupées sous l'appellation de pelote basque, il a été nécessaire de prendre de rationaliser les paramètres.
+Compte tenu de la variété des disciplines regroupées sous l'appellation de pelote basque, il a été nécessaire de rationaliser les paramètres.
 
-Une partie de pelote basque opposera toujours deux équipes. Les compositions des équipes sont variées : 1 personne, 2 personnes, 3 personnes, 5 personnes.
+Une partie de pelote basque opposera toujours deux équipes. Les compositions des équipes sont variées : 1 personne, 2 personnes, 3 personnes, 5 personnes. Une équipe peut être féminine, masculine ou mixte.
 
 Un tournoi organisé par un club doit respecter la réglementation en vigueur et notamment les obligations liées à la RGPD. Les données recueillies pour l’organisation d’un tournoi doivent être nécessaires à l’organisation de celui-ci et n’ont pas vocation à être pérennisées.
 
@@ -24,7 +24,7 @@ Parallèlement, les tables ne contenant que des informations génériques seront
 
 ## Choix : stored procedure et stored function
 
-Inévitablement, les questions relatives à la gestion des données auront été les premiers obstacles. C’est au moyen de procédure et de fonctions SQL qu’ils ont été franchies. Fonctions pour obtenir des données. Procédure pour modifier les données.
+Inévitablement, les questions relatives à la gestion des données auront été les premiers obstacles. C’est au moyen de procédure et de fonctions SQL qu’ils ont été franchis. Fonctions pour obtenir des données. Procédure pour modifier les données.
 
 Ce choix permet également d’apporter un premier niveau de sécurité dans la mesure où le client n’accède pas directement à la base de données.
 
@@ -32,24 +32,24 @@ En revanche, cette option limiterait l’utilisation du langage PHP à un nettoy
 
 ## Interface
 
-Ce projet est pensé mobile-first. Il privilégie les smart-phones et les tablettes. L’utilisateur doit être soit un officiel du club organisant le tournoi, soit une équipe engagée sur le tournoi.
+Ce projet est pensé *mobile-first*. Il privilégie les smart-phones et les tablettes. L’utilisateur doit être soit un officiel du club organisant le tournoi, soit une équipe engagée sur le tournoi.
 
 C’est pour cela qu’il existe deux menus distincts.
 
 Celui des administrateurs contient les onglets suivants :
-1. Score : afin de consigner le résultat d’une partie.
-2. Planning : l’établissement du calendrier des parties.
-3. Dates : détermination des dates générales du tournoi.
-4. Inscriptions: les équipes participant au tournoi.
-5. Poules : constitution des poules selon les séries et les genres.
-6. P.A.F : suivi du règlement des frais d’inscription.
+1. *Score*  afin de consigner le résultat d’une partie.
+2. *Planning*  l’établissement du calendrier des parties.
+3. *Dates*  détermination des dates générales du tournoi.
+4. *Inscriptions* les équipes participant au tournoi.
+5. *Poules*  constitution des poules selon les séries et les genres.
+6. *P.A.F* suivi du règlement des frais d’inscription.
 
 Celui des utilisateurs est ainsi constitué :
 
-1. Rencontres : visualisation des parties à venir.
-2. Résultats : pour chaque série et genre les résultats des parties.
-3. Classement : les classements de chacune des équipes au sein de leurs poules respectives.
-4. Contact
+1. *Rencontres* visualisation des parties à venir.
+2. *Résultats* pour chaque série et genre les résultats des parties.
+3. *Classement* les classements de chacune des équipes au sein de leurs poules respectives.
+4. *Contact*
 
 ## Technologies utilisées
 
@@ -61,9 +61,20 @@ Celui des utilisateurs est ainsi constitué :
 
 ## Data
 
-1. Dump de la base de données
-2. tables.sql : définition des tables
-3. procedures.sql : code source des stored procedures.
-4. fonctions.ssql : code source des functions.
+1. *kanxa.sql* Dump de la base de données
+2. *tables.sql* définition des tables
+3. *procedures.sql* code source des stored procedures.
+4. *fonctions.ssql* code source des functions.
 
+## fichier
+
+Le fichier identifiants.ini contenant les identifiants de la base de données est structuré ainsi : 
+utilisateur = ""
+mpasse = ""
+hote = ""
+dbase = ""
+port = 3306
+charset = "utf8"
+
+Il est situé dans **application/configuration/**.
 
