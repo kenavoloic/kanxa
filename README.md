@@ -33,7 +33,7 @@ La pelote basque s’est modernisée. Une équipe peut être féminine, masculin
 
 ## RGPD
 
-Pour tout club sportif, l’essentiel des ses activités tourne autour de la pratique sportive. L’organisation de compétitions s’inscrit dans ce cadre.  Les données recueillies pour l’organisation d’un tournoi doivent être nécessaires à l’organisation de celui-ci et n’ont pas vocation à être pérennisées. Il en va autrement quant une compétition est organisée par une fédération.
+Pour tout club sportif, l’essentiel des ses activités tourne autour de la pratique sportive. L’organisation de compétitions s’inscrit dans ce cadre.  Les données recueillies pour l’organisation d’un tournoi doivent être nécessaires à l’organisation de celui-ci et n’ont pas vocation à être pérennisées. Il en va autrement quand une compétition est organisée par une fédération.
 
 Cela signifie qu’en terme de bases de données, le choix a été fait de regrouper les informations liées aux équipes inscrites en une seule table. Une autre table rassemblera les résultats des parties. Une dernière contiendra un calendrier de toutes les parties sur la période allant du premier jour de tournoi au jour des finales. Ces tables sont amenées à être reconstituées à chaque nouveau tournoi.
 
@@ -45,7 +45,7 @@ Inévitablement, les questions relatives à la gestion des données auront été
 
 Ce choix permet également d’apporter un premier niveau de sécurité dans la mesure où le client n’accède pas directement à la base de données.
 
-Dès lors, PHP servira à nettoyer, valider et présenter les données. 
+Dès lors, PHP servira à nettoyer et valider les données puis servir le client. 
 
 ## Mobile-first
 
@@ -76,7 +76,7 @@ Celui des *utilisateurs* est ainsi constitué :
 4. SASS
 5. JavaScript
 
-## Structure de dossiers
+## Structure du projet
 ```
 ├── application
 │   ├── configuration
@@ -97,7 +97,7 @@ Celui des *utilisateurs* est ainsi constitué :
     ├── js
     └── scss
 ```
-## index.php
+## Index.php
 
 Il est situé dans le dossier public.
 

@@ -1,5 +1,5 @@
 <main id="login">
-    <form action="/login" method="post" enctype="multipart/form-data">
+    <form action="/login/connexion" method="post" enctype="multipart/form-data">
 	<legend>Login</legend>
 	<fieldset>
 	    <label for="utilisateur">Utilisateur</label>

@@ -13,8 +13,8 @@ interface Cancha {
 	//'login/connexion' => ['connexion', 'deconnexion'],
 	//'logout' => ['deconnexion'],
 
-	'login/connexion' => ['connexion'],
-	'login/logout' => ['deconnexion'],
+	'login' => ['connexion'],
+	'login' => ['deconnexion'],
 	'score' => ['index'],
 	'generales' => ['affichage'],
 	'inscriptions' => ['index'],

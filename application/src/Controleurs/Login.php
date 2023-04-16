@@ -12,7 +12,7 @@ class Login {
 	//echo $this->methode;
 	//var_dump($_SESSION);
 	//echo "Réception des parametres";
-	$this->$methode();
+	//$this->$methode();
     }
 
     private function affichage(string $titre='Login'){
@@ -22,18 +22,21 @@ class Login {
 
     
 
-    public function connexion(): void {
-	//echo "<h1>Connexion</h1>";
+    public function connexion(array $envoi): void {
+	echo "<h1>Connexion</h1>";
+	var_dump($_POST);
+	
     }
 
     public function deconnexion(): void {
-	echo "<h1>Déconnexion</h1>";
+	if(isset($_SESSION['connexion'])){
+	    unset($_SESSION['connexion']);
+	    header('Location: index.php');
+	}
+	header('Location: ' . 'accueil');
     }
     
 
-    public function logout(): void {
-	echo "Gone";
-    }
 
     public function index(array $envoi): void {
 	$this->redirection('accueil');
