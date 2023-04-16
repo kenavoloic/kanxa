@@ -88,12 +88,12 @@ Il est situé dans le dossier public.
 
 Le fichier identifiants.ini contenant les identifiants de la base de données est structuré ainsi :
 
-`utilisateur = ""`
-`mpasse = ""`
-`hote = ""`
-`dbase = ""`
-`port = 3306`
-`charset = "utf8"`
+`utilisateur = ""`   
+`mpasse = ""`   
+`hote = ""`   
+`dbase = ""`   
+`port = 3306`   
+`charset = "utf8"`   
 
 Il est situé dans **application/configuration/**.
 
