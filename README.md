@@ -22,15 +22,15 @@ Cela signifie qu’en terme de bases de données, le choix a été fait de regro
 
 Parallèlement, les tables ne contenant que des informations génériques seront conservées.
 
-## Choix : stored procedure et stored function
+## Stored procedure et stored function
 
 Inévitablement, les questions relatives à la gestion des données auront été les premiers obstacles. C’est au moyen de procédure et de fonctions SQL qu’ils ont été franchis. Fonctions pour obtenir des données. Procédure pour modifier les données.
 
 Ce choix permet également d’apporter un premier niveau de sécurité dans la mesure où le client n’accède pas directement à la base de données.
 
-En revanche, cette option limiterait l’utilisation du langage PHP à un nettoyage et une validation des données.
+Dès lors, PHP servira à nettoyer, valider et présenter les données. 
 
-## Interface
+## Mobile-first
 
 Ce projet est pensé *mobile-first*. Il privilégie les smart-phones et les tablettes. L’utilisateur doit être soit un officiel du club organisant le tournoi, soit une équipe engagée sur le tournoi.
 
@@ -59,25 +59,50 @@ Celui des utilisateurs est ainsi constitué :
 4. SASS
 5. JavaScript
 
-## Data
+## Structure de dossiers
 
-1. *kanxa.sql* => Dump de la base de données
-2. *tables.sql* => définition des tables
-3. *procedures.sql* => code source des stored procedures.
-4. *fonctions.ssql* => code source des functions.
+├── application
+│   ├── configuration
+│   ├── lib
+│   └── src
+│       ├── Connexion
+│       ├── Controleurs
+│       ├── Generiques
+│       ├── Modeles
+│       └── Vues
+│           └── patrons
+│               └── composants
+├── data
+├── public
+├── css
+├── fontes
+├── images
+├── js
+└── scss
+
+## index.php
+
+Il est situé dans le dossier public.
 
 ## Identifiants
 
 Le fichier identifiants.ini contenant les identifiants de la base de données est structuré ainsi :
 
-`
-utilisateur = ""
-mpasse = ""
-hote = ""
-dbase = ""
-port = 3306
-charset = "utf8"
-`
+`utilisateur = ""`
+`mpasse = ""`
+`hote = ""`
+`dbase = ""`
+`port = 3306`
+`charset = "utf8"`
 
 Il est situé dans **application/configuration/**.
 
+## Data
+
+Ce dossier ne fait pas partie du projet.
+
+1. *kanxa.sql* => mysqldump de la base de données
+2. *tables.sql* => définition des tables
+3. *procedures.sql* => code source des stored procedures.
+4. *fonctions.ssql* => code source des functions.
+5. *kanxa.conf* => configuration du serveur Apache.
