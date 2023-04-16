@@ -12,7 +12,7 @@ Les finales auront toutes lieu le même jour, au même endroit. Il est habituel 
 
 ## Problématique
 
-Compte tenu de la variété des disciplines regroupées sous l’appellation de pelote basque, il a été nécessaire de rationaliser certains des paramètres du projet. En effet, il existe 21 spécialités en pelote basque.
+Compte tenu de la variété des disciplines regroupées sous l’appellation de pelote basque, il a été nécessaire de rationaliser certains des paramètres du projet. En effet, il existe au moins 21 spécialités en pelote basque.
 
 Les différences sont nombreuses :
 
@@ -22,7 +22,8 @@ Les différences sont nombreuses :
 
 - Différences de décomptes : parties en 40 points, 35 points, 30 points, en deux manches de 15 points.
 
-Les points communs sont simples. Une partie de pelote basque opposera toujours deux équipes. Les compositions des équipes varient malgré :
+Dans le cadre de cette application, les points communs retenus sont relativement simples. Une partie de pelote basque opposera toujours deux équipes. Les compositions des équipes varient malgré tout :
+
 - 1 personne.
 - 2 personnes.
 - 3 personnes.
@@ -52,7 +53,7 @@ Ce projet est pensé *mobile-first*. Il privilégie les smart-phones et les tabl
 
 C’est pour cela qu’il existe deux menus distincts.
 
-Celui des administrateurs contient les onglets suivants :
+Celui des *administrateurs* contient les onglets suivants :
 1. *Score*  => afin de consigner le résultat d’une partie.
 2. *Planning*  => l’établissement du calendrier des parties.
 3. *Dates*  => détermination des dates générales du tournoi.
@@ -60,7 +61,7 @@ Celui des administrateurs contient les onglets suivants :
 5. *Poules*  => constitution des poules selon les séries et les genres.
 6. *P.A.F* => suivi du règlement des frais d’inscription.
 
-Celui des utilisateurs est ainsi constitué :
+Celui des *utilisateurs* est ainsi constitué :
 
 1. *Rencontres* => visualisation des parties à venir.
 2. *Résultats* => pour chaque série et genre les résultats des parties.
