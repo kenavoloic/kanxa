@@ -12,11 +12,27 @@ Les finales auront toutes lieu le même jour, au même endroit. Il est habituel 
 
 ## Problématique
 
-Compte tenu de la variété des disciplines regroupées sous l'appellation de pelote basque, il a été nécessaire de rationaliser certaines des paramètres du projet.
+Compte tenu de la variété des disciplines regroupées sous l’appellation de pelote basque, il a été nécessaire de rationaliser certains des paramètres du projet. En effet, il existe 21 spécialités en pelote basque.
 
-Une partie de pelote basque opposera toujours deux équipes. Les compositions des équipes sont variées : 1 personne, 2 personnes, 3 personnes, 5 personnes. Une équipe peut être féminine, masculine ou mixte.
+Les différences sont nombreuses :
 
-Un tournoi organisé par un club doit respecter la réglementation en vigueur et notamment les obligations liées à la RGPD. Les données recueillies pour l’organisation d’un tournoi doivent être nécessaires à l’organisation de celui-ci et n’ont pas vocation à être pérennisées.
+- Différence de lieux : place libre (en extérieur), trinquet (en intérieur),  jaï-alaï (en intérieur). Les dimensions des surfaces de jeu vont de quelques mètres à 75 m de long.
+
+- Différence d’instruments :  main-nue, cesta-punta, pala, paleton en carbone.
+
+- Différences de décomptes : parties en 40 points, 35 points, 30 points, en deux manches de 15 points.
+
+Les points communs sont simples. Une partie de pelote basque opposera toujours deux équipes. Les compositions des équipes varient malgré :
+- 1 personne.
+- 2 personnes.
+- 3 personnes.
+- 5 personnes.
+
+La pelote basque s’est modernisée. Une équipe peut être féminine, masculine ou mixte.
+
+## RGPD
+
+Pour tout club sportif, l’essentiel des ses activités tourne autour de la pratique sportive. L’organisation de compétitions s’inscrit dans ce cadre.  Les données recueillies pour l’organisation d’un tournoi doivent être nécessaires à l’organisation de celui-ci et n’ont pas vocation à être pérennisées. Il en va autrement quant une compétition est organisée par une fédération.
 
 Cela signifie qu’en terme de bases de données, le choix a été fait de regrouper les informations liées aux équipes inscrites en une seule table. Une autre table rassemblera les résultats des parties. Une dernière contiendra un calendrier de toutes les parties sur la période allant du premier jour de tournoi au jour des finales. Ces tables sont amenées à être reconstituées à chaque nouveau tournoi.
 
@@ -104,5 +120,5 @@ Ce dossier ne fait pas partie du projet.
 1. *kanxa.sql* => mysqldump de la base de données
 2. *tables.sql* => définition des tables
 3. *procedures.sql* => code source des stored procedures.
-4. *fonctions.ssql* => code source des functions.
+4. *fonctions.sql* => code source des functions.
 5. *kanxa.conf* => configuration du serveur Apache.
