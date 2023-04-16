@@ -60,7 +60,7 @@ Celui des utilisateurs est ainsi constitué :
 5. JavaScript
 
 ## Structure de dossiers
-
+```
 ├── application
 │   ├── configuration
 │   ├── lib
@@ -79,7 +79,7 @@ Celui des utilisateurs est ainsi constitué :
     ├── images
     ├── js
     └── scss
-
+```
 ## index.php
 
 Il est situé dans le dossier public.
