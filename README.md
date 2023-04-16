@@ -74,11 +74,11 @@ Celui des utilisateurs est ainsi constitué :
 │               └── composants
 ├── data
 ├── public
-├── css
-├── fontes
-├── images
-├── js
-└── scss
+    ├── css
+    ├── fontes
+    ├── images
+    ├── js
+    └── scss
 
 ## index.php
 
