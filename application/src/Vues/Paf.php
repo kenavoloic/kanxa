@@ -1,31 +1,32 @@
 <?php
+
 namespace Vues;
 
-class Accueil {
+class Paf {
 
     use OutilsVues;
 
     public function __construct(private string $titre="K@nx@"){
-	//$this->affichage($this->titre);
+	
     }
 
-    public function affichage(string $titre): void{
-		
-	echo $this->getEntete($titre);
+    public function affichage(): void {
+	echo $this->getEntete("Participation aux frais");
 	
 	if(isset($_SESSION['connexion']) && $_SESSION['connexion'] === true)  {
 	    echo $this->getComposant('headerAdministrateur');
 	}
-	    
+	
 	if(!isset($_SESSION['connexion']) || $_SESSION['connexion'] === false){
 	    echo $this->getComposant('headerUtilisateur');
 	}
-	    
+
+	echo $this->getComposant('paf');
 	echo $this->getComposant('basdepage');
     }
 
-    public function __toString(){
-	return "Vue en charge de l’affichage de la page d’accueil, page servant également dans les cas où l’URL renseignée n’est pas prise en charge.";
+    public function __toString(): string {
+	return "Vues\Paf";
     }
-    
 }
+

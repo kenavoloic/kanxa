@@ -20,6 +20,7 @@ DROP FUNCTION IF EXISTS intNombreEquipeSerieGenreAvecPoule;
 
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreSansPoule;
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreAvecPoule;
+DROP FUNCTION IF EXISTS jsonSerieGenrePaf;
 
 DROP FUNCTION IF EXISTS intTournoiId;
 
@@ -218,6 +219,16 @@ CREATE FUNCTION jsonDatesGenerales() RETURNS JSON READS SQL DATA
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('dateId',dateId,'evenement',evenement,'jour',jour,'annee',annee)) FROM datesGenerales);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonSerieGenrePaf(_serie INT, _genre INT) RETURNS JSON READS SQL DATA
+-- retourne la liste des équipes devant toujours régler leurs frais d'inscription
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'nom2',nom2,'paf_p',paf_p)) FROM equipes WHERE serie = _serie AND genre = _genre AND paf_p = 0);
 RETURN retour;
 END;
 $$

@@ -13,13 +13,13 @@ interface Cancha {
 	//'login/connexion' => ['connexion', 'deconnexion'],
 	//'logout' => ['deconnexion'],
 
-	'login' => ['connexion'],
-	'login' => ['deconnexion'],
+	'login' => ['index', 'connexion', 'deconnexion'],
+	//'login' => ['deconnexion'],
 	'score' => ['index'],
 	'generales' => ['affichage'],
 	'inscriptions' => ['index'],
 	'poules' => ['index'],
 	'planning' => ['index'],
-	'paf' => ['accueil']
+	'paf' => ['index', 'traitement']
     ];
 }
