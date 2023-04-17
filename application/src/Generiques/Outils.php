@@ -27,6 +27,18 @@ trait Outils {
 	return str_replace("'", "\u{2019}", $envoi);
     }
 
+    public function queDesChiffres(string $envoi): int {
+	$retour = preg_replace("/[^\d]/", "", $envoi);
+	//$retour = preg_filter("/[^\d/]", "", $envoi);
+	//return intval($retour) ? intval($retour) : 0; intval retournera soit 0 en cas d'échec soit la valeur entière
+	return intval($retour);
+    }
+
+    public function queDesLettres(string $envoi): string {
+	$retour = preg_replace("/[^a-zA-ZŽžÀ-ÿ'-]+$/", "", $envoi);
+	return $retour;
+    }
+
     public function nettoyageSimple(string $envoi): string {
 	$retour = $this->remplaceApostropheDroiteParApostropheTypograpique(trim($envoi));
 	return htmlspecialchars($retour);

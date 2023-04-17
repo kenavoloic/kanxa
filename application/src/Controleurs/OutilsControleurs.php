@@ -4,9 +4,9 @@ namespace Controleurs;
 
 trait OutilsControleurs {
 
-    public function redirection(string $lien='index'): void {
-	header('location: ' . $lien);
-    }
+    /* public function redirection(string $lien='index'): void {
+       header('location: ' . $lien);
+     * } */
     
 
     // Fonction qui accepte un objet PDO et retourne une fonction
