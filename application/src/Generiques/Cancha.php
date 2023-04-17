@@ -13,7 +13,7 @@ interface Cancha {
 	'login' => ['index', 'connexion', 'deconnexion'],
 	'score' => ['index'],
 	'generales' => ['index','affichage'],
-	'inscriptions' => ['index'],
+	'inscriptions' => ['index', 'liste', 'modification'],
 	'poules' => ['index'],
 	'planning' => ['index'],
 	'paf' => ['index', 'liste', 'regularisation', 'traitement']

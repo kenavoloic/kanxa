@@ -30,6 +30,54 @@
   font-weight: 800;
   font-style: normal; }
 
+main#inscription form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #70a0c7;
+  padding: 1rem;
+  margin: 1rem;
+  border: 2px solid #FFFFFF;
+  border-radius: 5px; }
+  main#inscription form fieldset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: .25rem 0;
+    padding: .25rem;
+    border: 2px groove;
+    border-radius: 6px; }
+  main#inscription form legend {
+    font-size: 1.2rem;
+    padding: .15rem;
+    color: #cc0000; }
+  main#inscription form label {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-left: .25rem;
+    user-select: none; }
+  main#inscription form input[type=text], main#inscription form input[type=email], main#inscription form input[type=phone] {
+    font-family: monospace;
+    font-size: 1.2rem;
+    padding: .25rem;
+    margin-right: .25rem;
+    border-radius: 4px; }
+  main#inscription form input[type=text]::placeholder, main#inscription form input[type=email]::placeholder, main#inscription form input[type=phone]::placeholder {
+    color: #cc0000;
+    text-align: center; }
+  main#inscription form input[type=text]#nombreEquipes, main#inscription form input[type=email]#nombreEquipes, main#inscription form input[type=phone]#nombreEquipes {
+    text-align: center;
+    color: #cc0000; }
+  main#inscription form button {
+    padding: .5rem;
+    margin: .25rem;
+    transition: all .25s ease-in-out; }
+    main#inscription form button:hover {
+      color: #FFFFFF;
+      background-color: #0047AB; }
+
 main#brassage {
   background-color: #F28C28; }
   main#brassage .gorria {

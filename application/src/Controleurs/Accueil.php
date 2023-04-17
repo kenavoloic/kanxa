@@ -18,7 +18,7 @@ class Accueil {
     }
     
 
-    public function __toString(){
+    public function __toString(): string{
 	return "Contrôleur par défaut. Son unique tâche est d’instancier la vue de l’accueil.";
     }
     
