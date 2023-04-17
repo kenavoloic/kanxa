@@ -62,7 +62,7 @@ class Application implements Cancha {
 	    $methode = in_array($methode, $choix) ? $methode : 'index';
 	    //$methode = method_exists(ucfirst($controleur), $methode) ? $methode : 'index';
 	    
-	    echo $controleur . ' ' . $methode;
+	    //echo 'getControleurMethodeParametres ' . $controleur . ' ' . $methode;
 	}
 
 	$_SESSION['controleur'] = $controleur;

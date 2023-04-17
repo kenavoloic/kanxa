@@ -1,5 +1,5 @@
 <header>
-    <h1><a href="/login/deconnexi">Kanxa</a></h1>
+    <h1><a href="/login/deconnexion">Kanxa</a></h1>
     <nav>
 	<div id="vegan">
 	    <div class="lignes"></div>

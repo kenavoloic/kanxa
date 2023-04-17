@@ -3,24 +3,24 @@ namespace Vues;
 
 class Accueil {
 
+    use \Generiques\Outils;
     use OutilsVues;
 
     public function __construct(private string $titre="K@nx@"){
-	//$this->affichage($this->titre);
     }
 
     public function affichage(string $titre): void{
-		
-	echo $this->getEntete($titre);
 	
-	if(isset($_SESSION['connexion']) && $_SESSION['connexion'] === true)  {
+	echo $this->getEntete($titre);
+
+	if($this->administrateur_p()){
 	    echo $this->getComposant('headerAdministrateur');
 	}
-	    
-	if(!isset($_SESSION['connexion']) || $_SESSION['connexion'] === false){
+
+	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
 	}
-	    
+	
 	echo $this->getComposant('basdepage');
     }
 

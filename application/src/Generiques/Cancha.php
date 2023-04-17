@@ -10,16 +10,12 @@ interface Cancha {
 	'classements' => ['index'],
 	'contact' => ['index'],
 	// routes pour administrateurs	
-	//'login/connexion' => ['connexion', 'deconnexion'],
-	//'logout' => ['deconnexion'],
-
 	'login' => ['index', 'connexion', 'deconnexion'],
-	//'login' => ['deconnexion'],
 	'score' => ['index'],
-	'generales' => ['affichage'],
+	'generales' => ['index','affichage'],
 	'inscriptions' => ['index'],
 	'poules' => ['index'],
 	'planning' => ['index'],
-	'paf' => ['index', 'traitement']
+	'paf' => ['index', 'liste', 'regularisation', 'traitement']
     ];
 }

@@ -1,6 +1,6 @@
 -- v10
 USE tournoi;
-
+DROP FUNCTION IF EXISTS authentification;
 DROP FUNCTION IF EXISTS datesEtablies_p;
 DROP FUNCTION IF EXISTS planning_p;
 DROP FUNCTION IF EXISTS calendrier_p;
@@ -45,6 +45,16 @@ END IF;
 
 SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2)) into retour FROM listePairesJoueurs  where genre = valeurGenre and serie = valeurSerie;
 
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION authentification(utilisateur VARCHAR(255), email VARCHAR(255)) RETURNS VARCHAR(255)
+-- si le nom de l'utilisateur et le courriel correspondent à ceux de la table, retour du mpasse
+BEGIN
+DECLARE retour VARCHAR(255);
+SELECT mpasse INTO retour FROM administrateurs WHERE nom = utilisateur AND courriel = email limit 1;
 RETURN retour;
 END;
 $$

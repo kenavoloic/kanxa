@@ -1,17 +1,17 @@
 <main id="login">
-    <form action="/login/connexion" method="post" enctype="multipart/form-data">
+    <form action="/login/connexion" method="post">
 	<legend>Login</legend>
 	<fieldset>
 	    <label for="utilisateur">Utilisateur</label>
-	    <input type="text" id="utilisateur" name="administrateur[utilisateur]" pattern="[0-9a-zA-ZŽžÀ-ÿ\s'-]{1,}"  minlength="1" maxlength="255" required>			
+	    <input type="text" id="utilisateur" name="administrateur[utilisateur]" pattern="[0-9a-zA-ZŽžÀ-ÿ\s'-]{1,}"  minlength="1" maxlength="255" value="" required>			
 	</fieldset>
 	<fieldset>
 	    <label for="courriel">Courriel</label>
-	    <input type="text" id="courriel" name="administrateur[courriel]" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">			
+	    <input type="text" id="courriel" name="administrateur[courriel]" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" value="" required>			
 	</fieldset>
 	<fieldset>
 	    <label for="mpasse">Mot de passe</label>
-	    <input type="password" id="mpasse" name="administrateur[mpasse]" pattern="[0-9a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required>			
+	    <input type="password" id="mpasse" name="administrateur[mpasse]" pattern="[0-9a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" value="" required>			
 	</fieldset>
 	<fieldset id="boutons">
 	    <button type="submit">Envoi</button> <button type="reset">Réinitialiser</button>

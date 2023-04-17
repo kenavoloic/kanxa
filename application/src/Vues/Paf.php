@@ -4,6 +4,7 @@ namespace Vues;
 
 class Paf {
 
+    use \Generiques\Outils;
     use OutilsVues;
 
     public function __construct(private string $titre="K@nx@"){
@@ -12,12 +13,12 @@ class Paf {
 
     public function affichage(): void {
 	echo $this->getEntete("Participation aux frais");
-	
-	if(isset($_SESSION['connexion']) && $_SESSION['connexion'] === true)  {
+
+	if($this->administrateur_p()){
 	    echo $this->getComposant('headerAdministrateur');
 	}
-	
-	if(!isset($_SESSION['connexion']) || $_SESSION['connexion'] === false){
+
+	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
 	}
 
