@@ -16,7 +16,7 @@ class Inscriptions {
     
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="Inscriptions"){
 	$this->vue = new \Vues\Inscriptions($this->titre);
-	var_dump($_POST);
+
 	/* $this->serie = $_SESSION['parametres']['serie'];
 	   $this->serie = $_SESSION['parametres']['genre']; */
 	$this->nombreInitial = $this->getNombreEquipes($this->serie, $this->genre);
