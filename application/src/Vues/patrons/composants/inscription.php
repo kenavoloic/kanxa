@@ -17,7 +17,7 @@
 
 	    <div class="itemFormulaire">
 		<label id="nombre" for="nombreEquipes">Nombre d’inscriptions</label>
-		<input type="text" id="nombreEquipes" value="1" pattern="[\d]+" disabled />
+		<input type="text" id="nombreEquipes" value="<?php if (isset($_SESSION['nombreInitial']) && !empty($_SESSION['nombreInitial'])) { echo $_SESSION['nombreInitial'];} ?>" pattern="[\d]+" disabled />
 	    </div>
 	    
 	</fieldset>

@@ -9,7 +9,8 @@ class Inscriptions {
     public function __construct(){
     }
 
-    public function affichage(string $titre): void {
+    public function affichage(string $titre, int $nombreInitial = 0): void {
+	$_SESSION['nombreInitial'] = $nombreInitial;
 	echo $this->getEntete($titre);
 	echo $this->getComposant('headerAdministrateur');
 	echo $this->getComposant('inscription');

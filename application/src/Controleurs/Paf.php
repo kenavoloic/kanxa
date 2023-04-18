@@ -17,20 +17,16 @@ class Paf {
 	$this->$methode($parametres);
     }
 
-    public function liste(): void {
-	var_dump($_POST);
+    public function liste(array $envoi): void {
     }
     
 
     public function traitement(array $envoi): void {
 	$liste = isset($_POST['paf']) ? $_POST['paf'] :  ['serie' => 0, 'genre' => 0];
-	var_dump($liste);
-	var_dump($_POST['paf']);
     }
     
 
-    public function index(): void {
-	//var_dump($_POST);
+    public function index(array $envoi): void {
 	$this->vue->affichage();
     }
     

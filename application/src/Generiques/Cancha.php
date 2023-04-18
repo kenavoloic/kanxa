@@ -17,6 +17,7 @@ interface Cancha {
 	'poules' => ['index'],
 	'planning' => ['index'],
 	'paf' => ['index', 'liste', 'regularisation', 'traitement'],
-	'pilota' => ['nombres']
+	// ajax
+	'pilota' => ['index','nombres','inscriptions','paf']
     ];
 }
