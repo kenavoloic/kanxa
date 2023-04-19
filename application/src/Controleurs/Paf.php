@@ -27,7 +27,7 @@ class Paf {
     
 
     public function index(array $envoi): void {
-	$this->vue->affichage();
+	$this->vue->affichage($this->titre);
     }
     
 

@@ -1,264 +1,275 @@
 main#brassage {
     background-color: $alternative-color;
-
     .gorria { color: $gorria;}
     .berdea { color: $berdea;}
     .urdina { color: $urdina;}
     .horia { color: $horia;}
-    
-    article#selecteurs {
-	display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 1rem;
-        border-radius: 5px;
-        margin: 1rem 0;
-        border-color: $blanc16;
 
-	div#serie, div#genre {
-	    display: flex;
-	    align-items: center;
-	    justify-content:space-between;
-	    
-	    label {
-		color: $blanc13;
-		padding: .25rem;
-		font-size: 1.5rem;
-	    }
+    .rouge { color: $gorria;}
+    .vert { color: $berdea;}
+    .bleu { color: $urdina;}
+    .jaune { color: $horia;}
 
-	    select {
-		padding: .25rem;
-		option {
-		    font-size: 1.1rem;
-		}
-	    }
-	}
-	
-	
-	button#brassageEffectue {
-	    padding: .2rem;
-	}
-    }
-
-    article#equipes {
-	display: flex;
-	flex-direction: column;
-	background-color: $gris15;
+    .sauvegardePossible {
+	color: $blanc16;
+	background-color: $berdea;
+	padding: .25rem;
+	border-radius: 5px;
+	border: 2px solid transparent;
     }
     
-    div.ligne {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
+    margin: .5rem;
+    padding: .5rem;
 
-	span.souhait {
-	    display: inline-block;
-	    font-size: 1.4rem;
-	    color: #ffffff;
-	    font-family: serif, sans-serif;
-	    width: 8rem;
-	    margin-right: 1rem;
-	    text-align: center;
-	    user-select: none;
-	}
-
-	div.liste {
-	    display: flex;
-	    margin: .25rem;
-	    padding: .15rem;
-	    align-items: center;
-	    justify-content: space-between;
-
-	    button {
-		width: 3rem;
-		height: 2rem;
-		margin: 0 .25rem 0;
-		border: 3px solid transparent;
-		border-radius: 4px;
-		cursor: pointer;
-		transition: all .125s ease-in;
-
-		&.gorria {
-		    background-color: $gorria;
-		    border-color: saturate($gorria, 10%);
-		    &:hover {
-			background-color: lighten($gorria, 20%);
-			border-color: darken(saturate($gorria, 10%), 15%);
-		    }
-
-		}
-
-		&.berdea {
-		    background-color: $berdea;
-		    border-color: saturate($berdea, 10%);
-		    &:hover {
-			background-color: lighten($berdea, 20%);
-			border-color: darken(saturate($berdea, 10%), 15%);
-		    }
-
-		}
-
-		&.urdina {
-		    background-color: $urdina;
-		    border-color: saturate($urdina, 10%);
-		    &:hover {
-			background-color: lighten($urdina, 20%);
-			border-color: darken(saturate($urdina, 10%), 15%);
-		    }
-
-		}
-
-		&.horia {
-		    background-color: $horia;
-		    border-color: saturate($horia, 10%);
-		    &:hover {
-			background-color: lighten($horia, 20%);
-			border-color: darken(saturate($horia, 10%), 15%);
-		    }
-
-		}
-		
-		button.supprimer {
-		    vertical-align: middle;
-		    border: none;
-		    color: $noir1;
-		    border-radius: .29rem;
-		    background: $blanc16;
-		    position: relative;
-		    width: 3rem;
-		    height: 3rem;
-		    //opacity: 0.6;
-
-		    &:hover {
-			//opacity: 1;
-			background: $rouge43;//rgba(128, 128, 128, 0.5);
-		    }
-		    
-		    &:active {
-			background: $vert28;//rgba(128, 128, 128, 0.9);
-		    }
-
-		    &::before, &::after {
-			content: " ";
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			height: 2rem;
-			width: .85rem;
-			color: $rouge3;//$noir1;
-			background-color: $blanc16;
-			border: 3px solid $noir1;
-		    }
-
-		    &::before {
-			transform: translate(-50%, -50%) rotate(45deg);
-		    }
-
-		    &::after {
-			transform: translate(-50%, -50%) rotate(-45deg);
-		    }
-		}
-
-	    }
-	}
-	
-    }
-
-    article.poule {
-	background-color: $gris15;
+    #selecteurs {
+	grid-area: selecteurs;
 	display: flex;
 	flex-direction: row;
-	padding: 1rem;
-	border:3px solid $blanc16;
-	border-radius: 4px;
-	
-	h2.titre {
-	    color: $blanc16;
-	    font-family: serif;
-	    font-size: 1rem;
-	    text-align: left;
-	    user-select: none;
-	}
-
-
-	div.depot {
-	    display: flex;
-	    flex-direction: row;
-	    align-items: center;
-	    border: 1rem solid transparent;
-	    border-color: transparent;
-	    border-width: .375rem;
-
-	    //border-radius: 5px;
-	    margin: .5rem;
-	    padding: .5rem;
-	    //background-color: lighten($gris21, 5%);
-	}
-
-	span#bat { background-color: $gorria;}
-	span#bi { background-color: $berdea;}
-	span#hiru { background-color: $urdina;}
-	span#lau { background-color: $horia;}
-
-
-	/* &#d1 {
-	   border-top-color: $gorria;
-	   }
-	   &#d2 {
-	   border-top-color: $berdea;	
-	   }
-	   &#d3 {
-	   border-top-color: $urdina;	
-	   }
-	   &#d4 {
-	   border-top-color: $horia;
-	   } */
-	
+	align-items: center;
+	justify-content: space-between;
     }
 
-    section#poules {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    #equipes {
+	display: flex;
+	flex-direction: column;
+    }
+    
+    #poules {
+	display: flex;
+	flex-direction: column;
+    }
 
-	/* .depot {
-	   display: flex;
-	   flex-direction: row;
-	   align-items: center;
-	   justify-content: space-between;
-	   } */
+}
+
+article#selecteurs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    border-color: $blanc16;
+
+    div#serie, div#genre {
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	
+	label {
+	    color: $blanc13;
+	    padding: .25rem;
+	    font-size: 1.5rem;
+	}
+
+	select {
+	    padding: .25rem;
+	    option {
+		font-size: 1.1rem;
+	    }
+	}
+    }
+    
+    
+    button#brassageEffectue {
+	padding: .2rem;
+
+	
     }
 }
 
-main#brassage {
+div.ligne {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    span.souhait {
+	display: inline-block;
+	font-size: 1.4rem;
+	color: #000000;
+	font-family: serif, sans-serif;
+	width: 8rem;
+	margin-right: 3rem;
+	text-align: center;
+	user-select: none;
+    }
+
+    div.liste {
+	display: flex;
+	margin: .25rem;
+	padding: .15rem;
+	align-items: center;
+	justify-content: space-between;
+
+	button {
+	    width: 3rem;
+	    height: 2rem;
+	    margin: 0 .25rem 0;
+	    border: 3px solid transparent;
+	    border-radius: 4px;
+	    cursor: pointer;
+
+	    &.rouge {
+		background-color: $gorria;
+		border-color: $gorria;
+		transition: all .125s ease-in;
+		&:hover {
+		    background-color: #ff3333;
+		    border-color: maroon;
+		}
+	    }
+
+	    &.vert {
+		background-color: $berdea;
+		border-color: $berdea;
+		transition: all .125s ease-in;
+		&:hover {
+		    background-color: #33FF33;
+		    border-color: green;
+		}
+	    }
+
+	    &.bleu {
+		background-color: $urdina;
+		border-color: $urdina;
+		transition: all .125s ease-in;
+		&:hover {
+		    background-color: #3355FF;
+		    border-color: #1A40FF;
+		}
+	    }
+
+	    &.jaune {
+		background-color: $horia;
+		border-color: $horia;
+		transition: all .125s ease-in;
+		&:hover {
+		    background-color: #FFE066;
+		    border-color: #B38F00;
+		}
+	    }
+
+	    &.supprimer {
+		vertical-align: middle;
+		border: none;
+		color: #000000;
+		border-radius: .29rem;
+		background: #FFFFFF;
+		position: relative;
+		width: 3rem;
+		height: 3rem;
+		&:hover {
+		    background-color: #CC0000;
+		}
+		&:active {
+		    background: #00CC00;
+		}
+		&::before, &::after {
+		    content: " ";
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    height: 2rem;
+		    width: .85rem;
+		    color: #CC0000;
+		    background-color: #FFFFFF;
+		    border: 3px solid #000000;
+		}
+		&::before {
+		    transform: translate(-50%, -50%) rotate(45deg); }
+		&::after {
+		    transform: translate(-50%, -50%) rotate(-45deg); }
+	    }	    
+	    
+	}
+    }
+}
+
+article.poule {
+    display: flex;
+    flex-direction: column;
+}
+article.poule h2.titre {
+    font-family: serif;
+    font-size: 1.5rem;
+    text-align: left;
+    user-select: none;
+}
+article.poule div.depot {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid transparent;
+    /* border-color: transparent;
+       border-width: .375rem; */
+    margin: 1rem;
+    padding: .5rem;
+}
+article.poule#d1 {
+    border-color: #CC0000;
+}
+article.poule#d2 {
+    border-color: #00CC00;
+}
+article.poule#d3 {
+    border-color: #0022CC;
+}
+article.poule#d4 {
+    border-color: #ffcc00;
+}
+
+#d1 h2 span {
+  display: inline-block;
+  color: #343434;
+  background-color: #FFFFFF;
+  padding: .25rem;
+  border-radius: 4px;
+    border: 2px solid #CC0000;
+}
+
+#p1 {
+ // border-left: 1rem solid;
+    border-left-color: #CC0000;
+}
+
+#p2 {
+    border-left-color: #00CC00;
+}
+
+#p3 {
+    border-left-color: #0022CC;
+}
+
+#p4 {
+    border-left-color: #ffcc00;
+}
+
+#d2 h2 span {
+  display: inline-block;
+  color: #343434;
+  background-color: #FFFFFF;
+  padding: .25rem;
+  border-radius: 4px;
+    border: 2px solid #00CC00;
+}
+
+#d3 h2 span {
+  display: inline-block;
+  color: #343434;
+  background-color: #FFFFFF;
+  padding: .25rem;
+  border-radius: 4px;
+    border: 2px solid #0022CC;
+}
+
+#d4 h2 span {
+    display: inline-block;
+    color: #343434;
+    background-color: #FFFFFF;
+    padding: .25rem;
+    border-radius: 4px;
+    border: 2px solid #ffcc00;
+}
+
+section.poules {
     display: grid;
-    width: 100vw;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: .25rem;
-    grid-row-gap: .25rem;
-
-    article#selecteurs {
-	grid-column-start: 1;
-	grid-column-end: 5;
-	grid-row-start: 1;
-	grid-row-end: 2;
-    }
-
-    article#equipes {
-	grid-column-start: 1;
-	grid-column-end: 3;
-	grid-row-start: 2;
-	grid-row-end: 5;
-    }
-
-    section#poules {
-	grid-column-start: 4;
-	grid-column-end: 5;
-	grid-row-start: 2;
-	grid-row-end: 5;
-    }
-    
-    
-    
-
-}
+    gap: 1rem;
+    grid-template-colummns: repeat(auto-fit, min-max(6rem, 1fr)); }

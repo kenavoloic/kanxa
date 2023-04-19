@@ -78,7 +78,9 @@ main#inscription form {
       background-color: #0047AB; }
 
 main#brassage {
-  background-color: #F28C28; }
+  background-color: #F28C28;
+  margin: .5rem;
+  padding: .5rem; }
   main#brassage .gorria {
     color: #CC0000; }
   main#brassage .berdea {
@@ -87,184 +89,217 @@ main#brassage {
     color: #0022CC; }
   main#brassage .horia {
     color: #ffcc00; }
-  main#brassage article#selecteurs {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem;
+  main#brassage .rouge {
+    color: #CC0000; }
+  main#brassage .vert {
+    color: #00CC00; }
+  main#brassage .bleu {
+    color: #0022CC; }
+  main#brassage .jaune {
+    color: #ffcc00; }
+  main#brassage .sauvegardePossible {
+    color: #FFFFFF;
+    background-color: #00CC00;
+    padding: .25rem;
     border-radius: 5px;
-    margin: 1rem 0;
-    border-color: #FFFFFF; }
-    main#brassage article#selecteurs div#serie, main#brassage article#selecteurs div#genre {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; }
-      main#brassage article#selecteurs div#serie label, main#brassage article#selecteurs div#genre label {
-        color: #E2DFD2;
-        padding: .25rem;
-        font-size: 1.5rem; }
-      main#brassage article#selecteurs div#serie select, main#brassage article#selecteurs div#genre select {
-        padding: .25rem; }
-        main#brassage article#selecteurs div#serie select option, main#brassage article#selecteurs div#genre select option {
-          font-size: 1.1rem; }
-    main#brassage article#selecteurs button#brassageEffectue {
-      padding: .2rem; }
-  main#brassage article#equipes {
-    display: flex;
-    flex-direction: column;
-    background-color: #8b96a2; }
-  main#brassage div.ligne {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; }
-    main#brassage div.ligne span.souhait {
-      display: inline-block;
-      font-size: 1.4rem;
-      color: #ffffff;
-      font-family: serif, sans-serif;
-      width: 8rem;
-      margin-right: 1rem;
-      text-align: center;
-      user-select: none; }
-    main#brassage div.ligne div.liste {
-      display: flex;
-      margin: .25rem;
-      padding: .15rem;
-      align-items: center;
-      justify-content: space-between; }
-      main#brassage div.ligne div.liste button {
-        width: 3rem;
-        height: 2rem;
-        margin: 0 .25rem 0;
-        border: 3px solid transparent;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all .125s ease-in; }
-        main#brassage div.ligne div.liste button.gorria {
-          background-color: #CC0000;
-          border-color: #cc0000; }
-          main#brassage div.ligne div.liste button.gorria:hover {
-            background-color: #ff3333;
-            border-color: maroon; }
-        main#brassage div.ligne div.liste button.berdea {
-          background-color: #00CC00;
-          border-color: #00cc00; }
-          main#brassage div.ligne div.liste button.berdea:hover {
-            background-color: #33ff33;
-            border-color: green; }
-        main#brassage div.ligne div.liste button.urdina {
-          background-color: #0022CC;
-          border-color: #0022cc; }
-          main#brassage div.ligne div.liste button.urdina:hover {
-            background-color: #3355ff;
-            border-color: #001580; }
-        main#brassage div.ligne div.liste button.horia {
-          background-color: #ffcc00;
-          border-color: #ffcc00; }
-          main#brassage div.ligne div.liste button.horia:hover {
-            background-color: #ffe066;
-            border-color: #b38f00; }
-        main#brassage div.ligne div.liste button button.supprimer {
-          vertical-align: middle;
-          border: none;
-          color: #000000;
-          border-radius: .29rem;
-          background: #FFFFFF;
-          position: relative;
-          width: 3rem;
-          height: 3rem; }
-          main#brassage div.ligne div.liste button button.supprimer:hover {
-            background: #FF2400; }
-          main#brassage div.ligne div.liste button button.supprimer:active {
-            background: #98FB98; }
-          main#brassage div.ligne div.liste button button.supprimer::before, main#brassage div.ligne div.liste button button.supprimer::after {
-            content: " ";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 2rem;
-            width: .85rem;
-            color: #EE4B2B;
-            background-color: #FFFFFF;
-            border: 3px solid #000000; }
-          main#brassage div.ligne div.liste button button.supprimer::before {
-            transform: translate(-50%, -50%) rotate(45deg); }
-          main#brassage div.ligne div.liste button button.supprimer::after {
-            transform: translate(-50%, -50%) rotate(-45deg); }
-  main#brassage article.poule {
-    background-color: #8b96a2;
+    border: 2px solid transparent; }
+  main#brassage #selecteurs {
+    grid-area: selecteurs;
     display: flex;
     flex-direction: row;
-    padding: 1rem;
-    border: 3px solid #FFFFFF;
-    border-radius: 4px;
-    /* &#d1 {
-	   border-top-color: $gorria;
-	   }
-	   &#d2 {
-	   border-top-color: $berdea;	
-	   }
-	   &#d3 {
-	   border-top-color: $urdina;	
-	   }
-	   &#d4 {
-	   border-top-color: $horia;
-	   } */ }
-    main#brassage article.poule h2.titre {
-      color: #FFFFFF;
-      font-family: serif;
-      font-size: 1rem;
-      text-align: left;
-      user-select: none; }
-    main#brassage article.poule div.depot {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      border: 1rem solid transparent;
-      border-color: transparent;
-      border-width: .375rem;
-      margin: .5rem;
-      padding: .5rem; }
-    main#brassage article.poule span#bat {
-      background-color: #CC0000; }
-    main#brassage article.poule span#bi {
-      background-color: #00CC00; }
-    main#brassage article.poule span#hiru {
-      background-color: #0022CC; }
-    main#brassage article.poule span#lau {
-      background-color: #ffcc00; }
-  main#brassage section#poules {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    /* .depot {
-	   display: flex;
-	   flex-direction: row;
-	   align-items: center;
-	   justify-content: space-between;
-	   } */ }
+    align-items: center;
+    justify-content: space-between; }
+  main#brassage #equipes {
+    display: flex;
+    flex-direction: column; }
+  main#brassage #poules {
+    display: flex;
+    flex-direction: column; }
 
-main#brassage {
+article#selecteurs {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1rem 0;
+  border-color: #FFFFFF; }
+  article#selecteurs div#serie, article#selecteurs div#genre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    article#selecteurs div#serie label, article#selecteurs div#genre label {
+      color: #E2DFD2;
+      padding: .25rem;
+      font-size: 1.5rem; }
+    article#selecteurs div#serie select, article#selecteurs div#genre select {
+      padding: .25rem; }
+      article#selecteurs div#serie select option, article#selecteurs div#genre select option {
+        font-size: 1.1rem; }
+  article#selecteurs button#brassageEffectue {
+    padding: .2rem; }
+
+div.ligne {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  div.ligne span.souhait {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: #000000;
+    font-family: serif, sans-serif;
+    width: 8rem;
+    margin-right: 3rem;
+    text-align: center;
+    user-select: none; }
+  div.ligne div.liste {
+    display: flex;
+    margin: .25rem;
+    padding: .15rem;
+    align-items: center;
+    justify-content: space-between; }
+    div.ligne div.liste button {
+      width: 3rem;
+      height: 2rem;
+      margin: 0 .25rem 0;
+      border: 3px solid transparent;
+      border-radius: 4px;
+      cursor: pointer; }
+      div.ligne div.liste button.rouge {
+        background-color: #CC0000;
+        border-color: #CC0000;
+        transition: all .125s ease-in; }
+        div.ligne div.liste button.rouge:hover {
+          background-color: #ff3333;
+          border-color: maroon; }
+      div.ligne div.liste button.vert {
+        background-color: #00CC00;
+        border-color: #00CC00;
+        transition: all .125s ease-in; }
+        div.ligne div.liste button.vert:hover {
+          background-color: #33FF33;
+          border-color: green; }
+      div.ligne div.liste button.bleu {
+        background-color: #0022CC;
+        border-color: #0022CC;
+        transition: all .125s ease-in; }
+        div.ligne div.liste button.bleu:hover {
+          background-color: #3355FF;
+          border-color: #1A40FF; }
+      div.ligne div.liste button.jaune {
+        background-color: #ffcc00;
+        border-color: #ffcc00;
+        transition: all .125s ease-in; }
+        div.ligne div.liste button.jaune:hover {
+          background-color: #FFE066;
+          border-color: #B38F00; }
+      div.ligne div.liste button.supprimer {
+        vertical-align: middle;
+        border: none;
+        color: #000000;
+        border-radius: .29rem;
+        background: #FFFFFF;
+        position: relative;
+        width: 3rem;
+        height: 3rem; }
+        div.ligne div.liste button.supprimer:hover {
+          background-color: #CC0000; }
+        div.ligne div.liste button.supprimer:active {
+          background: #00CC00; }
+        div.ligne div.liste button.supprimer::before, div.ligne div.liste button.supprimer::after {
+          content: " ";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 2rem;
+          width: .85rem;
+          color: #CC0000;
+          background-color: #FFFFFF;
+          border: 3px solid #000000; }
+        div.ligne div.liste button.supprimer::before {
+          transform: translate(-50%, -50%) rotate(45deg); }
+        div.ligne div.liste button.supprimer::after {
+          transform: translate(-50%, -50%) rotate(-45deg); }
+
+article.poule {
+  display: flex;
+  flex-direction: column; }
+
+article.poule h2.titre {
+  font-family: serif;
+  font-size: 1.5rem;
+  text-align: left;
+  user-select: none; }
+
+article.poule div.depot {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid transparent;
+  /* border-color: transparent;
+       border-width: .375rem; */
+  margin: 1rem;
+  padding: .5rem; }
+
+article.poule#d1 {
+  border-color: #CC0000; }
+
+article.poule#d2 {
+  border-color: #00CC00; }
+
+article.poule#d3 {
+  border-color: #0022CC; }
+
+article.poule#d4 {
+  border-color: #ffcc00; }
+
+#d1 h2 span {
+  display: inline-block;
+  color: #343434;
+  background-color: #FFFFFF;
+  padding: .25rem;
+  border-radius: 4px;
+  border: 2px solid #CC0000; }
+
+#p1 {
+  border-left-color: #CC0000; }
+
+#p2 {
+  border-left-color: #00CC00; }
+
+#p3 {
+  border-left-color: #0022CC; }
+
+#p4 {
+  border-left-color: #ffcc00; }
+
+#d2 h2 span {
+  display: inline-block;
+  color: #343434;
+  background-color: #FFFFFF;
+  padding: .25rem;
+  border-radius: 4px;
+  border: 2px solid #00CC00; }
+
+#d3 h2 span {
+  display: inline-block;
+  color: #343434;
+  background-color: #FFFFFF;
+  padding: .25rem;
+  border-radius: 4px;
+  border: 2px solid #0022CC; }
+
+#d4 h2 span {
+  display: inline-block;
+  color: #343434;
+  background-color: #FFFFFF;
+  padding: .25rem;
+  border-radius: 4px;
+  border: 2px solid #ffcc00; }
+
+section.poules {
   display: grid;
-  width: 100vw;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: .25rem;
-  grid-row-gap: .25rem; }
-  main#brassage article#selecteurs {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2; }
-  main#brassage article#equipes {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 5; }
-  main#brassage section#poules {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    grid-row-end: 5; }
+  gap: 1rem;
+  grid-template-colummns: repeat(auto-fit, min-max(6rem, 1fr)); }
 
 *, *::after, *::before {
   margin: 0;

@@ -20,22 +20,22 @@
     </article>
     <div id="cadre">
     <article id="equipes">
-	<div class="ligne" id="_1"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_2"><span class="souhait">Semaine</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_3"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_4"><span class="souhait">Semaine</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_5"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_6"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_7"><span class="souhait">Week-end</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_8"><span class="souhait">Week-end</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_9"><span class="souhait">Week-end</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_10"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_11"><span class="souhait">Semaine</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_12"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_13"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_14"><span class="souhait">Indifférent</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_15"><span class="souhait">Semaine</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
-	<div class="ligne" id="_16"><span class="souhait">Week-end</span><div class="liste"><button class="gorria"></button><button class="berdea"></button><button class="urdina"></button><button class="horia"></button></div></div>
+	<div class="ligne" id="_1"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_2"><span class="souhait">Semaine</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_3"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_4"><span class="souhait">Semaine</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_5"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_6"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_7"><span class="souhait">Week-end</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_8"><span class="souhait">Week-end</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_9"><span class="souhait">Week-end</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_10"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_11"><span class="souhait">Semaine</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_12"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_13"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_14"><span class="souhait">Indifférent</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_15"><span class="souhait">Semaine</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
+	<div class="ligne" id="_16"><span class="souhait">Week-end</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></div>
     </article>
 
     <section id="poules">
