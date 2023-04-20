@@ -5,6 +5,7 @@ DROP FUNCTION IF EXISTS datesEtablies_p;
 DROP FUNCTION IF EXISTS planning_p;
 DROP FUNCTION IF EXISTS calendrier_p;
 DROP FUNCTION IF EXISTS tournoi_p;
+DROP FUNCTION IF EXISTS planningVide_p;
 
 DROP FUNCTION IF EXISTS jsonEquipeId;
 DROP FUNCTION IF EXISTS jsonEquipeIdNom;
@@ -97,6 +98,20 @@ DECLARE nombre INT DEFAULT 0;
 SET nombre = (SELECT COUNT(*) FROM parties WHERE serie=_serie AND genre=_genre);
 IF (nombre > 0) THEN
 SET retour = 1;
+END IF;
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION planningVide_p() RETURNS TINYINT DETERMINISTIC READS SQL DATA
+-- si le planning est vide => 1, sinon 0;
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 1;
+DECLARE nombre INT DEFAULT 0;
+SET nombre = (SELECT count(*) FROM planning WHERE libre_p = 0);
+IF nombre > 0 THEN
+SET retour = 0;
 END IF;
 RETURN retour;
 END;
