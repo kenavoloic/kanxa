@@ -39,6 +39,30 @@ class Pilota {
 	echo $retour;
     }
 
+    public function paf(array $envoi) {
+	//var_dump($envoi);
+	//$message = json_decode(file_get_contents('php://input'), true);
+	//$message = file_get_contents('php://input', true);
+	$message = file_get_contents('php://input');
+	echo $message;
+	//var_dump($message);
+	/* 
+	 * 	$serie = $this->queDesChiffres($_POST['serie']) ?? 1; // par défaut, première série
+	 * 	$genre = $this->queDesChiffres($_POST['genre']) ?? 1; // par défaut, masculin
+	 * 
+	 * 	$valeurs = [':serie' => $serie, ':genre' => $genre];
+	 * 	$reponse = $this->pdo->prepare("select jsonSerieGenrePaf(:serie, :genre); as resultat");
+	 * 	$reponse->execute($valeurs);
+	 * 	$liste = $reponse->fetch(\PDO::FETCH_ASSOC); */
+	
+	header('Content-Type: application/json');
+	//echo json_encode($liste);
+	//echo json_encode($message);
+	//echo json_encode(['nom' => "Louison Bobet"]);
+	echo json_encode(['nom' => $message]);
+    }
+    
+
     public function index(array $envoi): void {
 	$this->redirection('');
     }

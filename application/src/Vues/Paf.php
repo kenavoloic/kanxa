@@ -23,6 +23,7 @@ class Paf {
 	}
 
 	echo $this->getComposant('paf');
+	echo $this->getFooterJavaScript('paf');
 	echo $this->getComposant('basdepage');
     }
 
