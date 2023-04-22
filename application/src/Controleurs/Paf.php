@@ -34,7 +34,7 @@ class Paf {
 	//echo $texte;
 	//var_dump(json_decode($texte));
 	//var_dump($liste[0]['equipeId']);
-	var_dump($liste);
+	$this->vue->affichageListe($liste);
 
 	
 	

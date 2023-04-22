@@ -19,5 +19,6 @@
     </form>
 
     <article id="liste">
+	<?php if(isset($liste) && !empty($liste)){ echo $liste;}  ?>
     </article>
 </main>
