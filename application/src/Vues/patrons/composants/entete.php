@@ -6,6 +6,6 @@
 	<meta name="description" content="Gestion administrative et sportive d’un tournoi de pelote basque." />
         <meta charset="UTF-8"/>
 	<link href="css/cca.css" rel="stylesheet" type="text/css" />	
-        <title>Kanxa</title>
+        <title><?=$titre?></title>
     </head>
     <body>

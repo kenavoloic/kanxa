@@ -47,7 +47,7 @@ class Paf {
     }
     
 
-    public function affichage(): void {
+    public function affichage(array $envoi): void {
 	echo $this->getEntete("Participation aux frais");
 
 	if($this->administrateur_p()){
@@ -59,8 +59,14 @@ class Paf {
 	}
 
 	echo $this->getComposant('paf');
+	
+	if(isset($envoi['liste'])){
+	    echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</form>';
+	}
+	
 	//echo $this->getFooterJavaScript('paf');
 	echo $this->getComposant('basdepage');
+	
     }
 
     

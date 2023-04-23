@@ -36,34 +36,13 @@ class Paf {
 	$reponse->execute($valeurs);
 	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
 	$liste = json_decode(array_values($retour_[0])[0], true);
-	//echo $texte;
-	//var_dump(json_decode($texte));
-	//var_dump($liste[0]['equipeId']);
-	$this->vue->affichageListe($liste);
-    }
-    
+	$retour = ['liste' => $liste];
 
-    public function _traitement2(array $envoi){
-	//var_dump($envoi);
-	//var_dump($_POST);
-	$serie_ = $_POST['paf']['serie'];
-	$genre_ = $_POST['paf']['genre'];
-	$serie = $this->queDesChiffres($serie_) ?? 1;
-	$genre = $this->queDesChiffres($genre_) ?? 1;
-	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
-	$reponse = $this->pdo->prepare($this->requeteListe);
-	$reponse->execute($valeurs);
+	//header('Location: /paf');
+	$this->vue->affichage($retour);
 
-	$v1 = $this->jsonSerieGenrePaf($serie, $genre);
-	var_dump($v1);
-	//$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC)[0]['resultat'];
-	//var_dump(json_decode($retour_));
-
-	//$retour_ = $reponse->fetchAll();
-	//var_dump($retour_);
-
-	//var_dump($retour_[0]);
-	//echo "Série $serie Genre $genre";
+	
+	//$this->vue->affichageListe($liste);
     }
     
 
@@ -94,7 +73,7 @@ class Paf {
     
 
     public function index(array $envoi): void {
-	$this->vue->affichage($this->titre);
+	$this->vue->affichage(['titre' => $this->titre]);
     }
     
 

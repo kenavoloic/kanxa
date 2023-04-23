@@ -33,7 +33,8 @@ trait OutilsVues {
 
     public function getEntete(string $titre, string $fichier='entete'): string {
 	$chemin =  'patrons' . DIRECTORY_SEPARATOR . 'composants' . DIRECTORY_SEPARATOR . $fichier . '.php';
-	$tableau = ['titre' => 'Kanxa'];
+	//$tableau = ['titre' => 'Kanxa'];
+	$tableau = ['titre' => $titre];	
 	ob_start();
 	extract($tableau);
 	include $chemin;
@@ -57,6 +58,15 @@ trait OutilsVues {
 	$retour =  ob_get_clean();
 	return $retour;
     }
+
+    // à finir
+    public function getSerie(array $liste): ?string{
+	$zero = ['Série'];
+	$liste = array_merge($zero, $liste);
+	//$liste = array_map(fn($x) => '<option value="' . $x . '">' . 
+	return "";
+    }
+    
 
     // En lieu et place  des input dates
     // créatioin des options pour le select "jour"
