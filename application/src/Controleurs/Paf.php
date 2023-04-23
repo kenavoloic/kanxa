@@ -23,6 +23,11 @@ class Paf {
 	$this->$methode($parametres);
     }
 
+
+    public function reglements(?array $envoi){
+    }
+    
+
     public function traitement(?array $envoi){
 	$serie_ = $_POST['paf']['serie'];
 	$genre_ = $_POST['paf']['genre'];
@@ -35,9 +40,6 @@ class Paf {
 	//var_dump(json_decode($texte));
 	//var_dump($liste[0]['equipeId']);
 	$this->vue->affichageListe($liste);
-
-	
-	
     }
     
 

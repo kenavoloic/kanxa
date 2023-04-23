@@ -15,12 +15,20 @@ class Paf {
 	$id = $envoi['equipeId'];
 	$nom1 = $envoi['nom1'];
 	$nom2 = $envoi['nom2'];
-	return '<dl><dd class="noms"><div>'.$nom1.'</div><div>'.$nom2.'</div></dd><dd><input type="checkbox"></dd><dd><button id="'.$id.'">Ok</button></dl>';
 
+	return '<fieldset><input type="checkbox" name="'.$id.'" id="'.$id.'"><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></fieldset>';
+    }
+
+    private function creationFormulaire(array $envoi): string{
+	$haut = '<form action="/paf/reglements" method="post">';
+	$bouton = '<fieldset><button'; 
+	$bas = '</form>';
+	return "";
+	
     }
     
-
-    public function affichageListe(array $envoi): void {
+    public function affichageListe(?array $envoi): void {
+	//header('Location: /paf/traitement');
 	echo $this->getEntete("Participation aux frais");
 	
 	if($this->administrateur_p()){
@@ -31,9 +39,10 @@ class Paf {
 	    echo $this->getComposant('headerUtilisateur');
 	}
 
-
+	echo $this->getComposant('paf');
+	
 	//créer une fonctin prenant en charge lenom d'un fichier et une variable et retourne une chaîne.
-	echo '<article class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi)).'</article>';
+	echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi)).'</form>';
 	echo $this->getComposant('basdepage');
     }
     
