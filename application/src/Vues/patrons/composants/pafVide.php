@@ -3,12 +3,13 @@
 	<fieldset>
 	    <label for="serie">Série</label>
 	    <select id="serie" name="paf[serie]">
-		<?= $this->getSeries(); ?>
+		<?= $tableau['series'] ?>
 	    </select>
 
+	   
 	    <label for="genre">Genre</label>
 	    <select id="genre" name="paf[genre]">
-		<?= $this->getGenres(); ?>
+		<?= $tableau['genres'] ?>
 	    </select>
 	    <button type="submit">Envoi</button>
 	</fieldset>

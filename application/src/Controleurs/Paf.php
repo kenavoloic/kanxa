@@ -40,6 +40,7 @@ class Paf {
     public function traitement(?array $envoi){
 	$serie_ = $_POST['paf']['serie'];
 	$genre_ = $_POST['paf']['genre'];
+	echo $serie_ . " " . $genre_ ;
 	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
 	$reponse = $this->pdo->prepare($this->requeteListe);
 	$reponse->execute($valeurs);

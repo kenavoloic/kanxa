@@ -224,7 +224,7 @@ CREATE FUNCTION jsonSeries() RETURNS JSON READS SQL DATA
 -- toutes les series de la base
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serieId',serieId,'intitule', intitule)) FROM series);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serieId',serieId,'intitule', CONCAT(UCASE(LEFT(intitule,1)), SUBSTRING(intitule,2)))) FROM series);
 RETURN retour;
 END;
 $$
@@ -234,7 +234,7 @@ CREATE FUNCTION jsonGenres() RETURNS JSON READS SQL DATA
 -- tous les genres de la base
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('genreId',genreId,'intitule', intitule)) FROM genres);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('genreId',genreId,'intitule', CONCAT(UCASE(LEFT(intitule,1)), SUBSTRING(intitule,2)))) FROM genres WHERE genreId < 3);
 RETURN retour;
 END;
 $$

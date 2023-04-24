@@ -64,6 +64,12 @@ class Paf {
     
 
     public function affichage(array $envoi): void {
+		
+	$serie = $_POST['paf']['serie'] ?? 1;
+	$genre = $_POST['paf']['genre'] ?? 1;
+	
+	$tableau = [ 'series' => $this->getSeriesOptions($serie), 'genres' => $this->getGenresOptions($genre)];
+	
 	echo $this->getEntete("Participation aux frais");
 
 	if($this->administrateur_p()){
@@ -74,13 +80,15 @@ class Paf {
 	    echo $this->getComposant('headerUtilisateur');
 	}
 
-	echo $this->getComposant('pafVide');
+	//echo $this->getComposant('pafVide');
+	echo $this->getComposantTableau('pafVide', $tableau);
 
 
 	//echo "<select>".implode("\n", $this->getSelectSeries(1))."</select>";
 	
 	if(isset($envoi['liste'])){
-	    echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</form>';
+	    //echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</form>';
+	    echo '<article class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</article>';
 	}
 	
 	//echo $this->getFooterJavaScript('paf');
