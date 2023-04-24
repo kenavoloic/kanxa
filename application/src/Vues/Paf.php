@@ -11,6 +11,22 @@ class Paf {
 
     }
 
+    private function getSelectSeries(int $choix=0): array {
+	$defaut = ['serieId' => 0, 'intitule' => 'Série'];
+	$liste = array_merge($defaut, $_SESSION['series']);
+	return array_map(fn($x) => '<option value="'.$x['serieId'].'">'.$x['intitule'].'</option>', $liste);
+	//$choix = ($choix % count($liste)) + 1;
+    }
+
+
+    private function getSelectGenres(int $choix=0): array {
+	$defaut = ['genreId' => 0, 'intitule' => 'Genre'];
+	$liste = array_merge($defaut, $_SESSION['genres']);
+	return array_map(fn($x) => '<option value="'.$x['genreId'].'">'.$x['intitule'].'</option>', $liste);
+	//$choix = ($choix % count($liste)) + 1;
+    }
+
+
     private function extractionDonnees(array $envoi): string {
 	$id = $envoi['equipeId'];
 	$nom1 = $envoi['nom1'];
@@ -58,7 +74,10 @@ class Paf {
 	    echo $this->getComposant('headerUtilisateur');
 	}
 
-	echo $this->getComposant('paf');
+	echo $this->getComposant('pafVide');
+
+
+	//echo "<select>".implode("\n", $this->getSelectSeries(1))."</select>";
 	
 	if(isset($envoi['liste'])){
 	    echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</form>';

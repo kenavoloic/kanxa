@@ -59,12 +59,35 @@ trait OutilsVues {
 	return $retour;
     }
 
-    // à finir
-    public function getSerie(array $liste): ?string{
-	$zero = ['Série'];
-	$liste = array_merge($zero, $liste);
-	//$liste = array_map(fn($x) => '<option value="' . $x . '">' . 
-	return "";
+    // isset($_SESSion['series']) isset($_SESSION['genres']) doit être effectué dans le contrôleur
+
+    public function getSeriesOptions(int $index = 0): string {    
+	$defaut = [ ['serieId' => 0, 'intitule' => 'Série']];
+	//$series = [ ['serieId' => 1, 'intitule' => 'Première'], ['serieId' => 2, 'intitule' => 'Deuxième'], ['serieId' => 3, 'intitule' => 'Troisième']];
+	$series = $_SESSION['series'];
+
+	$liste = array_merge($defaut, $series);
+	$index = $index % count($liste);
+	
+	$fx = fn($x) => '<option value="'.$x['serieId'].'">' . $x['intitule'] . '</option>';
+	$retour = array_map($fx, $liste);
+	$retour[$index] = '<option value="' .$liste[$index]['serieId'] . '"  selected>' . $liste[$index]['intitule'] . '</option>';
+	
+	return implode("\n", $retour);
+    }
+
+    public function getGenresOptions(int $index = 0): string {    
+	$defaut = [ ['genreId' => 0, 'intitule' => 'Genre']];
+	//$series = [ ['genreId' => 1, 'intitule' => 'Masculin'], ['genreId' => 2, 'intitule' => 'Féminin'], ['genreId' => 3, 'intitule' => 'Mixte']];
+	$genres = $_SESSION['genres'];
+
+	$liste = array_merge($defaut, $genres);
+	$index = $index % count($liste);
+	
+	$fx = fn($x) => '<option value="'.$x['genreId'].'">' . $x['intitule'] . '</option>';
+	$retour = array_map($fx, $liste);
+	$retour[$index] = '<option value="' .$liste[$index]['genreId'] . '"  selected>' . $liste[$index]['intitule'] . '</option>';
+	return implode("\n", $retour);
     }
     
 

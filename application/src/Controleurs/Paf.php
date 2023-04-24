@@ -16,6 +16,15 @@ class Paf {
     
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="PAF"){
+
+	if(!isset($_SESSION['series'])){
+	    $_SESSION['series'] = $this->getJson($this->pdo, 'select jsonSeries();');
+	}
+
+	if(!isset($_SESSION['genres'])){
+	    $_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
+	}
+		
 	$this->vue = new \Vues\Paf($this->titre);
 	$this->donnees = [];
 	//$this->jsonSerieGenrePaf = $this->jsonDataDeuxArguments($this->pdo);

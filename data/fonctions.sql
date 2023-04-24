@@ -12,6 +12,10 @@ DROP FUNCTION IF EXISTS jsonEquipeIdNom;
 DROP FUNCTION IF EXISTS jsonEquipeIdSouhait;
 DROP FUNCTION IF EXISTS jsonGenreSerie;
 
+DROP FUNCTION IF EXISTS jsonSeries;
+DROP FUNCTION IF EXISTS jsonGenres;
+
+
 DROP FUNCTION IF EXISTS jsonDatesGenerales;
 
 DROP FUNCTION IF EXISTS intNombreEquipe;
@@ -214,6 +218,29 @@ SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId', equipeId)) FROM equip
 RETURN retour;
 END;
 $$
+
+DELIMITER $$
+CREATE FUNCTION jsonSeries() RETURNS JSON READS SQL DATA
+-- toutes les series de la base
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serieId',serieId,'intitule', intitule)) FROM series);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonGenres() RETURNS JSON READS SQL DATA
+-- tous les genres de la base
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('genreId',genreId,'intitule', intitule)) FROM genres);
+RETURN retour;
+END;
+$$
+
+
+
 
 DELIMITER $$
 CREATE FUNCTION jsonEquipeSerieGenreAvecPoule(_serie INT, _genre INT) RETURNS JSON READS SQL DATA

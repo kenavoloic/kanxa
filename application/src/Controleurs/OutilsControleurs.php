@@ -13,6 +13,16 @@ trait OutilsControleurs {
     // Le seul inconvénient est la manière d'appeler la fonction retournée
     // $f1 = jsonData(PDO $connexion)
     // $f1("select jsonDatesGenerales()");
+
+    public function getJson(\PDO $connexion, string $sql): array{
+	$requete = $connexion->prepare($sql);
+	$requete->execute();
+	$retour = $requete->fetchAll(\PDO::FETCH_ASSOC);
+	$texte = array_values($retour[0])[0];
+	$liste = json_decode($texte, true);
+	return $liste;
+    }
+    
     
     // Dans un contexte de POO
     //	$this->lecture = $this->jsonData($this->pdo);
