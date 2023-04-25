@@ -11,8 +11,6 @@ class Paf {
     private $requete = "select jsonSerieGenrePaf(:serie,:genre) as resultat;";
     private $requeteListe = "select jsonSerieGenrePaf(:serie, :genre) as resultat";
     private array $donnees;
-    //private $jsonSerieGenrePaf;
-    
     
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="PAF"){
@@ -27,20 +25,20 @@ class Paf {
 		
 	$this->vue = new \Vues\Paf($this->titre);
 	$this->donnees = [];
-	//$this->jsonSerieGenrePaf = $this->jsonDataDeuxArguments($this->pdo);
-	//var_dump($_POST);
+
 	$this->$methode($parametres);
     }
 
 
-    public function reglements(?array $envoi){
+    public function regularisation(array $envoi){
+	//var_dump($_POST);
+	var_dump($envoi);
     }
     
 
     public function traitement(?array $envoi){
 	$serie_ = $_POST['paf']['serie'];
 	$genre_ = $_POST['paf']['genre'];
-	echo $serie_ . " " . $genre_ ;
 	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
 	$reponse = $this->pdo->prepare($this->requeteListe);
 	$reponse->execute($valeurs);

@@ -8,7 +8,6 @@ $_SESSION['officiel'] = true;
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('APPLICATION', ROOT . 'application' . DIRECTORY_SEPARATOR);
 
-
 require APPLICATION . 'lib/reglages.php';
 require APPLICATION . 'lib/autoload.php';
 
