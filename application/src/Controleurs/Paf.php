@@ -10,6 +10,7 @@ class Paf {
     private $vue;
     private $requete = "select jsonSerieGenrePaf(:serie,:genre) as resultat;";
     private $requeteListe = "select jsonSerieGenrePaf(:serie, :genre) as resultat";
+    private $requeteTraitement = "call boolRegularisationParticipation(:equipeId);";
     private array $donnees;
     
 
@@ -32,15 +33,32 @@ class Paf {
 
     public function regularisation(array $envoi){
 	//var_dump($_POST);
-	var_dump($envoi);
-	$id = $this->queDesChiffres($envoi[0]);
-	echo $id;
+	//$parametres = [];
+	//parse_str($envoi[0], $parametres);
+	//echo "regularisation => ";
+	//var_dump($envoi);
+	//$id = $this->queDesChiffres($envoi[0]);
+	//echo "Identifiant => ";
+	//echo $id;
+	//echo "Parametres => ";
+	//var_dump($parametres);
+	//print_r($_SESSION['parametres']);
+
+	$valeur = $this->queDesChiffres($_SESSION['parametres'][0]);
+	$reponse = $this->pdo->prepare($this->requeteTraitement);
+	$reponse->bindParam('equipeId', $valeur, \PDO::PARAM_INT);
+	$reponse->execute();
+	$retour_ = $reponse->fetch();
+	$this->redirection('Location: /paf/traitement/1/1');
+	/* $reponse->closeCursor();
+	   $this->traitement(null); */
+
     }
     
 
     public function traitement(?array $envoi){
-	$serie_ = $_POST['paf']['serie'];
-	$genre_ = $_POST['paf']['genre'];
+	$serie_ = isset($_POST['paf']['serie']) ?? 1;
+	$genre_ = isset($_POST['paf']['genre']) ?? 1;
 	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
 	$reponse = $this->pdo->prepare($this->requeteListe);
 	$reponse->execute($valeurs);

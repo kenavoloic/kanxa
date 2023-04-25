@@ -40,10 +40,11 @@ class Application implements Cancha {
     private function getControleurMethodeParametres(): array{
 	$uri = filter_var($_SERVER["REQUEST_URI"], FILTER_SANITIZE_URL);
 
+	//echo 'query_string ';
 	//var_dump($_SERVER['QUERY_STRING']);
-	$listeParametres = [];
-	parse_str($_SERVER['QUERY_STRING'], $listeParametres);
-	var_dump($listeParametres);
+	//$listeParametres = [];
+	//parse_str($_SERVER['QUERY_STRING'], $listeParametres);
+	//var_dump($listeParametres);
 
 	$index = $_SERVER['SCRIPT_NAME'];
 	$requete0 = explode('/', strtolower($uri));
@@ -57,6 +58,8 @@ class Application implements Cancha {
 	$methode = $requete[1] ?? 'index';
 
 	unset($requete[0], $requete[1]);
+	//echo "Requete => ";
+	//var_dump($requete);
 	
 	$parametres = count($requete) === 0 ? [] : array_values($requete);
 

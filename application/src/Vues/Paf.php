@@ -34,7 +34,8 @@ class Paf {
 
 	//return '<article><input type="checkbox" name="'.$id.'" id="'.$id.'"><button id="/paf/regularisation/'.$id.'">Ok</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></article>';
 	//return '<form action="/paf/regularisation/'.$id.'" methode="post"><input type="hidden" name="'.$id.'" value="0"><input type="checkbox" name="'.$id.'" id="'.$id.'" value="1"><button>Ok</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
-	return '<form action="/paf/regularisation/'.$id.'" methode="post"><button>A réglé</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
+	//return '<form action="/paf/regularisation/'.$id.'" methode="post"><button>A réglé</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
+	return '<tr><td class="nom">'.$nom1.'</td><td class="nom">'.$nom2.'</td><td class="regularisation"><a href="/paf/regularisation/'.$id.'">Régularisation</a></td></tr>';
     }
 
     /*    
@@ -63,7 +64,10 @@ class Paf {
 	echo $this->getComposant('paf');
 	
 	//créer une fonctin prenant en charge lenom d'un fichier et une variable et retourne une chaîne.
-	echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi)).'</form>';
+	//echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi)).'</form>';
+	echo "<table><tr><th>Nom</th><th>Nom</th><th>Régularisation</th></tr>";
+	echo implode("\n", array_map([$this, 'extractionDonnees'], $envoi));
+	echo "</table>";
 	echo $this->getComposant('basdepage');
     }
     
@@ -93,7 +97,12 @@ class Paf {
 	
 	if(isset($envoi['liste'])){
 	    //echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</form>';
-	    echo '<section class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</section>';
+	    //echo '<section class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</section>';
+
+	    echo "<table><tr><th>Nom</th><th>Nom</th><th>Régularisation</th></tr>";
+	    echo implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste']));
+	    echo "</table>";
+
 	}
 	
 	//echo $this->getFooterJavaScript('paf');
