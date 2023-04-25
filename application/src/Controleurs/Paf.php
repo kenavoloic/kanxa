@@ -33,6 +33,8 @@ class Paf {
     public function regularisation(array $envoi){
 	//var_dump($_POST);
 	var_dump($envoi);
+	$id = $this->queDesChiffres($envoi[0]);
+	echo $id;
     }
     
 

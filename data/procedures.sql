@@ -12,6 +12,8 @@ DROP PROCEDURE IF EXISTS booleenCreationPoule;
 DROP PROCEDURE IF EXISTS booleenAnnulationCreationPoule;
 DROP PROCEDURE IF EXISTS booleenAjoutTournoiId;
 
+DROP PROCEDURE IF EXISTS boolRegularisationParticipation;
+
 DELIMITER $$
 CREATE PROCEDURE creationTournoi(IN _serie INT, IN _genre INT)
 BEGIN
@@ -226,10 +228,10 @@ END;
 
 START TRANSACTION;
 
-SET tournoiId1 = select(_serie, numeroPoule, 1);
-SET tournoiId2 = select(_serie, numeroPoule, 2);
-SET tournoiId3 = select(_serie, numeroPoule, 3);
-SET tournoiId4 = select(_serie, numeroPoule, 4);
+SET tournoiId1 = (select intTournoiId(_serie, numeroPoule, 1));
+SET tournoiId2 = (select intTournoiId(_serie, numeroPoule, 2));
+SET tournoiId3 = (select intTournoiId(_serie, numeroPoule, 3));
+SET tournoiId4 = (select intTournoiId(_serie, numeroPoule, 4));
 
 UPDATE equipes SET poule=numeroPoule, pouleId=1, tournoiId=tournoiId1 WHERE serie=_serie AND genre=_genre AND equipeId=id1;
 UPDATE equipes SET poule=numeroPoule, pouleId=2, tournoiId=tournoiId2 WHERE serie=_serie AND genre=_genre AND equipeId=id2;
@@ -272,9 +274,11 @@ CREATE PROCEDURE booleenAjoutTournoiId(_serie INT, _genre INT)
 -- poule2 : 7 -> 12
 -- poule3 : 13 -> 18
 -- poule4 : 19 -> 24
-DECLARE retour TINYINT(1) DEFAULT 1;
-DECLARE EXIT HANDLER FOR SQLEXCEPTION
 BEGIN
+DECLARE retour TINYINT(1) DEFAULT 1;
+BEGIN
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+
 ROLLBACK;
 SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = '0';
 END;
@@ -308,6 +312,24 @@ UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 2)), equipe2 = (SEL
 UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 2)), equipe2 = (SELECT intTournoiId(_serie, 4, 4)) WHERE partieId=23 AND serie=_serie AND genre=_genre;
 UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 3)), equipe2 = (SELECT intTournoiId(_serie, 4, 4)) WHERE partieId=24 AND serie=_serie AND genre=_genre;
 COMMIT;
+
+SELECT retour;
+
+END;
+$$
+
+
+DELIMITER $$
+CREATE PROCEDURE boolRegularisationParticipation(_equipeId INT)
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 0;
+DECLARE nombre INT;
+
+UPDATE equipes SET paf_p = 1 WHERE equipeId = _equipeId;
+SELECT COUNT(*) INTO nombre FROM equipes WHERE equipeId = _equipeId AND paf_p = 1;
+
+IF (nombre = 1) THEN SET retour = 1;
+END IF;
 
 SELECT retour;
 

@@ -33,7 +33,8 @@ class Paf {
 	$nom2 = $envoi['nom2'];
 
 	//return '<article><input type="checkbox" name="'.$id.'" id="'.$id.'"><button id="/paf/regularisation/'.$id.'">Ok</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></article>';
-	return '<form action="/paf/regularisation/'.$id.'" methode="post"><input type="hidden" name="'.$id.'" value="0"><input type="checkbox" name="'.$id.'" id="'.$id.'" value="1"><button>Ok</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
+	//return '<form action="/paf/regularisation/'.$id.'" methode="post"><input type="hidden" name="'.$id.'" value="0"><input type="checkbox" name="'.$id.'" id="'.$id.'" value="1"><button>Ok</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
+	return '<form action="/paf/regularisation/'.$id.'" methode="post"><button>A réglé</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
     }
 
     /*    
