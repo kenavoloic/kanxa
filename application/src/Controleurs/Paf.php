@@ -61,8 +61,8 @@ class Paf {
 
 	//print_r($_POST['paf']);
 
-	$serie_ = !empty($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  2;
-	$genre_ = !empty($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 2;
+	//$serie_ = !empty($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  2;
+	//$genre_ = !empty($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 2;
 
 	$serie_ = $_SESSION['paf']['serie'];
 	$genre_ = $_SESSION['paf']['genre'];
@@ -71,8 +71,8 @@ class Paf {
 	$this->modele->regularisation($valeur);
 
 
-	echo "régularisation =>  ";
-	echo "id=> $valeur regularisation => $serie_ $genre_";
+	//echo "régularisation =>  ";
+	//echo "id=> $valeur regularisation => $serie_ $genre_";
 	
 	$aAfficher = $this->modele->traitement($serie_, $genre_);
 	$this->vue->affichage($aAfficher);
@@ -91,11 +91,11 @@ class Paf {
 	//echo 'Post => ';
 	//var_dump($_POST);
 	
-	$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
-	$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
+	//$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
+	//$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
 
-	$_SESSION['paf']['serie'] = intval($_POST['paf']['serie']);
-	$_SESSION['paf']['genre'] = intval($_POST['paf']['genre']);
+	$serie_ = $_SESSION['paf']['serie'] = intval($_POST['paf']['serie']);
+	$genre_ = $_SESSION['paf']['genre'] = intval($_POST['paf']['genre']);
 	
 	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
 	$reponse = $this->pdo->prepare($this->requeteListe);

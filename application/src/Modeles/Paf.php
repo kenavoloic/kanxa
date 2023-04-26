@@ -30,8 +30,8 @@ class Paf {
 	
 	//$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
 	//$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
-	echo "Modele traitement => ";
-	echo "$serie => $genre";
+	//echo "Modele traitement => ";
+	//echo "$serie => $genre";
 	$valeurs = [':serie' => $serie, ':genre' => $genre];
 	$reponse = $this->pdo->prepare($this->requeteListe);
 	$reponse->execute($valeurs);

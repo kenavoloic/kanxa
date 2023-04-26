@@ -19,6 +19,7 @@ DROP FUNCTION IF EXISTS jsonGenres;
 DROP FUNCTION IF EXISTS jsonDatesGenerales;
 
 DROP FUNCTION IF EXISTS intNombreEquipe;
+DROP FUNCTION IF EXISTS intNombreEquipePaf;
 DROP FUNCTION IF EXISTS intNombreEquipeSerieGenre;
 DROP FUNCTION IF EXISTS intNombreEquipeSerieGenreSansPoule;
 DROP FUNCTION IF EXISTS intNombreEquipeSerieGenreAvecPoule;
@@ -177,6 +178,17 @@ SET retour = (SELECT COUNT(*) FROM equipes);
 RETURN retour;
 END;
 $$
+
+DELIMITER $$
+CREATE FUNCTION intNombreEquipePaf() RETURNS INT NOT DETERMINISTIC READS SQL DATA
+-- nombre d'équipes ayant réglé la paf
+BEGIN
+DECLARE retour INT DEFAULT 0;
+SET retour = (SELECT COUNT(*) FROM equipes WHERE paf_p = 1);
+RETURN retour;
+END;
+$$
+
 
 DELIMITER $$
 CREATE FUNCTION intNombreEquipeSerieGenre(_serie INT, _genre INT) RETURNS INT READS SQL DATA
