@@ -23,7 +23,7 @@ class Paf {
 	if(!isset($_SESSION['genres'])){
 	    $_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
 	}
-		
+	
 	$this->vue = new \Vues\Paf($this->titre);
 	$this->donnees = [];
 
@@ -43,13 +43,14 @@ class Paf {
 	//echo "Parametres => ";
 	//var_dump($parametres);
 	//print_r($_SESSION['parametres']);
-
+	echo 'regularisation => ' . $_SESSION['uri'];
 	$valeur = $this->queDesChiffres($_SESSION['parametres'][0]);
 	$reponse = $this->pdo->prepare($this->requeteTraitement);
 	$reponse->bindParam('equipeId', $valeur, \PDO::PARAM_INT);
 	$reponse->execute();
 	$retour_ = $reponse->fetch();
-	$this->redirection('Location: /paf/traitement/1/1');
+	//var_dump($retour);
+	//$this->redirection('Location: /paf/traitement/1/1');
 	/* $reponse->closeCursor();
 	   $this->traitement(null); */
 
@@ -57,8 +58,12 @@ class Paf {
     
 
     public function traitement(?array $envoi){
-	$serie_ = isset($_POST['paf']['serie']) ?? 1;
-	$genre_ = isset($_POST['paf']['genre']) ?? 1;
+	echo 'traitement => ' . $_SESSION['uri'] . PHP_EOL;
+	echo 'Post => ';
+	var_dump($_POST);
+	
+	$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
+	$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
 	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
 	$reponse = $this->pdo->prepare($this->requeteListe);
 	$reponse->execute($valeurs);

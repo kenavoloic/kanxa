@@ -40,6 +40,8 @@ class Application implements Cancha {
     private function getControleurMethodeParametres(): array{
 	$uri = filter_var($_SERVER["REQUEST_URI"], FILTER_SANITIZE_URL);
 
+	echo 'request_uri => ' . $_SERVER['REQUEST_URI'] . PHP_EOL;
+	echo 'query_string => ' . $_SERVER['QUERY_STRING'] . PHP_EOL;
 	//echo 'query_string ';
 	//var_dump($_SERVER['QUERY_STRING']);
 	//$listeParametres = [];
@@ -73,6 +75,7 @@ class Application implements Cancha {
 	    //echo 'getControleurMethodeParametres ' . $controleur . ' ' . $methode;
 	}
 
+	$_SESSION['uri'] = $uri;
 	$_SESSION['controleur'] = $controleur;
 	$_SESSION['methode'] = $methode;
 	$_SESSION['parametres'] = $parametres;
