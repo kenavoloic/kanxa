@@ -74,10 +74,12 @@ class Paf {
 
     public function affichage(array $envoi): void {
 	
-	$serie = $_POST['paf']['serie'] ?? 1;
-	$genre = $_POST['paf']['genre'] ?? 1;
+	//$serie = $_POST['paf']['serie'] ?? 1;
+	//$genre = $_POST['paf']['genre'] ?? 1;
+	$serie = $_SESSION['paf']['serie'];
+	$genre = $_SESSION['paf']['genre'];
 	
-	$tableau = [ 'series' => $this->getSeriesOptions($serie), 'genres' => $this->getGenresOptions($genre)];
+	$tableau = [ 'series' => $this->getSeriesOptions(intval($serie)), 'genres' => $this->getGenresOptions(intval($genre))];
 	
 	echo $this->getEntete("Participation aux frais");
 
@@ -95,7 +97,7 @@ class Paf {
 
 	//echo "<select>".implode("\n", $this->getSelectSeries(1))."</select>";
 	
-	if(isset($envoi['liste'])){
+	if(!empty($envoi['liste'])){
 	    //echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</form>';
 	    //echo '<section class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</section>';
 

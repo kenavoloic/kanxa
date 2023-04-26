@@ -56,11 +56,24 @@ class Paf {
 	   $reponse->execute();
 	   $retour_ = $reponse->fetch();
 	 */
-	$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
-	$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
+	//$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
+	//$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
+
+	//print_r($_POST['paf']);
+
+	$serie_ = !empty($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  2;
+	$genre_ = !empty($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 2;
+
+	$serie_ = $_SESSION['paf']['serie'];
+	$genre_ = $_SESSION['paf']['genre'];
+
 	$valeur = $this->queDesChiffres($_SESSION['parametres'][0]);
 	$this->modele->regularisation($valeur);
 
+
+	echo "régularisation =>  ";
+	echo "id=> $valeur regularisation => $serie_ $genre_";
+	
 	$aAfficher = $this->modele->traitement($serie_, $genre_);
 	$this->vue->affichage($aAfficher);
 
@@ -74,17 +87,22 @@ class Paf {
     
 
     public function traitement(?array $envoi){
-	echo 'traitement => ' . $_SESSION['uri'] . PHP_EOL;
-	echo 'Post => ';
-	var_dump($_POST);
+	//echo 'traitement => ' . $_SESSION['uri'] . PHP_EOL;
+	//echo 'Post => ';
+	//var_dump($_POST);
 	
 	$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
 	$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
+
+	$_SESSION['paf']['serie'] = intval($_POST['paf']['serie']);
+	$_SESSION['paf']['genre'] = intval($_POST['paf']['genre']);
+	
 	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
 	$reponse = $this->pdo->prepare($this->requeteListe);
 	$reponse->execute($valeurs);
 	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
-	$liste = json_decode(array_values($retour_[0])[0], true);
+	//$liste = json_decode(array_values($retour_[0])[0], true);
+	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
 	$retour = ['liste' => $liste];
 
 	//header('Location: /paf');

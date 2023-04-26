@@ -30,11 +30,15 @@ class Paf {
 	
 	//$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
 	//$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
+	echo "Modele traitement => ";
+	echo "$serie => $genre";
 	$valeurs = [':serie' => $serie, ':genre' => $genre];
 	$reponse = $this->pdo->prepare($this->requeteListe);
 	$reponse->execute($valeurs);
 	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
-	$liste = json_decode(array_values($retour_[0])[0], true);
+	//echo "traitement modele => ";
+	//var_dump($retour_);
+	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
 	$retour = ['liste' => $liste, 'serie'=> $serie, 'genre' => $genre];
 
 	return $retour;
