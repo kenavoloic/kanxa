@@ -12,6 +12,8 @@ class Paf {
     private $requeteListe = "select jsonSerieGenrePaf(:serie, :genre) as resultat";
     private $requeteTraitement = "call boolRegularisationParticipation(:equipeId);";
     private array $donnees;
+
+    private $modele;
     
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="PAF"){
@@ -23,9 +25,12 @@ class Paf {
 	if(!isset($_SESSION['genres'])){
 	    $_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
 	}
+	$this->modele = new \Modeles\Paf($this->pdo);
 	
 	$this->vue = new \Vues\Paf($this->titre);
 	$this->donnees = [];
+
+	//echo "-1 => " . $this->modele->regularisation(-1);
 
 	$this->$methode($parametres);
     }
@@ -43,12 +48,23 @@ class Paf {
 	//echo "Parametres => ";
 	//var_dump($parametres);
 	//print_r($_SESSION['parametres']);
-	echo 'regularisation => ' . $_SESSION['uri'];
+	/*
+	   echo 'regularisation => ' . $_SESSION['uri'];
+	   $valeur = $this->queDesChiffres($_SESSION['parametres'][0]);
+	   $reponse = $this->pdo->prepare($this->requeteTraitement);
+	   $reponse->bindParam('equipeId', $valeur, \PDO::PARAM_INT);
+	   $reponse->execute();
+	   $retour_ = $reponse->fetch();
+	 */
+	$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
+	$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
 	$valeur = $this->queDesChiffres($_SESSION['parametres'][0]);
-	$reponse = $this->pdo->prepare($this->requeteTraitement);
-	$reponse->bindParam('equipeId', $valeur, \PDO::PARAM_INT);
-	$reponse->execute();
-	$retour_ = $reponse->fetch();
+	$this->modele->regularisation($valeur);
+
+	$aAfficher = $this->modele->traitement($serie_, $genre_);
+	$this->vue->affichage($aAfficher);
+
+	
 	//var_dump($retour);
 	//$this->redirection('Location: /paf/traitement/1/1');
 	/* $reponse->closeCursor();
@@ -72,8 +88,10 @@ class Paf {
 	$retour = ['liste' => $liste];
 
 	//header('Location: /paf');
-	$this->vue->affichage($retour);
+	//$this->vue->affichage($retour);
 
+	$aAfficher = $this->modele->traitement($serie_, $genre_);
+	$this->vue->affichage($aAfficher);
 	
 	//$this->vue->affichageListe($liste);
     }
