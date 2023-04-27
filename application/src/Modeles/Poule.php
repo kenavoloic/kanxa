@@ -30,3 +30,4 @@ class Poule {
     public function __toString(): string {
 	return "Poule";
     }
+}

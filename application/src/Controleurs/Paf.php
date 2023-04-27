@@ -26,13 +26,14 @@ class Paf {
 	    $_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
 	}
 	$this->modele = new \Modeles\Paf($this->pdo);
+	echo "Nombre => " . $this->modele->nombreEquipePaf();
 	
 	$this->vue = new \Vues\Paf($this->titre);
 	$this->donnees = [];
 
 	//echo "-1 => " . $this->modele->regularisation(-1);
 
-	$this->$methode($parametres);
+	$this->$methode($this->parametres);
     }
 
 

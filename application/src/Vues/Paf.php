@@ -76,8 +76,8 @@ class Paf {
 	
 	//$serie = $_POST['paf']['serie'] ?? 1;
 	//$genre = $_POST['paf']['genre'] ?? 1;
-	$serie = $_SESSION['paf']['serie'];
-	$genre = $_SESSION['paf']['genre'];
+	$serie = !empty($_SESSION['paf']['serie']) ?? 0;
+	$genre = !empty($_SESSION['paf']['genre']) ?? 0;
 	
 	$tableau = [ 'series' => $this->getSeriesOptions(intval($serie)), 'genres' => $this->getGenresOptions(intval($genre))];
 	

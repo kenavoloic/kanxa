@@ -8,6 +8,8 @@ class Paf {
     private $requete = "select jsonSerieGenrePaf(:serie,:genre) as resultat;";
     private $requeteListe = "select jsonSerieGenrePaf(:serie, :genre) as resultat";
     private $requeteTraitement = "call boolRegularisationParticipation(:equipeId);";
+    private $requeteNombreEquipe = "select intNombreEquipe();";
+    private $requeteNombreEquipePaf = "select intNombreEquipePaf();";
 
 
     public function __construct(private \PDO $pdo){
@@ -48,6 +50,13 @@ class Paf {
 	
 	//$this->vue->affichageListe($liste);
     }
+
+    public function nombreEquipePaf(): int {
+	$reponse = $this->pdo->query($this->requeteNombreEquipePaf);
+	$retour = $reponse->fetch(\PDO::FETCH_NUM);
+	return $retour[0];
+    }
+    
 
     
     
