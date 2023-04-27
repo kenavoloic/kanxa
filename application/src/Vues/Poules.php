@@ -17,6 +17,12 @@ class Poules {
 
 
     public function affichage(array $envoi): void {
+
+	$serie = !empty($_SESSION['poules']['serie']) ?? 0;
+	$genre = !empty($_SESSION['poules']['genre']) ?? 0;
+	
+	$tableau = [ 'series' => $this->getSeriesOptions(intval($serie)), 'genres' => $this->getGenresOptions(intval($genre))];
+
 	echo $this->getEntete($this->titre);
 
 	if($this->administrateur_p()){
@@ -26,8 +32,20 @@ class Poules {
 	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
 	}
-
-	echo $this->getComposantTableau('poules', $envoi);
+/*
+	if(empty($envoi['liste'])){
+	    echo $this->getComposantTableau('poulesSelecteurs', $tableau);
+	}
+*/
+	echo $this->getComposantTableau('poulesSelecteurs', $tableau);
+	
+	if(!empty($envoi['liste'])){
+	    echo $this->getComposant('boutonInvisible');
+	    $donnees = array_map([$this,'getLigne'], $envoi['liste']);
+	    echo implode("\n", $donnees);
+	}
+	
+	//echo $this->getComposantTableau('poules', $envoi);
 	echo $this->getFooterJavaScript('poules');
 	echo $this->getComposant('basdepage');
     }

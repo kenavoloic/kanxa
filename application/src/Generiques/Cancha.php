@@ -14,7 +14,7 @@ interface Cancha {
 	'score' => ['index'],
 	'generales' => ['index','affichage'],
 	'inscriptions' => ['index', 'ajout', 'liste', 'modification','nombre'],
-	'poules' => ['index'],
+	'poules' => ['index', 'traitement','liste','composition'],
 	'planning' => ['index'],
 	'paf' => ['index', 'liste', 'regularisation', 'traitement'],
 	// ajax
