@@ -8,7 +8,6 @@ class Poules {
     use OutilsVues;
 
     public function __construct(private string $titre){
-	//$this->affichage($this->titre);
     }
 
     private function getLigne(array $envoi): string {
@@ -18,8 +17,11 @@ class Poules {
 
     public function affichage(array $envoi): void {
 
-	$serie = !empty($_SESSION['poules']['serie']) ?? 0;
-	$genre = !empty($_SESSION['poules']['genre']) ?? 0;
+	//$serie = !empty($_SESSION['poules']['serie']) ?? 0;
+	//$genre = !empty($_SESSION['poules']['genre']) ?? 0;
+
+	$serie = $_SESSION['poules']['serie'];
+	$genre = $_SESSION['poules']['genre'];
 	
 	$tableau = [ 'series' => $this->getSeriesOptions(intval($serie)), 'genres' => $this->getGenresOptions(intval($genre))];
 

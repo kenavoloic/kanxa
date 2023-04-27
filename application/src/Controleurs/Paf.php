@@ -71,14 +71,12 @@ class Paf {
 	$valeur = $this->queDesChiffres($_SESSION['parametres'][0]);
 	$this->modele->regularisation($valeur);
 
-
 	//echo "régularisation =>  ";
 	//echo "id=> $valeur regularisation => $serie_ $genre_";
 	
 	$aAfficher = $this->modele->traitement($serie_, $genre_);
 	$this->vue->affichage($aAfficher);
 
-	
 	//var_dump($retour);
 	//$this->redirection('Location: /paf/traitement/1/1');
 	/* $reponse->closeCursor();
@@ -135,12 +133,6 @@ class Paf {
 	//echo json_encode($nom, true);
 	echo $retour[0];
     }
-    
-
-    public function _traitement(array $envoi): void {
-	$liste = isset($_POST['paf']) ? $_POST['paf'] :  ['serie' => 0, 'genre' => 0];
-    }
-    
 
     public function index(array $envoi): void {
 	$this->vue->affichage(['titre' => $this->titre]);

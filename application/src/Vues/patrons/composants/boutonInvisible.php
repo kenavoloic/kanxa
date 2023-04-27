@@ -1,1 +1,1 @@
-<button>Valider</button>
+<button id="brassageEffectue" disabled>Enregistrer</button>
