@@ -14,7 +14,7 @@ class Poules {
     }
 
     public function index(): void{
-	$this->vue->affichage(['titre' => $this->titre]);
+	//$this->vue->affichage(['titre' => $this->titre]);
 	/*
 	echo "nombre => ";
 	echo $this->modele->getNombreEquipe(1,1) . PHP_EOL;
@@ -28,7 +28,7 @@ class Poules {
 	print_r($this->modele->getJsonSansPoule(1,1));
 	echo "liste avec => ";
 	*/
-	//print_r($this->modele->getJsonEquipeIdSouhait(1,2));
+	print_r($this->modele->getJsonEquipeIdSouhait(1,2));
 
     }
     
