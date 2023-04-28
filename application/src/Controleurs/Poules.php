@@ -4,10 +4,19 @@ namespace Controleurs;
 
 class Poules {
 
+    use \Controleurs\OutilsControleurs;
+    
     private $modele;
     private $vue;
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="Composition des poules"){
+
+	if(empty($_SESSION['poules']['serie']) || empty($_SESSION['poules']['genre'])){
+	    $_SESSION['poules']['serie'] = 0;
+	    $_SESSION['poules']['genre'] = 0;
+	}
+	
+
 	$this->vue = new \Vues\Poules($this->titre);
 	$this->modele = new \Modeles\Poules($this->pdo);
 	$this->$methode($this->parametres);

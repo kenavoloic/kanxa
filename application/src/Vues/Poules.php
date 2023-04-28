@@ -38,7 +38,8 @@ class Poules {
 	if(empty($envoi['liste'])){
 	    echo $this->getComposantTableau('poulesSelecteurs', $tableau);
 	}
-*/
+ */
+	echo '<main id="brassage">' . PHP_EOL;
 	echo $this->getComposantTableau('poulesSelecteurs', $tableau);
 	
 	if(!empty($envoi['liste'])){
@@ -49,6 +50,7 @@ class Poules {
 	}
 	
 	//echo $this->getComposantTableau('poules', $envoi);
+	echo '</main>' . PHP_EOL;
 	echo $this->getFooterJavaScript('poules');
 	echo $this->getComposant('basdepage');
     }

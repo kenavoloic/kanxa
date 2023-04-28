@@ -6,6 +6,7 @@ namespace Generiques;
 class Application implements Cancha {
 
     use Outils;
+    use \Controleurs\OutilsControleurs;
 
     private $controleur;
     private $methode;
