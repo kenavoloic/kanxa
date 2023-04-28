@@ -34,11 +34,11 @@ class Poules {
 	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
 	}
-/*
-	if(empty($envoi['liste'])){
-	    echo $this->getComposantTableau('poulesSelecteurs', $tableau);
-	}
- */
+	/*
+	   if(empty($envoi['liste'])){
+	   echo $this->getComposantTableau('poulesSelecteurs', $tableau);
+	   }
+	 */
 	echo '<main id="brassage">' . PHP_EOL;
 	echo $this->getComposantTableau('poulesSelecteurs', $tableau);
 	
@@ -52,6 +52,7 @@ class Poules {
 	//echo $this->getComposantTableau('poules', $envoi);
 	echo '</main>' . PHP_EOL;
 	echo $this->getFooterJavaScript('poules');
+	//echo $this->getFooterJavaScript('constitutionPoules');
 	echo $this->getComposant('basdepage');
     }
 

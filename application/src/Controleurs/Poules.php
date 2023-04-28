@@ -32,6 +32,16 @@ class Poules {
 	$liste = $this->modele->getJsonEquipeIdSouhait(intval($serie_), intval($genre_));
 	$this->vue->affichage($liste);
     }
+
+    public function liste(array $envoi){
+	//var_dump($envoi);
+	//var_dump($_POST['liste']);
+	$chaine = $_POST['liste'];
+	$nettoyee = preg_replace('/[^0-9,:]/', '', $chaine);
+	$decoupee = explode(',', $nettoyee);
+	var_dump($decoupee);
+    }
+    
     
 
     public function index(): void{

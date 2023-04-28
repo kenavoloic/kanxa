@@ -19,7 +19,7 @@ trait OutilsVues {
 	// Contrairement à un fichier php, il ne s'agit pas ici de charger le contenu du fichier
 	// mais simplement de créer une chaîne qui sera interprétée par le client, donc dans le dossier 'public'
 	$chemin = 'js' . DIRECTORY_SEPARATOR . $fichier . '.js';
-	return '<script src="' .$chemin . '"></script>';
+	return '<script src="/' .$chemin . '"></script>';
     }
     
 
