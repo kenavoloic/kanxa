@@ -25,6 +25,7 @@ class Paf {
 	if(!isset($_SESSION['genres'])){
 	    $_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
 	}
+	
 	$this->modele = new \Modeles\Paf($this->pdo);
 	echo "Nombre => " . $this->modele->nombreEquipePaf();
 	

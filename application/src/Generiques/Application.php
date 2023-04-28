@@ -20,6 +20,10 @@ class Application implements Cancha {
 	$this->pdo = $this->connexion->getPDO();
 	$this->listeBlanche = Cancha::listeBlanche;
 
+	// Pour les menus, ainsi ils seront accessibles tant que durera la session
+	$_SESSION['series'] = $this->getJson($this->pdo, 'select jsonSeries();');
+	$_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
+	
 	$retour = $this->getControleurMethodeParametres();
 	$this->controleur = $retour[0];
 	$this->methode = $retour[1];

@@ -7,6 +7,18 @@ trait OutilsControleurs {
     /* public function redirection(string $lien='index'): void {
        header('location: ' . $lien);
      * } */
+
+    public function session_series_genres_p(\PDO $pdo): void {
+	if(!isset($_SESSION['series'])){
+	    $_SESSION['series'] = getJson($pdo, 'select jsonSeries();');
+	}
+
+	if(!isset($_SESSION['genres'])){
+	    $_SESSION['genres'] = getJson($pdo, 'select jsonGenres();');
+	}
+
+    }
+    
     
 
     // Fonction qui accepte un objet PDO et retourne une fonction
