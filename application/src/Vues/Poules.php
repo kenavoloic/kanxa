@@ -44,7 +44,8 @@ class Poules {
 	if(!empty($envoi['liste'])){
 	    echo $this->getComposant('boutonInvisible');
 	    $donnees = array_map([$this,'getLigne'], $envoi['liste']);
-	    echo implode("\n", $donnees);
+	    //echo implode("\n", $donnees);
+	    echo $this->getComposantTableau('poulesCadre', ['lignes' => implode("\n", $donnees)]);
 	}
 	
 	//echo $this->getComposantTableau('poules', $envoi);
