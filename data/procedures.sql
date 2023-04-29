@@ -13,6 +13,7 @@ DROP PROCEDURE IF EXISTS booleenAnnulationCreationPoule;
 DROP PROCEDURE IF EXISTS booleenAjoutTournoiId;
 
 DROP PROCEDURE IF EXISTS boolRegularisationParticipation;
+DROP PROCEDURE IF EXISTS boolConstitutionPoules;
 
 DELIMITER $$
 CREATE PROCEDURE creationTournoi(IN _serie INT, IN _genre INT)
@@ -332,6 +333,22 @@ IF (nombre = 1) THEN SET retour = 1;
 END IF;
 
 SELECT retour;
+
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE boolConstitutionPoules(IN envoi VARCHAR(255))
+-- format chaine poule:id,poule:id,poule:id...
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 0;
+DECLARE pointeur INT DEFAULT 1;
+DECLARE chaine VARCHAR(40);
+SET virgule = ",";
+SET deuxPoints = ":";
+
+WHILE chaine IS NOT NULL DO
+END WHILE;
 
 END;
 $$
