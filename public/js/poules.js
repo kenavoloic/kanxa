@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const equipesInscrites = new Map(seize);
     //console.log([...equipesInscrites.keys()], [...equipesInscrites.values()]);
 
+    if(document.querySelector('#equipes')){
     const equipes = document.querySelector('#equipes').addEventListener('click', (e) => {
 
 	if(e.srcElement.tagName === 'BUTTON'){
@@ -142,5 +143,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	//alert("Sauvegard impossible");
 	//alert("Sauvegarde impossible, seulement " + valeurs.length + " équipes sur " + total);
     });
-
+    }
 });

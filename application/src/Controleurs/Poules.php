@@ -33,13 +33,22 @@ class Poules {
 	$this->vue->affichage($liste);
     }
 
-    public function liste(array $envoi){
+    // Le rechargement ne fonctionne pas encore.
+    public function liste(?array $envoi){
 	//var_dump($envoi);
 	//var_dump($_POST['liste']);
 	$chaine = $_POST['liste'];
 	$nettoyee = preg_replace('/[^0-9,:]/', '', $chaine);
-	$decoupee = explode(',', $nettoyee);
-	var_dump($decoupee);
+	$this->modele->constitutionPoules($nettoyee);
+
+	$serie_ = $_SESSION['poules']['serie'];
+	$genre_ = $_SESSION['poules']['genre'];
+	
+	$liste = $this->modele->getJsonEquipeIdSouhait(intval($serie_), intval($genre_));
+	$this->vue->affichage($liste);
+
+	//$decoupee = explode(',', $nettoyee);
+	//var_dump($decoupee);
     }
     
     
@@ -50,7 +59,7 @@ class Poules {
     
 
     public function __toString(): string {
-	return "Constitution graphique des poules.";
+	return "Composition graphique des poules.";
     }
     
 }

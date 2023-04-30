@@ -12,6 +12,8 @@ class Poules {
     private $requeteJsonEquipeSerieGenreAvecPoule = "select jsonEquipeSerieGenreAvecPoule(:serie, :genre);";
     private $requeteJsonEquipeIdSouhait = "select jsonEquipeIdSouhait(:serie, :genre);";
 
+    private $requeteConstitutionPoules = "call constitutionPoules(:chaine);";
+
     public function __construct(private \PDO $pdo){
     }
 
@@ -68,6 +70,14 @@ class Poules {
 	$retour = ['liste' => $liste, 'serie'=> $serie, 'genre' => $genre];
 	return $retour;
     }
+
+    public function constitutionPoules(string $envoi): void {
+	$nettoyee = preg_replace('/[^0-9,:]/', '', $envoi);
+	$reponse = $this->pdo->prepare($this->requeteConstitutionPoules);
+	$reponse->bindValue(':chaine', $nettoyee);
+	$reponse->execute();
+    }
+    
 
     
     

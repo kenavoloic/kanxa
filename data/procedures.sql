@@ -13,7 +13,7 @@ DROP PROCEDURE IF EXISTS booleenAnnulationCreationPoule;
 DROP PROCEDURE IF EXISTS booleenAjoutTournoiId;
 
 DROP PROCEDURE IF EXISTS boolRegularisationParticipation;
-DROP PROCEDURE IF EXISTS boolConstitutionPoules;
+DROP PROCEDURE IF EXISTS constitutionPoules;
 
 DELIMITER $$
 CREATE PROCEDURE creationTournoi(IN _serie INT, IN _genre INT)
@@ -338,17 +338,29 @@ END;
 $$
 
 DELIMITER $$
-CREATE PROCEDURE boolConstitutionPoules(IN envoi VARCHAR(255))
+CREATE PROCEDURE constitutionPoules(IN chaine VARCHAR(255))
 -- format chaine poule:id,poule:id,poule:id...
 BEGIN
-DECLARE retour TINYINT(1) DEFAULT 0;
-DECLARE pointeur INT DEFAULT 1;
-DECLARE chaine VARCHAR(40);
-SET virgule = ",";
-SET deuxPoints = ":";
 
-WHILE chaine IS NOT NULL DO
+DECLARE pointeur INT DEFAULT 1;
+SET @virgule = ",";
+SET @deuxPoints = ":";
+PREPARE requete FROM 'UPDATE equipes SET poule = ? WHERE equipeId = ?;';
+
+WHILE CHAR_LENGTH(chaine) > 0 DO
+SET @morceau = SUBSTRING_INDEX(chaine, @virgule, 1);
+SET chaine = SUBSTRING(chaine, CHAR_LENGTH(@morceau) + CHAR_LENGTH(@virgule) + 1);
+SET @_poule = SUBSTRING_INDEX(@morceau, @deuxPoints, 1);
+SET @_equipeId = SUBSTRING_INDEX(@morceau, @deuxPoints, -1);
+
+-- update uniquement si les deux valeurs sont composées de chiffres
+IF @_poule REGEXP '^[\d]+$' AND @_equipeId REGEXP '^[\d]+$' THEN
+EXECUTE requete USING @_poule, @_equipeId;
+END IF;
+
 END WHILE;
+
+DEALLOCATE PREPARE requete;
 
 END;
 $$
