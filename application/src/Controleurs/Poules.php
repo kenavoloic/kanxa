@@ -45,7 +45,8 @@ class Poules {
 	$genre_ = $_SESSION['poules']['genre'];
 	
 	$liste = $this->modele->getJsonEquipeIdSouhait(intval($serie_), intval($genre_));
-	$this->vue->affichage($liste);
+	//$this->vue->affichage($liste);
+	var_dump($liste);
 
 	//$decoupee = explode(',', $nettoyee);
 	//var_dump($decoupee);

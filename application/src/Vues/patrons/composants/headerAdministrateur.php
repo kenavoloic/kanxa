@@ -9,10 +9,11 @@
 	<ul class="administration" id="administration">
 	    <li><a href="/login/deconnexion" title="Déconnexion">Déconnexion</a></li>
 	    <li><a href="/score" title="Enregistrement du résultat d’une partie">Score</a></li>
+	    <li><a href="/liste" title="Liste des équipes">Liste</a></li>
 	    <li><a href="/planning" title="Calendrier des parties">Planning</a></li>
 	    <li><a href="/generales" title="Dates générales du tournoi">Dates</a></li>
 	    <li><a href="/inscriptions" title="Enregistrement des équipes">Inscriptions</a></li>		    
-	    <li><a href="/poules" title="Constitution des poules">Poules</a></li>
+	    <li><a href="/poules" title="Composition des poules">Poules</a></li>
 	    <li><a href="/paf" title="Frais d’inscription">P.A.F.</a></li>
 	</ul>
     </nav>

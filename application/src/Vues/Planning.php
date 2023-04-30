@@ -2,15 +2,15 @@
 
 namespace Vues;
 
-class Score {
+class Planning {
 
     use \Generiques\Outils;
-    use \Vues\OutilsVues;
+    use OutilsVues;
 
-    public function __construct(private string $titre="Kanxa"){
+    public function __construct(private string $titre){
     }
 
-    public function affichage(?array $envoi){
+    public function affichage(?array $envoi): void {
 	echo $this->getEntete($this->titre);
 
 	if($this->administrateur_p()){
@@ -21,12 +21,6 @@ class Score {
 	    echo $this->getComposant('headerUtilisateur');
 	}
 	echo $this->getComposant('basdepage');
-
     }
-
-    public function __toString(): string {
-	return "";
-    }
-    
     
 }

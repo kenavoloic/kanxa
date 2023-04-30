@@ -9,6 +9,8 @@ DROP FUNCTION IF EXISTS planningVide_p;
 
 DROP FUNCTION IF EXISTS jsonEquipeId;
 DROP FUNCTION IF EXISTS jsonEquipeIdNom;
+DROP FUNCTION IF EXISTS jsonEquipeComplete;
+DROP FUNCTION IF EXISTS jsonEquipeParId;
 DROP FUNCTION IF EXISTS jsonEquipeIdSouhait;
 DROP FUNCTION IF EXISTS jsonGenreSerie;
 
@@ -142,6 +144,27 @@ set retour=(SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'
 RETURN retour;
 END;
 $$
+
+DELIMITER $$
+CREATE FUNCTION jsonEquipeComplete(_serie INT, _genre INT) RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- retourne l'equipeId et les noms des deux co-équipiers
+BEGIN
+DECLARE retour JSON;
+set retour=(SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'courriel1',courriel1,'mobile1',mobile1,'licence1',licence1,'nom2',nom2,'prenom2',prenom2,'courriel2',courriel2,'mobile2',mobile2,'licence2',licence2)) FROM equipes WHERE serie=_serie AND genre=_genre);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonEquipeParId(_equipeId INT) RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- retourne les données complètes de l'équipe
+BEGIN
+DECLARE retour JSON;
+set retour=(SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'courriel1',courriel1,'mobile1',mobile1,'licence1',licence1,'nom2',nom2,'prenom2',prenom2,'courriel2',courriel2,'mobile2',mobile2,'licence2',licence2)) FROM equipes WHERE equipeId = _equipeId);
+RETURN retour;
+END;
+$$
+
 
 
 DELIMITER $$
