@@ -150,7 +150,7 @@ CREATE FUNCTION jsonEquipeComplete(_serie INT, _genre INT) RETURNS JSON NOT DETE
 -- retourne l'equipeId et les noms des deux co-équipiers
 BEGIN
 DECLARE retour JSON;
-set retour=(SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'courriel1',courriel1,'mobile1',mobile1,'licence1',licence1,'nom2',nom2,'prenom2',prenom2,'courriel2',courriel2,'mobile2',mobile2,'licence2',licence2)) FROM equipes WHERE serie=_serie AND genre=_genre);
+set retour=(SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'courriel1',lower(courriel1),'mobile1',mobile1,'licence1',licence1,'nom2',nom2,'prenom2',prenom2,'courriel2',lower(courriel2),'mobile2',mobile2,'licence2',licence2)) FROM equipes WHERE serie=_serie AND genre=_genre);
 RETURN retour;
 END;
 $$

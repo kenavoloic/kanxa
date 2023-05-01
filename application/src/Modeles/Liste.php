@@ -11,7 +11,6 @@ class Liste {
     }
 
     public function getEquipes(int $serie, int $genre): array {
-	echo "getEquipes serie => $serie genre => $genre";
 	$valeurs = [':serie' => $serie, ':genre' => $genre];
 	$reponse = $this->pdo->prepare($this->requeteEquipeComplete);
 	$reponse->execute($valeurs);
@@ -26,7 +25,9 @@ class Liste {
 	$reponse = $this->pdo->prepare($this->requeteEquipe);
 	$reponse->bindValue(':equipeId', $nettoyee);
 	$reponse->execute();
+	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
+	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
+	return ['liste' => $liste];
     }
-
 }
 

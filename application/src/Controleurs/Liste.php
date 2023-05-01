@@ -4,6 +4,7 @@ namespace Controleurs;
 
 class Liste {
 
+    use \Generiques\Outils;
     use \Controleurs\OutilsControleurs;
 
     private $modele;
@@ -23,8 +24,6 @@ class Liste {
 
     public function equipes(?array $envoi): void {
 
-	echo "equipes => " . PHP_EOL;
-	var_dump($_POST);
 	$_SESSION['liste']['serie'] = $_POST['liste']['serie'];
 	$_SESSION['liste']['genre'] = $_POST['liste']['genre'];
 	
@@ -34,11 +33,13 @@ class Liste {
 	$liste = $this->modele->getEquipes(intval($serie_), intval($genre_));
 	$this->vue->affichage($liste);
     }
-    
+
+    public function equipe(int $envoi): void {
+	$equipeId = $this->queDesChiffres($envoi);
+    }
     
 
     public function index(){
 	$this->vue->affichage(['titre' => $this->titre]);
-	//var_dump($this->modele->getEquipes(1,1)['liste']);
     }
 }
