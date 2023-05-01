@@ -4,13 +4,14 @@ namespace Modeles;
 
 class Liste {
 
-    private $requeteEquipeComplete = "select jsonEquipeComplete(:serie,:genre);";
+    private $requeteEquipeComplete = "select jsonEquipeComplete(:serie, :genre);";
     private $requeteEquipe = "select jsonEquipeParId(':equipeId');";
 
     public function __construct(private \PDO $pdo){
     }
 
     public function getEquipes(int $serie, int $genre): array {
+	echo "getEquipes serie => $serie genre => $genre";
 	$valeurs = [':serie' => $serie, ':genre' => $genre];
 	$reponse = $this->pdo->prepare($this->requeteEquipeComplete);
 	$reponse->execute($valeurs);
