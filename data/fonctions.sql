@@ -7,6 +7,9 @@ DROP FUNCTION IF EXISTS calendrier_p;
 DROP FUNCTION IF EXISTS tournoi_p;
 DROP FUNCTION IF EXISTS planningVide_p;
 
+DROP FUNCTION IF EXISTS jsonDateDebut;
+DROP FUNCTION IF EXISTS jsonDateFin;
+
 DROP FUNCTION IF EXISTS jsonEquipeId;
 DROP FUNCTION IF EXISTS jsonEquipeIdNom;
 DROP FUNCTION IF EXISTS jsonEquipeComplete;
@@ -123,6 +126,35 @@ END IF;
 RETURN retour;
 END;
 $$
+
+DELIMITER $$
+CREATE FUNCTION jsonDateDebut() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',(jour - 1),'annee',annee)) FROM datesGenerales WHERE dateId = 5);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonDateFin() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 8);
+RETURN retour;
+END;
+$$
+
+
 
 DELIMITER $$
 CREATE FUNCTION jsonEquipeId(_serie INT, _genre INT) RETURNS JSON NOT DETERMINISTIC READS SQL DATA

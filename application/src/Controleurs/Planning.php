@@ -9,18 +9,50 @@ class Planning {
 
     private $vue;
     private $modele;
+    private int $jourDebut;
+    private int $jourFin;
+    private $debut;
+    private $fin;
+    private $periode;
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="Planning des parties"){
 
 	$this->modele = new \Modeles\Planning($this->pdo);
 	$this->vue = new \Vues\Planning($this->titre);
 	$this->$methode($parametres);
+
+	$_SESSION['planning']['debut'] = $this->modele->getJourDebut();
+	$_SESSION['planning']['fin'] = $this->modele->getJourFin();
+
+	
+	if(empty($_SESSION['planning']['debut']) || empty($_SESSION['planning']['fin'])){
+	    $_SESSION['planning']['debut'] = $this->modele->getJourDebut();
+	    $_SESSION['planning']['fin'] = $this->modele->getJourFin();
+	}
+	$debut_ = $_SESSION['planning']['debut'];
+	$fin_ = $_SESSION['planning']['fin'];
+	//var_dump($debut);
+	//var_dump($fin);
+	//list($jour, $annee) = $debut;
+	//echo "j => $jour aaaa => $annee";
+	//echo $debut['jour'] . ' =>  ' . $debut['annee'];
+	$this->debut = new \Modeles\JourCalendaire($debut_['annee'], 0, 0, $debut_['jour']);
+	$this->fin = new \Modeles\JourCalendaire($fin_['annee'], 0, 0, $fin_['jour']);
+	$this->periode = new \Modeles\PeriodeCalendaire($this->debut, $this->fin);
+
+	//echo $this->debut;
+	//echo $this->fin;
+	echo $this->periode;
+	
+	
+	//$this->jourDebut = new \Modeles\JourCalendaire($_SESSION['planning']['debut']);
+	//var_dump($_SESSION['planning']['debut']);
+	//var_dump($_SESSION['planning']['fin']);
     }
 
     public function index(array $envoi): void {
 	$this->vue->affichage(['titre' => $this->titre]);
     }
-    
 
     public function __toString(): string {
 	return "Calendrier des parties du tournoi";

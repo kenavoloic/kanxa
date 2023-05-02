@@ -19,22 +19,22 @@ class JourCalendaire {
        
      */
 
-    private DateTime $jour;
+    private \DateTime $jour;
 
-    private IntlDateFormatter $nomJourSemaine;
-    private IntlDateFormatter $nomDateMois;
-    private IntlDateFormatter $nomDateMoisAnnee;
-    private IntlDateFormatter $nomMois;
+    private \IntlDateFormatter $nomJourSemaine;
+    private \IntlDateFormatter $nomDateMois;
+    private \IntlDateFormatter $nomDateMoisAnnee;
+    private \IntlDateFormatter $nomMois;
 
     public function __construct(private string $aaaa, private string $mm, private string $jj, private ?string $numeroJour=null){
 	$this->jour = $this->initialisations([$this->aaaa, $this->mm, $this->jj, $this->numeroJour]);
-	$this->nomJourSemaine = new IntlDateFormatter("fr_FR", IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'Europe/Paris', IntlDateFormatter::GREGORIAN, 'EEEE');
-	$this->nomDateMois = new IntlDateFormatter("fr_FR", IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'Europe/Paris', IntlDateFormatter::GREGORIAN, 'EEEE d MMMM');
-	$this->nomDateMoisAnnee = new IntlDateFormatter("fr_FR", IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'Europe/Paris', IntlDateFormatter::GREGORIAN, 'EEEE d MMMM Y');
-	$this->nomMois = new IntlDateFormatter("fr_FR", IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'Europe/Paris', IntlDateFormatter::GREGORIAN, 'MMMM');
+	$this->nomJourSemaine = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE');
+	$this->nomDateMois = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE d MMMM');
+	$this->nomDateMoisAnnee = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE d MMMM Y');
+	$this->nomMois = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'MMMM');
     }
 
-    private function initialisations(array $envoi): DateTime {
+    private function initialisations(array $envoi): \DateTime {
 	// Si les valeurs contenues dans le tableau ne permettent pas de créer l'objet DateTimeimmutable
 	// alors création d'un objet DateTime par défaut, à savoir, à la date du jour.
 	$retour;
@@ -50,17 +50,17 @@ class JourCalendaire {
 
 	try {
 	    $retour = is_null($numeroJour) ?
-		      DateTime::createFromFormat('Y-m-d', implode('-', [$aaaa, $mm, $jj]))
-		    : DateTime::createFromFormat('Y z', $aaaa . ' ' . $numeroJour);   
-	    $retour->setTimeZone(new DateTimeZone('Europe/Paris'));
+		      \DateTime::createFromFormat('Y-m-d', implode('-', [$aaaa, $mm, $jj]))
+		    : \DateTime::createFromFormat('Y z', $aaaa . ' ' . $numeroJour);   
+	    $retour->setTimeZone(new \DateTimeZone('Europe/Paris'));
 	}
 	catch(Exception $exception){
-	    $retour = new DateTime('now', new DateTimeZone('Europe/Paris'));	    
+	    $retour = new \DateTime('now', new \DateTimeZone('Europe/Paris'));	    
 	}
 	return $retour;
     }
 
-    public function getDateTime(): DateTime {
+    public function getDateTime(): \DateTime {
 	// Objet DateTime
 	return $this->jour;
     }
