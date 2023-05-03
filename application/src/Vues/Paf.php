@@ -76,10 +76,16 @@ class Paf {
 	
 	//$serie = $_POST['paf']['serie'] ?? 1;
 	//$genre = $_POST['paf']['genre'] ?? 1;
-	$serie = !empty($_SESSION['paf']['serie']) ?? 0;
-	$genre = !empty($_SESSION['paf']['genre']) ?? 0;
+	//var_dump($_SESSION['paf']);
+	//$serie = !empty($_SESSION['paf']['serie']) ?? 0;
+	//$genre = !empty($_SESSION['paf']['genre']) ?? 0;
+
+	$serie = $_SESSION['paf']['serie'];
+	$genre = $_SESSION['paf']['genre'];
+
 	
 	$tableau = [ 'series' => $this->getSeriesOptions(intval($serie)), 'genres' => $this->getGenresOptions(intval($genre))];
+	//$tableau = [ 'series' => $this->getSeriesOptions(intval($envoi['serie'])), 'genres' => $this->getGenresOptions(intval($envoi['genre']))];
 	
 	echo $this->getEntete("Participation aux frais");
 

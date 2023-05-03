@@ -5,11 +5,23 @@ namespace Modeles;
 class Planning {
 
     private $requeteJourDebut = "select jsonDateDebut();";
+    private $requeteJourQuarts = "select jsonDateQuarts();";
     private $requeteJourFin = " select jsonDateFin();";
 
     public function __construct(private \PDO $pdo){
     }
 
+
+    public function getJourQuarts(): array {
+	$reponse = $this->pdo->prepare($this->requeteJourDebut);
+	$reponse->execute();
+	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
+	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
+	//return ['liste' => $liste];
+	return $liste[0];
+    }
+
+    
     public function getJourDebut(): array {
 	$reponse = $this->pdo->prepare($this->requeteJourDebut);
 	$reponse->execute();

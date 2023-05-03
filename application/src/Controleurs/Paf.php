@@ -8,29 +8,34 @@ class Paf {
     use \Controleurs\OutilsControleurs;
 
     private $vue;
-    private $requete = "select jsonSerieGenrePaf(:serie,:genre) as resultat;";
-    private $requeteListe = "select jsonSerieGenrePaf(:serie, :genre) as resultat";
-    private $requeteTraitement = "call boolRegularisationParticipation(:equipeId);";
-    private array $donnees;
+    //private $requete = "select jsonSerieGenrePaf(:serie,:genre) as resultat;";
+    //private $requeteListe = "select jsonSerieGenrePaf(:serie, :genre) as resultat";
+    //private $requeteTraitement = "call boolRegularisationParticipation(:equipeId);";
+    //private array $donnees;
 
     private $modele;
     
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="PAF"){
 
-	if(!isset($_SESSION['series'])){
-	    $_SESSION['series'] = $this->getJson($this->pdo, 'select jsonSeries();');
-	}
+	/* if(!isset($_SESSION['series'])){
+	   $_SESSION['series'] = $this->getJson($this->pdo, 'select jsonSeries();');
+	   }
 
-	if(!isset($_SESSION['genres'])){
-	    $_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
+	   if(!isset($_SESSION['genres'])){
+	   $_SESSION['genres'] = $this->getJson($this->pdo, 'select jsonGenres();');
+	   } */
+
+	if(empty($_SESSION['paf']['serie']) || empty($_SESSION['paf']['genre'])){
+	    $_SESSION['paf']['serie'] = 0;
+	    $_SESSION['paf']['genre'] = 0;
 	}
 	
 	$this->modele = new \Modeles\Paf($this->pdo);
-	echo "Nombre => " . $this->modele->nombreEquipePaf();
+	echo "Nombre => " . $this->modele->nombreEquipePaf() . PHP_EOL;
 	
 	$this->vue = new \Vues\Paf($this->titre);
-	$this->donnees = [];
+	//$this->donnees = [];
 
 	//echo "-1 => " . $this->modele->regularisation(-1);
 
@@ -39,7 +44,8 @@ class Paf {
 
 
     public function regularisation(array $envoi){
-	//var_dump($_POST);
+	//echo "regularisation " . PHP_EOL;
+	//var_dump($envoi);
 	//$parametres = [];
 	//parse_str($envoi[0], $parametres);
 	//echo "regularisation => ";
@@ -66,9 +72,22 @@ class Paf {
 	//$serie_ = !empty($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  2;
 	//$genre_ = !empty($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 2;
 
+
+	//$serie_ = !empty($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  2;
+	//$genre_ = !empty($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 2;
+
+	
+	//$serie_ = $_SESSION['paf']['serie'];
+	//$genre_ = $_SESSION['paf']['genre'];
+
+	//$_SESSION['paf']['serie'] = $_POST['paf']['serie'];
+	//$_SESSION['paf']['genre'] = $_POST['paf']['genre'];
+	
 	$serie_ = $_SESSION['paf']['serie'];
 	$genre_ = $_SESSION['paf']['genre'];
 
+
+	
 	$valeur = $this->queDesChiffres($_SESSION['parametres'][0]);
 	$this->modele->regularisation($valeur);
 
@@ -94,21 +113,24 @@ class Paf {
 	//$serie_ = isset($_POST['paf']['serie']) ? intval($_POST['paf']['serie']) :  0;
 	//$genre_ = isset($_POST['paf']['genre']) ? intval($_POST['paf']['genre']) : 0;
 
-	$serie_ = $_SESSION['paf']['serie'] = intval($_POST['paf']['serie']);
-	$genre_ = $_SESSION['paf']['genre'] = intval($_POST['paf']['genre']);
+
 	
-	$valeurs = [':serie' => $serie_, ':genre' => $genre_];
-	$reponse = $this->pdo->prepare($this->requeteListe);
-	$reponse->execute($valeurs);
-	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
-	//$liste = json_decode(array_values($retour_[0])[0], true);
-	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
-	$retour = ['liste' => $liste];
+	$serie_ = $_SESSION['paf']['serie'] = $_POST['paf']['serie'];
+	$genre_ = $_SESSION['paf']['genre'] = $_POST['paf']['genre'];
+	/*
+	   echo "traitement =>  ";
+	   echo "$serie_ $genre_";
 
-	//header('Location: /paf');
-	//$this->vue->affichage($retour);
+	   
+	   $valeurs = [':serie' => $serie_, ':genre' => $genre_];
+	   $reponse = $this->pdo->prepare($this->requeteListe);
+	   $reponse->execute($valeurs);
+	   $retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
+	   $liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
+	   $retour = ['liste' => $liste];
 
-	$aAfficher = $this->modele->traitement($serie_, $genre_);
+	 */
+	$aAfficher = $this->modele->traitement(intval($serie_), intval($genre_));
 	$this->vue->affichage($aAfficher);
 	
 	//$this->vue->affichageListe($liste);

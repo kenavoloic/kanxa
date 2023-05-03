@@ -19,102 +19,100 @@ class PeriodeCalendaire {
 
     // Periodecalendaire -> CreneauCalendaire -> CreneauHoraire
     public function __construct(private JourCalendaire $debut, private JourCalendaire $fin){
-	$this->nombreJours = ($this->fin->getNumeroJour() - $this->debut->getNumeroJour());
-	$this->copie = new JourCalendaire($this->debut->getAnnee(), $this->debut->getMois(), $this->debut->getJour());
-	$this->listeJours = $this->_getListeNomsJour($this->copie, $this->debut->getNumeroJour(), $this->fin->getNumeroJour());
-	$this->joursSemaine = $this->_joursSemaine($this->listeJours);
-	$this->joursWeekend = $this->_joursWeekend($this->listeJours);	
+        $this->nombreJours = ($this->fin->getNumeroJour() - $this->debut->getNumeroJour());
+        $this->copie = new JourCalendaire($this->debut->getAnnee(), $this->debut->getMois(), $this->debut->getJour());
+        $this->listeJours = $this->_getListeNomsJour($this->copie, $this->debut->getNumeroJour(), $this->fin->getNumeroJour());
+        $this->joursSemaine = $this->_joursSemaine($this->listeJours);
+        $this->joursWeekend = $this->_joursWeekend($this->listeJours);	
     }
 
     public function getNombreCreneauxDisponibles(): int {
-	return 0;
+        return 0;
     }
 
     public function getCreneauxDisponibles(): array {
-	return [];
+        return [];
     }
     
 
     public function getNombreCreneauxReserves(): int {
-	return tous;
+        return tous;
     }
 
     public function getCreneauxReserves(): array {
-	return [];
+        return [];
     }
-    
-    
 
     public function getNombreJours(): int {
-	return $this->nombreJours;
+        return $this->nombreJours;
     }
 
     public function getNombreJoursSemaine(): int {
-	return count($this->joursSemaine());
+        return count($this->joursSemaine());
     }
 
     public function getNombreJoursWeekend(): int {
-	return count($this->joursWeekend);
+        return count($this->joursWeekend);
     }
     
     public function getListeNomsJour(): array {
-	return $this->listeJours;
+        return $this->listeJours;
     }
 
     public function getJoursSemaine(): array{
-	return $this->joursSemaine;
+        return $this->joursSemaine;
     }
 
     public function getJoursWeekend(): array {
-	return $this->joursWeekend;
+        return $this->joursWeekend;
     }
 
     private function _joursWeekend(array $envoi): array {
-	return array_filter($envoi, function($x) { return preg_match('/samedi|dimanche/', $x['nomJour']);});
+        return array_filter($envoi, function($x) { return preg_match('/samedi|dimanche/', $x['nomJour']);});
     }
 
     private function _joursSemaine(array $envoi): array {
-	return array_filter($envoi, function($x) { return !preg_match('/samedi|dimanche/', $x['nomJour']);});
+        return array_filter($envoi, function($x) { return !preg_match('/samedi|dimanche/', $x['nomJour']);});
     }
 
     private function _getListeNomsJour(JourCalendaire $envoi, int $debut, int $fin): array{
-	// fonction lambda locale à cette méthode
-	$lambda = function(JourCalendaire $j){
-	    return function() use ($j){
-		$j->plusUnJour();
-		return ['nomJour' => $j->getNomJour(),
-			'numeroJour' => $j->getNumeroJour(),
-			'jj' => $j->getJour(),
-			'mm' => $j->getMois(),
-			'mois' => $j->getNomMois(),
-			'aaaa' => $j->getAnnee()];
-	    };
-	};
+        // fonction lambda locale à cette méthode
+        $lambda = function(JourCalendaire $j){
+            return function() use ($j){
+                $j->plusUnJour();
+                return ['nomJour' => $j->getNomJour(),
+                        'numeroJour' => $j->getNumeroJour(),
+                        'jj' => $j->getJour(),
+                        'mm' => $j->getMois(),
+                        'mois' => $j->getNomMois(),
+                        'aaaa' => $j->getAnnee()];
+            };
+        };
 
-	$mu = $lambda($envoi);
+        $mu = $lambda($envoi);
 	
-	$retour = array_map($mu, range($debut, $fin));
-	return $retour;
+        $retour = array_map($mu, range($debut, $fin));
+        return $retour;
     }
     
     public function getNomPremierJour(): string{
-	return $this->debut->getNomJour();
+        return $this->debut->getNomJour();
     }
 
     public function getNumeroPremierJour(): int {
-	return $this->debut->getNumeroJour();
+        return $this->debut->getNumeroJour();
     }
 
     public function getNomDernierJour(): string{
-	return $this->fin->getNomJour();
+        return $this->fin->getNomJour();
     }
 
     public function getNumeroDernierJour(): int {
-	return $this->fin->getNomJour();
+        return $this->fin->getNomJour();
     }
 
     public function __toString(): string {
-	return "$this->nombreJours";
+        return "$this->nombreJours";
     }
     
 }

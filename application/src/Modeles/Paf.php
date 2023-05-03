@@ -41,7 +41,7 @@ class Paf {
 	//echo "traitement modele => ";
 	//var_dump($retour_);
 	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
-	$retour = ['liste' => $liste, 'serie'=> $serie, 'genre' => $genre];
+	$retour = ['liste' => $liste, 'series'=> $serie, 'genres' => $genre];
 
 	return $retour;
 	//header('Location: /paf');
