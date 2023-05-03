@@ -12,7 +12,6 @@ DROP FUNCTION IF EXISTS jsonDateDebut;
 DROP FUNCTION IF EXISTS jsonDateFin;
 DROP FUNCTION IF EXISTS jsonDateQuarts;
 
-
 DROP FUNCTION IF EXISTS jsonEquipeId;
 DROP FUNCTION IF EXISTS jsonEquipeIdNom;
 DROP FUNCTION IF EXISTS jsonEquipeComplete;
@@ -23,9 +22,6 @@ DROP FUNCTION IF EXISTS jsonGenreSerie;
 DROP FUNCTION IF EXISTS jsonSeries;
 DROP FUNCTION IF EXISTS jsonGenres;
 
-
-
-
 DROP FUNCTION IF EXISTS intNombreEquipe;
 DROP FUNCTION IF EXISTS intNombreEquipePaf;
 DROP FUNCTION IF EXISTS intNombreEquipeSerieGenre;
@@ -34,6 +30,7 @@ DROP FUNCTION IF EXISTS intNombreEquipeSerieGenreAvecPoule;
 
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreSansPoule;
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreAvecPoule;
+DROP FUNCTION IF EXISTS jsonBilanPaf;
 DROP FUNCTION IF EXISTS jsonSerieGenrePaf;
 
 DROP FUNCTION IF EXISTS intTournoiId;
@@ -126,6 +123,35 @@ SET nombre = (SELECT count(*) FROM planning WHERE libre_p = 0);
 IF nombre > 0 THEN
 SET retour = 0;
 END IF;
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonBilanPaf() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- bilan pour paf :
+-- aj <=> à jour de la paf
+-- r <=> en retard de paiement
+BEGIN
+DECLARE retour JSON;
+SET @aJour = (SELECT COUNT(*) FROM equipes WHERE paf_p = 1);
+SET @enRetard = (SELECT COUNT(*) FROM equipes WHERE paf_p = 0);
+
+SET @aj11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND paf_p = 1);
+SET @aj12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND paf_p = 1);
+SET @aj21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND paf_p = 1);
+SET @aj22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND paf_p = 1);
+SET @aj31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND paf_p = 1);
+SET @aj32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND paf_p = 1);
+
+SET @r11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND paf_p = 0);
+SET @r12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND paf_p = 0);
+SET @r21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND paf_p = 0);
+SET @r22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND paf_p = 0);
+SET @r31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND paf_p = 0);
+SET @r32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND paf_p = 0);
+
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('ajour', @aJour, 'retard', @enRetard,'aj11', @aj11, 'r11', @r11,'aj12', @aj12, 'r12', @r12,'aj21', @aj21, 'r21', @r21,'aj22', @aj22, 'r22', @r22,'aj31', @aj31, 'r31', @r31,'aj32', @aj32, 'r32', @r32)));
 RETURN retour;
 END;
 $$

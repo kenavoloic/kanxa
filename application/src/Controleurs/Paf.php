@@ -14,6 +14,7 @@ class Paf {
     //private array $donnees;
 
     private $modele;
+    private $bilan;
     
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="PAF"){
@@ -33,7 +34,7 @@ class Paf {
 	
 	$this->modele = new \Modeles\Paf($this->pdo);
 	echo "Nombre => " . $this->modele->nombreEquipePaf() . PHP_EOL;
-	
+	$this->bilan = $this->modele->getBilan();
 	$this->vue = new \Vues\Paf($this->titre);
 	//$this->donnees = [];
 
@@ -158,7 +159,8 @@ class Paf {
     }
 
     public function index(array $envoi): void {
-	$this->vue->affichage(['titre' => $this->titre]);
+	//var_dump($this->bilan);
+	$this->vue->affichage(['titre' => $this->titre, 'bilan' => $this->bilan]);
     }
     
 

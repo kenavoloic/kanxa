@@ -102,6 +102,11 @@ class Paf {
 
 
 	//echo "<select>".implode("\n", $this->getSelectSeries(1))."</select>";
+
+	if(!empty($envoi['bilan'])){
+	    var_dump($envoi['bilan']);
+	}
+	
 	
 	if(!empty($envoi['liste'])){
 	    //echo '<form class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</form>';
