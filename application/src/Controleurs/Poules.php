@@ -15,7 +15,6 @@ class Poules {
 	    $_SESSION['poules']['serie'] = 0;
 	    $_SESSION['poules']['genre'] = 0;
 	}
-	
 
 	$this->vue = new \Vues\Poules($this->titre);
 	$this->modele = new \Modeles\Poules($this->pdo);
@@ -38,15 +37,20 @@ class Poules {
 	//var_dump($envoi);
 	//var_dump($_POST['liste']);
 	$chaine = $_POST['liste'];
-	$nettoyee = preg_replace('/[^0-9,:]/', '', $chaine);
+	//$poule = $_POST['poule'];
+	
+	$nettoyee = preg_replace('/[^0-9,:@|]/', '', $chaine);
+	//$parties = explode('@', $nettoyee);
+	
 	$this->modele->constitutionPoules($nettoyee);
+	//var_dump($parties);
 
 	$serie_ = $_SESSION['poules']['serie'];
 	$genre_ = $_SESSION['poules']['genre'];
 	
 	$liste = $this->modele->getJsonEquipeIdSouhait(intval($serie_), intval($genre_));
-	//$this->vue->affichage($liste);
-	var_dump($liste);
+	$this->vue->affichage($liste);
+	//var_dump($liste);
 
 	//$decoupee = explode(',', $nettoyee);
 	//var_dump($decoupee);

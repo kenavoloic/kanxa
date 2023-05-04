@@ -156,6 +156,15 @@ RETURN retour;
 END;
 $$
 
+
+DELIMITER $$
+CREATE FUNCTION jsonBilanPoules() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+
+END;
+$$
+
 DELIMITER $$
 CREATE FUNCTION jsonDateDebut() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1

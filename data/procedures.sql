@@ -15,6 +15,8 @@ DROP PROCEDURE IF EXISTS booleenAjoutTournoiId;
 DROP PROCEDURE IF EXISTS boolRegularisationParticipation;
 DROP PROCEDURE IF EXISTS constitutionPoules;
 
+DROP PROCEDURE IF EXISTS constitutionPoulesAttributionPouleId;
+
 DELIMITER $$
 CREATE PROCEDURE creationTournoi(IN _serie INT, IN _genre INT)
 BEGIN
@@ -362,5 +364,65 @@ END WHILE;
 
 DEALLOCATE PREPARE requete;
 
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE constitutionPoulesAttributionPouleId(IN chaine LONGTEXT)
+-- le format est le suivant 3 parties, délimiteur : '@'
+-- partie1 : délimiteur ','
+-- partie2 : deux délimiteurs : ',' et ':'
+-- partie3 : trois délimiteurs : '|', ':' et ','
+-- exemple : 1,1@1:6,1:8,1:11,1:28,2:34,2:42,2:47,2:56,3:57,3:62,3:66,3:68,4:77,4:89,4:90,4:91@1:6,8,11,28|2:34,42,47,56|3:57,62,66,68|4:77,89,90,91
+BEGIN
+DECLARE filtreChaine VARCHAR(100) DEFAULT '^[0-9,:|@]+$';
+
+SET @virgule = ",";
+SET @deuxPoints = ":";
+SET @arrowbase = "@";
+SET @barre = "|";
+
+PREPARE requete FROM 'UPDATE equipes SET poule = ? WHERE equipeId = ?;';
+
+IF chaine REGEXP filtreChaine THEN
+SET @partie1 = (SELECT SUBSTRING_INDEX(chaine, @arrowbase, 1));
+SET @partie2 = (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(chaine, @arrowbase, -2), @arrowbase, 1));
+SET @partie3 = (SELECT SUBSTRING_INDEX(chaine, @arrowbase, -1));
+
+SET @serie = (SELECT SUBSTRING_INDEX(@partie1, @virgule, 1));
+SET @genre = (SELECT SUBSTRING_INDEX(@partie1, @virgule, -1));
+
+-- constitutions des poules
+WHILE CHAR_LENGTH(@partie2) > 0 DO
+SET @morceau = SUBSTRING_INDEX(@partie2, @virgule, 1);
+SET @partie2 = SUBSTRING(@partie2, CHAR_LENGTH(@morceau) + CHAR_LENGTH(@virgule) + 1);
+SET @_poule = SUBSTRING_INDEX(@morceau, @deuxPoints, 1);
+SET @_equipeId = SUBSTRING_INDEX(@morceau, @deuxPoints, -1);
+
+EXECUTE requete USING @_poule, @_equipeId;
+END WHILE;
+
+-- attibution pouleId
+-- @1:6,8,11,28|2:34,42,47,56|3:57,62,66,68|4:77,89,90,91
+WHILE CHAR_LENGTH(@partie3) > 0 DO
+
+SET @morceau = SUBSTRING_INDEX(@partie3, @barre, 1);
+SET @partie3 = SUBSTRING(@partie3, CHAR_LENGTH(@morceau) + CHAR_LENGTH(@barre) + 1);
+
+SET @poule = SUBSTRING_INDEX(@morceau, @deuxPoints, 1);
+SET @liste = SUBSTRING_INDEX(@morceau, @deuxPoints, -1);
+
+SET @id1 = SUBSTRING_INDEX(@liste, @virgule, 1);
+SET @id2 = SUBSTRING_INDEX(SUBSTRING_INDEX(@liste, @virgule, 2), @virgule, -1);
+SET @id3 = SUBSTRING_INDEX(SUBSTRING_INDEX(@liste, @virgule, -2), @virgule, 1);
+SET @id4 = SUBSTRING_INDEX(@liste, @virgule, -1);
+
+CALL booleenCreationPoule(@serie, @genre, @poule, @id1, @id2, @id3, @id4);
+END WHILE;
+
+-- SELECT @serie;
+END IF;
+
+DEALLOCATE PREPARE requete;
 END;
 $$

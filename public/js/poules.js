@@ -116,15 +116,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const validationPoules = document.querySelector("#brassageEffectue").addEventListener('click', (e) => {
 	let total = equipesInscrites.size;
 	let valeurs = [...equipesInscrites.values()].filter(x => x!== "");
+	let serie = document.querySelector('#serie').value;
+	let genre = document.querySelector('#genre').value;
 	//console.log(valeurs, total);
 	if(valeurs.length === total){
 	    //console.log("Sauvegarde possible");
 	    //return;
-	    let p1 = [...document.querySelectorAll('#p1 > .ligne')].map(x => `1:${x.id}`);
-	    let p2 = [...document.querySelectorAll('#p2 > .ligne')].map(x => `2:${x.id}`);
-	    let p3 = [...document.querySelectorAll('#p3 > .ligne')].map(x => `3:${x.id}`);
-	    let p4 = [...document.querySelectorAll('#p4 > .ligne')].map(x => `4:${x.id}`);
-	    let retour = [...p1, ...p2, ...p3, ...p4];
+	    //let p1 = [...document.querySelectorAll('#p1 > .ligne')].map(x => `1:${x.id}`);
+	    //let p2 = [...document.querySelectorAll('#p2 > .ligne')].map(x => `2:${x.id}`);
+	    //let p3 = [...document.querySelectorAll('#p3 > .ligne')].map(x => `3:${x.id}`);
+	    //let p4 = [...document.querySelectorAll('#p4 > .ligne')].map(x => `4:${x.id}`);
+	    let _p1 = document.querySelectorAll('#p1 > .ligne');
+	    let _p2 = document.querySelectorAll('#p2 > .ligne');
+	    let _p3 = document.querySelectorAll('#p3 > .ligne');
+	    let _p4 = document.querySelectorAll('#p4 > .ligne');
+
+	    let p1 = [..._p1].map(x => `1:${x.id}`);
+	    let p2 = [..._p2].map(x => `2:${x.id}`);
+	    let p3 = [..._p3].map(x => `3:${x.id}`);
+	    let p4 = [..._p4].map(x => `4:${x.id}`);
+	    
+	    let r1 = [...p1, ...p2, ...p3, ...p4];
+	    
+	    let rp1 = `1:${[..._p1].map(x => x.id).join(',')}`;
+	    let rp2 = `2:${[..._p2].map(x => x.id).join(',')}`;
+	    let rp3 = `3:${[..._p3].map(x => x.id).join(',')}`;
+	    let rp4 = `4:${[..._p4].map(x => x.id).join(',')}`;
+	    let r2 = [rp1, rp2, rp3, rp4].join('|');
+
+	    let retour = `${serie},${genre}@${r1}@${r2}`;
+	    //console.log(retour);
+	    
 	    let fd = new FormData();
 	    fd.append('liste', retour);
 
