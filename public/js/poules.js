@@ -52,103 +52,92 @@ document.addEventListener('DOMContentLoaded', () => {
     //console.log([...equipesInscrites.keys()], [...equipesInscrites.values()]);
 
     if(document.querySelector('#equipes')){
-    const equipes = document.querySelector('#equipes').addEventListener('click', (e) => {
+	const equipes = document.querySelector('#equipes').addEventListener('click', (e) => {
 
-	if(e.srcElement.tagName === 'BUTTON'){
-	    let idParent = e.srcElement.parentElement.parentElement.id;
-	    let souhait = `#${idParent} span`;
-
-	    //console.log(idParent);
-
-	    //La div list est retirée du parent 
-	    let ligneSupprimee = document.getElementById(idParent);
-	    ligneSupprimee.remove();
-
-	    //retrait de la div.liste de la ligne supprimée
-	    //ajout à celle-ci d'un nouvel élément
-	    ligneSupprimee.querySelector('div.liste').remove();
-	    //console.log('ligne 73 => ',e.srcElement.ClassName);
-	    ligneSupprimee.append(couleurUnique(e.srcElement.className));
-	    
-	    //Ajout dans l'article correspondant à liste.get(e.srcElement.className) :
-	    // p1, p2, p3 ou p4
-	    //console.log(idParent, liste.get(e.srcElement.className));
-	    //tri.push({poule:liste.get(e.srcElement.className), id: idParent});
-	    //console.log(idParent);
-	    if(equipesInscrites.has(idParent)){
-		//equipesInscrites.set(equipesInscrites.get(idParent), "${liste.get(e.srcElement.className)}");
-		equipesInscrites.set(idParent, liste.get(e.srcElement.className));
-	    }
-
-	    let valeurs = [...equipesInscrites.values()].filter(x => x!= "");
-	    //console.log(valeurs, equipesInscrites.size);
-	    if(valeurs.length === equipesInscrites.size){
-		//console.log("Brassage effectué ligne 86");
-		document.querySelector("#brassageEffectue").setAttribute('class','sauvegardePossible');
-		document.querySelector("#brassageEffectue").disabled = false;
-		//document.querySelector("#brassageEffectue").addEventListener('click', (e) => validationPoules(valeurs, equipesInscrites));
-		let t = equipesInscrites.entries();
-		//console.log([...t]);
-	    }
-	    document.getElementById(liste.get(e.srcElement.className)).appendChild(ligneSupprimee);
-	}
-    });
-
-    const poules = document.querySelectorAll('.depot').forEach(poule => {
-	poule.addEventListener('click', (e) => {
 	    if(e.srcElement.tagName === 'BUTTON'){
 		let idParent = e.srcElement.parentElement.parentElement.id;
 		let souhait = `#${idParent} span`;
 
+		//La div list est retirée du parent 
 		let ligneSupprimee = document.getElementById(idParent);
-		ligneSupprimee.querySelector('div.liste').remove();
-		ligneSupprimee.append(listeBoutons());
+		ligneSupprimee.remove();
 
+		//retrait de la div.liste de la ligne supprimée
+		//ajout à celle-ci d'un nouvel élément
+		ligneSupprimee.querySelector('div.liste').remove();
+
+		ligneSupprimee.append(couleurUnique(e.srcElement.className));
+		
+		//Ajout dans l'article correspondant à liste.get(e.srcElement.className) :
+		// p1, p2, p3 ou p4
+		//console.log(idParent, liste.get(e.srcElement.className));
+		//tri.push({poule:liste.get(e.srcElement.className), id: idParent});
+		//console.log(idParent);
 		if(equipesInscrites.has(idParent)){
-		    equipesInscrites.set(idParent, "");
+		    equipesInscrites.set(idParent, liste.get(e.srcElement.className));
 		}
-		//console.log('Sortie ', equipesInscrites);
-		document.getElementById('equipes').append(ligneSupprimee);
+
+		let valeurs = [...equipesInscrites.values()].filter(x => x!= "");
+
+		if(valeurs.length === equipesInscrites.size){
+		    //console.log("Brassage effectué ligne 86");
+		    document.querySelector("#brassageEffectue").setAttribute('class','sauvegardePossible');
+		    document.querySelector("#brassageEffectue").disabled = false;
+		    //document.querySelector("#brassageEffectue").addEventListener('click', (e) => validationPoules(valeurs, equipesInscrites));
+		    let t = equipesInscrites.entries();
+		    //console.log([...t]);
+		}
+		document.getElementById(liste.get(e.srcElement.className)).appendChild(ligneSupprimee);
 	    }
 	});
-    });
 
-    const validationPoules = document.querySelector("#brassageEffectue").addEventListener('click', (e) => {
-	let total = equipesInscrites.size;
-	let valeurs = [...equipesInscrites.values()].filter(x => x!== "");
-	let serie = document.querySelector('#serie').value;
-	let genre = document.querySelector('#genre').value;
-	//console.log(valeurs, total);
-	if(valeurs.length === total){
-	    //console.log("Sauvegarde possible");
-	    //return;
-	    //let p1 = [...document.querySelectorAll('#p1 > .ligne')].map(x => `1:${x.id}`);
-	    //let p2 = [...document.querySelectorAll('#p2 > .ligne')].map(x => `2:${x.id}`);
-	    //let p3 = [...document.querySelectorAll('#p3 > .ligne')].map(x => `3:${x.id}`);
-	    //let p4 = [...document.querySelectorAll('#p4 > .ligne')].map(x => `4:${x.id}`);
-	    let _p1 = document.querySelectorAll('#p1 > .ligne');
-	    let _p2 = document.querySelectorAll('#p2 > .ligne');
-	    let _p3 = document.querySelectorAll('#p3 > .ligne');
-	    let _p4 = document.querySelectorAll('#p4 > .ligne');
+	const poules = document.querySelectorAll('.depot').forEach(poule => {
+	    poule.addEventListener('click', (e) => {
+		if(e.srcElement.tagName === 'BUTTON'){
+		    let idParent = e.srcElement.parentElement.parentElement.id;
+		    let souhait = `#${idParent} span`;
 
-	    let p1 = [..._p1].map(x => `1:${x.id}`);
-	    let p2 = [..._p2].map(x => `2:${x.id}`);
-	    let p3 = [..._p3].map(x => `3:${x.id}`);
-	    let p4 = [..._p4].map(x => `4:${x.id}`);
-	    
-	    let r1 = [...p1, ...p2, ...p3, ...p4];
-	    
-	    let rp1 = `1:${[..._p1].map(x => x.id).join(',')}`;
-	    let rp2 = `2:${[..._p2].map(x => x.id).join(',')}`;
-	    let rp3 = `3:${[..._p3].map(x => x.id).join(',')}`;
-	    let rp4 = `4:${[..._p4].map(x => x.id).join(',')}`;
-	    let r2 = [rp1, rp2, rp3, rp4].join('|');
+		    let ligneSupprimee = document.getElementById(idParent);
+		    ligneSupprimee.querySelector('div.liste').remove();
+		    ligneSupprimee.append(listeBoutons());
 
-	    let retour = `${serie},${genre}@${r1}@${r2}`;
-	    //console.log(retour);
-	    
-	    let fd = new FormData();
-	    fd.append('liste', retour);
+		    if(equipesInscrites.has(idParent)){
+			equipesInscrites.set(idParent, "");
+		    }
+		    document.getElementById('equipes').append(ligneSupprimee);
+		}
+	    });
+	});
+
+	const validationPoules = document.querySelector("#brassageEffectue").addEventListener('click', (e) => {
+	    let total = equipesInscrites.size;
+	    let valeurs = [...equipesInscrites.values()].filter(x => x!== "");
+	    let serie = document.querySelector('#serie').value;
+	    let genre = document.querySelector('#genre').value;
+
+	    if(valeurs.length === total){
+		let _p1 = document.querySelectorAll('#p1 > .ligne');
+		let _p2 = document.querySelectorAll('#p2 > .ligne');
+		let _p3 = document.querySelectorAll('#p3 > .ligne');
+		let _p4 = document.querySelectorAll('#p4 > .ligne');
+
+		let p1 = [..._p1].map(x => `1:${x.id}`);
+		let p2 = [..._p2].map(x => `2:${x.id}`);
+		let p3 = [..._p3].map(x => `3:${x.id}`);
+		let p4 = [..._p4].map(x => `4:${x.id}`);
+		
+		let r1 = [...p1, ...p2, ...p3, ...p4];
+		
+		let rp1 = `1:${[..._p1].map(x => x.id).join(',')}`;
+		let rp2 = `2:${[..._p2].map(x => x.id).join(',')}`;
+		let rp3 = `3:${[..._p3].map(x => x.id).join(',')}`;
+		let rp4 = `4:${[..._p4].map(x => x.id).join(',')}`;
+		let r2 = [rp1, rp2, rp3, rp4].join('|');
+
+		let retour = `${serie},${genre}@${r1}@${r2}`;
+		
+		let fd = new FormData();
+		fd.append('liste', retour);
 
 	    	fetch('/poules/liste', {
 		    method: 'POST',
@@ -156,14 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		    headers: {"Content-Type": "application/json"},
 		    body: fd
 		});
-	    /* .then(reponse => reponse.json())
-	       .then(reponse => console.log(reponse)); */
-
-	    
-	    //console.log(valeurs);
-	}
-	//alert("Sauvegard impossible");
-	//alert("Sauvegarde impossible, seulement " + valeurs.length + " équipes sur " + total);
-    });
+		/* .then(reponse => reponse.json())
+		   .then(reponse => console.log(reponse)); */
+	    }
+	});
     }
 });

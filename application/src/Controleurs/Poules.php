@@ -8,6 +8,7 @@ class Poules {
     
     private $modele;
     private $vue;
+    private $bilan;
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="Composition des poules"){
 
@@ -18,6 +19,7 @@ class Poules {
 
 	$this->vue = new \Vues\Poules($this->titre);
 	$this->modele = new \Modeles\Poules($this->pdo);
+	$this->bilan = $this->modele->getBilan();
 	$this->$methode($this->parametres);
     }
 
@@ -59,7 +61,9 @@ class Poules {
     
 
     public function index(): void{
-	$this->vue->affichage(['titre' => $this->titre]);
+	var_dump($this->bilan);
+	//$this->vue->affichage(['titre' => $this->titre]);
+	$this->vue->affichage(['titre' => $this->titre, 'bilan' => $this->bilan]);
     }
     
 

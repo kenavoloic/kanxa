@@ -14,6 +14,7 @@ class Poules {
 
     //private $requeteConstitutionPoules = "call constitutionPoules(:chaine);";
     private $requeteConstitutionPoules = "call constitutionPoulesAttributionPouleId(:chaine);";
+    private $requeteBilan = "select jsonBilanPoules();";
 
     public function __construct(private \PDO $pdo){
     }
@@ -79,6 +80,15 @@ class Poules {
 	$reponse->execute();
     }
     
+    public function getBilan(): array {
+        $reponse = $this->pdo->prepare($this->requeteBilan);
+        $reponse->execute();
+        $retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
+        $liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
+        //$retour = ['bilan' => $liste];
+        //var_dump($liste[0]);
+        return $liste[0];
+    }
 
     
     

@@ -31,6 +31,7 @@ DROP FUNCTION IF EXISTS intNombreEquipeSerieGenreAvecPoule;
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreSansPoule;
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreAvecPoule;
 DROP FUNCTION IF EXISTS jsonBilanPaf;
+DROP FUNCTION IF EXISTS jsonBilanPoules;
 DROP FUNCTION IF EXISTS jsonSerieGenrePaf;
 
 DROP FUNCTION IF EXISTS intTournoiId;
@@ -161,7 +162,27 @@ DELIMITER $$
 CREATE FUNCTION jsonBilanPoules() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 BEGIN
 DECLARE retour JSON;
+SET @nombreEquipes = (SELECT COUNT(*) FROM equipes);
+SET @sansPoule = (SELECT COUNT(*) FROM equipes WHERE poule = 0);
+SET @avecPoule = (SELECT COUNT(*) FROM equipes WHERE poule <> 0);
 
+SET @sansPoule11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND poule = 0);
+SET @avecPoule11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND poule <> 0);
+SET @sansPoule12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND poule = 0);
+SET @avecPoule12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND poule <> 0);
+
+SET @sansPoule21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND poule = 0);
+SET @avecPoule21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND poule <> 0);
+SET @sansPoule22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND poule = 0);
+SET @avecPoule22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND poule <> 0);
+
+SET @sansPoule31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND poule = 0);
+SET @avecPoule31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND poule <> 0);
+SET @sansPoule32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND poule = 0);
+SET @avecPoule32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND poule <> 0);
+
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('nombre', @nombreEquipes,'sans',@sansPoule,'avec',@avecPoule,'sans11',@sansPoule11,'avec11',@avecPoule11,'sans12',@sansPoule12,'avec12',@avecPoule12,'sans21',@sansPoule21,'avec21',@avecPoule21,'sans22',@sansPoule22,'avec22',@avecPoule22,'sans31',@sansPoule31,'avec31',@avecPoule31,'sans32',@sansPoule32,'avec32',@avecPoule32)));
+RETURN retour;
 END;
 $$
 
