@@ -61,7 +61,6 @@ class Poules {
     
 
     public function index(): void{
-	var_dump($this->bilan);
 	//$this->vue->affichage(['titre' => $this->titre]);
 	$this->vue->affichage(['titre' => $this->titre, 'bilan' => $this->bilan]);
     }

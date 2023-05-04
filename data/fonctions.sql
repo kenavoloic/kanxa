@@ -135,6 +135,7 @@ CREATE FUNCTION jsonBilanPaf() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- r <=> en retard de paiement
 BEGIN
 DECLARE retour JSON;
+SET @nombre = (SELECT COUNT(*) FROM equipes);
 SET @aJour = (SELECT COUNT(*) FROM equipes WHERE paf_p = 1);
 SET @enRetard = (SELECT COUNT(*) FROM equipes WHERE paf_p = 0);
 
@@ -152,7 +153,7 @@ SET @r22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND paf_p = 0
 SET @r31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND paf_p = 0);
 SET @r32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND paf_p = 0);
 
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('ajour', @aJour, 'retard', @enRetard,'aj11', @aj11, 'r11', @r11,'aj12', @aj12, 'r12', @r12,'aj21', @aj21, 'r21', @r21,'aj22', @aj22, 'r22', @r22,'aj31', @aj31, 'r31', @r31,'aj32', @aj32, 'r32', @r32)));
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('nombre',@nombre,'ajour', @aJour, 'retard', @enRetard,'aj11', @aj11, 'r11', @r11,'aj12', @aj12, 'r12', @r12,'aj21', @aj21, 'r21', @r21,'aj22', @aj22, 'r22', @r22,'aj31', @aj31, 'r31', @r31,'aj32', @aj32, 'r32', @r32)));
 RETURN retour;
 END;
 $$

@@ -41,6 +41,12 @@ class Poules {
 	 */
 	echo '<main id="brassage">' . PHP_EOL;
 	echo $this->getComposantTableau('poulesSelecteurs', $tableau);
+
+	if(!empty($envoi['bilan'])){
+	    echo $this->getComposantTableau('poulesBilan', $envoi['bilan']);
+	    //var_dump($envoi);
+	}
+	
 	
 	if(!empty($envoi['liste'])){
 	    echo $this->getComposant('boutonInvisible');
