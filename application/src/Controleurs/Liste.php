@@ -24,11 +24,13 @@ class Liste {
 
     public function equipes(?array $envoi): void {
 
-	$_SESSION['liste']['serie'] = $_POST['liste']['serie'];
-	$_SESSION['liste']['genre'] = $_POST['liste']['genre'];
+	//$_SESSION['liste']['serie'] = $_POST['liste']['serie'];
+	//$_SESSION['liste']['genre'] = $_POST['liste']['genre'];
 	
 	$serie_ = $_SESSION['liste']['serie'];
 	$genre_ = $_SESSION['liste']['genre'];
+	$serie_ = $_POST['serie'];
+	$genre_ = $_POST['genre'];
 	
 	$liste = $this->modele->getEquipes(intval($serie_), intval($genre_));
 	$this->vue->affichage($liste);

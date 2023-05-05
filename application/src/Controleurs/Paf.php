@@ -33,7 +33,6 @@ class Paf {
 	}
 	
 	$this->modele = new \Modeles\Paf($this->pdo);
-	echo "Nombre => " . $this->modele->nombreEquipePaf() . PHP_EOL;
 	$this->bilan = $this->modele->getBilan();
 	$this->vue = new \Vues\Paf($this->titre);
 	//$this->donnees = [];

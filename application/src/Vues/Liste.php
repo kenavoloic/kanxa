@@ -47,6 +47,8 @@ class Liste {
 	}
 
 	echo '</main>' . PHP_EOL;
+
+	echo $this->getFooterJavaScript('liste');
 	
 	echo $this->getComposant('basdepage');
     }
