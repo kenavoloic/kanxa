@@ -37,7 +37,8 @@ class Liste {
 	}
 
 	echo '<main>' . PHP_EOL;
-	echo $this->getComposantTableau('selecteursVides', $tableau);
+	//echo $this->getComposantTableau('selecteursVides', $tableau);
+	echo $this->getComposantTableau('selecteursSerieGenrePouleVides', $tableau);	
 
 	if(!empty($envoi['liste'])){
 	    $donnees = array_map([$this,'getLigne'], $envoi['liste']);
@@ -45,6 +46,8 @@ class Liste {
 	    echo implode("\n", $donnees);
 	    echo "</article>" . PHP_EOL;
 	}
+
+	echo '<article class="panneau"></article>' . PHP_EOL;
 
 	echo '</main>' . PHP_EOL;
 

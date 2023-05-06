@@ -299,7 +299,7 @@ article.poule#d4 {
 section.poules {
   display: grid;
   gap: 1rem;
-  grid-template-colummns: repeat(auto-fit, min-max(6rem, 1fr)); }
+  grid-template-columns: repeat(auto-fit, min-max(6rem, 1fr)); }
 
 *, *::after, *::before {
   margin: 0;

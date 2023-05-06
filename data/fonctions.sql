@@ -21,12 +21,14 @@ DROP FUNCTION IF EXISTS jsonGenreSerie;
 
 DROP FUNCTION IF EXISTS jsonSeries;
 DROP FUNCTION IF EXISTS jsonGenres;
-
+DROP FUNCTION IF EXISTS jsonSerieGenrePoules;
+DROP FUNCTION IF EXISTS jsonListePoule;
 DROP FUNCTION IF EXISTS intNombreEquipe;
 DROP FUNCTION IF EXISTS intNombreEquipePaf;
 DROP FUNCTION IF EXISTS intNombreEquipeSerieGenre;
 DROP FUNCTION IF EXISTS intNombreEquipeSerieGenreSansPoule;
 DROP FUNCTION IF EXISTS intNombreEquipeSerieGenreAvecPoule;
+DROP FUNCTION IF EXISTS intNombrePoule;
 
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreSansPoule;
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreAvecPoule;
@@ -309,6 +311,15 @@ END;
 $$
 
 DELIMITER $$
+CREATE FUNCTION intNombrePoule(_serie INT, _genre INT) RETURNS INT NOT DETERMINISTIC READS SQL DATA
+BEGIN
+DECLARE retour INT DEFAULT 0;
+SET retour = (SELECT COUNT(DISTINCT poule) FROM equipes WHERE serie=_serie AND genre=_genre);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
 CREATE FUNCTION intNombreEquipePaf() RETURNS INT NOT DETERMINISTIC READS SQL DATA
 -- nombre d'équipes ayant réglé la paf
 BEGIN
@@ -361,6 +372,15 @@ END;
 $$
 
 DELIMITER $$
+CREATE FUNCTION jsonListePoule(_serie INT, _genre INT, _poule INT) RETURNS JSON READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'equipeId',equipeId,'poule',poule,'pouleId',pouleId,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2)) FROM equipes WHERE serie=_serie AND genre=_genre AND poule=_poule);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
 CREATE FUNCTION jsonSeries() RETURNS JSON READS SQL DATA
 -- toutes les series de la base
 BEGIN
@@ -380,8 +400,30 @@ RETURN retour;
 END;
 $$
 
+DELIMITER $$
+CREATE FUNCTION jsonSerieGenrePoules(_serie INT, _genre INT) RETURNS JSON READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+-- DECLARE liste LONGTEXT;
+-- SELECT DISTINCT poule INTO liste FROM equipes WHERE serie = _serie AND genre = _genre;
 
-
+-- return liste;
+-- SET retour = (SELECT JSON_OBJECT('poules', liste));
+-- CREATE TEMPORARY TABLE liste (id INT auto_increment primary key, valeur int);
+-- INSERT INTO liste (valeur) (select distinct poule from equipes where serie = _serie and genre = _genre);
+-- SET @liste = JSON_ARRAY(SELECT DISTINCT poule FROM equipes WHERE serie =_serie AND genre = _genre);
+-- SET retour = JSON_OBJECT('poules', (SELECT DISTINCT poule FROM equipes WHERE serie=_serie AND genre=_genre));
+-- SET retour = JSON_ARRAYAGG('poules', @liste);
+-- select json_arrayagg(json_object('poule', poule)) from (select distinct poule from equipes where serie=1 and genre = 1) t;
+-- SET @liste = (SELECT DISTINCT poule FROM equipes WHERE serie = _serie AND genre = _genre);
+-- SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('poule', @liste)));
+-- SET retour = (SELECT DISTINCT poule FROM equipes WHERE serie=_serie AND genre=_genre);
+-- SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('p@liste;
+-- SET retour = (SELECT * from liste);
+-- drop table liste;
+RETURN retour;
+END;
+$$
 
 DELIMITER $$
 CREATE FUNCTION jsonEquipeSerieGenreAvecPoule(_serie INT, _genre INT) RETURNS JSON READS SQL DATA

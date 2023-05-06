@@ -4,24 +4,17 @@ namespace Controleurs;
 
 class Pilota {
 
+    //Classe tranversale pour les requêtes ajax.
+    // Plus simple d'utiliser une classe dédiée.
+
     use \Generiques\Outils;
 
-    private $nombreEquipes = "select intNombreEquipeSerieGenre(:serie,:genre);";
+    private $requeteNombreEquipes = "select intNombreEquipeSerieGenre(:serie,:genre);";
+    private $requeteNombrePoules = "select intNombrePoule(:serie, :genre);";
+    private $requeteListePoule = "select jsonListepoule(:serie, :genre, :poule);";
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="Pilota"){
 	$this->$methode($this->parametres);
-    }
-
-    public function _nombres(array $envoi): string {
-	//var_dump($_POST);
-	var_dump($envoi);
-	$serie = $this->queDesChiffres($envoi[0]);
-	$genre = $this->queDesChiffres($envoi[1]);
-	$nombre = ['nombre' => 10];
-	//return json_encode(10);
-	header('Content-Type: application/json');
-	$retour = json_encode($nombre);
-	return $retour;
     }
 
     public function inscriptions(array $envoi) {
@@ -29,7 +22,7 @@ class Pilota {
 	$genre = $this->queDesChiffres($_POST['genre']) ?? 1; // par défaut, masculin
 
 	$valeurs = [':serie' => $serie, ':genre' => $genre];
-	$reponse = $this->pdo->prepare($this->nombreEquipes);
+	$reponse = $this->pdo->prepare($this->requeteNombreEquipes);
 	$reponse->execute($valeurs);
 	$nombre = $reponse->fetch(\PDO::FETCH_NUM)[0];
 	
@@ -38,6 +31,38 @@ class Pilota {
 	$retour = json_encode($nombre);
 	echo $retour;
     }
+
+    public function liste(array $envoi){
+	$serie_ = $this->queDesChiffres($_POST['listeSerie']);
+	$genre_ = $this->queDesChiffres($_POST['listeGenre']);
+	$serie = intval($serie_);
+	$genre = intval($genre_);
+	$valeurs = [':serie' => $serie, ':genre' => $genre];
+	$reponse = $this->pdo->prepare($this->requeteNombrePoules);
+	$reponse->execute($valeurs);
+	$nombre = $reponse->fetch(\PDO::FETCH_NUM)[0];
+	header('Content-Type: application/json');
+	$retour = json_encode(range(1,$nombre));
+	echo $retour;
+    }
+
+    public function equipes(array $envoi){
+	$serie_ = $this->queDesChiffres($_POST['listeSerie']);
+	$genre_ = $this->queDesChiffres($_POST['listeGenre']);
+	$poule_ = $this->queDesChiffres($_POST['listePoule']);
+	$serie = intval($serie_);
+	$genre = intval($genre_);
+	$poule = intval($poule_);
+	$valeurs = [':serie' => $serie, ':genre' => $genre, ':poule' => $poule];
+	$reponse = $this->pdo->prepare($this->requeteListePoule);
+	$reponse->execute($valeurs);
+	$liste = $reponse->fetch(\PDO::FETCH_NUM)[0];
+	header('Content-Type: application/json');
+	$retour = json_encode($liste);
+	echo $retour;
+    }
+    
+    
 
     public function paf(array $envoi) {
 	//var_dump($envoi);
