@@ -14,11 +14,12 @@ interface Cancha {
 	'score' => ['index'],
 	'generales' => ['index','affichage'],
 	'inscriptions' => ['index', 'ajout', 'liste', 'modification','nombre'],
+	'inscription' => ['index', 'ajout','modification'],
 	'poules' => ['index', 'traitement','liste','composition'],
 	'liste' => ['index', 'equipes'],
 	'planning' => ['index'],
 	'paf' => ['index', 'liste', 'regularisation', 'traitement'],
 	// ajax
-	'pilota' => ['index','nombres','inscriptions','liste','modifier','equipes','paf']
+	'pilota' => ['index','nombres','inscription','inscriptions','liste','modifier','equipes','paf']
     ];
 }

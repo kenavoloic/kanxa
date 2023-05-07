@@ -17,6 +17,22 @@ class Pilota {
 	$this->$methode($this->parametres);
     }
 
+    public function inscription(array $envoi) {
+	$serie = $this->queDesChiffres($_POST['inscriptionSerie']); 
+	$genre = $this->queDesChiffres($_POST['inscriptionGenre']);
+
+	$valeurs = [':serie' => $serie, ':genre' => $genre];
+	$reponse = $this->pdo->prepare($this->requeteNombreEquipes);
+	$reponse->execute($valeurs);
+	$nombre = $reponse->fetch(\PDO::FETCH_NUM)[0];
+	
+	header('Content-Type: application/json');
+	//$nombre = 390;
+	$retour = json_encode($nombre);
+	echo $retour;
+    }
+
+
     public function inscriptions(array $envoi) {
 	$serie = $this->queDesChiffres($_POST['serie']) ?? 1; // par défaut, première série
 	$genre = $this->queDesChiffres($_POST['genre']) ?? 1; // par défaut, masculin

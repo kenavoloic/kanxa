@@ -12,7 +12,7 @@
 	    <li><a href="/liste" title="Liste des équipes">Liste</a></li>
 	    <li><a href="/planning" title="Calendrier des parties">Planning</a></li>
 	    <li><a href="/generales" title="Dates générales du tournoi">Dates</a></li>
-	    <li><a href="/inscriptions" title="Enregistrement des équipes">Inscriptions</a></li>		    
+	    <li><a href="/inscription" title="Enregistrement des équipes">Inscriptions</a></li>		    
 	    <li><a href="/poules" title="Composition des poules">Poules</a></li>
 	    <li><a href="/paf" title="Frais d’inscription">P.A.F.</a></li>
 	</ul>
