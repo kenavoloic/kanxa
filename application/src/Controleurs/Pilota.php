@@ -61,6 +61,10 @@ class Pilota {
 	$retour = json_encode($liste);
 	echo $retour;
     }
+
+    public function modifier(array $envoi){
+    }
+    
     
     
 

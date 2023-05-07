@@ -34,6 +34,7 @@ DROP FUNCTION IF EXISTS jsonEquipeSerieGenreSansPoule;
 DROP FUNCTION IF EXISTS jsonEquipeSerieGenreAvecPoule;
 DROP FUNCTION IF EXISTS jsonBilanPaf;
 DROP FUNCTION IF EXISTS jsonBilanPoules;
+DROP FUNCTION IF EXISTS jsonBilanListe;
 DROP FUNCTION IF EXISTS jsonSerieGenrePaf;
 
 DROP FUNCTION IF EXISTS intTournoiId;
@@ -375,7 +376,7 @@ DELIMITER $$
 CREATE FUNCTION jsonListePoule(_serie INT, _genre INT, _poule INT) RETURNS JSON READS SQL DATA
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'equipeId',equipeId,'poule',poule,'pouleId',pouleId,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2)) FROM equipes WHERE serie=_serie AND genre=_genre AND poule=_poule);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'tournoiId',tournoiId,'equipeId',equipeId,'poule',poule,'pouleId',pouleId,'nom1',nom1,'prenom1',prenom1,'courriel1',lower(courriel1),'licence1',licence1,'mobile1',mobile1,'nom2',nom2,'prenom2',prenom2,'courriel2',lower(courriel2),'licence2',licence2,'mobile2',mobile2)) FROM equipes WHERE serie=_serie AND genre=_genre AND poule=_poule);
 RETURN retour;
 END;
 $$
