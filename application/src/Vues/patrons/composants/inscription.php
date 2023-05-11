@@ -1,23 +1,22 @@
 <main id="inscription">
-    <form class="paire" action="/inscription/ajout" method="post">
+    <form class="paire" action="/inscription/ajout" method="post" novalidate>
 
 	<fieldset>
 	    <legend>Compétition</legend>
+	    <label for="serie">Série</label>
 	    <select id="serie" name="equipe[serie]">
-		<option value="1">Première</option>
-		<option value="2">Deuxième</option>
-		<option value="3">Troisième</option>
+		<?= $tableau['series'] ?>
 	    </select>
 
+	    
+	    <label for="genre">Genre</label>
 	    <select id="genre" name="equipe[genre]">
-		<option value="1">Homme</option>
-		<option value="2">Femme</option>
-		<option value="3" disabled>Mixte</option>
+		<?= $tableau['genres'] ?>
 	    </select>
 
 	    <div class="itemFormulaire">
 		<label id="nombre" for="nombreEquipes">Nombre d’inscriptions</label>
-		<input type="text" id="nombreEquipes" value="<?php if (isset($_SESSION['nombreInitial']) && !empty($_SESSION['nombreInitial'])) { echo $_SESSION['nombreInitial'];} ?>" pattern="[\d]+" disabled />
+		<input type="text" title="Nombre d’équipes inscrites dans cette série" id="nombreEquipes"  pattern="[\d]+" disabled />
 	    </div>
 	    
 	</fieldset>
@@ -25,71 +24,71 @@
 	<fieldset>
 	    <legend>Souhaits</legend>
 	    <div class="groupeRadio">
-		<input type="radio" id="indifferent" name="equipe[souhait]" value="1" pattern="[\d]" checked />
+		<input type="radio"  name="equipe[souhait]" value="1" pattern="[\d]" checked />
 		<label for="indifferent">Indifférent</label>
 	    </div>
 
 	    <div class="grouperadio">
-		<input type="radio" id="semaine" name="equipe[souhait]" value="2" pattern="[\d]"/>
-		<label for="semaine">En semaine uniquement</label>
+		<input type="radio"  name="equipe[souhait]" value="2" pattern="[\d]"/>
+		<label for="semaine">En semaine</label>
 	    </div>
 
 	    <div class="groupeRadio">
-		<input type="radio" id="weekend" name="equipe[souhait]" value="3" pattern="[\d]" />		
-		<label for="weekend">Week-end uniquement</label>
+		<input type="radio"  name="equipe[souhait]" value="3" pattern="[\d]" />		
+		<label for="weekend">Week-end</label>
 	    </div>
 	</fieldset>
 
 	<fieldset>
 	    <legend>Avant</legend>
 	    <label htmlFor="nom1">Nom</label>
-	    <input type="text" id="nom1" name="equipe[nom1]" placeholder="Nom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required/>
+	    <input type="text" id="nom1" name="equipe[nom1]" title="Requis" placeholder="Nom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required/>
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="prenom1">Prénom</label>
-	    <input type="text" id="prenom1" name="equipe[prenom1]" placeholder="Prénom" pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}"  minlength="1" maxlength="255" required/>
+	    <input type="text" id="prenom1" name="equipe[prenom1]" title="Requis" placeholder="Prénom" pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}"  minlength="1" maxlength="255" required/>
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="courriel1">Courriel</label>
-	    <input type="text" id="courriel1" name="equipe[courriel1]" placeholder="Courriel"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required />
+	    <input type="text" id="courriel1" name="equipe[courriel1]" title="Requis" placeholder="Courriel"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required />
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="telephone1">Téléphone</label>
-	    <input type="text" id="telephone1" name="equipe[telephone1]"  placeholder="Téléphone" pattern="[0-9-\s\.:/]{10,15}"  />
+	    <input type="text" id="telephone1" name="equipe[telephone1]"  title="Optionnel" placeholder="Téléphone" pattern="[0-9-\s\.:/]{10,15}"  />
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="licence1">Licence</label>
-	    <input type="text" id="licence1" name="equipe[licence1]" placeholder="Licence" pattern="[A-Z0-9]{8,10}" />
+	    <input type="text" id="licence1" name="equipe[licence1]" title="Optionnel" placeholder="Licence" pattern="[A-Z0-9]{8,10}" />
 	</fieldset>
 
 	<fieldset>
 	    <legend>Arrière</legend>
 	    <label htmlFor="nom2">Nom</label>
-	    <input type="text" id="nom2" name="equipe[nom2]" placeholder="Nom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required />
+	    <input type="text" id="nom2" name="equipe[nom2]" title="Requis" placeholder="Nom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required />
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="prenom2">Prénom</label>
-	    <input type="text" id="prenom2" name="equipe[prenom2]" placeholder="Prénom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required />
+	    <input type="text" id="prenom2" name="equipe[prenom2]" title="Requis" placeholder="Prénom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required />
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="courriel2">Courriel</label>
-	    <input type="text" id="courriel2" name="equipe[courriel2]" placeholder="Courriel"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required />
+	    <input type="text" id="courriel2" name="equipe[courriel2]" title="Requis" placeholder="Courriel"  pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required />
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="telephone2">Téléphone</label>
-	    <input type="phone" id="telephone2" name="equipe[telephone2]"  placeholder="Téléphone" pattern="[0-9-\s\.:/]{10,15}"  />
+	    <input type="phone" id="telephone2" name="equipe[telephone2]"  title="Optionnel" placeholder="Téléphone" pattern="[0-9-\s\.:/]{10,15}"  />
 	</fieldset>
 
 	<fieldset>
 	    <label htmlFor="licence2">Licence</label>
-	    <input type="text" id="licence2" name="equipe[licence2]" placeholder="Licence" pattern="[A-Z0-9]{8,10}" />
+	    <input type="text" id="licence2" name="equipe[licence2]" title="Optionnel" placeholder="Licence" pattern="[A-Z0-9]{8,10}" />
 	</fieldset>
 
 	<fieldset>

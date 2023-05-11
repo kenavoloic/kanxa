@@ -50,7 +50,7 @@ main#inscription form {
   main#inscription form legend {
     font-size: 1.2rem;
     padding: .15rem;
-    color: #cc0000; }
+    color: #CC0000; }
   main#inscription form label {
     font-family: sans-serif;
     font-size: 1.2rem;
@@ -64,11 +64,11 @@ main#inscription form {
     margin-right: .25rem;
     border-radius: 4px; }
   main#inscription form input[type=text]::placeholder, main#inscription form input[type=email]::placeholder, main#inscription form input[type=phone]::placeholder {
-    color: #cc0000;
+    color: #FFFFFF;
     text-align: center; }
   main#inscription form input[type=text]#nombreEquipes, main#inscription form input[type=email]#nombreEquipes, main#inscription form input[type=phone]#nombreEquipes {
     text-align: center;
-    color: #cc0000; }
+    color: #CC0000; }
   main#inscription form button {
     padding: .5rem;
     margin: .25rem;
@@ -76,6 +76,23 @@ main#inscription form {
     main#inscription form button:hover {
       color: #FFFFFF;
       background-color: #0047AB; }
+
+main#inscription select#serie, main#inscription select#genre {
+  padding: .5rem .8rem;
+  color: #FFFFFF;
+  background-color: #CC0000;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  border-radius: 5px; }
+  main#inscription select#serie:focus, main#inscription select#serie:hover, main#inscription select#genre:focus, main#inscription select#genre:hover {
+    outline: none;
+    border: 1px solid #bbbbbb; }
+  main#inscription select#serie.vert, main#inscription select#genre.vert {
+    color: #FFFFFF;
+    background-color: #00CC00; }
+  main#inscription select#serie.rouge, main#inscription select#genre.rouge {
+    color: #FFFFFF;
+    background-color: #CC0000; }
 
 main#brassage {
   background-color: #F28C28;
@@ -299,7 +316,34 @@ article.poule#d4 {
 section.poules {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, min-max(6rem, 1fr)); }
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); }
+
+intput::placeholder {
+  color: #FFFFFF; }
+
+input:invalid {
+  color: #FFFFFF;
+  border: 2px solid  #FF0000; }
+
+input:invalid:required {
+  color: #FFFFFF;
+  background-color: #FF0000; }
+
+input:valid {
+  background-color: #00CC00;
+  border: 2px solid #00CC00; }
+
+.succes {
+  color: #212121;
+  background-color: #FFFFFF; }
+
+.erreur {
+  color: #ffffff;
+  background-color: #990000;
+  border-radius: 0 0 5px 5px; }
+
+.erreur.active {
+  padding: .3em; }
 
 *, *::after, *::before {
   margin: 0;

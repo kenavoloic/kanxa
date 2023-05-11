@@ -1,6 +1,8 @@
 main#inscription{
-    //    font-size: 1.6rem;
-    //    background-color: #71797E;
+
+
+
+    
 
     form {
 	display: flex;
@@ -27,7 +29,7 @@ main#inscription{
 	legend {
 	    font-size: 1.2rem;
 	    padding: .15rem;
-	    color: #cc0000;
+	    color: $gorria;
 	}
 	label {
 	    font-family: sans-serif;
@@ -46,13 +48,13 @@ main#inscription{
 	}
 
 	input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
-	    color: #cc0000;
+	    color: #FFFFFF;//#cc0000;
 	    text-align: center;
 	}
 
 	input[type=text]#nombreEquipes, input[type=email]#nombreEquipes, input[type=phone]#nombreEquipes {
 	    text-align: center;
-	    color: #cc0000;
+	    color: $gorria;
 	}
 
 	button {
@@ -68,4 +70,32 @@ main#inscription{
 	}
 
     }
+    select#serie, select#genre {
+	padding: .5rem .8rem;
+	color: $blanc16;
+	background-color: $gorria;//#CC0000;
+	border: 1px solid #dddddd;
+	cursor: pointer;
+	border-radius: 5px;
+
+	&:focus, &:hover {
+	    outline: none;
+	    border: 1px solid #bbbbbb;
+	    
+	}
+
+	&.vert {
+	    color: #FFFFFF;
+	    background-color: $berdea;//#00CC00;
+	}
+
+	&.rouge {
+	    color: #FFFFFF;
+	    background-color: $gorria;
+	}
+
+	
+
+    }
+
 }

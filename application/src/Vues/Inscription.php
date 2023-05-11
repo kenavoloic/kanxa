@@ -11,7 +11,15 @@ class Inscription {
     }
 
     public function affichage(?array $envoi): void{
-	echo $this->getEntete("Participation aux frais");
+
+	$serie = $_SESSION['inscription']['serie'];
+	$genre = $_SESSION['inscription']['genre'];
+
+	
+	$tableau = [ 'series' => $this->getSeriesOptions(intval($serie)), 'genres' => $this->getGenresOptions(intval($genre))];
+
+	
+	echo $this->getEntete("Inscription");
 
 	if($this->administrateur_p()){
 	    echo $this->getComposant('headerAdministrateur');
@@ -21,7 +29,7 @@ class Inscription {
 	    echo $this->getComposant('headerUtilisateur');
 	}
 
-	echo $this->getComposant('inscription');
+	echo $this->getComposantTableau('inscription', $tableau);
 
 	echo $this->getFooterJavaScript('inscription');
 
