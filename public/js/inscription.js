@@ -67,8 +67,9 @@ const ecouteurs = (e) => {
 
     if(e.target.tagName === 'SELECT' && e.target.selectedIndex == 0){
 	let identifiant = e.target.id;
-	//let options = [...e.target.options];
-	//options.forEach(x => x.classList.remove('vert'));
+	let options = [...e.target.options];
+	options.forEach(x => x.classList.remove('vert'));
+	document.querySelector(`#${identifiant}`).classList.remove('vert');
 	document.querySelector(`#${identifiant}`).classList.add('rouge');
 	sortie.value = "";
     }

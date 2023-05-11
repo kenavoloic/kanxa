@@ -1,9 +1,5 @@
 main#inscription{
 
-
-
-    
-
     form {
 	display: flex;
 	flex-wrap: wrap;
@@ -12,7 +8,7 @@ main#inscription{
 	//background-color: $secondary-color-dark;
 	padding: 1rem;
 	margin: 1rem;
-	border: 2px solid #FFFFFF;
+	border: 2px solid $blanc16;
 	border-radius: 5px;
 
 	fieldset {
@@ -48,7 +44,7 @@ main#inscription{
 	}
 
 	input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
-	    color: #FFFFFF;//#cc0000;
+	    color: $blanc16;//#cc0000;
 	    text-align: center;
 	}
 
@@ -63,7 +59,7 @@ main#inscription{
 	    transition: all .25s ease-in-out;
 
 	    &:hover {
-		color: #FFFFFF;
+		color: $blanc16;
 		background-color: #0047AB;
 	    }
 
@@ -85,13 +81,22 @@ main#inscription{
 	}
 
 	&.vert {
-	    color: #FFFFFF;
+	    color: $blanc16;
 	    background-color: $berdea;//#00CC00;
 	}
 
 	&.rouge {
-	    color: #FFFFFF;
+	    color: $blanc16;
 	    background-color: $gorria;
+	}
+
+	option {
+	    color: $blanc16;
+	    background-color: $gorria;
+
+	    &:checked {
+		background-color: $berdea;
+	    }
 	}
 
 	

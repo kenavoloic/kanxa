@@ -93,6 +93,11 @@ main#inscription select#serie, main#inscription select#genre {
   main#inscription select#serie.rouge, main#inscription select#genre.rouge {
     color: #FFFFFF;
     background-color: #CC0000; }
+  main#inscription select#serie option, main#inscription select#genre option {
+    color: #FFFFFF;
+    background-color: #CC0000; }
+    main#inscription select#serie option:checked, main#inscription select#genre option:checked {
+      background-color: #00CC00; }
 
 main#brassage {
   background-color: #F28C28;
