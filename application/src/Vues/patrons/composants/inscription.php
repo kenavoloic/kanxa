@@ -1,5 +1,5 @@
 <main id="inscription">
-    <form class="paire" action="/inscription/ajout" method="post" novalidate>
+    <form class="paire" action="/inscription/ajout" method="post">
 
 	<fieldset>
 	    <legend>Compétition</legend>
@@ -16,7 +16,7 @@
 
 	    <div class="itemFormulaire">
 		<label id="nombre" for="nombreEquipes">Nombre d’inscriptions</label>
-		<input type="text" title="Nombre d’équipes inscrites dans cette série" id="nombreEquipes"  pattern="[\d]+" disabled />
+		<input type="text" title="Nombre d’équipes inscrites dans cette série" id="nombreEquipes"   disabled />
 	    </div>
 	    
 	</fieldset>
@@ -39,7 +39,7 @@
 	    </div>
 	</fieldset>
 
-	<fieldset>
+  	<fieldset>
 	    <legend>Avant</legend>
 	    <label htmlFor="nom1">Nom</label>
 	    <input type="text" id="nom1" name="equipe[nom1]" title="Requis" placeholder="Nom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required/>

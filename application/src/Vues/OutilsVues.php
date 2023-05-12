@@ -71,9 +71,9 @@ trait OutilsVues {
 	
 	$fx = fn($x) => '<option value="'.$x['serieId'].'">' . $x['intitule'] . '</option>';
 	$retour = array_map($fx, $liste);
-	$retour[0] = '<option value="' .$liste[0]['serieId'] . '"  disabled>' . $liste[0]['intitule'] . '</option>';
+	$retour[0] = '<option value="' .$liste[0]['serieId'] . '"  hidden="true">' . $liste[0]['intitule'] . '</option>';
 	$retour[$index] = '<option value="' .$liste[$index]['serieId'] . '"  selected>' . $liste[$index]['intitule'] . '</option>';
-	
+
 	return implode("\n", $retour);
     }
 
@@ -87,7 +87,7 @@ trait OutilsVues {
 	
 	$fx = fn($x) => '<option value="'.$x['genreId'].'">' . $x['intitule'] . '</option>';
 	$retour = array_map($fx, $liste);
-	$retour[0] = '<option value="' .$liste[0]['genreId'] . '"  disabled>' . $liste[0]['intitule'] . '</option>';
+	$retour[0] = '<option value="' .$liste[0]['genreId'] . '"  hidden="true">' . $liste[0]['intitule'] . '</option>';
 	$retour[$index] = '<option value="' .$liste[$index]['genreId'] . '"  selected>' . $liste[$index]['intitule'] . '</option>';
 	return implode("\n", $retour);
     }
