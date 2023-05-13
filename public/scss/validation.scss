@@ -1,0 +1,34 @@
+intput::placeholder {
+    color: $blanc16;
+}
+
+input:invalid {
+    color: $blanc16;
+    border: 2px solid  $gorria;
+}
+
+input:invalid:required  {
+    //background-image: linear-gradient(to right, #d4d4d4, #d8d8d8);
+    color: $blanc16;
+    background-color: $gorria;
+}
+
+input:valid {
+    background-color: $berdea;
+    border: 2px solid $berdea;
+}
+
+.succes {
+    color: #212121;
+    background-color: $blanc16;//#d8d8d8;
+}
+
+.erreur {
+    color: $blanc16;
+    background-color: $gorria;
+    border-radius: 0 0 5px 5px;
+}
+
+.erreur.active {
+    padding: .3em;
+}

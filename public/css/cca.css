@@ -328,11 +328,11 @@ intput::placeholder {
 
 input:invalid {
   color: #FFFFFF;
-  border: 2px solid  #FF0000; }
+  border: 2px solid #CC0000; }
 
 input:invalid:required {
   color: #FFFFFF;
-  background-color: #FF0000; }
+  background-color: #CC0000; }
 
 input:valid {
   background-color: #00CC00;
@@ -343,8 +343,8 @@ input:valid {
   background-color: #FFFFFF; }
 
 .erreur {
-  color: #ffffff;
-  background-color: #990000;
+  color: #FFFFFF;
+  background-color: #CC0000;
   border-radius: 0 0 5px 5px; }
 
 .erreur.active {
