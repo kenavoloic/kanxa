@@ -47,7 +47,7 @@
 
 	<fieldset>
 	    <label htmlFor="prenom1">Prénom</label>
-	    <input type="text" id="prenom1" name="equipe[prenom1]" title="Requis" placeholder="Prénom" pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}"  minlength="1" maxlength="255" required/>
+	    <input type="text" id="prenom1" name="equipe[prenom1]" title="Requis" placeholder="Prénom" pattern="[a-zA-ZŽžÀ-ÿ\s'-]{2,}"  minlength="1" maxlength="255" required/>
 	</fieldset>
 
 	<fieldset>
@@ -73,7 +73,7 @@
 
 	<fieldset>
 	    <label htmlFor="prenom2">Prénom</label>
-	    <input type="text" id="prenom2" name="equipe[prenom2]" title="Requis" placeholder="Prénom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{1,}" minlength="1" maxlength="255" required />
+	    <input type="text" id="prenom2" name="equipe[prenom2]" title="Requis" placeholder="Prénom"  pattern="[a-zA-ZŽžÀ-ÿ\s'-]{2,}" minlength="1" maxlength="255" required />
 	</fieldset>
 
 	<fieldset>

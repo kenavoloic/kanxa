@@ -1,15 +1,21 @@
+import erreurs from './modules/erreurs.js';
+import {nom_p, prenom_p, courriel_p, telephone_p, nombre_p, serie_p, genre_p, souhait_p} from './modules/predicats.js';
+//console.log(erreurs(3), nom_p('albertine'), prenom_p('o'));
+//console.log(erreurs(8), erreurs(0), erreurs('albertine'));
 // Prédicats pour la validation
-const nom_p = envoi => /^[a-zA-ZŽžÀ-ÿ\s'-]+$/.test(envoi);
-const prenom_p = envoi => envoi.length ===0 ? false : /^[a-zA-ZŽžÀ-ÿ\s'-]+$/.test(envoi); // lettres + espace et apostrophe droite
-const courriel_p = envoi => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(envoi); // tout sauf @ et espace
-const telephone_p = envoi => /^[\d\s.:\/-]+$/.test(envoi); // chiffres et . : / et -
-const nombre_p = envoi => /^[\d]+$/.test(envoi);
-const serie_p = envoi => /^[1-9][ab]?$/.test(envoi); // 1, 1a, 1b, 2, 2a, 2b, 3 ...
-const genre_p = envoi => /^[123]$/.test(envoi);
-const souhait_p = envoi => /^[1-3]$/.test(envoi); // Trois voeux uniquement
+
+/* const nom_p = envoi => /^[a-zA-ZŽžÀ-ÿ\s'-]+$/.test(envoi);
+ * const prenom_p = envoi => envoi.length ===0 ? false : /^[a-zA-ZŽžÀ-ÿ\s'-]+$/.test(envoi); // lettres + espace et apostrophe droite
+ * const courriel_p = envoi => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(envoi); // tout sauf @ et espace
+ * const telephone_p = envoi => /^[\d\s.:\/-]+$/.test(envoi); // chiffres et . : / et -
+ * const nombre_p = envoi => /^[\d]+$/.test(envoi);
+ * const serie_p = envoi => /^[1-9][ab]?$/.test(envoi); // 1, 1a, 1b, 2, 2a, 2b, 3 ...
+ * const genre_p = envoi => /^[123]$/.test(envoi);
+* const souhait_p = envoi => /^[1-3]$/.test(envoi); // Trois voeux uniquement */
+
 //éléments
 const formulaire = document.querySelector('form');
-//formulaire.setAttribute('novalidate', true);
+formulaire.setAttribute('novalidate', true);
 
 const serie = document.querySelector('#serie');
 const genre = document.querySelector('#genre');
@@ -36,6 +42,8 @@ const prenom2 = document.querySelector('#prenom2');
 const courriel2 = document.querySelector('#courriel2');
 const telephone2 = document.querySelector('#telephone2');
 const licence2 = document.querySelector('#licence2');
+
+nom1.focus({focusVisible:true});
 
 /* nom2.setCustomValidity('Un pelotari sans nom ?');
  * prenom2.setCustomValidity('Un pelotari sans prenom ?');

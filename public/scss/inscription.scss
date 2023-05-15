@@ -1,5 +1,5 @@
 main#inscription{
-
+/*
     form {
 	display: flex;
 	flex-wrap: wrap;
@@ -10,97 +10,164 @@ main#inscription{
 	margin: 1rem;
 	border: 2px solid $blanc16;
 	border-radius: 5px;
+    }
 
-	fieldset {
-	    display: flex;
-	    flex-direction: row;
-	    align-items: center;
-	    justify-content: space-between;
-	    margin: .25rem 0;
-	    padding: .25rem;
-	    border: 2px groove;
-	    border-radius: 6px;
-	}
+    fieldset {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin: .25rem 0;
+	padding: .25rem;
+	border: 2px groove;
+	border-radius: 6px;
+    }
 
-	legend {
-	    font-size: 1.2rem;
-	    padding: .15rem;
-	    color: $gorria;
-	}
-	label {
-	    font-family: sans-serif;
-	    font-size: 1.2rem;
-	    color: #ffffff;
-	    margin-left: .25rem;
-	    user-select: none;
-	}
+    legend {
+	font-size: 1.2rem;
+	padding: .15rem;
+	color: $gorria;
+    }
+    
+    label {
+	font-family: sans-serif;
+	font-size: 1.2rem;
+	color: $blanc16;
+	margin-left: .25rem;
+	user-select: none;
+    }
 
-	input[type=text], input[type=email],  input[type=phone] {
-	    font-family: monospace;
-	    font-size: 1.2rem;
-	    padding: .25rem;
-	    margin-right: .25rem;
-	    border-radius: 4px;
-	}
+    button {
+	padding: .5rem;
+	margin: .25rem;
+	transition: all .25s ease-in-out;
 
-	input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
-	    color: $blanc16;//#cc0000;
-	    text-align: center;
-	}
-
-	input[type=text]#nombreEquipes, input[type=email]#nombreEquipes, input[type=phone]#nombreEquipes {
-	    text-align: center;
-	    color: $gorria;
-	}
-
-	button {
-	    padding: .5rem;
-	    margin: .25rem;
-	    transition: all .25s ease-in-out;
-
-	    &:hover {
-		color: $blanc16;
-		background-color: #0047AB;
-	    }
-
+	&:hover {
+	    color: $blanc16;
+	    background-color: #0047AB;
 	}
 
     }
-    select#serie, select#genre {
-	padding: .5rem .8rem;
+
+
+    input, select {
+	font-family: monospace;
+	font-size: 1.2rem;
+	padding: .25rem;
+	margin-right: .25rem;
+	border-radius: 4px;
+
+    }
+
+    input[type=text]::placeholder, input[type=email]::placeholder {
 	color: $blanc16;
-	background-color: $gorria;//#CC0000;
-	border: 1px solid #dddddd;
-	cursor: pointer;
-	border-radius: 5px;
+	text-align: center;
+    }
+}
 
-	&:focus, &:hover {
-	    outline: none;
-	    border: 1px solid #bbbbbb;
-	    
-	}
+*/
 
-	&.vert {
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    //background-color: #70a0c7;
+    //background-color: $secondary-color-dark;
+    padding: 1rem;
+    margin: 1rem;
+    border: 2px solid $blanc16;
+    border-radius: 5px;
+
+    fieldset {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin: .25rem 0;
+	padding: .25rem;
+	border: 2px groove;
+	border-radius: 6px;
+    }
+
+    legend {
+	font-size: 1.2rem;
+	padding: .15rem;
+	color: $gorria;
+    }
+    label {
+	font-family: sans-serif;
+	font-size: 1.2rem;
+	color: #ffffff;
+	margin-left: .25rem;
+	user-select: none;
+    }
+
+    input[type=text], input[type=email],  input[type=phone] {
+	font-family: monospace;
+	font-size: 1.2rem;
+	padding: .25rem;
+	margin-right: .25rem;
+	border-radius: 4px;
+    }
+
+    input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
+	color: $blanc16;//#cc0000;
+	text-align: center;
+    }
+
+    input[type=text]#nombreEquipes, input[type=email]#nombreEquipes, input[type=phone]#nombreEquipes {
+	text-align: center;
+	color: $gorria;
+    }
+
+    button {
+	padding: .5rem;
+	margin: .25rem;
+	transition: all .25s ease-in-out;
+
+	&:hover {
 	    color: $blanc16;
-	    background-color: $berdea;//#00CC00;
+	    background-color: #0047AB;
 	}
-
-	&.rouge {
-	    color: $blanc16;
-	    background-color: $gorria;
-	}
-
-	option {
-	    color: $blanc16;
-	    background-color: $gorria;
-
-	    &:checked {
-		background-color: $berdea;
-	    }
-	}
-
-	
 
     }
 
 }
+select#serie, select#genre {
+    padding: .25rem .4rem;
+    color: $blanc16;
+    background-color: $gorria;//#CC0000;
+    border: 2px solid #dddddd;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:focus, &:hover {
+	outline: none;
+	border: 1px solid #bbbbbb;
+	
+    }
+
+    &.vert {
+	color: $blanc16;
+	background-color: $berdea;//#00CC00;
+    }
+
+    &.rouge {
+	color: $blanc16;
+	background-color: $gorria;
+    }
+
+    option {
+	color: $blanc16;
+	background-color: $gorria;
+
+	&:checked {
+	    background-color: $berdea;
+	}
+    }
+
+    
+
+}
+
+} 
