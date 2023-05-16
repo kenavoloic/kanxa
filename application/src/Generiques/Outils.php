@@ -50,11 +50,11 @@ trait Outils {
     }
 
     public function nom_p(string $envoi): bool {
-	return preg_match("/^[a-zA-ZŽžÀ-ÿ\s'-]+$/", $envoi);
+	return preg_match("/^[a-zA-ZŽžÀ-ÿ\s'-]{1,255}/", $envoi);
     }
 
     public function prenom_p(string $envoi): bool {
-	return preg_match("/^[a-zA-ZŽžÀ-ÿ\s'-]+$/", $envoi);
+	return preg_match("/^[a-zA-ZŽžÀ-ÿ\s'-]{2,}/", $envoi);
     }
 
     public function pseudo_p(string $envoi): bool {
@@ -64,5 +64,26 @@ trait Outils {
     public function chiffre_p(string $envoi): bool {
 	return preg_match("/^[\d]+$/", $envoi);
     }
+
+    // Seuls caractères acceptés en plus de l'espace
+    public function telephone_p(string $envoi): bool {
+	return preg_match("/^[\d\s.:\/-]+$", $envoi);
+    }
+
+    // 1, 1a, 1b, 2, 2a, 2b, 3 ...
+    public function serie_p(string $envoi): bool {
+	return preg_match("/^[1-9][ab]$/", $envoi);
+    }
+
+    // homme, femme, mixte
+    public function genre_p(string $envoi): bool {
+	return preg_match("/^[1-3]$/", $envoi);
+    }
+
+    // trois vœux uniquement
+    public function souhait_p(string $envoi): bool {
+	rteurn preg_match("/^[1-3]$/", $envoi);
+    }
+    
     
 }

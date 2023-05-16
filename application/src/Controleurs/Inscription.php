@@ -26,7 +26,7 @@ class Inscription {
 	$equipe = $_POST['equipe'];
 	$equipe['nom1'] = $this->nettoyageSimple($equipe['nom1']);
 	$equipe['prenom1'] = $this->nettoyageSimple($equipe['prenom1']);
-	//var_dump($equipe);
+	var_dump($equipe);
 	
     }
     
