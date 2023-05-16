@@ -1,5 +1,5 @@
 <main id="inscription">
-    <form class="paire" action="/inscription/ajout" method="post">
+    <form class="paire" id="formulaire" action="/inscription/ajout" method="post">
 
 	<fieldset>
 	    <legend>Compétition</legend>

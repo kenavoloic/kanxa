@@ -1,249 +1,89 @@
-import erreurs from './modules/erreurs.js';
-import {nom_p, prenom_p, courriel_p, telephone_p, nombre_p, serie_p, genre_p, souhait_p} from './modules/predicats.js';
-//console.log(erreurs(3), nom_p('albertine'), prenom_p('o'));
-//console.log(erreurs(8), erreurs(0), erreurs('albertine'));
-// Prédicats pour la validation
 
-/* const nom_p = envoi => /^[a-zA-ZŽžÀ-ÿ\s'-]+$/.test(envoi);
- * const prenom_p = envoi => envoi.length ===0 ? false : /^[a-zA-ZŽžÀ-ÿ\s'-]+$/.test(envoi); // lettres + espace et apostrophe droite
- * const courriel_p = envoi => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(envoi); // tout sauf @ et espace
- * const telephone_p = envoi => /^[\d\s.:\/-]+$/.test(envoi); // chiffres et . : / et -
- * const nombre_p = envoi => /^[\d]+$/.test(envoi);
- * const serie_p = envoi => /^[1-9][ab]?$/.test(envoi); // 1, 1a, 1b, 2, 2a, 2b, 3 ...
- * const genre_p = envoi => /^[123]$/.test(envoi);
-* const souhait_p = envoi => /^[1-3]$/.test(envoi); // Trois voeux uniquement */
-
-//éléments
-const formulaire = document.querySelector('form');
-formulaire.setAttribute('novalidate', true);
-
-const serie = document.querySelector('#serie');
-const genre = document.querySelector('#genre');
-const panneau = document.querySelector('#nombreEquipes');
-
-// parce que pour une raison inconnue, impossible d'appliquer cet attribut depuis php
-// cf /Vues/OutilsVues.php
 const razOptionCachee = (selecteur) => {
+    // L'option [0] n'est affichée qu'une seule fois.
     let options = [...selecteur.options];
     options[0].setAttribute('hidden','true');
 }
 
-razOptionCachee(serie);
-razOptionCachee(genre);
-
-const nom1 = document.querySelector('#nom1');
-const prenom1 = document.querySelector('#prenom1');
-const courriel1 = document.querySelector('#courriel1');
-const telephone1 = document.querySelector('#telephone1');
-const licence1 = document.querySelector('#licence1');
-
-const nom2 = document.querySelector('#nom2');
-const prenom2 = document.querySelector('#prenom2');
-const courriel2 = document.querySelector('#courriel2');
-const telephone2 = document.querySelector('#telephone2');
-const licence2 = document.querySelector('#licence2');
-
-nom1.focus({focusVisible:true});
-
-/* nom2.setCustomValidity('Un pelotari sans nom ?');
- * prenom2.setCustomValidity('Un pelotari sans prenom ?');
- * courriel2.setCustomValidity('Pas de courriel ? Comment lui envoyer le programme des parties ?');
- * telephone2.setCustomValidity('Numéro de mobile ?');
- *  */
-//fonctions
 const affiche = (chaine, sortie) => {
     sortie.value = chaine;    
 }
 
-const ecouteurs = (e) => {
-    let _serie = serie.value;
-    let _genre = genre.value;
-    let sortie = document.querySelector('#nombreEquipes');
-
-    //couleurs options select : serie/genre
-    if(e.target.tagName === 'SELECT' && e.target.selectedIndex > 0){
-	let identifiant = e.target.id;
-	let index = e.target.selectedIndex;
-	let options = [...e.target.options];
-	let choix = options[index];
-	options.forEach(x => x.classList.remove('vert'));
-	//choix.classList.add('vert');
-	document.querySelector(`#${identifiant}`).classList.add('vert');
-    }
-    /* 
-     *     if(e.target.tagName === 'SELECT' && e.target.selectedIndex == 0){
-     * 	let identifiant = e.target.id;
-     * 	let options = [...e.target.options];
-     * 	options.forEach(x => x.classList.remove('vert'));
-     * 	document.querySelector(`#${identifiant}`).classList.remove('vert');
-     * 	document.querySelector(`#${identifiant}`).classList.add('rouge');
-     * 	sortie.value = "";
-     *     } */
-
-    //requête ajax si les deux selects sont activés
-    if(_serie > 0  && _genre > 0){
-
-	let fdata = new FormData();
-	fdata.append('inscriptionSerie', _serie);
-	fdata.append('inscriptionGenre', _genre);
-
-	fetch('/pilota/inscription', {
-	    method: 'POST',
-	    mode: 'no-cors',
-	    headers: {"Content-Type": "application/json"},
-	    body: fdata
-	})
-	    .then(reponse => reponse.json())
-	    .then(reponse => affiche(reponse, sortie))
-    }
-};
-
-
-
-const validation = (e) => {
-
-    console.log('Validation du formulaire');
-
-    if(!formulaire.checkValidity()){
-	e.preventDefault();
-    }
-    
-    const souhait_ = document.querySelector('input[type=radio]:checked');
-
-    let s = serie.value.trim();
-    let g = genre.value.trim();
-
-    let souhait = souhait_.value.trim();
-
-    let n1 = nom1.value.trim();
-    let p1 = prenom1.value.trim();
-    let c1 = courriel1.value.trim();
-    let t1 = telephone1.value.trim();
-    let l1 = licence1.value.trim();
-
-    let n2 = nom2.value.trim();
-    let p2 = prenom2.value.trim();
-    let c2 = courriel2.value.trim();
-    let t2 = telephone2.value.trim();
-    let l2 = licence2.value.trim();
-
-    if(!serie_p(s)){
-	serie.setCustomValidity('Dans quelle série ?');
-    }
-    
-    if(serie_p(s)){
-	serie.setCustomValidity('');	
-    }
-
-    if(!genre_p(g)){
-	genre.setCustomValidity('Quel tournoi ? Masculin, féminin, mixte ?');
-    }
-
-    if(genre_p(g)) {
-	genre.setCustomValidity('');	
-    }
-
-    if(!souhait_p(souhait)){
-	souhait_.setCustomValidity('Merci d’effectuer un choix quant aux dates');
-    }
-
-    if(souhait_p(souhait)){
-	souhait_.setCustomValidity('');
-    }
-
-    if(n1.length === 0){
-	nom1.setCustomValidity('Au moins une lettre');
-    }
-
-    if(n1.length > 0) {
-	nom1.setCustomValidity('');
-    }
-
-    if(!nom_p(n1)){
-	nom1.setCustomValidity('Un pelotari sans nom ?');
-    }
-
-    if(nom_p(n1)) {
-	nom1.setCustomValidity('');
-    }
-
-    if(!prenom_p(p1)){
-	prenom1.setCustomValidity('Un pelotari sans prenom ?');
-    }
-
-    if(prenom_p(p1)) {
-	prenom1.setCustomValidity('');
-    }
-
-    if(!courriel_p(c1)){
-	courriel1.setCustomValidity('Pas de courriel ? Comment lui envoyer le programme des parties ?');
-    }
-
-    if(courriel_p(c1)){
-	courriel1.setCustomValidity('');
-    }
-
-    // Si le numéro de téléphone contient autre chose que des chiffres et . : / - => erreur
-    // Permet d'accepter un numéro de téléphone non renseigné
-    if(!telephone_p(t1)){
-	telephone1.setCustomValidity('Numéro de mobile ?');
-    }
-
-    if(telephone_p(t1)){
-	telephone1.setCustomValidity('');
-    }
-    
-    if(!nom_p(n2)){
-	nom2.setCustomValidity('Un pelotari sans nom ?');
-    }
-
-    if(nom_p(n2)) {
-	nom2.setCustomValidity('');
-    }
-
-    if(!prenom_p(p2)){
-	prenom2.setCustomValidity('Un pelotari sans prenom ?');
-    }
-
-    if(prenom_p(p2)){
-	prenom2.setCustomValidity('');
-    }
-
-    if(!courriel_p(c2)){
-	courriel2.setCustomValidity('Pas de courriel ? Comment lui envoyer le programme des parties ?');
-    }
-
-    if(courriel_p(c2)){
-	courriel2.setCustomValidity('');
-    }
-    
-    if(!telephone_p(t2)){
-	telephone2.setCustomValidity('Numéro de mobile ?');
-    }
-
-    if(telephone(t2)){
-	telephone2.setCustomValidity('');
-    }
-
-
-};
-
-const envoiFormulaire_p = (e) => {
-    if(!formulaire.checkValidity()){
+const soumission = (e) => {
+    // Refuse la soumission du formulaire si les contraintes ne sont respectées
+    // De toute façon, les données seront nettoyées en php
+    //console.log('Validité du formulaire ? ', e.target.checkValidity())
+    if(!e.target.checkValidity()){
 	e.preventDefault();
     }
 };
 
-serie.addEventListener('change', ecouteurs);
-genre.addEventListener('change', ecouteurs);
-//validation();
-//formulaire.addEventListener('submit', envoiFormulaire_p);
-formulaire.addEventListener('submit', validation);
+const ecouteurSelecteursSortie = (idSelect1, idSelect2, idSortie, nomVariable1, nomVariable2, controleurMethode) => {
+    // retourne une fonction qui permettra d'écouter les événements sur les deux sélects et affichera un message sur l'élément sortie.
 
-/* nom1.addEventListener('input', (e) => {
- *     console.log(e.target.validity, e.target.checkValidity());
- * });
- * 
- * serie.addEventListener('change', (e) => {
- *     console.log(e.target, e.target.validity);
- * }); */
+    let serie = document.querySelector(`#${idSelect1}`);
+    let genre = document.querySelector(`#${idSelect2}`);
+    let sortie = document.querySelector(`#${idSortie}`);
+
+    return  (e) => {
+	let _serie = serie.value;
+	let _genre = genre.value;
+	//let sortie = document.querySelector('#nombreEquipes');
+
+	//couleurs options select : serie/genre
+	if(e.target.tagName === 'SELECT' && e.target.selectedIndex > 0){
+	    let identifiant = e.target.id;
+	    let index = e.target.selectedIndex;
+	    let options = [...e.target.options];
+	    let choix = options[index];
+	    options.forEach(x => x.classList.remove('vert'));
+	    //choix.classList.add('vert');
+	    document.querySelector(`#${identifiant}`).classList.add('vert');
+	}
+
+	//requête ajax si les deux selects sont activés
+	if(_serie > 0  && _genre > 0){
+
+	    let fdata = new FormData();
+	    //fdata.append('inscriptionSerie', _serie);
+	    //fdata.append('inscriptionGenre', _genre);
+
+	    fdata.append(nomVariable1, _serie);
+	    fdata.append(nomVariable2, _genre);
+
+	    
+	    fetch(controleurMethode, {
+		method: 'POST',
+		mode: 'no-cors',
+		headers: {"Content-Type": "application/json"},
+		body: fdata
+	    })
+		.then(reponse => reponse.json())
+		.then(reponse => affiche(reponse, sortie))
+	}
+    };
+};
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    //éléments
+    const formulaire = document.querySelector('#formulaire');
+    //formulaire.setAttribute('novalidate', true);
+    const serie = document.querySelector('#serie');
+    const genre = document.querySelector('#genre');
+    const panneau = document.querySelector('#nombreEquipes');
+
+    let ecouteurAjax = ecouteurSelecteursSortie('serie','genre','nombreEquipes', 'inscriptionSerie', 'inscriptionGenre', '/pilota/inscription');
+
+    serie.addEventListener('change', ecouteurAjax);
+    genre.addEventListener('change', ecouteurAjax);
+    
+    // parce que pour une raison inconnue, impossible d'appliquer cet attribut depuis php
+    // cf /Vues/OutilsVues.php
+    razOptionCachee(serie);
+    razOptionCachee(genre);
+
+    nom1.focus({focusVisible:true});
+
+    formulaire.addEventListener('submit', soumission);
+});

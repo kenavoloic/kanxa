@@ -1,6 +1,5 @@
-const serie = document.querySelector('#serie');
-const genre = document.querySelector('#genre');
-const panneau = document.querySelector('#panneau');
+import creationEquipe from './modules/creationEquipe.js';
+
 
 const nombre_p = /\d+/;
 
@@ -77,8 +76,21 @@ const getOptionsPoules = (tableau, ecouteur) => {
     selecteur.addEventListener('change', ecouteur);
 };
 
-serie.addEventListener('change', ecouteurs);
-genre.addEventListener('change', ecouteurs);
+const equipes = (envoi, sortie) => {
+    sortie.replaceChildren();
+    //let liste = envoi.map(equipe);
+    let liste = envoi.map(creationEquipe);
+    liste.forEach(x => sortie.append(x));
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const serie = document.querySelector('#serie');
+    const genre = document.querySelector('#genre');
+    const panneau = document.querySelector('#panneau');
+
+    serie.addEventListener('change', ecouteurs);
+    genre.addEventListener('change', ecouteurs);
+});
 
 const equipe = envoi => {
     let {tournoiId, equipeId, pouleId, nom1, prenom1, courriel1, licence1, mobile1, nom2, prenom2, courriel2, licence2, mobile2} = envoi;
@@ -170,8 +182,3 @@ const equipe = envoi => {
     return df;
 };
 
-const equipes = (envoi, sortie) => {
-    sortie.replaceChildren();
-    let liste = envoi.map(equipe);
-    liste.forEach(x => sortie.append(x));
-};

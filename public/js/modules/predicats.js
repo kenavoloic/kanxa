@@ -1,4 +1,4 @@
-const nom_p = envoi => /^[a-zA-ZŽžÀ-ÿ\s'-]+$/.test(envoi);
+const nom_p = envoi => /^[a-zA-ZŽžÀ-ÿ\s'-]{1,}/.test(envoi);
 const prenom_p = envoi => /^[a-zA-ZŽžÀ-ÿ\s'-]{1,}/.test(envoi); // lettres + espace et apostrophe droite
 const courriel_p = envoi => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(envoi); // tout sauf @ et espace
 const telephone_p = envoi => /^[\d\s.:\/-]+$/.test(envoi); // chiffres et . : / et -
