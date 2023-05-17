@@ -82,8 +82,10 @@ trait Outils {
 
     // trois vœux uniquement
     public function souhait_p(string $envoi): bool {
-	rteurn preg_match("/^[1-3]$/", $envoi);
+	return preg_match("/^[1-3]$/", $envoi);
     }
-    
-    
+
+    public function licence_p(string $envoi): bool {
+	return preg_match("/^[FH][0-9]{8}$/", strtoupper($envoi));
+    }
 }

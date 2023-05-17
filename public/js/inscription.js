@@ -12,10 +12,14 @@ const affiche = (chaine, sortie) => {
 const soumission = (e) => {
     // Refuse la soumission du formulaire si les contraintes ne sont respectées
     // De toute façon, les données seront nettoyées en php
-    //console.log('Validité du formulaire ? ', e.target.checkValidity())
     if(!e.target.checkValidity()){
 	e.preventDefault();
     }
+};
+
+const animationPanneau = (e) => {
+    let source = e.target;
+    console.log('animationPanneau ', source);
 };
 
 const ecouteurSelecteursSortie = (idSelect1, idSelect2, idSortie, nomVariable1, nomVariable2, controleurMethode) => {
@@ -24,6 +28,11 @@ const ecouteurSelecteursSortie = (idSelect1, idSelect2, idSortie, nomVariable1, 
     let serie = document.querySelector(`#${idSelect1}`);
     let genre = document.querySelector(`#${idSelect2}`);
     let sortie = document.querySelector(`#${idSortie}`);
+
+    
+    const fx1 = [{color: 'yellow', background: 'black'}, {color: 'black', background: 'green'}];
+    const dur1 = {duration: 1000, delay: 0, iterations: 13, easing: 'ease-in-out'};
+    const animation = sortie.animate(fx1, dur1);
 
     return  (e) => {
 	let _serie = serie.value;
@@ -60,6 +69,10 @@ const ecouteurSelecteursSortie = (idSelect1, idSelect2, idSortie, nomVariable1, 
 	    })
 		.then(reponse => reponse.json())
 		.then(reponse => affiche(reponse, sortie))
+		.then(x => animation.play());
+		//.then(() => sortie.animate(fx1,dur1));
+
+	    //panneau.animate(fx1, dur1);
 	}
     };
 };
@@ -77,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     serie.addEventListener('change', ecouteurAjax);
     genre.addEventListener('change', ecouteurAjax);
+    panneau.addEventListener('change', animationPanneau);
     
     // parce que pour une raison inconnue, impossible d'appliquer cet attribut depuis php
     // cf /Vues/OutilsVues.php

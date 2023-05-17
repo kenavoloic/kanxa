@@ -6,5 +6,5 @@ const nombre_p = envoi => /^[\d]+$/.test(envoi);
 const serie_p = envoi => /^[1-9][ab]?$/.test(envoi); // 1, 1a, 1b, 2, 2a, 2b, 3 ...
 const genre_p = envoi => /^[123]$/.test(envoi);
 const souhait_p = envoi => /^[1-3]$/.test(envoi); // Trois voeux uniquement
-
-export {nom_p, prenom_p, courriel_p, telephone_p, nombre_p, serie_p, genre_p, souhait_p};
+const licence_p = envoi => /^[FH][0-9]{8}$/.test(envoi.toUpperCase()); //
+export {nom_p, prenom_p, courriel_p, telephone_p, nombre_p, serie_p, genre_p, souhait_p, licence_p};
