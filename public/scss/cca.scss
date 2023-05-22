@@ -10,13 +10,13 @@
 @import 'inscription.scss';
 @import 'poules.scss';
 @import 'validation.scss';
- 
+
 html {
     font-family: "Fira", sans-serif;
     background-color: $alternative-color;//$primary-color; //$blanc15;
 }
 
-  
+
 body {
     font-size: 1.6rem;
     background-color:  $alternative-color;//$blanc13;//$secondary-color-darker; //$blanc13;
@@ -29,31 +29,60 @@ body {
 
 
 header {
+
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
+    height: 7rem;
+    border-bottom-color: $noir7;
 
-    //@include texture1;
-    background-color: $blanc15;
+    nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    }
 
-    height: 8rem;
-    //width: 100%;
 
-    /* position: fixed;
-       top: 0;
-       left: 0; */
-    // right: 0;
-    z-index: 1789;
+    #vegan {
 
-    margin-top: 0.25rem;
-    padding: 1rem;
-    border-width: 4px;
-    border-bottom-style: solid;
-    border-bottom-color: $alternative-color;
-    transition: all .125ms ease-out;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
-    
+	width: 6rem;
+	//border: 2px solid $blanc16;
+	//border-radius: 5px;
+	//border: $bordureStyle;
+	//border-radius: $bordureArrondi;
+
+	@include bordureDefaut;
+	@include bordureArrondi;
+	border-color: $blanc16;
+
+	padding: .25rem;
+	cursor: pointer;
+
+	//box-shadow: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0,0,0,0.6);
+	box-shadow: $ombreBoite1;
+	transition: all .250s ease-in-out;
+
+	&:hover {
+	    border-color: $rouge8;
+	    background: $jaune5;
+	}
+
+	.lignes {
+	    width: 85%;
+	    height: .6rem;
+	    background-color: $blanc16;
+	    padding: .2rem;
+	    margin: .4rem;
+	    box-shadow: $ombreBoite2;
+	}
+    }
 
     h1.logo {
 	color: $primary-color-complementary; //$blanc16;
@@ -80,109 +109,82 @@ header {
 	}
     }
 
-
-    nav {
-	display: flex;
-	align-items: center;
-	margin: 0 .6rem;
-	//position: absolute;
+    ul {
 	
-	#vegan {
-	    display: flex;
-	    width: 6rem;
-	    height: 4rem;
-	    margin: 0 1rem;
-	    flex-direction: column;
-	    justify-content: center;
-	    border: .3em solid transparent;
-	    border-radius: 5px;
-	    padding: .25rem;
-	    transition: all .125s ease-out;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
 
-	    &:hover {
-		border-color: $alternative-color-dark;
-	    }
+	align-items: center;
+	justify-content: space-between;
 
-	    .lignes {
-		width: 100%;
-		height: 25%;
-		background-color: $alternative-color;
-		margin: .2rem 0 .15rem 0;
-		border-radius: 6px;
-		transition: all .125s ease-in;
+	transform: translateX(0);
 
-		&:hover {
-		    background-color: $alternative-color-light;
-		}
-	    }
+	background: #9A9A9A;
+	padding: 8px 10px;
+	margin: 0 clamp(.5rem, 5vw, 2.5rem);
 
+	@include bordureDefaut;
+	@include bordureArrondi;
+	
+	//border: $bordureStyle;
+	//border-radius: $bordureArrondi;
+	border-color: $noir4;
 
-	    @media screen and (min-width: 768px){
-		display: none;
-	    }
-	}
+	@include texture3;
+	
+	li {
 
-	ul#liens, ul#administration {
-	    display: flex;
-	    flex-direction: row;
-	    list-style: none;
-	    padding: .3rem;
-	    margin-left: auto;
-	    color: $couleurTexte;
-	    li {
-		font-family: "Fira", sans-serif, monospace;
-		font-size: 1.2em;
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+
+	    //border: $bordureStyle;
+	    //border-radius: $bordureArrondi;
+
+	    flex: 1;
+
+	    a {
+		display: block;
+		padding: 0.75rem 0.5rem 0.75rem;
+		font-family: monospace;
+		font-size: clamp(.8rem, 4vw, 1.4rem);
+		text-decoration: none;
 		letter-spacing: -2px;
-		margin: .25rem;
-		user-select: none;
-		border: 4px solid transparent;
-		transition: all .125s ease-out;
+		color: $blanc15;
+
+		@include bordureDefaut;
+		@include bordureArrondi;
+
+		//border: $bordureStyle;
+		//border-radius: $bordureArrondi;
+
+		transition: all 0.3s ease-in-out;
+
 
 		&:hover {
-		    color: $blanc7;
-		    //border-top-color: $alternative-color;
-		    //border-bottom-color: $alternative-color;
-		    cursor: pointer;
-		}
-		a {
-		    color: inherit; //$alternative-color;
-		    text-decoration: none;
+		    color: $blanc16;
+		    transform: scale(1.2);
 		}
 	    }
-	    li:last-child {
-		//background-color: pink;
+
+	    &:nth-last-child(1){
+		background: #282828;
+		a:hover {
+		    color: #282828;
+		    background: $blanc16;
+		    transform: scale(0.9);
+		}
 	    }
-
-	    @media screen and (max-width: 768px){
-		display: none;
-	    } 
-
-	    
-	    @media screen and (max-width: 768px){
-		position: absolute;
-		top: 15vh;
-		left: 0;
-		flex-direction: column;
-		height: 90vh;
-		width: 25vw;
-		background-color: $primary-color-light;
-		font-size: 1.2rem;
-	    } 
-
 	}
-
     }
+
 }
 
+
+
 main {
-    /* position: absolute;
-       top: 6.25rem;
-       left: 0px; */
     margin-top: .25rem;
-    //margin-bottom: 2rem;
-    //padding: 1rem;
-    //background-color: $alternative-color;
-    //width: 100%;
 }
 
 
@@ -194,7 +196,7 @@ main#login {
     height: 100vh;
 
     background-color: $alternative-color;
- 
+    
     form {
         //width: 18rem;
         margin: .5rem 0;
@@ -305,4 +307,71 @@ main#generales {
 
 
 
+
+@media screen and (max-width: 420px){
+    h1.logo {
+	display: none;
+    }
+}
+
+
+// 1200 ?
+@media screen and (max-width: 768px){
+
+    nav {
+	//justify-content: flex-start;
+	row-gap: clamp(1rem, 5vh, 3rem);
+    }
+    
+    div#vegan {
+	display: block;
+	z-index: 9000;
+	position: absolute;
+	right: clamp(1rem, 5vw, 3rem);
+	animation: tremor 2s linear infinite;
+    }
+    
+    
+    ul {
+	z-index: 8000;
+	position: fixed;
+	//inset: 5rem 0 0 0;
+	inset: 0 0 0 25%;
+	background: #545454;//orange;
+
+
+	height: 100vh;
+	top: 0;
+
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap: nowrap;
+
+	margin: 0;
+
+	transform: translateX(100%);
+	transition: transform .75s ease-in-out;
+
+	li {
+	    padding: .125rem 0;
+	    margin: 0;
+	    text-align: left;
+	    transition: all .5s ease-in-out;
+	}
+
+	&[data-afficher="true"]{
+	    transform: translateX(0%);
+	}
+    }
+}
+
+@media screen and (min-width: 1280px){
+    ul {
+	top: 60px;
+	li {
+	    //flex-basis: 50%;
+	}
+    }
+}
 

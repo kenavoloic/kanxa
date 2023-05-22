@@ -20,7 +20,8 @@ class Accueil {
 	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
 	}
-	
+
+	echo $this->getFooterJavaScript('accueil');
 	echo $this->getComposant('basdepage');
     }
 

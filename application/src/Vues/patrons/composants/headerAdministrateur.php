@@ -6,7 +6,7 @@
 	    <div class="lignes"></div>
 	    <div class="lignes"></div>
 	</div>
-	<ul class="administration" id="administration">
+	<ul class="administration" id="administration" data-afficher="false">
 	    <li><a href="/login/deconnexion" title="Déconnexion">Déconnexion</a></li>
 	    <li><a href="/score" title="Enregistrement du résultat d’une partie">Score</a></li>
 	    <li><a href="/liste" title="Liste des équipes">Liste</a></li>
