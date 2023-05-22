@@ -1,3 +1,67 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem; }
+
+html,
+body,
+header,
+footer,
+main,
+nav,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+header,
+footer,
+main,
+article,
+label,
+legend,
+select,
+option,
+button,
+form,
+fieldset,
+ul,
+dl,
+input {
+  border: 2px solid transparent;
+  border-radius: 5px; }
+
+label {
+  user-select: none; }
+
+fieldset {
+  border-style: groove; }
+
+select {
+  padding: .25rem .4rem;
+  cursor: pointer; }
+
 /* @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap'); */
 @font-face {
@@ -29,6 +93,32 @@
   src: url("../fontes/FiraMono-Bold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal; }
+
+@keyframes secousses {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0); }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0); }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0); } }
+
+@keyframes tremor {
+  0%, 7% {
+    transform: rotateZ(0); }
+  15% {
+    transform: rotateZ(-15deg); }
+  20% {
+    transform: rotateZ(10deg); }
+  25% {
+    transform: rotateZ(-10deg); }
+  30% {
+    transform: rotateZ(6deg); }
+  35% {
+    transform: rotateZ(-4deg); }
+  40%, 100% {
+    transform: rotateZ(0); } }
 
 main#inscription {
   /*
@@ -167,7 +257,7 @@ main#inscription {
         background-color: #00CC00; }
 
 main#brassage {
-  background-color: #F28C28;
+  background-color: #0096FF;
   margin: .5rem;
   padding: .5rem; }
   main#brassage .gorria {
@@ -436,28 +526,24 @@ input:disabled {
 .erreur.active {
   padding: .3em; }
 
-*, *::after, *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
-
 html {
   font-family: "Fira", sans-serif;
-  font-size: 62.5%;
   background-color: #0096FF; }
 
 body {
   font-size: 1.6rem;
-  background-color: #F28C28;
-  margin: .5rem;
-  padding-top: .5rem;
+  background-color: #0096FF;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow-x: hidden; }
 
 header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background-color: #F3E5AB;
   height: 8rem;
-  width: 100%;
   /* position: fixed;
        top: 0;
        left: 0; */
@@ -466,23 +552,23 @@ header {
   padding: 1rem;
   border-width: 4px;
   border-bottom-style: solid;
-  border-bottom-color: #F28C28;
-  transition: all .125ms ease-out;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between; }
-  header h1 {
+  border-bottom-color: #0096FF;
+  transition: all .125ms ease-out; }
+  header h1.logo {
+    color: #ff6900;
     font-family: "Oleo";
-    font-size: 7rem;
+    font-size: 5rem;
+    font-size: clamp(6rem, 4vw, 8rem);
     letter-spacing: -3px;
     user-select: none;
-    color: #F28C28;
     margin: 0 1rem;
-    transition: .25ms ease-out; }
-    header h1:hover {
-      color: #aa590a; }
-    header h1 a {
+    transition: .8ms ease-out;
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6); }
+    header h1.logo:hover {
+      color: #6900ff;
+      animation: secousses 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0); }
+    header h1.logo a {
       color: inherit;
       text-decoration: none; }
   header nav {
@@ -501,16 +587,16 @@ header {
       padding: .25rem;
       transition: all .125s ease-out; }
       header nav #vegan:hover {
-        border-color: #aa590a; }
+        border-color: #005a99; }
       header nav #vegan .lignes {
         width: 100%;
         height: 25%;
-        background-color: #F28C28;
+        background-color: #0096FF;
         margin: .2rem 0 .15rem 0;
         border-radius: 6px;
         transition: all .125s ease-in; }
         header nav #vegan .lignes:hover {
-          background-color: #f8bf88; }
+          background-color: #66c0ff; }
       @media screen and (min-width: 768px) {
         header nav #vegan {
           display: none; } }
@@ -552,9 +638,7 @@ main {
   /* position: absolute;
        top: 6.25rem;
        left: 0px; */
-  margin-top: .25rem;
-  border-radius: 5px;
-  width: 100%; }
+  margin-top: .25rem; }
 
 main#login {
   top: 0.25rem;
@@ -562,7 +646,7 @@ main#login {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #F28C28; }
+  background-color: #0096FF; }
   main#login form {
     margin: .5rem 0;
     padding: 2rem;
@@ -599,7 +683,7 @@ main#generales {
   top: 0.25rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  background-color: #F28C28; }
+  background-color: #0096FF; }
   main#generales form {
     margin: .5rem 1.25rem;
     padding: 2rem;

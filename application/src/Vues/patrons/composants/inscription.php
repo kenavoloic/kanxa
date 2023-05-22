@@ -3,18 +3,22 @@
 
 	<fieldset>
 	    <legend>Compétition</legend>
-	    <label for="serie">Série</label>
-	    <select id="serie" name="equipe[serie]">
-		<?= $tableau['series'] ?>
-	    </select>
-
-	    
-	    <label for="genre">Genre</label>
-	    <select id="genre" name="equipe[genre]">
-		<?= $tableau['genres'] ?>
-	    </select>
 
 	    <div class="itemFormulaire">
+		<label for="serie">Série</label>
+		<select id="serie" name="equipe[serie]">
+		    <?= $tableau['series'] ?>
+		</select>
+	    </div>
+
+	    <div class="itemFormulaire">
+		<label for="genre">Genre</label>
+		<select id="genre" name="equipe[genre]">
+		    <?= $tableau['genres'] ?>
+		</select>
+	    </div>
+
+	    <div id="compteur" class="itemFormulaire">
 		<label id="nombre" for="nombreEquipes">Nombre d’inscriptions</label>
 		<input type="text" title="Nombre d’équipes inscrites dans cette série" id="nombreEquipes"   disabled />
 	    </div>

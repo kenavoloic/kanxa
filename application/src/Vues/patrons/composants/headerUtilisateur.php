@@ -1,5 +1,5 @@
 <header>
-    <h1><a href="/">Kanxa</a></h1>
+    <h1 class="logo"><a href="/">Kanxa</a></h1>
     <nav>
 	<div id="vegan">
 	    <div class="lignes"></div>

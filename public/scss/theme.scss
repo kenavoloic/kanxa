@@ -1,16 +1,23 @@
 $couleurTexte: $noir4;
 
-$primary-color: $bleu7; //$jaune5; //$bleu7;//$orange10;// $jaune5;//$bleu7;//$jaune5;
+$primary-color: $bleu7; // $orange10; //$jaune5; //$bleu7; //$jaune5; //$bleu7;//$orange10;// $jaune5;//$bleu7;//$jaune5;
+$alternative-color: $bleu7; // pink //$orange10;//$bleu7; //$bleu7;//$orange10;// $jaune5;//$bleu7;//$jaune5;
+
 $primary-color-light: lighten($primary-color, 20%);
 $primary-color-dark: darken($primary-color, 20%);
 $primary-color-lighter: lighten($primary-color, 40%);
 $primary-color-darker: darken($primary-color, 40%);
+$primary-color-inverted: invert($primary-color);
+$primary-color-complementary: complement($primary-color);
+$primary-color-complementary-inverted: invert($primary-color-complementary);
 
-$alternative-color: $orange10;//$bleu7; //$bleu7;//$orange10;// $jaune5;//$bleu7;//$jaune5;
 $alternative-color-light: lighten($alternative-color, 20%);
 $alternative-color-dark: darken($alternative-color, 20%);
 $alternative-color-lighter: lighten($alternative-color, 40%);
 $alternative-color-darker: darken($alternative-color, 40%);
+$alternative-color-inverted: invert($alternative-color);
+$alternative-color-complementary: complement($alternative-color);
+$alternative-color-complementary-inverted: invert($alternative-color-complementary);
 
 $inverted-primary-color: invert($primary-color, 20%); 
 $inverted-primary-color-light: lighten($inverted-primary-color, 20%);
@@ -23,9 +30,16 @@ $secondary-color-light: lighten($secondary-color, 20%);
 $secondary-color-dark: darken($secondary-color, 20%);
 $secondary-color-lighter: lighten($secondary-color, 40%);
 $secondary-color-darker: darken($secondary-color, 40%);
+$secondary-color-inverted: invert($secondary-color);
+$secondary-color-complementary: complement($secondary-color);
+$secondary-color-complementary-inverted: invert($secondary-color-complementary);
 
 $tertiary-color: adjust-hue( $primary-color, 240% );
 $tertiary-color-light: lighten($tertiary-color, 20%);
 $tertiary-color-dark: darken($tertiary-color, 20%);
 $tertiary-color-lighter: lighten($tertiary-color, 40%);
 $tertiary-color-darker: darken($tertiary-color, 40%);
+$tertiary-color-inverted: invert($tertiary-color);
+$tertiary-color-complementary: complement($tertiary-color);
+$tertiary-color-complementary-inverted: invert($tertiary-color-complementary);
+

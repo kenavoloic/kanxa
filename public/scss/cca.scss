@@ -1,37 +1,44 @@
+@import 'raz.scss';
+
 @import 'couleurs.scss';
 @import 'fontes.scss';
 @import 'theme.scss';
+@import 'ombres.scss';
+@import 'textures.scss';
+@import 'effets.scss';
+
 @import 'inscription.scss';
 @import 'poules.scss';
 @import 'validation.scss';
-                     
-
-*, *::after, *::before {
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+ 
 html {
     font-family: "Fira", sans-serif;
-    font-size: 62.5%;
-    background-color: $primary-color; //$blanc15;
+    background-color: $alternative-color;//$primary-color; //$blanc15;
 }
 
+  
 body {
     font-size: 1.6rem;
     background-color:  $alternative-color;//$blanc13;//$secondary-color-darker; //$blanc13;
-    margin: .5rem;
-    padding-top: .5rem;
+    //margin: .5rem;
+    //padding-top: .5rem;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
+
 header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    //@include texture1;
     background-color: $blanc15;
 
     height: 8rem;
-    width: 100%;
+    //width: 100%;
 
     /* position: fixed;
        top: 0;
@@ -46,26 +53,25 @@ header {
     border-bottom-color: $alternative-color;
     transition: all .125ms ease-out;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-
     
-    h1 {
+
+    h1.logo {
+	color: $primary-color-complementary; //$blanc16;
 	font-family: "Oleo";
-	font-size: 7rem;
+	font-size: 5rem;
+	font-size: clamp(6rem, 4vw, 8rem);//clamp(4rem, 2.5vw, 15rem);
 	letter-spacing: -3px;
 	user-select: none;
-	color: $alternative-color;
 	margin: 0 1rem;
-	transition: .25ms ease-out;
-
+	transition: .8ms ease-out;
+	//text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
+	text-shadow: $ombreTexte1; 
+	//text-shadow: $ombreTexte2;
+	
 	&:hover {
-	    color: $alternative-color-dark;
-	    //letter-spacing: -4px;
-	    //transform: rotate(-90deg);
+	    color: $tertiary-color-complementary;  //$blanc8;
+	    animation: secousses 1s cubic-bezier(.36, .07, .19, .97) both;
+	    transform: translate3d(0,0,0);
 	}
 
 	a {
@@ -151,7 +157,7 @@ header {
 		display: none;
 	    } 
 
-
+	    
 	    @media screen and (max-width: 768px){
 		position: absolute;
 		top: 15vh;
@@ -176,9 +182,7 @@ main {
     //margin-bottom: 2rem;
     //padding: 1rem;
     //background-color: $alternative-color;
-
-    border-radius: 5px;
-    width: 100%;
+    //width: 100%;
 }
 
 
@@ -190,7 +194,7 @@ main#login {
     height: 100vh;
 
     background-color: $alternative-color;
-
+ 
     form {
         //width: 18rem;
         margin: .5rem 0;

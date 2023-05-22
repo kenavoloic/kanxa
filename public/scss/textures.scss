@@ -1,0 +1,21 @@
+@mixin texture1 {
+    background-image: 
+	linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%),
+	linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%);
+    background-size: 5px 5px;
+
+}
+
+@mixin texture2 {
+    background-image: linear-gradient(45deg, #e6d8af 25%, transparent 25%, transparent 75%, #e6d8af 75%),
+    linear-gradient(45deg, #e6d8af 25%, transparent 25%, transparent 75%, #e6d8af 75%);
+    background-size: 6px 6px;
+    background-color: #e6d8af;
+}
+
+@mixin texture3 {
+    background-image: linear-gradient(45deg, #9e8a64 25%, transparent 25%, transparent 75%, #9e8a64 75%),
+    linear-gradient(45deg, #9e8a64 25%, transparent 25%, transparent 75%, #9e8a64 75%);
+    background-size: 6px 6px;
+    background-color: #9e8a64;
+}

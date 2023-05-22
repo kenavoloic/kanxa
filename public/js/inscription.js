@@ -24,15 +24,14 @@ const animationPanneau = (e) => {
 
 const ecouteurSelecteursSortie = (idSelect1, idSelect2, idSortie, nomVariable1, nomVariable2, controleurMethode) => {
     // retourne une fonction qui permettra d'écouter les événements sur les deux sélects et affichera un message sur l'élément sortie.
+    // l'élément sortie étant désactivé, l'écouteur d'événement sera sur son parent
 
     let serie = document.querySelector(`#${idSelect1}`);
     let genre = document.querySelector(`#${idSelect2}`);
     let sortie = document.querySelector(`#${idSortie}`);
+    //let parent = sortie.parentNode;
 
     
-    const fx1 = [{color: 'yellow', background: 'black'}, {color: 'black', background: 'green'}];
-    const dur1 = {duration: 1000, delay: 0, iterations: 13, easing: 'ease-in-out'};
-    const animation = sortie.animate(fx1, dur1);
 
     return  (e) => {
 	let _serie = serie.value;
@@ -68,8 +67,8 @@ const ecouteurSelecteursSortie = (idSelect1, idSelect2, idSortie, nomVariable1, 
 		body: fdata
 	    })
 		.then(reponse => reponse.json())
-		.then(reponse => affiche(reponse, sortie))
-		.then(x => animation.play());
+		.then(reponse => affiche(reponse, sortie));
+		//.then(x => animation.play());
 		//.then(() => sortie.animate(fx1,dur1));
 
 	    //panneau.animate(fx1, dur1);
@@ -85,12 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const serie = document.querySelector('#serie');
     const genre = document.querySelector('#genre');
     const panneau = document.querySelector('#nombreEquipes');
+    const compteur = panneau.parentNode;
+
+    const fx1 = [{color: 'yellow', background: 'black'}, {color: 'black', background: 'green'}];
+    const dur1 = {duration: 1000, delay: 0, iterations: 13, easing: 'ease-in-out'};
+    //const animation = sortie.animate(fx1, dur1);
+
 
     let ecouteurAjax = ecouteurSelecteursSortie('serie','genre','nombreEquipes', 'inscriptionSerie', 'inscriptionGenre', '/pilota/inscription');
 
     serie.addEventListener('change', ecouteurAjax);
     genre.addEventListener('change', ecouteurAjax);
-    panneau.addEventListener('change', animationPanneau);
+    //panneau.addEventListener('change', animationPanneau);
+    compteur.addEventListener('change', animationPanneau);
+    
     
     // parce que pour une raison inconnue, impossible d'appliquer cet attribut depuis php
     // cf /Vues/OutilsVues.php
