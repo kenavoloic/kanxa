@@ -1,5 +1,4 @@
 @import 'raz.scss';
-
 @import 'couleurs.scss';
 @import 'fontes.scss';
 @import 'theme.scss';
@@ -7,134 +6,184 @@
 @import 'textures.scss';
 @import 'effets.scss';
 
+@import 'login.scss';
 @import 'inscription.scss';
 @import 'poules.scss';
 @import 'validation.scss';
 
+
+$rupture: 1200px;
+ 
+/*
+$bordureArrondi: 5px;
+$bordureEpaisseur: 2px;
+$bordureStyle: $bordureEpaisseur solid transparent;
+
+$ombreTexte1: 4px 4px 2px rgba(0,0,0,0.6);
+$ombreBoite1: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0,0,0,0.6);
+$ombreBoite2: 1px 2px 1px 1px #000013, 2px 1px 3px -2px rgba(0,0,0,0.6);
+        
+                      
+*/
+          
+
 html {
     font-family: "Fira", sans-serif;
-    background-color: $alternative-color;//$primary-color; //$blanc15;
+    background: #767676;
 }
 
-
 body {
-    font-size: 1.6rem;
-    background-color:  $alternative-color;//$blanc13;//$secondary-color-darker; //$blanc13;
-    //margin: .5rem;
-    //padding-top: .5rem;
-    display: flex;
-    flex-direction: column;
+    //margin: 0;
+    //padding: 0;
+    //font-size: 1.6rem;
+    background: #898989;
     overflow-x: hidden;
 }
 
+main {
+    padding: 1rem;
+    background: $blanc16;
+    width: 100vw;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// outils
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //gap: var(--gap, 1rem); // si --gap pas défini, alors gap = 1rem;
+}
+
+// Header navbar logo liens menu hamburger
+
+h1.logo {
+    color: $blanc16;
+    font-family: "Oleo";
+    font-size: 5rem;
+    font-size: clamp(6rem, 4vw, 8rem);//clamp(4rem, 2.5vw, 15rem);
+    letter-spacing: -3px;
+    user-select: none;
+    margin: 0 1rem;
+    transition: .8ms ease-out;
+    text-shadow: $ombreTexte1;
+    
+    &:hover {
+	color: $blanc8;
+	animation: secousses 1s cubic-bezier(.36, .07, .19, .97) both;
+	transform: translate3d(0,0,0);
+    }
+
+    a {
+	color: inherit;
+	text-decoration: none;
+    }
+}
 
 header {
-
+    padding: 20px;
     display: flex;
     flex-direction:row;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
     height: 7rem;
+    @include bordureDefaut;
+    //border: $bordureStyle;
     border-bottom-color: $noir7;
+    @include texture1;
+}
 
-    nav {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+
+div#vegan {
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 6rem;
+
+    @include bordureDefaut;
+    @include bordureArrondi;
+    //border: $bordureStyle;
+    border-color: $blanc16;
+    //border-radius: $bordureArrondi;
+    padding: .25rem;
+    cursor: pointer;
+
+    box-shadow: $ombreBoite1;
+    transition: all .250s ease-in-out;
+
+    &:hover {
+	border-color: $rouge8;
+	background: $jaune5;
     }
 
+    .lignes {
+	width: 85%;
+	height: .6rem;
+	background-color: $blanc16;
+	padding: .2rem;
+	margin: .4rem;
+	box-shadow: $ombreBoite2;
+    }
+}
 
-    #vegan {
+ul.navigation {
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
 
-	display: none;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    align-items: center;
+    justify-content: space-between;
 
-	width: 6rem;
-	//border: 2px solid $blanc16;
-	//border-radius: 5px;
-	//border: $bordureStyle;
-	//border-radius: $bordureArrondi;
+    transform: translateX(0);
+
+    background: #9A9A9A;
+    padding: 8px 10px;
+    margin: 0 clamp(.5rem, 5vw, 2.5rem);
+
+    //border: $bordureStyle;
+    //border-radius: $bordureArrondi;
+    @include bordureDefaut;
+    @include bordureArrondi;
+
+    border-color: $noir4;
+    height: 100%;
+
+    @include texture3;
+    
+    li {
 
 	@include bordureDefaut;
 	@include bordureArrondi;
-	border-color: $blanc16;
 
-	padding: .25rem;
-	cursor: pointer;
+	//border: $bordureStyle;
+	//border-radius: $bordureArrondi;
 
-	//box-shadow: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0,0,0,0.6);
-	box-shadow: $ombreBoite1;
-	transition: all .250s ease-in-out;
-
-	&:hover {
-	    border-color: $rouge8;
-	    background: $jaune5;
-	}
-
-	.lignes {
-	    width: 85%;
-	    height: .6rem;
-	    background-color: $blanc16;
-	    padding: .2rem;
-	    margin: .4rem;
-	    box-shadow: $ombreBoite2;
-	}
-    }
-
-    h1.logo {
-	color: $primary-color-complementary; //$blanc16;
-	font-family: "Oleo";
-	font-size: 5rem;
-	font-size: clamp(6rem, 4vw, 8rem);//clamp(4rem, 2.5vw, 15rem);
-	letter-spacing: -3px;
-	user-select: none;
-	margin: 0 1rem;
-	transition: .8ms ease-out;
-	//text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
-	text-shadow: $ombreTexte1; 
-	//text-shadow: $ombreTexte2;
-	
-	&:hover {
-	    color: $tertiary-color-complementary;  //$blanc8;
-	    animation: secousses 1s cubic-bezier(.36, .07, .19, .97) both;
-	    transform: translate3d(0,0,0);
-	}
+	flex: 1;
+	//display: flex;
 
 	a {
-	    color: inherit;
+	    //display: block;
+	    //padding: 0.75rem 0.5rem 0.75rem;
+	    padding: 2px 5px;
+	    font-family: monospace;
+	    font-size: clamp(.8rem, 4vw, 1.4rem);
 	    text-decoration: none;
-	}
-    }
+	    letter-spacing: -2px;
+	    color: $blanc15;
 
-    ul {
-	
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	list-style: none;
+	    justify-content: center;
 
-	align-items: center;
-	justify-content: space-between;
-
-	transform: translateX(0);
-
-	background: #9A9A9A;
-	padding: 8px 10px;
-	margin: 0 clamp(.5rem, 5vw, 2.5rem);
-
-	@include bordureDefaut;
-	@include bordureArrondi;
-	
-	//border: $bordureStyle;
-	//border-radius: $bordureArrondi;
-	border-color: $noir4;
-
-	@include texture3;
-	
-	li {
+	    //flex: 1;
 
 	    @include bordureDefaut;
 	    @include bordureArrondi;
@@ -142,216 +191,67 @@ header {
 	    //border: $bordureStyle;
 	    //border-radius: $bordureArrondi;
 
-	    flex: 1;
-
-	    a {
-		display: block;
-		padding: 0.75rem 0.5rem 0.75rem;
-		font-family: monospace;
-		font-size: clamp(.8rem, 4vw, 1.4rem);
-		text-decoration: none;
-		letter-spacing: -2px;
-		color: $blanc15;
-
-		@include bordureDefaut;
-		@include bordureArrondi;
-
-		//border: $bordureStyle;
-		//border-radius: $bordureArrondi;
-
-		transition: all 0.3s ease-in-out;
+	    transition: all 0.3s ease-in-out;
 
 
-		&:hover {
-		    color: $blanc16;
-		    transform: scale(1.2);
-		}
-	    }
-
-	    &:nth-last-child(1){
-		background: #282828;
-		a:hover {
-		    color: #282828;
-		    background: $blanc16;
-		    transform: scale(0.9);
-		}
-	    }
-	}
-    }
-
-}
-
-
-
-main {
-    margin-top: .25rem;
-}
-
-
-main#login {
-    top: 0.25rem;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    height: 100vh;
-
-    background-color: $alternative-color;
-    
-    form {
-        //width: 18rem;
-        margin: .5rem 0;
-        padding: 2rem;
-        border-radius: 5px;
-        border: 3px solid $blanc16; //$primary-color;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-        legend {
-            font-family: "Fira", "Oleo", serif, sans-serif;
-            font-size: 2rem;
-            text-align: center;
-            color: $blanc16;
-            border-color: $blanc16;
-        }
-
-
-        fieldset {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-            border-color: $blanc16;
-
-
-            label {
-		font-size: 2rem;
-		text-align: left;        
+	    &:hover {
 		color: $blanc16;
-
-            }
-
-            input[type=text]{
-		margin-left: .5rem;
-            }
-
-            button {
-		color: $couleurTexte;
-		background-color: $blanc15;
-		padding: .5rem;
-		border-radius: 5px;
-
-            }
-
-
-	}
-
-
-    }
-
-}
-
-main#generales {
-
-    top: 0.25rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
-    background-color: $alternative-color;
-
-    form {
-	margin: .5rem 1.25rem;
-        padding: 2rem;
-        border-radius: 5px;
-        border: 3px solid $blanc16; 
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-	legend {
-            font-family: "Fira", "Oleo", serif, sans-serif;
-            font-size: 2rem;
-            text-align: center;
-            color: $blanc16;
-            border-color: $blanc16;
-        }
-
-	button {
-	    color: $couleurTexte;
-	    background-color: $blanc15;
-	    padding: .5rem;
-	    border-radius: 5px;
-
-        }
-
-
-	fieldset {
-	    display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-            border-color: $blanc16;
-	}
-
-	select {
-	    padding: .3rem;
-	    border-radius: 4px;
-	    option {
-		padding: .25rem;
+		transform: scale(1.2);
 	    }
 	}
 
+	&.login {
+	    background: #282828;
+	    a:hover {
+		color: #282828;
+		background: $blanc16;
+		transform: scale(0.9);
+	    }
+	}
 
     }
 }
 
 
-
-
+// 768px / 35 em ?
+                 
 @media screen and (max-width: 420px){
     h1.logo {
 	display: none;
     }
 }
 
-
 // 1200 ?
-@media screen and (max-width: 768px){
+@media screen and (max-width: $rupture){
 
     nav {
-	//justify-content: flex-start;
 	row-gap: clamp(1rem, 5vh, 3rem);
     }
-    
+
     div#vegan {
 	display: block;
 	z-index: 9000;
 	position: absolute;
 	right: clamp(1rem, 5vw, 3rem);
-	animation: tremor 2s linear infinite;
+	//animation: tremor 2s linear infinite;
     }
     
-    
-    ul {
+    ul.navigation {
 	z-index: 8000;
 	position: fixed;
-	//inset: 5rem 0 0 0;
 	inset: 0 0 0 25%;
-	background: #545454;//orange;
-
+	background: #545454;
 
 	height: 100vh;
 	top: 0;
 
 	flex-direction: column;
 	align-items: flex-start;
-	justify-content: center;
+	justify-content: space-around;
 	flex-wrap: nowrap;
-
 	margin: 0;
-
 	transform: translateX(100%);
-	transition: transform .75s ease-in-out;
+	transition: transform .5s ease-in-out;
 
 	li {
 	    padding: .125rem 0;
@@ -361,14 +261,16 @@ main#generales {
 	}
 
 	&[data-afficher="true"]{
+	    background: steelblue;
 	    transform: translateX(0%);
 	}
+
     }
 }
 
 @media screen and (min-width: 1280px){
-    ul {
-	top: 60px;
+    ul.navigation {
+	//top: 60px;
 	li {
 	    //flex-basis: 50%;
 	}

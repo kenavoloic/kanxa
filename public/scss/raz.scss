@@ -65,11 +65,14 @@ input {
 }
 
 label {
+    font-size: 1.25em;
+    padding: 5px 10px 5px 10px;
+    margin: 10px 10px 0 10px;
     user-select: none;
 }
 
 fieldset {
-border-style: groove;
+border-style: solid;
 }
 
 select {
@@ -77,3 +80,8 @@ select {
     cursor: pointer;
 }
 
+input[type="text"], input[type="password"] {
+    font-size: 1.25em;
+    margin: 0 10px 0 10px;
+    padding: 0.2em;    
+}

@@ -6,8 +6,8 @@
 	    <div class="lignes"></div>
 	    <div class="lignes"></div>
 	</div>
-	<ul class="administration" id="administration" data-afficher="false">
-	    <li><a href="/login/deconnexion" title="Déconnexion">Déconnexion</a></li>
+	<ul class="navigation" id="administration" data-afficher="false">
+	    <li class="login"><a href="/login/deconnexion" title="Déconnexion">Déconnexion</a></li>
 	    <li><a href="/score" title="Enregistrement du résultat d’une partie">Score</a></li>
 	    <li><a href="/liste" title="Liste des équipes">Liste</a></li>
 	    <li><a href="/planning" title="Calendrier des parties">Planning</a></li>

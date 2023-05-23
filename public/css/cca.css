@@ -53,14 +53,22 @@ input {
   border-radius: 5px; }
 
 label {
+  font-size: 1.25em;
+  padding: 5px 10px 5px 10px;
+  margin: 10px 10px 0 10px;
   user-select: none; }
 
 fieldset {
-  border-style: groove; }
+  border-style: solid; }
 
 select {
   padding: .25rem .4rem;
   cursor: pointer; }
+
+input[type="text"], input[type="password"] {
+  font-size: 1.25em;
+  margin: 0 10px 0 10px;
+  padding: 0.2em; }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap'); */
@@ -119,6 +127,105 @@ select {
     transform: rotateZ(-4deg); }
   40%, 100% {
     transform: rotateZ(0); } }
+
+main#login {
+  display: grid;
+  place-items: center;
+  height: 90vh;
+  padding: 1rem;
+  background: #85bbe0; }
+  main#login form {
+    border-style: inset;
+    border-color: #99005a;
+    display: grid;
+    width: 90vw;
+    min-height: 80%;
+    padding: 10px;
+    padding-top: 2rem;
+    gap: 2rem; }
+    main#login form legend {
+      font-family: "Fira", sans-serif;
+      letter-spacing: -3px;
+      font-size: clamp(4em, 4vw, 8em);
+      text-align: center;
+      color: #FFFFFF; }
+    main#login form fieldset {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-color: transparent; }
+    main#login form label {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px; }
+    main#login form input {
+      width: 100%; }
+      main#login form input::placeholder {
+        color: #FFFFFF; }
+    main#login form button {
+      font-size: clamp(1.2em, 4vw, 2em);
+      padding-inline: 1rem;
+      padding-block: 0.5rem; }
+
+main#login0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 1rem;
+  background-color: #338dcc; }
+  main#login0 form {
+    margin: .5rem 0;
+    padding: 2rem;
+    border-radius: 5px;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+    main#login0 form legend {
+      font-family: "Fira", "Oleo", serif, sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      color: #FFFFFF;
+      border-color: #FFFFFF; }
+    main#login0 form fieldset {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-radius: 5px;
+      margin: 1rem 0;
+      border-color: #FFFFFF; }
+      main#login0 form fieldset label {
+        font-size: 2rem;
+        text-align: left;
+        color: #FFFFFF; }
+      main#login0 form fieldset input[type=text] {
+        margin-left: .5rem; }
+      main#login0 form fieldset button {
+        color: #301934;
+        background-color: #F3E5AB;
+        padding: .5rem;
+        border-radius: 5px; }
+
+@media screen and (min-width: 1200px) {
+  main#login label {
+    border-radius: 5px;
+    border: 2px solid transparent;
+    font-size: 1.25em;
+    padding: 5px 10px 5px 10px;
+    margin: 10px 10px 0 10px;
+    user-select: none;
+    text-align: left;
+    flex: 1;
+    cursor: pointer; }
+  main#login input::placeholder {
+    display: none; } }
 
 main#inscription {
   /*
@@ -526,203 +633,150 @@ input:disabled {
 .erreur.active {
   padding: .3em; }
 
+/*
+$bordureArrondi: 5px;
+$bordureEpaisseur: 2px;
+$bordureStyle: $bordureEpaisseur solid transparent;
+
+$ombreTexte1: 4px 4px 2px rgba(0,0,0,0.6);
+$ombreBoite1: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0,0,0,0.6);
+$ombreBoite2: 1px 2px 1px 1px #000013, 2px 1px 3px -2px rgba(0,0,0,0.6);
+        
+                      
+*/
 html {
   font-family: "Fira", sans-serif;
-  background-color: #0096FF; }
+  background: #767676; }
 
 body {
-  font-size: 1.6rem;
-  background-color: #0096FF;
-  display: flex;
-  flex-direction: column;
+  background: #898989;
   overflow-x: hidden; }
 
+main {
+  padding: 1rem;
+  background: #FFFFFF;
+  width: 100vw; }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+h1.logo {
+  color: #FFFFFF;
+  font-family: "Oleo";
+  font-size: 5rem;
+  font-size: clamp(6rem, 4vw, 8rem);
+  letter-spacing: -3px;
+  user-select: none;
+  margin: 0 1rem;
+  transition: .8ms ease-out;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6); }
+  h1.logo:hover {
+    color: #E9DCC9;
+    animation: secousses 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0); }
+  h1.logo a {
+    color: inherit;
+    text-decoration: none; }
+
 header {
+  padding: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
   height: 7rem;
-  border-bottom-color: #28282B; }
-  header nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; }
-  header #vegan {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 6rem;
-    border: 2px solid transparent;
-    border-radius: 5px;
-    border-color: #FFFFFF;
-    padding: .25rem;
-    cursor: pointer;
-    box-shadow: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0, 0, 0, 0.6);
-    transition: all .250s ease-in-out; }
-    header #vegan:hover {
-      border-color: #E97451;
-      background: #E1C16E; }
-    header #vegan .lignes {
-      width: 85%;
-      height: .6rem;
-      background-color: #FFFFFF;
-      padding: .2rem;
-      margin: .4rem;
-      box-shadow: 1px 2px 1px 1px #000013, 2px 1px 3px -2px rgba(0, 0, 0, 0.6); }
-  header h1.logo {
-    color: #ff6900;
-    font-family: "Oleo";
-    font-size: 5rem;
-    font-size: clamp(6rem, 4vw, 8rem);
-    letter-spacing: -3px;
-    user-select: none;
-    margin: 0 1rem;
-    transition: .8ms ease-out;
-    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6); }
-    header h1.logo:hover {
-      color: #6900ff;
-      animation: secousses 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-      transform: translate3d(0, 0, 0); }
-    header h1.logo a {
-      color: inherit;
-      text-decoration: none; }
-  header ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    list-style: none;
-    align-items: center;
-    justify-content: space-between;
-    transform: translateX(0);
-    background: #9A9A9A;
-    padding: 8px 10px;
-    margin: 0 clamp(0.5rem, 5vw, 2.5rem);
-    border: 2px solid transparent;
-    border-radius: 5px;
-    border-color: #301934;
-    background-image: linear-gradient(45deg, #9e8a64 25%, transparent 25%, transparent 75%, #9e8a64 75%), linear-gradient(45deg, #9e8a64 25%, transparent 25%, transparent 75%, #9e8a64 75%);
-    background-size: 6px 6px;
-    background-color: #9e8a64; }
-    header ul li {
-      border: 2px solid transparent;
-      border-radius: 5px;
-      flex: 1; }
-      header ul li a {
-        display: block;
-        padding: 0.75rem 0.5rem 0.75rem;
-        font-family: monospace;
-        font-size: clamp(0.8rem, 4vw, 1.4rem);
-        text-decoration: none;
-        letter-spacing: -2px;
-        color: #F3E5AB;
-        border: 2px solid transparent;
-        border-radius: 5px;
-        transition: all 0.3s ease-in-out; }
-        header ul li a:hover {
-          color: #FFFFFF;
-          transform: scale(1.2); }
-      header ul li:nth-last-child(1) {
-        background: #282828; }
-        header ul li:nth-last-child(1) a:hover {
-          color: #282828;
-          background: #FFFFFF;
-          transform: scale(0.9); }
+  border: 2px solid transparent;
+  border-bottom-color: #28282B;
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%), linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%);
+  background-size: 5px 5px; }
 
-main {
-  margin-top: .25rem; }
-
-main#login {
-  top: 0.25rem;
-  display: flex;
+div#vegan {
+  display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #0096FF; }
-  main#login form {
-    margin: .5rem 0;
-    padding: 2rem;
-    border-radius: 5px;
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
-    main#login form legend {
-      font-family: "Fira", "Oleo", serif, sans-serif;
-      font-size: 2rem;
-      text-align: center;
-      color: #FFFFFF;
-      border-color: #FFFFFF; }
-    main#login form fieldset {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      border-radius: 5px;
-      margin: 1rem 0;
-      border-color: #FFFFFF; }
-      main#login form fieldset label {
-        font-size: 2rem;
-        text-align: left;
-        color: #FFFFFF; }
-      main#login form fieldset input[type=text] {
-        margin-left: .5rem; }
-      main#login form fieldset button {
-        color: #301934;
-        background-color: #F3E5AB;
-        padding: .5rem;
-        border-radius: 5px; }
+  width: 6rem;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  border-color: #FFFFFF;
+  padding: .25rem;
+  cursor: pointer;
+  box-shadow: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0, 0, 0, 0.6);
+  transition: all .250s ease-in-out; }
+  div#vegan:hover {
+    border-color: #E97451;
+    background: #E1C16E; }
+  div#vegan .lignes {
+    width: 85%;
+    height: .6rem;
+    background-color: #FFFFFF;
+    padding: .2rem;
+    margin: .4rem;
+    box-shadow: 1px 2px 1px 1px #000013, 2px 1px 3px -2px rgba(0, 0, 0, 0.6); }
 
-main#generales {
-  top: 0.25rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  background-color: #0096FF; }
-  main#generales form {
-    margin: .5rem 1.25rem;
-    padding: 2rem;
+ul.navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateX(0);
+  background: #9A9A9A;
+  padding: 8px 10px;
+  margin: 0 clamp(0.5rem, 5vw, 2.5rem);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  border-color: #301934;
+  height: 100%;
+  background-image: linear-gradient(45deg, #9e8a64 25%, transparent 25%, transparent 75%, #9e8a64 75%), linear-gradient(45deg, #9e8a64 25%, transparent 25%, transparent 75%, #9e8a64 75%);
+  background-size: 6px 6px;
+  background-color: #9e8a64; }
+  ul.navigation li {
+    border: 2px solid transparent;
     border-radius: 5px;
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
-    main#generales form legend {
-      font-family: "Fira", "Oleo", serif, sans-serif;
-      font-size: 2rem;
-      text-align: center;
-      color: #FFFFFF;
-      border-color: #FFFFFF; }
-    main#generales form button {
-      color: #301934;
-      background-color: #F3E5AB;
-      padding: .5rem;
-      border-radius: 5px; }
-    main#generales form fieldset {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
+    flex: 1; }
+    ul.navigation li a {
+      padding: 2px 5px;
+      font-family: monospace;
+      font-size: clamp(0.8rem, 4vw, 1.4rem);
+      text-decoration: none;
+      letter-spacing: -2px;
+      color: #F3E5AB;
+      justify-content: center;
+      border: 2px solid transparent;
       border-radius: 5px;
-      margin: 1rem 0;
-      border-color: #FFFFFF; }
-    main#generales form select {
-      padding: .3rem;
-      border-radius: 4px; }
-      main#generales form select option {
-        padding: .25rem; }
+      transition: all 0.3s ease-in-out; }
+      ul.navigation li a:hover {
+        color: #FFFFFF;
+        transform: scale(1.2); }
+    ul.navigation li.login {
+      background: #282828; }
+      ul.navigation li.login a:hover {
+        color: #282828;
+        background: #FFFFFF;
+        transform: scale(0.9); }
 
 @media screen and (max-width: 420px) {
   h1.logo {
     display: none; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   nav {
     row-gap: clamp(1rem, 5vh, 3rem); }
   div#vegan {
     display: block;
     z-index: 9000;
     position: absolute;
-    right: clamp(1rem, 5vw, 3rem);
-    animation: tremor 2s linear infinite; }
-  ul {
+    right: clamp(1rem, 5vw, 3rem); }
+  ul.navigation {
     z-index: 8000;
     position: fixed;
     inset: 0 0 0 25%;
@@ -731,19 +785,16 @@ main#generales {
     top: 0;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: nowrap;
     margin: 0;
     transform: translateX(100%);
-    transition: transform .75s ease-in-out; }
-    ul li {
+    transition: transform .5s ease-in-out; }
+    ul.navigation li {
       padding: .125rem 0;
       margin: 0;
       text-align: left;
       transition: all .5s ease-in-out; }
-    ul[data-afficher="true"] {
+    ul.navigation[data-afficher="true"] {
+      background: steelblue;
       transform: translateX(0%); } }
-
-@media screen and (min-width: 1280px) {
-  ul {
-    top: 60px; } }
