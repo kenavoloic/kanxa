@@ -53,7 +53,7 @@ input {
   border-radius: 5px; }
 
 label {
-  font-size: 1.25em;
+  font-size: 1rem;
   padding: 5px 10px 5px 10px;
   margin: 10px 10px 0 10px;
   user-select: none; }
@@ -66,9 +66,9 @@ select {
   cursor: pointer; }
 
 input[type="text"], input[type="password"] {
-  font-size: 1.25em;
+  font-size: 1.2rem;
   margin: 0 10px 0 10px;
-  padding: 0.2em; }
+  padding: 5px 10px 5px 10px; }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap'); */
@@ -133,8 +133,9 @@ main#login {
   place-items: center;
   height: 90vh;
   padding: 1rem;
-  background: #85bbe0; }
+  background: #F28C28; }
   main#login form {
+    border-radius: 6px;
     border-style: inset;
     border-color: #99005a;
     display: grid;
@@ -145,89 +146,56 @@ main#login {
     gap: 2rem; }
     main#login form legend {
       font-family: "Fira", sans-serif;
-      letter-spacing: -3px;
+      letter-spacing: -5px;
       font-size: clamp(4em, 4vw, 8em);
       text-align: center;
-      color: #FFFFFF; }
+      color: #FFFFFF;
+      margin-bottom: .25rem; }
     main#login form fieldset {
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       border-color: transparent; }
     main#login form label {
-      border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px; }
+      color: #FFFFFF;
+      text-align: center;
+      background: #0096FF;
+      border-color: #FFFFFF;
+      flex: 1;
+      height: 100%;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      white-space: nowrap;
+      overflow: hidden; }
     main#login form input {
-      width: 100%; }
+      flex: 4;
+      height: 100%;
+      font-size: clamp(1.2rem, 3vw, 2rem); }
       main#login form input::placeholder {
-        color: #FFFFFF; }
+        color: transparent; }
     main#login form button {
       font-size: clamp(1.2em, 4vw, 2em);
       padding-inline: 1rem;
       padding-block: 0.5rem; }
 
-main#login0 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 0 1rem;
-  background-color: #338dcc; }
-  main#login0 form {
-    margin: .5rem 0;
-    padding: 2rem;
-    border-radius: 5px;
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
-    main#login0 form legend {
-      font-family: "Fira", "Oleo", serif, sans-serif;
-      font-size: 2rem;
-      text-align: center;
-      color: #FFFFFF;
-      border-color: #FFFFFF; }
-    main#login0 form fieldset {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      border-radius: 5px;
-      margin: 1rem 0;
-      border-color: #FFFFFF; }
-      main#login0 form fieldset label {
-        font-size: 2rem;
-        text-align: left;
-        color: #FFFFFF; }
-      main#login0 form fieldset input[type=text] {
-        margin-left: .5rem; }
-      main#login0 form fieldset button {
-        color: #301934;
-        background-color: #F3E5AB;
-        padding: .5rem;
-        border-radius: 5px; }
-
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 800px) {
   main#login label {
-    border-radius: 5px;
-    border: 2px solid transparent;
-    font-size: 1.25em;
-    padding: 5px 10px 5px 10px;
-    margin: 10px 10px 0 10px;
-    user-select: none;
-    text-align: left;
-    flex: 1;
-    cursor: pointer; }
-  main#login input::placeholder {
-    display: none; } }
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }
+  main#login input {
+    min-width: 100%;
+    margin: 0 1rem; }
+    main#login input::placeholder {
+      color: black; } }
 
 main#inscription {
+  background: #F28C28;
   /*
     form {
 	display: flex;
@@ -666,6 +634,26 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between; }
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.undoVisuallyHidden {
+  border: initial;
+  clip: initial;
+  height: initial;
+  margin: initial;
+  overflow: initial;
+  padding: initial;
+  position: initial;
+  width: initial; }
 
 h1.logo {
   color: #FFFFFF;

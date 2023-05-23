@@ -4,7 +4,8 @@ main#login {
     height: 90vh;
     padding: 1rem;
 
-    background: $inverted-primary-color-light;
+    //background: $inverted-primary-color-light;
+    background: $orange10;
 
     //max-width: 1024px;
 
@@ -21,7 +22,7 @@ main#login {
 
 	legend {
 	    font-family: "Fira", sans-serif;
-	    letter-spacing: -3px;
+	    letter-spacing: -5px;
             font-size: clamp(4em, 4vw, 8em);
             text-align: center;
             color: $blanc16;
@@ -30,7 +31,7 @@ main#login {
 
 	fieldset {
             display: flex;
-	    gap: 1rem;
+	    //gap: 1rem;
 	    flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
@@ -38,30 +39,33 @@ main#login {
 	}
 
 
-//	https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements	
+	//	https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements	
 
 	label {
-	    border: 0;
-	    clip: rect(0 0 0 0);
-	    height: 1px;
-	    margin: -1px;
+	    color: $blanc16;
+	    text-align: center;
+	    background: $primary-color;
+	    border-color: $blanc16;
+	    flex: 1;
+	    height: 100%;
+	    font-size: clamp(1.2rem, 3vw, 2rem);
+	    white-space: nowrap;
 	    overflow: hidden;
-	    padding: 0;
-	    position: absolute;
-	    width: 1px;
+	    //text-overflow: ellipsis;
 	}
+	
 	input {
-	    //flex: 1 2 0px;
+	    flex: 4;// 2 0px;
+	    height: 100%;
+	    font-size: clamp(1.2rem, 3vw, 2rem);
 	    //width: 0;
 	    //min-width: 0;
-	    width: 100%;
+	    //width: 100%;
 
 	    &::placeholder {
-		color: $blanc16;
+		color: transparent; //$blanc16;
 	    }
-	    &!!-webkit-input-placeholder {
-		color: green;
-	    }
+
 	}
 
 	button {
@@ -74,87 +78,28 @@ main#login {
     }
 }
 
-main#login0 {
-    //top: 0.25rem;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    height: 100vh;
-    padding: 0 1rem;
+@media screen and (max-width: 800px){
 
-    background-color: $inverted-primary-color; //$alternative-color;
-    
-    form {
-        margin: .5rem 0;
-        padding: 2rem;
-        border-radius: 5px;
-        border: 3px solid $blanc16; //$primary-color;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-        legend {
-            font-family: "Fira", "Oleo", serif, sans-serif;
-            font-size: 2rem;
-            text-align: center;
-            color: $blanc16;
-            border-color: $blanc16;
-        }
-
-        fieldset {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-            border-color: $blanc16;
-
-
-            label {
-		font-size: 2rem;
-		text-align: left;        
-		color: $blanc16;
-
-            }
-
-            input[type=text]{
-		margin-left: .5rem;
-            }
-
-            button {
-		color: $couleurTexte;
-		background-color: $blanc15;
-		padding: .5rem;
-		border-radius: 5px;
-
-            }
-
-
-	}
-
-
-    }
-
-}
-
-@media screen and (min-width: 1200px){
     main#login {
-
 	label {
-	    @include bordureArrondi;
-	    @include bordureDefaut;
-	    font-size: 1.25em;
-	    padding: 5px 10px 5px 10px;
-	    margin: 10px 10px 0 10px;
-	    user-select: none;
-
-	    //display: block;
-	    text-align: left;
-	    flex: 1;
-	    cursor: pointer;
+	    border: 0;
+	    clip: rect(0 0 0 0);
+	    height: 1px;
+	    margin: -1px;
+	    overflow: hidden;
+	    padding: 0;
+	    position: absolute;
+	    width: 1px;
 	}
-	input::placeholder {
-	    display: none;
-	    
+
+	input {
+	    min-width: 100%;
+	    margin: 0 1rem;
+
+	    &::placeholder {
+		color: black;
+	    }
 	}
     }
 }
+

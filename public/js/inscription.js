@@ -1,3 +1,4 @@
+import ecouteursMenus from './modules/ecouteursMenus.js';
 
 const razOptionCachee = (selecteur) => {
     // L'option [0] n'est affichée qu'une seule fois.
@@ -78,6 +79,10 @@ const ecouteurSelecteursSortie = (idSelect1, idSelect2, idSortie, nomVariable1, 
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    //écouteurs pour la navbar
+    ecouteursMenus();
+    
     //éléments
     const formulaire = document.querySelector('#formulaire');
     //formulaire.setAttribute('novalidate', true);
@@ -85,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const genre = document.querySelector('#genre');
     const panneau = document.querySelector('#nombreEquipes');
     const compteur = panneau.parentNode;
+
 
     const fx1 = [{color: 'yellow', background: 'black'}, {color: 'black', background: 'green'}];
     const dur1 = {duration: 1000, delay: 0, iterations: 13, easing: 'ease-in-out'};
@@ -104,7 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
     razOptionCachee(serie);
     razOptionCachee(genre);
 
-    nom1.focus({focusVisible:true});
+    //serie.focus({focusVisible: true});
+    serie.focus();
+    serie.selectedIndex = 1;
+
+    //nom1.focus({focusVisible:true});
 
     formulaire.addEventListener('submit', soumission);
 });

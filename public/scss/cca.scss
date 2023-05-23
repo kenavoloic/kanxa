@@ -10,7 +10,7 @@
 @import 'inscription.scss';
 @import 'poules.scss';
 @import 'validation.scss';
-
+    
 
 $rupture: 1200px;
  
@@ -33,9 +33,6 @@ html {
 }
 
 body {
-    //margin: 0;
-    //padding: 0;
-    //font-size: 1.6rem;
     background: #898989;
     overflow-x: hidden;
 }
@@ -59,31 +56,55 @@ nav {
     justify-content: space-between;
     //gap: var(--gap, 1rem); // si --gap pas défini, alors gap = 1rem;
 }
+     
 
-// Header navbar logo liens menu hamburger
-
-h1.logo {
-    color: $blanc16;
-    font-family: "Oleo";
-    font-size: 5rem;
-    font-size: clamp(6rem, 4vw, 8rem);//clamp(4rem, 2.5vw, 15rem);
-    letter-spacing: -3px;
-    user-select: none;
-    margin: 0 1rem;
-    transition: .8ms ease-out;
-    text-shadow: $ombreTexte1;
-    
-    &:hover {
-	color: $blanc8;
-	animation: secousses 1s cubic-bezier(.36, .07, .19, .97) both;
-	transform: translate3d(0,0,0);
-    }
-
-    a {
-	color: inherit;
-	text-decoration: none;
-    }
+.visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
+
+.undoVisuallyHidden {
+    border: initial;
+    clip: initial;
+    height: initial;
+    margin: initial;
+    overflow: initial;
+    padding: initial;
+    position: initial;
+    width: initial;
+}
+
+    // Header navbar logo liens menu hamburger
+
+    h1.logo {
+	color: $blanc16;
+	font-family: "Oleo";
+	font-size: 5rem;
+	font-size: clamp(6rem, 4vw, 8rem);
+	letter-spacing: -3px;
+	user-select: none;
+	margin: 0 1rem;
+	transition: .8ms ease-out;
+	text-shadow: $ombreTexte1;
+
+	
+	&:hover {
+	    color: $blanc8;
+	    animation: secousses 1s cubic-bezier(.36, .07, .19, .97) both;
+	    transform: translate3d(0,0,0);
+	}
+
+	a {
+	    color: inherit;
+	    text-decoration: none;
+	}
+    }
 
 header {
     padding: 20px;
@@ -97,7 +118,7 @@ header {
     border-bottom-color: $noir7;
     @include texture1;
 }
-
+   
 
 div#vegan {
 
@@ -110,7 +131,6 @@ div#vegan {
 
     @include bordureDefaut;
     @include bordureArrondi;
-    //border: $bordureStyle;
     border-color: $blanc16;
     //border-radius: $bordureArrondi;
     padding: .25rem;
@@ -184,12 +204,9 @@ ul.navigation {
 	    justify-content: center;
 
 	    //flex: 1;
-
+  
 	    @include bordureDefaut;
 	    @include bordureArrondi;
-
-	    //border: $bordureStyle;
-	    //border-radius: $bordureArrondi;
 
 	    transition: all 0.3s ease-in-out;
 
@@ -204,14 +221,14 @@ ul.navigation {
 	    background: #282828;
 	    a:hover {
 		color: #282828;
-		background: $blanc16;
+ 		background: $blanc16;
 		transform: scale(0.9);
 	    }
 	}
 
     }
 }
-
+     
 
 // 768px / 35 em ?
                  
