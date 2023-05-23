@@ -1,7 +1,75 @@
 main#inscription{
     background: $orange10;
-/*
+    /*
+       form {
+       display: flex;
+       flex-wrap: wrap;
+       flex-direction: column;
+       //background-color: #70a0c7;
+       //background-color: $secondary-color-dark;
+       padding: 1rem;
+       margin: 1rem;
+       border: 2px solid $blanc16;
+       border-radius: 5px;
+       }
+
+       fieldset {
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-between;
+       margin: .25rem 0;
+       padding: .25rem;
+       border: 2px groove;
+       border-radius: 6px;
+       }
+
+       legend {
+       font-size: 1.2rem;
+       padding: .15rem;
+       color: $gorria;
+       }
+       
+       label {
+       font-family: sans-serif;
+       font-size: 1.2rem;
+       color: $blanc16;
+       margin-left: .25rem;
+       user-select: none;
+       }
+
+       button {
+       padding: .5rem;
+       margin: .25rem;
+       transition: all .25s ease-in-out;
+
+       &:hover {
+       color: $blanc16;
+       background-color: #0047AB;
+       }
+
+       }
+
+
+       input, select {
+       font-family: monospace;
+       font-size: 1.2rem;
+       padding: .25rem;
+       margin-right: .25rem;
+       border-radius: 4px;
+
+       }
+
+       input[type=text]::placeholder, input[type=email]::placeholder {
+       color: $blanc16;
+       text-align: center;
+       }
+       }
+
+     */
+
     form {
+	border-radius: 6px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -9,166 +77,157 @@ main#inscription{
 	//background-color: $secondary-color-dark;
 	padding: 1rem;
 	margin: 1rem;
-	border: 2px solid $blanc16;
-	border-radius: 5px;
-    }
+	border-color: transparent; // $blanc16;
+	//border: 2px solid $blanc16;
+	//border-radius: 5px;
 
-    fieldset {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	margin: .25rem 0;
-	padding: .25rem;
-	border: 2px groove;
-	border-radius: 6px;
-    }
-
-    legend {
-	font-size: 1.2rem;
-	padding: .15rem;
-	color: $gorria;
-    }
-    
-    label {
-	font-family: sans-serif;
-	font-size: 1.2rem;
-	color: $blanc16;
-	margin-left: .25rem;
-	user-select: none;
-    }
-
-    button {
-	padding: .5rem;
-	margin: .25rem;
-	transition: all .25s ease-in-out;
-
-	&:hover {
-	    color: $blanc16;
-	    background-color: #0047AB;
+	fieldset {
+	    display: flex;
+	    flex-direction: row;
+	    align-items: center;
+	    justify-content: space-between;
+	    margin: .25rem 0;
+	    padding: .25rem;
+	    border: 2px groove;
+	    border-radius: 6px;
 	}
 
-    }
 
+	legend {
+	    font-size: 1.2rem;
+	    padding: .15rem;
+	    color: $gorria;
+	}
+	
+	label {
+	    font-family: sans-serif;
+	    font-size: 1.2rem;
+	    color: $blanc16; //#ffffff;
+	    //margin-left: .25rem;
+	    height: 100%;
+	    flex: 1;
 
-    input, select {
-	font-family: monospace;
-	font-size: 1.2rem;
-	padding: .25rem;
-	margin-right: .25rem;
-	border-radius: 4px;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    //user-select: none;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	}
 
-    }
+	input[type=text], input[type=email],  input[type=phone] {
+	    //font-family: monospace;
+	    //font-size: 1.2rem;
+	    font-size: clamp(1.2rem, 3vw, 2rem);
+	    //padding: .25rem;
+	    //margin-right: .25rem;
+	    //border-radius: 4px;
+	    height: 100%;
+	    flex: 4;
 
-    input[type=text]::placeholder, input[type=email]::placeholder {
-	color: $blanc16;
-	text-align: center;
-    }
-}
+	    &::placeholder {
+		color: transparent; //$blanc16;
+	    }
 
+	}
+/*
+	input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
+	    color: transparent; //$blanc16;//#cc0000;
+	    text-align: center;
+	}
 */
 
-form {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    //background-color: #70a0c7;
-    //background-color: $secondary-color-dark;
-    padding: 1rem;
-    margin: 1rem;
-    border: 2px solid $blanc16;
-    border-radius: 5px;
-
-    fieldset {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	margin: .25rem 0;
-	padding: .25rem;
-	border: 2px groove;
-	border-radius: 6px;
-    }
-
-    legend {
-	font-size: 1.2rem;
-	padding: .15rem;
-	color: $gorria;
-    }
-    label {
-	font-family: sans-serif;
-	font-size: 1.2rem;
-	color: #ffffff;
-	margin-left: .25rem;
-	user-select: none;
-    }
-
-    input[type=text], input[type=email],  input[type=phone] {
-	font-family: monospace;
-	font-size: 1.2rem;
-	padding: .25rem;
-	margin-right: .25rem;
-	border-radius: 4px;
-    }
-
-    input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
-	color: $blanc16;//#cc0000;
-	text-align: center;
-    }
-
-    input[type=text]#nombreEquipes, input[type=email]#nombreEquipes, input[type=phone]#nombreEquipes {
-	text-align: center;
-	color: $gorria;
-    }
-
-    button {
-	padding: .5rem;
-	margin: .25rem;
-	transition: all .25s ease-in-out;
-
-	&:hover {
-	    color: $blanc16;
-	    background-color: #0047AB;
-	}
-
-    }
-
-}
-select#serie, select#genre {
-    padding: .25rem .4rem;
-    color: $blanc16;
-    background-color: $gorria;//#CC0000;
-    border: 2px solid #dddddd;
-    cursor: pointer;
-    border-radius: 5px;
-
-    &:focus, &:hover {
-	outline: none;
-	border: 1px solid #bbbbbb;
-	
-    }
-
-    &.vert {
-	color: $blanc16;
-	background-color: $berdea;//#00CC00;
-    }
-
-    &.rouge {
-	color: $blanc16;
-	background-color: $gorria;
-    }
-
-    option {
-	color: $blanc16;
-	background-color: $gorria;
-
-	&:checked {
-	    background-color: $berdea;
-	}
-    }
-
     
+	input[type=text]#nombreEquipes, input[type=email]#nombreEquipes, input[type=phone]#nombreEquipes {
+	    text-align: center;
+	    color: $gorria;
+	}
 
-}
+	button {
+	    padding: .5rem;
+	    margin: .25rem;
+	    transition: all .25s ease-in-out;
+
+	    &:hover {
+		color: $blanc16;
+		background-color: #0047AB;
+	    }
+
+	}
+
+    }
+    select#serie, select#genre {
+	padding: .25rem .4rem;
+	color: $blanc16;
+	background-color: $gorria;//#CC0000;
+	border: 2px solid #dddddd;
+	cursor: pointer;
+	border-radius: 5px;
+
+	&:focus, &:hover {
+	    outline: none;
+	    border: 1px solid #bbbbbb;
+	    
+	}
+
+	&.vert {
+	    color: $blanc16;
+	    background-color: $berdea;//#00CC00;
+	}
+
+	&.rouge {
+	    color: $blanc16;
+	    background-color: $gorria;
+	}
+
+	option {
+	    color: $blanc16;
+	    background-color: $gorria;
+
+	    &:checked {
+		background-color: $berdea;
+	    }
+	}
+
+	
+
+    }
 
 } 
+
+
+@media screen and (max-width: 800px){
+
+    main#inscription {
+
+	fieldset {
+            justify-content: center;
+	}
+
+	/*
+	label[for="genre"], label[for="serie"], label[for="nombreEquipes"],
+	label[for="nom1"], label[for="prenom1"], label[for="courriel1"], label[for="telephone1"], label[for="licence1"],
+	label[for="nom2"], label[for="prenom2"], label[for="courriel2"], label[for="telephone2"], label[for="licence2"]
+	*/
+	label > input[type="text"], label > input[type="phone"], label > select{
+	    border: 0;
+	    clip: rect(0 0 0 0);
+	    height: 1px;
+	    margin: -1px;
+	    overflow: hidden;
+	    padding: 0;
+	    position: absolute;
+	    width: 1px;
+	}
+
+	input[type="text"], input[type="password"] {
+	    min-width: 100%;
+	    margin: 0 auto;
+	    &::placeholder {
+		color: $blanc16;
+		font-size: clamp(2rem, 3vw, 4rem);
+	    }
+	}
+
+    }
+}

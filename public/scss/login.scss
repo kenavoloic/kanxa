@@ -23,7 +23,7 @@ main#login {
 	legend {
 	    font-family: "Fira", sans-serif;
 	    letter-spacing: -5px;
-            font-size: clamp(4em, 4vw, 8em);
+            font-size: clamp(4rem, 4vw, 8rem);
             text-align: center;
             color: $blanc16;
 	    margin-bottom: .25rem;
@@ -43,14 +43,20 @@ main#login {
 
 	label {
 	    color: $blanc16;
-	    text-align: center;
+	    //text-align: center;
 	    background: $primary-color;
 	    border-color: $blanc16;
 	    flex: 1;
 	    height: 100%;
-	    font-size: clamp(1.2rem, 3vw, 2rem);
+	    font-size: clamp(0.8rem, 3vw, 2rem);
 	    white-space: nowrap;
 	    overflow: hidden;
+
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    //display: inline-block;
+	    //vertical-align: middle;
 	    //text-overflow: ellipsis;
 	}
 	
@@ -58,6 +64,8 @@ main#login {
 	    flex: 4;// 2 0px;
 	    height: 100%;
 	    font-size: clamp(1.2rem, 3vw, 2rem);
+	    color: $couleurTexte;
+	    //background: $blanc16;
 	    //width: 0;
 	    //min-width: 0;
 	    //width: 100%;
@@ -69,18 +77,29 @@ main#login {
 	}
 
 	button {
-	    font-size: clamp(1.2em, 4vw, 2em);
-	    padding-inline: 1rem;
-	    padding-block: 0.5rem;
+	    font-size: clamp(0.8rem, 4vw, 2rem);
+	    //padding-inline: 1rem;
+	    //padding-block: 0.5rem;
+	    background: $primary-color;
+	    border-color: $primary-color;
+	    transition: all .25s ease-in-out;
+
+	    &:hover {
+		background: $berdea;
+	    }
 	}
-	
-	
     }
 }
 
 @media screen and (max-width: 800px){
 
     main#login {
+
+	fieldset {
+            justify-content: center;
+	}
+	
+
 	label {
 	    border: 0;
 	    clip: rect(0 0 0 0);
@@ -92,14 +111,16 @@ main#login {
 	    width: 1px;
 	}
 
-	input {
+	input[type="text"], input[type="password"] {
 	    min-width: 100%;
-	    margin: 0 1rem;
-
+	    margin: 0 auto;
 	    &::placeholder {
-		color: black;
+		color: $blanc16;
+		font-size: clamp(2rem, 3vw, 4rem);
 	    }
 	}
+
     }
 }
+
 

@@ -5,6 +5,7 @@
 }
 
 html {
+    font-family: "Fira", sans-serif;
     font-size: 62.5%;
 }
 
@@ -69,6 +70,7 @@ label {
     padding: 5px 10px 5px 10px;
     margin: 10px 10px 0 10px;
     user-select: none;
+    line-height: 1em;
 }
 
 fieldset {
@@ -82,6 +84,7 @@ select {
 
 input[type="text"], input[type="password"] {
     font-size: 1.2rem;
-    margin: 0 10px 0 10px;
+    margin: 10px 10px 0 10px;
     padding: 5px 10px 5px 10px;
+    line-height: 1em;
 }

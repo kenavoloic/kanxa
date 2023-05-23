@@ -4,21 +4,21 @@
 	<fieldset>
 	    <legend>Compétition</legend>
 
-	    <div class="itemFormulaire">
+	    <div class="itemFormulaire .flex">
 		<label for="serie">Série</label>
 		<select id="serie" name="equipe[serie]">
 		    <?= $tableau['series'] ?>
 		</select>
 	    </div>
 
-	    <div class="itemFormulaire">
+	    <div class="itemFormulaire .flex">
 		<label for="genre">Genre</label>
 		<select id="genre" name="equipe[genre]">
 		    <?= $tableau['genres'] ?>
 		</select>
 	    </div>
 
-	    <div id="compteur" class="itemFormulaire">
+	    <div id="compteur" class="itemFormulaire .flex">
 		<label id="nombre" for="nombreEquipes">Nombre d’inscriptions</label>
 		<input type="text" title="Nombre d’équipes inscrites dans cette série" id="nombreEquipes"   disabled />
 	    </div>
@@ -60,8 +60,8 @@
 	</fieldset>
 
 	<fieldset>
-	    <label htmlFor="telephone1">Téléphone</label>
-	    <input type="text" id="telephone1" name="equipe[telephone1]"  title="Optionnel" placeholder="Téléphone" pattern="[0-9-\s\.:/]{10,15}"  />
+	    <label htmlFor="telephone1">Mobile</label>
+	    <input type="text" id="telephone1" name="equipe[telephone1]"  title="Optionnel" placeholder="Mobile" pattern="[0-9-\s\.:/]{10,15}"  />
 	</fieldset>
 
 	<fieldset>
@@ -86,8 +86,8 @@
 	</fieldset>
 
 	<fieldset>
-	    <label htmlFor="telephone2">Téléphone</label>
-	    <input type="phone" id="telephone2" name="equipe[telephone2]"  title="Optionnel" placeholder="Téléphone" pattern="[0-9-\s\.:/]{10,15}"  />
+	    <label htmlFor="telephone2">Mobile</label>
+	    <input type="phone" id="telephone2" name="equipe[telephone2]"  title="Optionnel" placeholder="Mobile" pattern="[0-9-\s\.:/]{10,15}"  />
 	</fieldset>
 
 	<fieldset>
