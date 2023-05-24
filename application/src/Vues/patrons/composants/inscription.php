@@ -28,18 +28,18 @@
 	<fieldset>
 	    <legend>Souhaits</legend>
 	    <div class="groupeRadio">
-		<input type="radio"  name="equipe[souhait]" value="1" pattern="[\d]" checked />
 		<label for="indifferent">Indifférent</label>
-	    </div>
-
-	    <div class="grouperadio">
-		<input type="radio"  name="equipe[souhait]" value="2" pattern="[\d]"/>
-		<label for="semaine">En semaine</label>
+		<input type="radio"  id="indifferent" name="equipe[souhait]" value="1" pattern="[\d]" checked />
 	    </div>
 
 	    <div class="groupeRadio">
-		<input type="radio"  name="equipe[souhait]" value="3" pattern="[\d]" />		
+		<label for="semaine">En semaine</label>
+		<input type="radio"  id="semaine" name="equipe[souhait]" value="2" pattern="[\d]"/>
+	    </div>
+
+	    <div class="groupeRadio">
 		<label for="weekend">Week-end</label>
+		<input type="radio"  id="weekend" name="equipe[souhait]" value="3" pattern="[\d]" />		
 	    </div>
 	</fieldset>
 

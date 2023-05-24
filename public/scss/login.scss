@@ -1,6 +1,162 @@
 main#login {
     display: grid;
     place-items: center;
+    min-height: 90vh;
+    padding: 1rem;
+    background: $primary-color-dark; //$orange10;
+    //position: relative;
+
+    form {
+
+	//position: absolute;
+	//top: 2rem;
+	//inset: 2rem 1rem auto 1rem;
+	width: 90%;
+	//min-height: 80%;
+	margin: 0 auto;
+	padding: 1rem;
+	text-align: center;
+	outline-color: $violet10;
+	border-color: $blanc16;
+	background: $gris4;
+	border-radius: 5px;
+	padding: 1rem;
+
+	row-gap: 5rem;
+	column-gap: 1rem;
+
+
+	display: flex;
+	flex-direction: column;
+    }
+
+    legend {
+	
+	user-select: none;
+	margin: 3rem 0 1rem 0;
+	
+	span {
+	    //font-size: clamp(2rem, 4vw, 8rem);
+	    font-size: 6rem;
+	    letter-spacing: -4px;
+	    color: $blanc16;
+	    opacity: 1;
+	    text-shadow: 3px 4px 2px rgba(59,25,16,0.85);
+	}
+    }
+
+
+
+    fieldset {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border:2px solid transparent;
+	//gap: 0.5rem;
+	column-gap: 0.4rem;
+	row-gap: 1rem;
+
+	opacity: 0.85;
+    }
+
+    input[type=text], input[type=password] {
+	font-size: 2rem;
+	width: 100%;
+	height: 3.8rem;
+	padding: 0.6rem 1rem;
+	border-radius: 0.4rem;
+	border: 0.2rem solid #d1d1d1;
+	opacity: 1;
+	transition: 0.5s;
+	flex: 3;
+	&:focus {
+	    //border: 2.2px solid #490a3D;
+	    //border-color: steelblue;
+	    //outline-color: #490a3D;
+	}
+	&::placeholder {
+	    color: transparent;
+	}
+
+	&:valid {
+	    color: $blanc16;
+	    background: $berdea;
+	}
+	&:invalid {
+	    color: $blanc16;
+	    background: $gorria;
+	}
+	&:required {
+	    color: $blanc16;
+	    background: $gorria;
+	}
+
+	
+    }
+
+
+    label {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center; //flex-start;
+
+	font-size: clamp(0.8rem, 3vw, 2rem);
+	color: $blanc16; //$noir5; //$blanc16;
+	text-shadow: $ombreTexte3;
+	//text-shadow: 3px 4px 2px rgba(59,25,16,0.15);
+
+	span {
+	    color: $blanc16; //$noir5; //$blanc16;
+	    text-shadow: 3px 4px 2px rgba(59,25,16,0.15);
+	    //text-shadow: 1px 1px 0 #111, -1px -1px 0 #888, 2px 2px 0 #fff;
+	    opacity: 0.1;
+	}
+	//text-align: left;
+
+	height: 3.8rem;
+	padding: 0.6rem 1rem;
+	border-radius: 0; //.4rem;
+	border: 0.1rem solid transparent;
+
+	white-space: nowrap;
+	overflow: hidden;
+
+
+    }
+
+    button {
+	//margin-left: 5px;
+	//margin-right: 5px;
+	font-size: 2rem;
+	color: $blanc16;
+	height: 3.8rem;
+	background: $primary-color;
+	border-color: $primary-color;
+	border-radius: 0.4rem;
+	transition: transform 1s;
+	flex: 2;
+	&:hover {
+	    background: #52616a;
+	    border-color: $blanc16; //#52616a;
+	    //transform: translateY(-0.2rem) translateX(-0.2rem);
+	    transform: translateY(-5px); //translateY(-.25rem);
+	    transition: transform 250ms;
+	}
+	&:active {
+	    background: #bd1550;
+	    border-color: #bd1550;
+	    transition: 0.5s;
+	}
+    }
+
+
+}
+
+
+main#login0 {
+    display: grid;
+    place-items: center;
     height: 90vh;
     padding: 1rem;
 
@@ -26,7 +182,8 @@ main#login {
             font-size: clamp(4rem, 4vw, 8rem);
             text-align: center;
             color: $blanc16;
-	    margin-bottom: .25rem;
+	    text-shadow: $ombreTexte3;
+	    //margin-bottom: .25rem;
 	}
 
 	fieldset {
@@ -65,6 +222,7 @@ main#login {
 	    height: 100%;
 	    font-size: clamp(1.2rem, 3vw, 2rem);
 	    color: $couleurTexte;
+	    text-shadow: $ombreTexte4;
 	    //background: $blanc16;
 	    //width: 0;
 	    //min-width: 0;
@@ -119,6 +277,11 @@ main#login {
 		font-size: clamp(2rem, 3vw, 4rem);
 	    }
 	}
+
+	button[type=reset]{
+	    display: none;
+	}
+
 
     }
 }

@@ -5,13 +5,14 @@
 @import 'ombres.scss';
 @import 'textures.scss';
 @import 'effets.scss';
-
+@import 'validation.scss';
+     
 @import 'login.scss';
 @import 'inscription.scss';
 @import 'poules.scss';
-@import 'validation.scss'; 
-      
 
+      
+     
 $rupture: 1200px;
 
 /*
@@ -23,7 +24,6 @@ $rupture: 1200px;
    $ombreBoite1: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0,0,0,0.6);
    $ombreBoite2: 1px 2px 1px 1px #000013, 2px 1px 3px -2px rgba(0,0,0,0.6);
     
-   
  */
       
 

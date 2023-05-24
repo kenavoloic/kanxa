@@ -5,7 +5,14 @@ input, select {
     border-color: $blanc16;//transparent;//$blanc16;
 }
 
-intput::placeholder {
+input[type="text"]:enabled {
+    background: $blanc16;
+    &::placeholder {
+	color: $couleurTexte;
+    }
+}
+
+input::placeholder {
     color: $blanc16;
 }
 
