@@ -3,7 +3,7 @@ main#login {
     place-items: center;
     min-height: 90vh;
     padding: 1rem;
-    background: $primary-color-dark; //$orange10;
+    background: $primary-color-dark; //$primary-color-inverted; // $primary-color-dark; 
     //position: relative;
 
     form {
@@ -18,8 +18,8 @@ main#login {
 	text-align: center;
 	outline-color: $violet10;
 	border-color: $blanc16;
-	background: $gris4;
-	border-radius: 5px;
+	background: $primary-color-inverted;
+	border-radius: 7px;
 	padding: 1rem;
 
 	row-gap: 5rem;
@@ -37,12 +37,21 @@ main#login {
 	
 	span {
 	    //font-size: clamp(2rem, 4vw, 8rem);
+	    font-family: "Fira", sans-serif;
 	    font-size: 6rem;
 	    letter-spacing: -4px;
 	    color: $blanc16;
 	    opacity: 1;
 	    text-shadow: 3px 4px 2px rgba(59,25,16,0.85);
 	}
+
+	transition: transform .5s;
+
+	&:hover {
+	    transform: translateX(-3px) translateY(6px);
+	    transition: transform 350ms;
+	}
+
     }
 
 
@@ -71,26 +80,12 @@ main#login {
 	flex: 3;
 	&:focus {
 	    //border: 2.2px solid #490a3D;
-	    //border-color: steelblue;
+	    border-color: $alternative-color;
 	    //outline-color: #490a3D;
 	}
 	&::placeholder {
 	    color: transparent;
 	}
-
-	&:valid {
-	    color: $blanc16;
-	    background: $berdea;
-	}
-	&:invalid {
-	    color: $blanc16;
-	    background: $gorria;
-	}
-	&:required {
-	    color: $blanc16;
-	    background: $gorria;
-	}
-
 	
     }
 
@@ -99,53 +94,51 @@ main#login {
 	flex: 1;
 	display: flex;
 	align-items: center;
-	justify-content: center; //flex-start;
+	justify-content: center; 
 
 	font-size: clamp(0.8rem, 3vw, 2rem);
-	color: $blanc16; //$noir5; //$blanc16;
+	color: $blanc16; 
 	text-shadow: $ombreTexte3;
-	//text-shadow: 3px 4px 2px rgba(59,25,16,0.15);
-
-	span {
-	    color: $blanc16; //$noir5; //$blanc16;
-	    text-shadow: 3px 4px 2px rgba(59,25,16,0.15);
-	    //text-shadow: 1px 1px 0 #111, -1px -1px 0 #888, 2px 2px 0 #fff;
-	    opacity: 0.1;
-	}
-	//text-align: left;
 
 	height: 3.8rem;
 	padding: 0.6rem 1rem;
-	border-radius: 0; //.4rem;
+	border-radius: 0; 
 	border: 0.1rem solid transparent;
 
 	white-space: nowrap;
 	overflow: hidden;
 
+	transition: transform .5s;
+
+	&:hover {
+	    transform: translateX(-3px);
+	    transition: transform 250ms;
+	}
+
 
     }
 
     button {
-	//margin-left: 5px;
-	//margin-right: 5px;
+
 	font-size: 2rem;
 	color: $blanc16;
 	height: 3.8rem;
 	background: $primary-color;
-	border-color: $primary-color;
+	border-color: $blanc16; 
 	border-radius: 0.4rem;
 	transition: transform 1s;
 	flex: 2;
 	&:hover {
-	    background: #52616a;
-	    border-color: $blanc16; //#52616a;
-	    //transform: translateY(-0.2rem) translateX(-0.2rem);
-	    transform: translateY(-5px); //translateY(-.25rem);
+	    color: $couleurTexte;
+	    background: $secondary-color-complementary; // $primary-color-inverted; 
+	    border-color: $blanc16; 
+	    transform: translateY(-5px); 
 	    transition: transform 250ms;
 	}
 	&:active {
-	    background: #bd1550;
-	    border-color: #bd1550;
+	    //background: #bd1550;
+	    //border-color: #bd1550;
+	    box-shadow: $ombreBoite4;
 	    transition: 0.5s;
 	}
     }

@@ -152,7 +152,7 @@ input:invalid:required {
   color: #FFFFFF;
   background-color: #CC0000; }
 
-input:valid {
+input:valid, input[type=text]:valid {
   color: #FFFFFF;
   background-color: #00CC00; }
 
@@ -195,8 +195,8 @@ main#login {
     text-align: center;
     outline-color: #CBC3E3;
     border-color: #FFFFFF;
-    background: #5d6974;
-    border-radius: 5px;
+    background: #ff6900;
+    border-radius: 7px;
     padding: 1rem;
     row-gap: 5rem;
     column-gap: 1rem;
@@ -204,13 +204,18 @@ main#login {
     flex-direction: column; }
   main#login legend {
     user-select: none;
-    margin: 3rem 0 1rem 0; }
+    margin: 3rem 0 1rem 0;
+    transition: transform .5s; }
     main#login legend span {
+      font-family: "Fira", sans-serif;
       font-size: 6rem;
       letter-spacing: -4px;
       color: #FFFFFF;
       opacity: 1;
       text-shadow: 3px 4px 2px rgba(59, 25, 16, 0.85); }
+    main#login legend:hover {
+      transform: translateX(-3px) translateY(6px);
+      transition: transform 350ms; }
   main#login fieldset {
     display: flex;
     align-items: center;
@@ -229,17 +234,10 @@ main#login {
     opacity: 1;
     transition: 0.5s;
     flex: 3; }
+    main#login input[type=text]:focus, main#login input[type=password]:focus {
+      border-color: #0096FF; }
     main#login input[type=text]::placeholder, main#login input[type=password]::placeholder {
       color: transparent; }
-    main#login input[type=text]:valid, main#login input[type=password]:valid {
-      color: #FFFFFF;
-      background: #00CC00; }
-    main#login input[type=text]:invalid, main#login input[type=password]:invalid {
-      color: #FFFFFF;
-      background: #CC0000; }
-    main#login input[type=text]:required, main#login input[type=password]:required {
-      color: #FFFFFF;
-      background: #CC0000; }
   main#login label {
     flex: 1;
     display: flex;
@@ -253,28 +251,28 @@ main#login {
     border-radius: 0;
     border: 0.1rem solid transparent;
     white-space: nowrap;
-    overflow: hidden; }
-    main#login label span {
-      color: #FFFFFF;
-      text-shadow: 3px 4px 2px rgba(59, 25, 16, 0.15);
-      opacity: 0.1; }
+    overflow: hidden;
+    transition: transform .5s; }
+    main#login label:hover {
+      transform: translateX(-3px);
+      transition: transform 250ms; }
   main#login button {
     font-size: 2rem;
     color: #FFFFFF;
     height: 3.8rem;
     background: #0096FF;
-    border-color: #0096FF;
+    border-color: #FFFFFF;
     border-radius: 0.4rem;
     transition: transform 1s;
     flex: 2; }
     main#login button:hover {
-      background: #52616a;
+      color: #301934;
+      background: #00ff69;
       border-color: #FFFFFF;
       transform: translateY(-5px);
       transition: transform 250ms; }
     main#login button:active {
-      background: #bd1550;
-      border-color: #bd1550;
+      box-shadow: 2px 2px 5px #66c0ff;
       transition: 0.5s; }
 
 main#login0 {
@@ -757,7 +755,7 @@ section.poules {
    $ombreTexte1: 4px 4px 2px rgba(0,0,0,0.6);
    $ombreBoite1: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0,0,0,0.6);
    $ombreBoite2: 1px 2px 1px 1px #000013, 2px 1px 3px -2px rgba(0,0,0,0.6);
-    
+   
  */
 html {
   font-family: "Fira", sans-serif;

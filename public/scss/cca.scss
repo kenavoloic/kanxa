@@ -6,13 +6,13 @@
 @import 'textures.scss';
 @import 'effets.scss';
 @import 'validation.scss';
-     
+
 @import 'login.scss';
 @import 'inscription.scss';
 @import 'poules.scss';
 
-      
-     
+        
+
 $rupture: 1200px;
 
 /*
@@ -23,9 +23,9 @@ $rupture: 1200px;
    $ombreTexte1: 4px 4px 2px rgba(0,0,0,0.6);
    $ombreBoite1: 3px 2px 1px 1px #000013, 2px 1px 3px 2px rgba(0,0,0,0.6);
    $ombreBoite2: 1px 2px 1px 1px #000013, 2px 1px 3px -2px rgba(0,0,0,0.6);
-    
+   
  */
-      
+
 
 html {
     font-family: "Fira", sans-serif;
@@ -48,7 +48,7 @@ nav {
     align-items: center;
     justify-content: space-between;
 }
-     
+
 // outils
 .flex {
     display: flex;
@@ -56,7 +56,7 @@ nav {
     justify-content: space-between;
     //gap: var(--gap, 1rem); // si --gap pas défini, alors gap = 1rem;
 }
-     
+
 
 .visuallyHidden {
     border: 0;
@@ -80,32 +80,32 @@ nav {
     width: initial;
 }
 
-    // Header navbar logo liens menu hamburger
+// Header navbar logo liens menu hamburger
 
-    h1.logo {
-	color: $blanc16;
-	font-family: "Oleo";
-	font-size: 5rem;
-	font-size: clamp(6rem, 4vw, 8rem);
-	letter-spacing: -3px;
-	user-select: none;
-	margin: 0 1rem;
-	transition: .8ms ease-out;
-	text-shadow: $ombreTexte1;
+h1.logo {
+    color: $blanc16;
+    font-family: "Oleo";
+    font-size: 5rem;
+    font-size: clamp(6rem, 4vw, 8rem);
+    letter-spacing: -3px;
+    user-select: none;
+    margin: 0 1rem;
+    transition: .8ms ease-out;
+    text-shadow: $ombreTexte1;
 
-	
-	&:hover {
-	    color: $blanc8;
-	    animation: secousses 1s cubic-bezier(.36, .07, .19, .97) both;
-	    transform: translate3d(0,0,0);
-	}
-
-	a {
-	    color: inherit;
-	    text-decoration: none;
-	}
+    
+    &:hover {
+	color: $blanc8;
+	animation: secousses 1s cubic-bezier(.36, .07, .19, .97) both;
+	transform: translate3d(0,0,0);
     }
- 
+
+    a {
+	color: inherit;
+	text-decoration: none;
+    }
+}
+
 header {
     padding: 20px;
     display: flex;
@@ -118,7 +118,7 @@ header {
     border-bottom-color: $noir7;
     @include texture1;
 }
-   
+
 
 div#vegan {
 
@@ -184,7 +184,7 @@ ul.navigation {
 
 	@include bordureDefaut;
 	@include bordureArrondi;
-  
+	
 	flex: 1;
 	//display: flex;
 
@@ -201,7 +201,7 @@ ul.navigation {
 	    justify-content: center;
 
 	    //flex: 1;
-  
+	    
 	    @include bordureDefaut;
 	    @include bordureArrondi;
 
@@ -213,7 +213,7 @@ ul.navigation {
 		transform: scale(1.2);
 	    }
 	}
-   
+	
 	&.login {
 	    background: #282828;
 	    a:hover {
@@ -225,10 +225,10 @@ ul.navigation {
 
     }
 }
-                     
+
 
 // 768px / 35 em ?
-                 
+
 @media screen and (max-width: 420px){
     h1.logo {
 	display: none;
@@ -255,7 +255,7 @@ ul.navigation {
 	position: fixed;
 	inset: 0 0 0 25%;
 	background: #545454;
- 
+	
 	height: 100vh;
 	top: 0;
 
@@ -278,7 +278,7 @@ ul.navigation {
 	    background: steelblue;
 	    transform: translateX(0%);
 	}
-      
+	
     }
 }
 

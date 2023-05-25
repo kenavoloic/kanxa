@@ -28,7 +28,7 @@ input:invalid:required  {
     background-color: $gorria;
 }
 
-input:valid {
+input:valid, input[type=text]:valid {
     color: $blanc16;
     background-color: $berdea;
     //border: 2px solid $berdea;
