@@ -19,7 +19,7 @@
 	    </div>
 
 	    <div id="compteur" class="itemFormulaire .flex">
-		<label id="nombre" for="nombreEquipes">Nombre d’inscriptions</label>
+		<label id="nombre" for="nombreEquipes">Nombre</label>
 		<input type="text" title="Nombre d’équipes inscrites dans cette série" id="nombreEquipes"   disabled />
 	    </div>
 	    
@@ -28,17 +28,17 @@
 	<fieldset>
 	    <legend>Souhaits</legend>
 	    <div class="groupeRadio">
-		<label for="indifferent">Indifférent</label>
+		<label for="indifferent" data-initial="Indifférent" data-remplacement="Ind">Indifférent</label>
 		<input type="radio"  id="indifferent" name="equipe[souhait]" value="1" pattern="[\d]" checked />
 	    </div>
 
 	    <div class="groupeRadio">
-		<label for="semaine">En semaine</label>
+		<label for="semaine" data-initial="En semaine" data-remplacement="Sem">En semaine</label>
 		<input type="radio"  id="semaine" name="equipe[souhait]" value="2" pattern="[\d]"/>
 	    </div>
 
 	    <div class="groupeRadio">
-		<label for="weekend">Week-end</label>
+		<label for="weekend" data-initial="Le week-end" data-remplacement="WE">Week-end</label>
 		<input type="radio"  id="weekend" name="equipe[souhait]" value="3" pattern="[\d]" />		
 	    </div>
 	</fieldset>
@@ -87,7 +87,7 @@
 
 	<fieldset>
 	    <label htmlFor="telephone2">Mobile</label>
-	    <input type="phone" id="telephone2" name="equipe[telephone2]"  title="Optionnel" placeholder="Mobile" pattern="[0-9-\s\.:/]{10,15}"  />
+	    <input type="text" id="telephone2" name="equipe[telephone2]"  title="Optionnel" placeholder="Mobile" pattern="[0-9-\s\.:/]{10,15}"  />
 	</fieldset>
 
 	<fieldset>

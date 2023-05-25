@@ -354,6 +354,130 @@ main#login0 {
     display: none; } }
 
 main#inscription {
+  background: #71797E; }
+  main#inscription form {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 7px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; }
+  main#inscription fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid transparent;
+    column-gap: 0.4rem;
+    row-gap: 1rem;
+    opacity: 0.5; }
+    main#inscription fieldset#selecteurs, main#inscription fieldset#radios {
+      flex-wrap: wrap; }
+    main#inscription fieldset#selecteurs > * {
+      flex: 1 1 0; }
+  main#inscription legend {
+    font-size: 1.2rem;
+    padding: .15rem;
+    color: #CC0000; }
+  main#inscription label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.8rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid transparent;
+    white-space: nowrap;
+    overflow: hidden; }
+  main#inscription select {
+    height: 3.8rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    border: 0.2rem solid #d1d1d1;
+    transition: 0.75s; }
+    main#inscription select.vert {
+      color: #FFFFFF;
+      background-color: #00CC00; }
+    main#inscription select.rouge {
+      color: #FFFFFF;
+      background-color: #CC0000; }
+    main#inscription select:hover {
+      transform: scale(0.9);
+      transition: transform 250ms; }
+    main#inscription select option {
+      color: #FFFFFF;
+      background-color: #CC0000; }
+      main#inscription select option:checked {
+        background-color: #00CC00; }
+  main#inscription input[type=text], main#inscription input[type=password] {
+    width: 100%;
+    height: 3.8rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    border: 0.2rem solid #d1d1d1;
+    transition: 0.5s;
+    flex: 3; }
+    main#inscription input[type=text]:focus, main#inscription input[type=password]:focus {
+      border-color: #005a99;
+      outline-color: #ff6900; }
+    main#inscription input[type=text]::placeholder, main#inscription input[type=password]::placeholder {
+      color: transparent; }
+  main#inscription button {
+    color: #FFFFFF;
+    background: #490a3D;
+    border-color: #490a3D;
+    border-radius: 0.4rem;
+    height: 3.8rem;
+    transition: transform 1s;
+    flex: 2; }
+    main#inscription button:hover {
+      background: #52616a;
+      border-color: #52616a;
+      transform: translateY(-5px);
+      transition: transform 250ms; }
+    main#inscription button:active {
+      background: #bd1550;
+      border-color: #bd1550;
+      transition: 0.5s; }
+  main#inscription div.groupeRadio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    main#inscription div.groupeRadio input[type=radio] {
+      flex: 1;
+      order: 1; }
+    main#inscription div.groupeRadio label {
+      color: #FFFFFF;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      order: 2;
+      transition: transform .5s; }
+      main#inscription div.groupeRadio label:hover {
+        transform: translateX(-3px);
+        transition: transform 250ms; }
+  main#inscription div.itemFormulaire {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: background-color .5s ease .25s; }
+    main#inscription div.itemFormulaire label {
+      flex: 2; }
+    main#inscription div.itemFormulaire select {
+      flex: 2; }
+    main#inscription div.itemFormulaire input[type=text] {
+      flex: 1; }
+    main#inscription div.itemFormulaire:hover {
+      background-color: #F1F1F1;
+      border-color: #FFFFFF;
+      transition: background-color 250ms; }
+
+main#inscription0 {
   background: #F28C28;
   /*
        form {
@@ -422,7 +546,7 @@ main#inscription {
        }
 
      */ }
-  main#inscription form {
+  main#inscription0 form {
     border-radius: 6px;
     display: flex;
     flex-wrap: wrap;
@@ -431,12 +555,12 @@ main#inscription {
     margin: 1rem;
     border-color: transparent;
     /*
-	input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
-	    color: transparent; //$blanc16;//#cc0000;
-	    text-align: center;
-	}
-*/ }
-    main#inscription form fieldset {
+	   input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
+	   color: transparent; //$blanc16;//#cc0000;
+	   text-align: center;
+	   }
+	 */ }
+    main#inscription0 form fieldset {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -445,11 +569,11 @@ main#inscription {
       padding: .25rem;
       border: 2px groove;
       border-radius: 6px; }
-    main#inscription form legend {
+    main#inscription0 form legend {
       font-size: 1.2rem;
       padding: .15rem;
       color: #CC0000; }
-    main#inscription form label {
+    main#inscription0 form label {
       font-family: sans-serif;
       font-size: 1.2rem;
       color: #FFFFFF;
@@ -460,51 +584,51 @@ main#inscription {
       display: flex;
       align-items: center;
       justify-content: center; }
-    main#inscription form input[type=text], main#inscription form input[type=email], main#inscription form input[type=phone] {
+    main#inscription0 form input[type=text], main#inscription0 form input[type=email], main#inscription0 form input[type=phone] {
       font-size: clamp(1.2rem, 3vw, 2rem);
       height: 100%;
       flex: 4; }
-      main#inscription form input[type=text]::placeholder, main#inscription form input[type=email]::placeholder, main#inscription form input[type=phone]::placeholder {
+      main#inscription0 form input[type=text]::placeholder, main#inscription0 form input[type=email]::placeholder, main#inscription0 form input[type=phone]::placeholder {
         color: transparent; }
-    main#inscription form input[type=text]#nombreEquipes, main#inscription form input[type=email]#nombreEquipes, main#inscription form input[type=phone]#nombreEquipes {
+    main#inscription0 form input[type=text]#nombreEquipes, main#inscription0 form input[type=email]#nombreEquipes, main#inscription0 form input[type=phone]#nombreEquipes {
       text-align: center;
       color: #CC0000; }
-    main#inscription form button {
+    main#inscription0 form button {
       padding: .5rem;
       margin: .25rem;
       transition: all .25s ease-in-out; }
-      main#inscription form button:hover {
+      main#inscription0 form button:hover {
         color: #FFFFFF;
         background-color: #0047AB; }
-  main#inscription select#serie, main#inscription select#genre {
+  main#inscription0 select#serie, main#inscription0 select#genre {
     padding: .25rem .4rem;
     color: #FFFFFF;
     background-color: #CC0000;
     border: 2px solid #dddddd;
     cursor: pointer;
     border-radius: 5px; }
-    main#inscription select#serie:focus, main#inscription select#serie:hover, main#inscription select#genre:focus, main#inscription select#genre:hover {
+    main#inscription0 select#serie:focus, main#inscription0 select#serie:hover, main#inscription0 select#genre:focus, main#inscription0 select#genre:hover {
       outline: none;
       border: 1px solid #bbbbbb; }
-    main#inscription select#serie.vert, main#inscription select#genre.vert {
+    main#inscription0 select#serie.vert, main#inscription0 select#genre.vert {
       color: #FFFFFF;
       background-color: #00CC00; }
-    main#inscription select#serie.rouge, main#inscription select#genre.rouge {
+    main#inscription0 select#serie.rouge, main#inscription0 select#genre.rouge {
       color: #FFFFFF;
       background-color: #CC0000; }
-    main#inscription select#serie option, main#inscription select#genre option {
+    main#inscription0 select#serie option, main#inscription0 select#genre option {
       color: #FFFFFF;
       background-color: #CC0000; }
-      main#inscription select#serie option:checked, main#inscription select#genre option:checked {
+      main#inscription0 select#serie option:checked, main#inscription0 select#genre option:checked {
         background-color: #00CC00; }
 
 @media screen and (max-width: 800px) {
   main#inscription {
     /*
-	label[for="genre"], label[for="serie"], label[for="nombreEquipes"],
-	label[for="nom1"], label[for="prenom1"], label[for="courriel1"], label[for="telephone1"], label[for="licence1"],
-	label[for="nom2"], label[for="prenom2"], label[for="courriel2"], label[for="telephone2"], label[for="licence2"]
-	*/ }
+	   label[for="genre"], label[for="serie"], label[for="nombreEquipes"],
+	   label[for="nom1"], label[for="prenom1"], label[for="courriel1"], label[for="telephone1"], label[for="licence1"],
+	   label[for="nom2"], label[for="prenom2"], label[for="courriel2"], label[for="telephone2"], label[for="licence2"]
+	 */ }
     main#inscription fieldset {
       justify-content: center; }
     main#inscription label > input[type="text"], main#inscription label > input[type="phone"], main#inscription label > select {

@@ -136,8 +136,6 @@ main#login {
 	    transition: transform 250ms;
 	}
 	&:active {
-	    //background: #bd1550;
-	    //border-color: #bd1550;
 	    box-shadow: $ombreBoite4;
 	    transition: 0.5s;
 	}
