@@ -354,7 +354,18 @@ main#login0 {
     display: none; } }
 
 main#inscription {
-  background: #71797E; }
+  background: inherit;
+  /* position: relative;
+
+       &::before {
+       z-index: -1;
+       content: '';
+       position: absolute;
+       opacity: 1;
+       width: 100%;
+       height: 100%;
+       background-color: $alternative-color;
+       } */ }
   main#inscription form {
     width: 90%;
     margin: 0 auto;
@@ -369,16 +380,19 @@ main#inscription {
     border: 2px solid transparent;
     column-gap: 0.4rem;
     row-gap: 1rem;
-    opacity: 0.5; }
+    margin: .5rem 0; }
     main#inscription fieldset#selecteurs, main#inscription fieldset#radios {
       flex-wrap: wrap; }
     main#inscription fieldset#selecteurs > * {
       flex: 1 1 0; }
   main#inscription legend {
-    font-size: 1.2rem;
+    font-size: 3rem;
+    font-weight: 700;
     padding: .15rem;
-    color: #CC0000; }
+    color: #FFFFFF; }
   main#inscription label {
+    font-size: 1.2rem;
+    color: #FFFFFF;
     flex: 1;
     display: flex;
     align-items: center;
@@ -387,6 +401,8 @@ main#inscription {
     padding: 0.6rem 1rem;
     border-radius: 0.4rem;
     border: 0.1rem solid transparent;
+    background: #0096FF;
+    border-color: #FFFFFF;
     white-space: nowrap;
     overflow: hidden; }
   main#inscription select {
@@ -424,15 +440,15 @@ main#inscription {
       color: transparent; }
   main#inscription button {
     color: #FFFFFF;
-    background: #490a3D;
-    border-color: #490a3D;
+    background: #0096FF;
+    border-color: #FFFFFF;
     border-radius: 0.4rem;
     height: 3.8rem;
     transition: transform 1s;
     flex: 2; }
     main#inscription button:hover {
       background: #52616a;
-      border-color: #52616a;
+      border-color: #FFFFFF;
       transform: translateY(-5px);
       transition: transform 250ms; }
     main#inscription button:active {
@@ -471,10 +487,10 @@ main#inscription {
     main#inscription div.itemFormulaire select {
       flex: 2; }
     main#inscription div.itemFormulaire input[type=text] {
-      flex: 1; }
+      flex: 2; }
     main#inscription div.itemFormulaire:hover {
       background-color: #F1F1F1;
-      border-color: #FFFFFF;
+      border-color: #5d6974;
       transition: background-color 250ms; }
 
 main#inscription0 {
@@ -628,10 +644,22 @@ main#inscription0 {
 	   label[for="genre"], label[for="serie"], label[for="nombreEquipes"],
 	   label[for="nom1"], label[for="prenom1"], label[for="courriel1"], label[for="telephone1"], label[for="licence1"],
 	   label[for="nom2"], label[for="prenom2"], label[for="courriel2"], label[for="telephone2"], label[for="licence2"]
-	 */ }
+	 */
+    /* 
+	   label > input[type="text"], label > input[type="phone"], label > select{
+	   border: 0;
+	   clip: rect(0 0 0 0);
+	   height: 1px;
+	   margin: -1px;
+	   overflow: hidden;
+	   padding: 0;
+	   position: absolute;
+	   width: 1px;
+	   } */ }
     main#inscription fieldset {
       justify-content: center; }
-    main#inscription label > input[type="text"], main#inscription label > input[type="phone"], main#inscription label > select {
+    main#inscription label[for="utilisateur"], main#inscription label[for="courriel"], main#inscription label[for="mpasse"],
+    main#inscription label[for="serie"], main#inscription label[for="genre"], main#inscription label[for="nombreEquipes"] {
       border: 0;
       clip: rect(0 0 0 0);
       height: 1px;
@@ -640,10 +668,10 @@ main#inscription0 {
       padding: 0;
       position: absolute;
       width: 1px; }
-    main#inscription input[type="text"], main#inscription input[type="password"] {
+    main#inscription input[type=text], main#inscription input[type=password] {
       min-width: 100%;
       margin: 0 auto; }
-      main#inscription input[type="text"]::placeholder, main#inscription input[type="password"]::placeholder {
+      main#inscription input[type=text]::placeholder, main#inscription input[type=password]::placeholder {
         color: #FFFFFF;
         font-size: clamp(2rem, 3vw, 4rem); } }
 

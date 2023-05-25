@@ -1,4 +1,10 @@
+import ecouteursMenus from './modules/ecouteursMenus.js';
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    //écouteurs pour la navbar
+    ecouteursMenus();
+
 
     const listeBoutons = () => {
 

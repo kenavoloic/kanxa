@@ -119,7 +119,7 @@ class Paf {
 
 	}
 	
-	//echo $this->getFooterJavaScript('paf');
+	echo $this->getFooterJavaScript('paf');
 	echo $this->getComposant('basdepage');
 	
     }

@@ -1,5 +1,5 @@
 import creationEquipe from './modules/creationEquipe.js';
-
+import ecouteursMenus from './modules/ecouteursMenus.js';
 
 const nombre_p = /\d+/;
 
@@ -83,14 +83,6 @@ const equipes = (envoi, sortie) => {
     liste.forEach(x => sortie.append(x));
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const serie = document.querySelector('#serie');
-    const genre = document.querySelector('#genre');
-    const panneau = document.querySelector('#panneau');
-
-    serie.addEventListener('change', ecouteurs);
-    genre.addEventListener('change', ecouteurs);
-});
 
 const equipe = envoi => {
     let {tournoiId, equipeId, pouleId, nom1, prenom1, courriel1, licence1, mobile1, nom2, prenom2, courriel2, licence2, mobile2} = envoi;
@@ -182,3 +174,16 @@ const equipe = envoi => {
     return df;
 };
 
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    //écouteurs pour la navbar
+    ecouteursMenus();
+
+    const serie = document.querySelector('#serie');
+    const genre = document.querySelector('#genre');
+    const panneau = document.querySelector('#panneau');
+
+    serie.addEventListener('change', ecouteurs);
+    genre.addEventListener('change', ecouteurs);
+});

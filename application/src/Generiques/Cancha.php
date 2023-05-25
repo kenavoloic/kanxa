@@ -6,6 +6,7 @@ interface Cancha {
 	// routes pour utilisateurs
 	'accueil' => ['index'],
 	'rencontres' => ['index'],
+	'calendrier' => ['index'],
 	'resultats' => ['index'],
 	'classements' => ['index'],
 	'contact' => ['index'],

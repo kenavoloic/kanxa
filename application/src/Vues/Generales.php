@@ -69,6 +69,7 @@ class Generales {
 	echo $this->getEntete($titre);
 	echo $this->getComposant('headerAdministrateur');
 	echo $this->getComposantTableau('generales', $tableau);
+	echo $this->getFooterJavaScript('generales');
 	echo $this->getComposant('basdepage');
     }
     

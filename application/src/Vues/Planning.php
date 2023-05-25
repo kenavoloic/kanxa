@@ -20,6 +20,8 @@ class Planning {
 	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
 	}
+
+	echo $this->getFooterJavaScript('planning');
 	echo $this->getComposant('basdepage');
     }
     

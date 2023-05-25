@@ -20,6 +20,9 @@ class Score {
 	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
 	}
+
+	echo $this->getFooterJavaScript('score');
+	
 	echo $this->getComposant('basdepage');
 
     }
