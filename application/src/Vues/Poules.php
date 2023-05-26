@@ -39,7 +39,8 @@ class Poules {
 	   echo $this->getComposantTableau('poulesSelecteurs', $tableau);
 	   }
 	 */
-	echo '<main id="brassage">' . PHP_EOL;
+	//echo '<main id="brassage">' . PHP_EOL;
+	echo '<main id="creationPoules">' . PHP_EOL;
 	echo $this->getComposantTableau('poulesSelecteurs', $tableau);
 
 	if(!empty($envoi['bilan'])){

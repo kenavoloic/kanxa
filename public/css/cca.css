@@ -31,6 +31,7 @@ legend,
 button,
 input,
 textarea,
+label,
 select {
   margin: 0;
   padding: 0;
@@ -54,24 +55,54 @@ input {
   border-radius: 5px; }
 
 label {
-  font-size: 1rem;
-  padding: 5px 10px 5px 10px;
-  margin: 10px 10px 0 10px;
+  font-size: 1.2rem;
+  height: 3.8rem;
+  padding: 0.4rem 0.6rem;
+  margin: 0.6rem;
+  border: 0.2rem solid transparent;
+  border-radius: 0.4rem;
   user-select: none;
   line-height: 1em; }
 
-fieldset {
-  border-style: solid; }
-
 select {
-  padding: .25rem .4rem;
-  cursor: pointer; }
+  font-size: 1.2rem;
+  height: 3.8rem;
+  padding: 0.4rem 0.6rem;
+  margin: 0.6rem;
+  border: 0.2rem solid transparent;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.75s; }
+  select:hover {
+    transform: scale(0.9);
+    transition: transform 250ms; }
 
 input[type="text"], input[type="password"] {
-  font-size: 1.2rem;
-  margin: 10px 10px 0 10px;
-  padding: 5px 10px 5px 10px;
+  @labelSelectInput;
   line-height: 1em; }
+
+button {
+  font-size: 1.2rem;
+  height: 3.8rem;
+  padding: 0.4rem 0.6rem;
+  margin: 0.6rem;
+  border: 0.2rem solid transparent;
+  border-radius: 0.4rem;
+  transition: transform .5s; }
+  button:hover {
+    transform: translateY(5px);
+    transition: transform 250ms; }
+
+dl {
+  padding: .5rem;
+  margin: .5rem;
+  border: 2px solid transparent;
+  border-radius: 8px; }
+  dl dt {
+    white-space: normal; }
+
+fieldset {
+  border-style: solid; }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap'); */
@@ -675,6 +706,65 @@ main#inscription0 {
         color: #FFFFFF;
         font-size: clamp(2rem, 3vw, 4rem); } }
 
+main#creationPoules {
+  background-color: #005a99;
+  width: 100vw;
+  overflow-x: hidden; }
+  main#creationPoules form#poulesSelecteurs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-width: 3px; }
+    main#creationPoules form#poulesSelecteurs div.itemFormulaire {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background-color .75s ease; }
+      main#creationPoules form#poulesSelecteurs div.itemFormulaire:hover {
+        background-color: #6082B6;
+        border-color: #5d6974;
+        transition: background-color .25s; }
+    main#creationPoules form#poulesSelecteurs select {
+      flex: 2;
+      transition: 0.75s; }
+    main#creationPoules form#poulesSelecteurs label {
+      color: #FFFFFF;
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0096FF;
+      border-color: #FFFFFF;
+      white-space: normal;
+      overflow: hidden; }
+  main#creationPoules article#poulesBilan {
+    margin: .5rem .2rem;
+    padding: .4rem 0;
+    border: 2px solid transparent;
+    background-color: #F0EAD6;
+    border-radius: 8px; }
+    main#creationPoules article#poulesBilan dl {
+      display: flex;
+      flex-direction: column;
+      background-color: #005a99;
+      border-color: #EDEADE;
+      transition: transform .7s ease-in, border-color .4s ease; }
+      main#creationPoules article#poulesBilan dl:hover {
+        border-color: #ff0096;
+        transform: translateX(-2px) translateY(2px);
+        transition: .5s ease-in-out; }
+      main#creationPoules article#poulesBilan dl dt {
+        color: #FFFFFF; }
+      main#creationPoules article#poulesBilan dl dd {
+        font-family: monospace;
+        color: #FFFFFF; }
+        main#creationPoules article#poulesBilan dl dd.sans {
+          color: #ff6900; }
+        main#creationPoules article#poulesBilan dl dd.avec {
+          color: #00CC00; }
+
 main#brassage {
   background-color: #0096FF;
   margin: .5rem;
@@ -898,6 +988,19 @@ section.poules {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); }
+
+@media screen and (max-width: 800px) {
+  form {
+    justify-content: space-between; }
+  .itemFormulaire label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; } }
 
 /*
    $bordureArrondi: 5px;

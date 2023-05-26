@@ -1,3 +1,96 @@
+main#creationPoules {
+    background-color: $primary-color-dark; // $alternative-color;
+    width: 100vw;
+    overflow-x: hidden;
+
+    form#poulesSelecteurs {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start; //space-between;
+	border-width: 3px;
+
+	div.itemFormulaire {
+
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+	    
+	    display: flex;
+	    align-items: center;
+	    justify-content: flex-start;
+	    transition: background-color .75s ease;
+
+	    &:hover {
+		background-color: $gris5;
+		border-color: $gris4;
+		transition: background-color .25s;
+	    }
+
+	}
+
+	select {
+	    flex: 2;
+	    transition: 0.75s;
+	}
+
+	label {
+	    color: $blanc16;
+	    flex: 2;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    background: $primary-color;
+	    border-color: $blanc16;
+	    white-space: normal;
+	    overflow: hidden;
+	}
+    }
+    
+    article#poulesBilan {
+	margin: .5rem .2rem;
+	padding: .4rem 0;
+
+	@include bordureDefaut;
+
+	background-color: $blanc6; //$alternative-color; //transparent;
+	//border-width: 6px;
+	border-radius: 8px;
+
+	dl {
+	    display: flex;
+	    flex-direction: column;
+	    background-color: $primary-color-dark;
+	    border-color: $blanc1;
+
+	    transition: transform .7s ease-in, border-color .4s ease;
+	    &:hover {
+		border-color: $secondary-color;
+		transform: translateX(-2px) translateY(2px);// translateX(2px);
+		transition: .5s ease-in-out;
+	    }
+
+	    dt {
+		color: $blanc16;
+	    }
+	    dd {
+		font-family: monospace;
+		color: $blanc16;
+
+		&.sans {
+		    color: $primary-color-inverted; //$gorria;
+		}
+		&.avec {
+		    color: $berdea;
+		}
+	    }
+	}
+    }
+
+    article#cadre {
+    }
+}
+
+
+
 main#brassage {
     background-color: $alternative-color;
     .gorria { color: $gorria;}
@@ -217,16 +310,16 @@ article.poule#d4 {
 }
 
 #d1 h2 span {
-  display: inline-block;
-  color: #343434;
-  background-color: #FFFFFF;
-  padding: .25rem;
-  border-radius: 4px;
+    display: inline-block;
+    color: #343434;
+    background-color: #FFFFFF;
+    padding: .25rem;
+    border-radius: 4px;
     border: 2px solid #CC0000;
 }
 
 #p1 {
- // border-left: 1rem solid;
+    // border-left: 1rem solid;
     border-left-color: #CC0000;
 }
 
@@ -243,20 +336,20 @@ article.poule#d4 {
 }
 
 #d2 h2 span {
-  display: inline-block;
-  color: #343434;
-  background-color: #FFFFFF;
-  padding: .25rem;
-  border-radius: 4px;
+    display: inline-block;
+    color: #343434;
+    background-color: #FFFFFF;
+    padding: .25rem;
+    border-radius: 4px;
     border: 2px solid #00CC00;
 }
 
 #d3 h2 span {
-  display: inline-block;
-  color: #343434;
-  background-color: #FFFFFF;
-  padding: .25rem;
-  border-radius: 4px;
+    display: inline-block;
+    color: #343434;
+    background-color: #FFFFFF;
+    padding: .25rem;
+    border-radius: 4px;
     border: 2px solid #0022CC;
 }
 
@@ -272,4 +365,25 @@ article.poule#d4 {
 section.poules {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); }
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+}
+
+
+@media screen and (max-width: 800px){
+    form {
+	justify-content:space-between;
+    }
+
+    .itemFormulaire {
+	label {
+	    border: 0;
+	    clip: rect(0 0 0 0);
+	    height: 1px;
+	    margin: -1px;
+	    overflow: hidden;
+	    padding: 0;
+	    position: absolute;
+	    width: 1px;
+	}
+    }
+}

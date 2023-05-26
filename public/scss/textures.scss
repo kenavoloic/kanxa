@@ -19,3 +19,10 @@
     background-size: 6px 6px;
     background-color: #9e8a64;
 }
+
+@mixin texture4 {
+    // onze cf degrades01
+    background-image: linear-gradient(33deg, $gris7, $bleu5, $gris7, $bleu5), linear-gradient(90deg, $gris7, $bleu5, $gris7, $bleu5);
+    background-size: 6px 6px;
+    background-color: $blanc16;
+}
