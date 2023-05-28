@@ -1,0 +1,42 @@
+main#generales {
+
+    form {
+	color: $blanc16;
+	select {
+	    color: $couleurTexte;
+	}
+
+	fieldset {
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+
+	    border: 2px solid transparent;
+	    border-radius: 5px;
+	    
+	    transition: background-color .5s ease .25s;
+
+	    &:hover {
+		background-color: #F1F1F1;
+		border-color: $gris4; //#FFFFFF;
+		transition: background-color 250ms;
+	    }
+
+	    button {
+		flex: 2;
+	    }
+
+	}
+
+	legend {
+	    font-size: 1rem;
+	    font-weight: 700;
+	    padding: .15rem;
+	    color: $primary-color-inverted; //$blanc16;
+	    margin-bottom: 1rem;
+	}
+
+    }
+    
+    background-color: $primary-color-darker;
+}

@@ -9,9 +9,13 @@ class Accueil {
     public function __construct(private string $titre="K@nx@"){
     }
 
-    public function affichage(string $titre): void{
+    
+
+    public function affichage(array $envoi): void{
+
+	var_dump($envoi['datesGenerales']);
 	
-	echo $this->getEntete($titre);
+	echo $this->getEntete($envoi['titre']);
 
 	if($this->administrateur_p()){
 	    echo $this->getComposant('headerAdministrateur');

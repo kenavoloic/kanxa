@@ -1365,6 +1365,32 @@ main#frais {
     position: absolute;
     width: 1px; } }
 
+main#generales {
+  background-color: #001e33; }
+  main#generales form {
+    color: #FFFFFF; }
+    main#generales form select {
+      color: #301934; }
+    main#generales form fieldset {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      transition: background-color .5s ease .25s; }
+      main#generales form fieldset:hover {
+        background-color: #F1F1F1;
+        border-color: #5d6974;
+        transition: background-color 250ms; }
+      main#generales form fieldset button {
+        flex: 2; }
+    main#generales form legend {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: .15rem;
+      color: #ff6900;
+      margin-bottom: 1rem; }
+
 /*
    $bordureArrondi: 5px;
    $bordureEpaisseur: 2px;
