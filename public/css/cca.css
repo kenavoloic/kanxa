@@ -78,7 +78,12 @@ select {
     transition: transform 250ms; }
 
 input[type="text"], input[type="password"] {
-  @labelSelectInput;
+  font-size: 1.2rem;
+  height: 3.8rem;
+  padding: 0.4rem 0.6rem;
+  margin: 0.6rem;
+  border: 0.2rem solid transparent;
+  border-radius: 0.4rem;
   line-height: 1em; }
 
 button {
@@ -213,12 +218,60 @@ input:disabled {
 .erreur.active {
   padding: .3em; }
 
+main {
+  border-radius: 0;
+  display: grid; }
+  main article {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    border-color: #FFFFFF;
+    background: #005a99;
+    padding: .5rem;
+    margin: .5rem; }
+    main article p {
+      font-family: "Fira", serif;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin: .4rem 0; }
+  main#utilisateur {
+    background-color: #ff6900; }
+    main#utilisateur #tournoi .primaire {
+      font-size: 2.5rem;
+      text-align: center;
+      transition: color .9s ease; }
+      main#utilisateur #tournoi .primaire:hover {
+        transform: scale(0.9);
+        transition: transform .5s ease-in; }
+  main#administrateur {
+    background-color: #005a99; }
+
+@media screen and (max-width: 500px) {
+  .secondaire {
+    display: none; }
+  .tertiaire {
+    display: none; } }
+
+@media screen and (min-width: 501px) {
+  /* grid-template-columns: repeat(2, 1fr);
+       grid-template-rows: repeat(6, 1fr);
+       gap: 1rem;
+
+       article:nth-child(even) {
+       grid-column-start: 1;
+       }
+
+       article:nth-child(odd) {
+       grid-column-start: 2;
+       } */
+  grid-template-columns: repeat(2, auto);
+  grid-auto-flow: dense; }
+
 main#login {
   display: grid;
   place-items: center;
   min-height: 90vh;
   padding: 1rem;
-  background: #005a99; }
+  background: #7393B3; }
   main#login form {
     width: 90%;
     margin: 0 auto;
@@ -226,7 +279,7 @@ main#login {
     text-align: center;
     outline-color: #CBC3E3;
     border-color: #FFFFFF;
-    background: #ff6900;
+    background: #7393B3;
     border-radius: 7px;
     padding: 1rem;
     row-gap: 5rem;
@@ -707,31 +760,34 @@ main#inscription0 {
         font-size: clamp(2rem, 3vw, 4rem); } }
 
 main#creationPoules {
-  background-color: #005a99;
-  width: 100vw;
-  overflow-x: hidden; }
-  main#creationPoules form#poulesSelecteurs {
+  background-color: #7393B3;
+  width: 98%;
+  overflow-x: hidden;
+  margin: 1rem;
+  padding: 1rem; }
+  main#creationPoules form {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     border-width: 3px; }
-    main#creationPoules form#poulesSelecteurs div.itemFormulaire {
+    main#creationPoules form div.itemFormulaire {
       border: 2px solid transparent;
       border-radius: 5px;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       transition: background-color .75s ease; }
-      main#creationPoules form#poulesSelecteurs div.itemFormulaire:hover {
+      main#creationPoules form div.itemFormulaire:hover {
         background-color: #6082B6;
         border-color: #5d6974;
         transition: background-color .25s; }
-    main#creationPoules form#poulesSelecteurs select {
+    main#creationPoules form select {
       flex: 2;
       transition: 0.75s; }
-    main#creationPoules form#poulesSelecteurs label {
+    main#creationPoules form label {
       color: #FFFFFF;
-      flex: 2;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -743,8 +799,9 @@ main#creationPoules {
     margin: .5rem .2rem;
     padding: .4rem 0;
     border: 2px solid transparent;
-    background-color: #F0EAD6;
-    border-radius: 8px; }
+    border-radius: 5px;
+    background-color: transparent;
+    border-width: 7px; }
     main#creationPoules article#poulesBilan dl {
       display: flex;
       flex-direction: column;
@@ -756,55 +813,273 @@ main#creationPoules {
         transform: translateX(-2px) translateY(2px);
         transition: .5s ease-in-out; }
       main#creationPoules article#poulesBilan dl dt {
+        white-space: normal;
         color: #FFFFFF; }
       main#creationPoules article#poulesBilan dl dd {
         font-family: monospace;
-        color: #FFFFFF; }
+        color: #343434; }
         main#creationPoules article#poulesBilan dl dd.sans {
           color: #ff6900; }
         main#creationPoules article#poulesBilan dl dd.avec {
           color: #00CC00; }
+  main#creationPoules article#brassage {
+    display: flex;
+    flex-direction: column; }
+    main#creationPoules article#brassage button#brassageEffectue {
+      border-radius: 6px;
+      border-width: 3px;
+      border-color: #708090; }
+      main#creationPoules article#brassage button#brassageEffectue:enabled {
+        color: #FFFFFF;
+        background-color: #00CC00;
+        padding: .25rem;
+        border-radius: 5px;
+        border-color: #FFFFFF; }
+      main#creationPoules article#brassage button#brassageEffectue.sauvegardePossible {
+        /* color: $blanc16;
+		   background-color: $berdea;
+		   padding: .25rem;
+		   border-radius: 5px;
+		   border: 2px solid transparent; */ }
+  main#creationPoules section#cadre {
+    margin: .5rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1rem; }
+    main#creationPoules section#cadre h2 {
+      color: #FFFFFF;
+      font-weight: 700;
+      user-select: none;
+      margin-bottom: 1rem;
+      transition: all .45s ease;
+      /* &:hover {
+	       transform: translateY(-2px);
+	       letter-spacing: -2px;
+	       transition: transform .25s ease-in;
+	       } */ }
+  main#creationPoules article#equipes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between; }
+  main#creationPoules article.equipe {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    border-color: #FFFFFF;
+    background-color: #005a99; }
+    main#creationPoules article.equipe:hover {
+      background-color: #66c0ff; }
+    main#creationPoules article.equipe span.souhait {
+      display: inline-block;
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      width: 8rem;
+      margin-right: 3rem;
+      padding-left: .4rem;
+      text-align: center;
+      user-select: none;
+      white-space: nowrap;
+      overflow: hidden;
+      flex: 1;
+      transition: transform .8s; }
+      main#creationPoules article.equipe span.souhait:hover {
+        transform: translateX(0.5rem) translateY(-0.2rem) scale(1.3);
+        transition: transform 250ms; }
+    main#creationPoules article.equipe div.liste {
+      display: flex;
+      margin: .25rem;
+      padding: .3rem .15rem;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      flex: 5; }
+      main#creationPoules article.equipe div.liste button {
+        width: 6rem;
+        height: 4rem;
+        margin: 0 .25rem 0;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        border-color: #FFFFFF;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all .125s ease-in; }
+        main#creationPoules article.equipe div.liste button:hover {
+          transform: scale(0.9) translateY(2px); }
+        main#creationPoules article.equipe div.liste button.rouge {
+          background-color: #CC0000; }
+          main#creationPoules article.equipe div.liste button.rouge:hover {
+            background-color: red; }
+        main#creationPoules article.equipe div.liste button.vert {
+          background-color: #00CC00; }
+          main#creationPoules article.equipe div.liste button.vert:hover {
+            background-color: lime; }
+        main#creationPoules article.equipe div.liste button.bleu {
+          background-color: #0022CC; }
+          main#creationPoules article.equipe div.liste button.bleu:hover {
+            background-color: #002bff; }
+        main#creationPoules article.equipe div.liste button.jaune {
+          background-color: #ffcc00; }
+          main#creationPoules article.equipe div.liste button.jaune:hover {
+            background-color: #ffd633; }
+        main#creationPoules article.equipe div.liste button.supprimer {
+          vertical-align: middle;
+          border: none;
+          color: #000000;
+          border-radius: .29rem;
+          background: #FFFFFF;
+          position: relative;
+          width: 3rem;
+          height: 3rem; }
+          main#creationPoules article.equipe div.liste button.supprimer:hover {
+            background-color: #CC0000; }
+          main#creationPoules article.equipe div.liste button.supprimer:active {
+            background: #00CC00; }
+          main#creationPoules article.equipe div.liste button.supprimer::before, main#creationPoules article.equipe div.liste button.supprimer::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 2rem;
+            width: .85rem;
+            color: #CC0000;
+            background-color: #FFFFFF;
+            border: 3px solid #000000; }
+          main#creationPoules article.equipe div.liste button.supprimer::before {
+            transform: translate(-50%, -50%) rotate(45deg); }
+          main#creationPoules article.equipe div.liste button.supprimer::after {
+            transform: translate(-50%, -50%) rotate(-45deg); }
+  main#creationPoules article#poules {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start; }
+    main#creationPoules article#poules article.poule {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      border-width: 3px;
+      margin-bottom: 1rem;
+      background-color: #FFFFFF; }
+      main#creationPoules article#poules article.poule h3.titre {
+        font-size: 1.2rem;
+        text-align: left;
+        user-select: none; }
+        main#creationPoules article#poules article.poule h3.titre span {
+          padding: .1rem; }
+          main#creationPoules article#poules article.poule h3.titre span#bat {
+            color: #CC0000; }
+          main#creationPoules article#poules article.poule h3.titre span#bi {
+            color: #00CC00; }
+          main#creationPoules article#poules article.poule h3.titre span#hiru {
+            color: #0022CC; }
+          main#creationPoules article#poules article.poule h3.titre span#lau {
+            color: #ffcc00; }
 
-main#brassage {
+main#creationPoules0 {
+  background-color: #005a99;
+  width: 100vw;
+  overflow-x: hidden; }
+  main#creationPoules0 form#poulesSelecteurs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-width: 3px; }
+    main#creationPoules0 form#poulesSelecteurs div.itemFormulaire {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background-color .75s ease; }
+      main#creationPoules0 form#poulesSelecteurs div.itemFormulaire:hover {
+        background-color: #6082B6;
+        border-color: #5d6974;
+        transition: background-color .25s; }
+    main#creationPoules0 form#poulesSelecteurs select {
+      flex: 2;
+      transition: 0.75s; }
+    main#creationPoules0 form#poulesSelecteurs label {
+      color: #FFFFFF;
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0096FF;
+      border-color: #FFFFFF;
+      white-space: normal;
+      overflow: hidden; }
+  main#creationPoules0 article#poulesBilan {
+    margin: .5rem .2rem;
+    padding: .4rem 0;
+    border: 2px solid transparent;
+    background-color: #F0EAD6;
+    border-radius: 8px; }
+    main#creationPoules0 article#poulesBilan dl {
+      display: flex;
+      flex-direction: column;
+      background-color: #005a99;
+      border-color: #EDEADE;
+      transition: transform .7s ease-in, border-color .4s ease; }
+      main#creationPoules0 article#poulesBilan dl:hover {
+        border-color: #ff0096;
+        transform: translateX(-2px) translateY(2px);
+        transition: .5s ease-in-out; }
+      main#creationPoules0 article#poulesBilan dl dt {
+        color: #FFFFFF; }
+      main#creationPoules0 article#poulesBilan dl dd {
+        font-family: monospace;
+        color: #FFFFFF; }
+        main#creationPoules0 article#poulesBilan dl dd.sans {
+          color: #ff6900; }
+        main#creationPoules0 article#poulesBilan dl dd.avec {
+          color: #00CC00; }
+
+main#brassage0 {
   background-color: #0096FF;
   margin: .5rem;
   padding: .5rem; }
-  main#brassage .gorria {
+  main#brassage0 .gorria {
     color: #CC0000; }
-  main#brassage .berdea {
+  main#brassage0 .berdea {
     color: #00CC00; }
-  main#brassage .urdina {
+  main#brassage0 .urdina {
     color: #0022CC; }
-  main#brassage .horia {
+  main#brassage0 .horia {
     color: #ffcc00; }
-  main#brassage .rouge {
+  main#brassage0 .rouge {
     color: #CC0000; }
-  main#brassage .vert {
+  main#brassage0 .vert {
     color: #00CC00; }
-  main#brassage .bleu {
+  main#brassage0 .bleu {
     color: #0022CC; }
-  main#brassage .jaune {
+  main#brassage0 .jaune {
     color: #ffcc00; }
-  main#brassage .sauvegardePossible {
+  main#brassage0 .sauvegardePossible {
     color: #FFFFFF;
     background-color: #00CC00;
     padding: .25rem;
     border-radius: 5px;
     border: 2px solid transparent; }
-  main#brassage #selecteurs {
+  main#brassage0 #selecteurs {
     grid-area: selecteurs;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between; }
-  main#brassage #equipes {
+  main#brassage0 #equipes {
     display: flex;
     flex-direction: column; }
-  main#brassage #poules {
+  main#brassage0 #poules {
     display: flex;
     flex-direction: column; }
 
-article#selecteurs {
+article#selecteurs0 {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -812,26 +1087,26 @@ article#selecteurs {
   border-radius: 5px;
   margin: 1rem 0;
   border-color: #FFFFFF; }
-  article#selecteurs div#serie, article#selecteurs div#genre {
+  article#selecteurs0 div#serie, article#selecteurs0 div#genre {
     display: flex;
     align-items: center;
     justify-content: space-between; }
-    article#selecteurs div#serie label, article#selecteurs div#genre label {
+    article#selecteurs0 div#serie label, article#selecteurs0 div#genre label {
       color: #E2DFD2;
       padding: .25rem;
       font-size: 1.5rem; }
-    article#selecteurs div#serie select, article#selecteurs div#genre select {
+    article#selecteurs0 div#serie select, article#selecteurs0 div#genre select {
       padding: .25rem; }
-      article#selecteurs div#serie select option, article#selecteurs div#genre select option {
+      article#selecteurs0 div#serie select option, article#selecteurs0 div#genre select option {
         font-size: 1.1rem; }
-  article#selecteurs button#brassageEffectue {
+  article#selecteurs0 button#brassageEffectue {
     padding: .2rem; }
 
-div.ligne {
+div.ligne0 {
   display: flex;
   align-items: center;
   justify-content: flex-start; }
-  div.ligne span.souhait {
+  div.ligne0 span.souhait {
     display: inline-block;
     font-size: 1.4rem;
     color: #000000;
@@ -840,48 +1115,48 @@ div.ligne {
     margin-right: 3rem;
     text-align: center;
     user-select: none; }
-  div.ligne div.liste {
+  div.ligne0 div.liste {
     display: flex;
     margin: .25rem;
     padding: .15rem;
     align-items: center;
     justify-content: space-between; }
-    div.ligne div.liste button {
+    div.ligne0 div.liste button {
       width: 3rem;
       height: 2rem;
       margin: 0 .25rem 0;
       border: 3px solid transparent;
       border-radius: 4px;
       cursor: pointer; }
-      div.ligne div.liste button.rouge {
+      div.ligne0 div.liste button.rouge {
         background-color: #CC0000;
         border-color: #CC0000;
         transition: all .125s ease-in; }
-        div.ligne div.liste button.rouge:hover {
+        div.ligne0 div.liste button.rouge:hover {
           background-color: #ff3333;
           border-color: maroon; }
-      div.ligne div.liste button.vert {
+      div.ligne0 div.liste button.vert {
         background-color: #00CC00;
         border-color: #00CC00;
         transition: all .125s ease-in; }
-        div.ligne div.liste button.vert:hover {
+        div.ligne0 div.liste button.vert:hover {
           background-color: #33FF33;
           border-color: green; }
-      div.ligne div.liste button.bleu {
+      div.ligne0 div.liste button.bleu {
         background-color: #0022CC;
         border-color: #0022CC;
         transition: all .125s ease-in; }
-        div.ligne div.liste button.bleu:hover {
+        div.ligne0 div.liste button.bleu:hover {
           background-color: #3355FF;
           border-color: #1A40FF; }
-      div.ligne div.liste button.jaune {
+      div.ligne0 div.liste button.jaune {
         background-color: #ffcc00;
         border-color: #ffcc00;
         transition: all .125s ease-in; }
-        div.ligne div.liste button.jaune:hover {
+        div.ligne0 div.liste button.jaune:hover {
           background-color: #FFE066;
           border-color: #B38F00; }
-      div.ligne div.liste button.supprimer {
+      div.ligne0 div.liste button.supprimer {
         vertical-align: middle;
         border: none;
         color: #000000;
@@ -890,11 +1165,11 @@ div.ligne {
         position: relative;
         width: 3rem;
         height: 3rem; }
-        div.ligne div.liste button.supprimer:hover {
+        div.ligne0 div.liste button.supprimer:hover {
           background-color: #CC0000; }
-        div.ligne div.liste button.supprimer:active {
+        div.ligne0 div.liste button.supprimer:active {
           background: #00CC00; }
-        div.ligne div.liste button.supprimer::before, div.ligne div.liste button.supprimer::after {
+        div.ligne0 div.liste button.supprimer::before, div.ligne0 div.liste button.supprimer::after {
           content: " ";
           position: absolute;
           top: 50%;
@@ -904,9 +1179,9 @@ div.ligne {
           color: #CC0000;
           background-color: #FFFFFF;
           border: 3px solid #000000; }
-        div.ligne div.liste button.supprimer::before {
+        div.ligne0 div.liste button.supprimer::before {
           transform: translate(-50%, -50%) rotate(45deg); }
-        div.ligne div.liste button.supprimer::after {
+        div.ligne0 div.liste button.supprimer::after {
           transform: translate(-50%, -50%) rotate(-45deg); }
 
 article.poule {
@@ -989,6 +1264,94 @@ section.poules {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); }
 
+@media (min-width: 450px) {
+  section#cadre {
+    grid-template-columns: 1fr 1fr; }
+  article#equipes {
+    grid-column: 1 / 2; }
+  article#poules {
+    grid-column: 2 / 3; } }
+
+@media screen and (max-width: 800px) {
+  form {
+    justify-content: space-between; }
+  .itemFormulaire label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }
+  section#cadre {
+    display: grid;
+    grid-auto-flow: row; } }
+
+main#frais {
+  background-color: #7393B3;
+  width: 98%;
+  overflow-x: hidden;
+  margin: 1rem;
+  padding: 1rem; }
+  main#frais form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-width: 3px; }
+    main#frais form div.itemFormulaire {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background-color .75s ease; }
+      main#frais form div.itemFormulaire:hover {
+        background-color: #6082B6;
+        border-color: #5d6974;
+        transition: background-color .25s; }
+    main#frais form select {
+      flex: 2;
+      transition: 0.75s; }
+    main#frais form label {
+      color: #FFFFFF;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0096FF;
+      border-color: #FFFFFF;
+      white-space: normal;
+      overflow: hidden; }
+  main#frais article#pafBilan {
+    margin: .5rem .2rem;
+    padding: .4rem 0;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: transparent;
+    border-width: 7px; }
+    main#frais article#pafBilan dl {
+      display: flex;
+      flex-direction: column;
+      background-color: #005a99;
+      border-color: #EDEADE;
+      transition: transform .7s ease-in, border-color .4s ease; }
+      main#frais article#pafBilan dl:hover {
+        border-color: #ff0096;
+        transform: translateX(-2px) translateY(2px);
+        transition: .5s ease-in-out; }
+      main#frais article#pafBilan dl dt {
+        white-space: normal;
+        color: #FFFFFF; }
+      main#frais article#pafBilan dl dd {
+        font-family: monospace;
+        color: #343434; }
+        main#frais article#pafBilan dl dd.sans {
+          color: #ff6900; }
+        main#frais article#pafBilan dl dd.avec {
+          color: #00CC00; }
+
 @media screen and (max-width: 800px) {
   form {
     justify-content: space-between; }
@@ -1055,8 +1418,23 @@ nav {
   position: initial;
   width: initial; }
 
+footer {
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%), linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%);
+  background-size: 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid transparent;
+  border-top-color: #FFFFFF; }
+  footer p {
+    font-family: "Oleo", serif;
+    font-size: 4rem;
+    color: #FFFFFF;
+    text-align: center;
+    user-select: none; }
+
 h1.logo {
-  color: #FFFFFF;
+  color: #708090;
   font-family: "Oleo";
   font-size: 5rem;
   font-size: clamp(6rem, 4vw, 8rem);
@@ -1081,7 +1459,7 @@ header {
   justify-content: space-between;
   height: 7rem;
   border: 2px solid transparent;
-  border-bottom-color: #28282B;
+  border-bottom-color: #FFFFFF;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%), linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%);
   background-size: 5px 5px; }
 

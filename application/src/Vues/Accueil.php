@@ -15,10 +15,12 @@ class Accueil {
 
 	if($this->administrateur_p()){
 	    echo $this->getComposant('headerAdministrateur');
+	    echo $this->getComposant('accueilAdministrateur');
 	}
 
 	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
+	    echo $this->getComposant('accueilUtilisateur');
 	}
 
 	echo $this->getFooterJavaScript('accueil');

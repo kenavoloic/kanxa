@@ -6,7 +6,8 @@
 	<meta name="description" content="Gestion administrative et sportive d’un tournoi de pelote basque.">
 	<meta name="author" content="Claude-Christel Agbangla">
         <meta charset="UTF-8">
-	<link href="/css/cca.css" rel="stylesheet" type="text/css">	
+	<link href="/css/cca.css" rel="stylesheet" type="text/css">
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <title><?=$titre?></title>
     </head>
     <body>

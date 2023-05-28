@@ -1,4 +1,367 @@
 main#creationPoules {
+    background-color: $gris8; 
+    width: 98%;
+    overflow-x: hidden;
+    margin:1rem;
+    padding: 1rem;
+
+    form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-width: 3px;
+
+	div.itemFormulaire {
+
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+	    
+	    flex: 1;
+
+	    display: flex;
+	    align-items: center;
+	    justify-content: flex-start;
+	    transition: background-color .75s ease;
+
+	    &:hover {
+		background-color: $gris5;
+		border-color: $gris4;
+		transition: background-color .25s;
+	    }
+
+	}
+
+	select {
+	    //height: 3.8rem;
+	    //padding: 0.6rem 1rem;
+	    //border-radius: 0.4rem;
+	    //border: 0.2rem solid #d1d1d1;
+	    flex: 2;
+	    transition: 0.75s;
+
+	}
+
+	label {
+	    //font-size: 1.2rem;
+	    color: $blanc16;
+	    //flex-shrink: 1;
+	    flex: 1;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    //height: 3.8rem;
+	    //padding: 0.6rem 1rem;
+	    //border-radius: 0.4rem;
+	    //border: 0.2rem solid transparent;
+
+	    background: $primary-color;
+	    border-color: $blanc16;
+	    white-space: normal;
+	    overflow: hidden;
+	}
+
+	
+    }
+    
+    article#poulesBilan {
+	margin: .5rem .2rem;
+	padding: .4rem 0;
+
+
+	@include bordureDefaut;
+	@include bordureArrondi;
+	background-color: transparent;
+	border-width: 7px;
+	
+
+	dl {
+	    display: flex;
+	    flex-direction: column;
+	    background-color: $primary-color-dark;
+	    //padding: .5rem;
+	    //margin: .5rem;
+	    //@include bordureDefaut;
+	    //@include bordureArrondi;
+	    border-color: $blanc1;
+	    //border-radius: 8px;
+	    transition: transform .7s ease-in, border-color .4s ease;
+
+	    &:hover {
+		border-color: $secondary-color;
+		transform: translateX(-2px) translateY(2px);// translateX(2px);
+		transition: .5s ease-in-out;
+	    }
+
+	    dt {
+		white-space: normal;
+		color: $blanc16;
+	    }
+	    dd {
+		font-family: monospace;
+		color: $noir5; //$primary-color-inverted;
+
+		&.sans {
+		    color: $primary-color-inverted; //$gorria;
+		}
+		&.avec {
+		    color: $berdea;
+		}
+	    }
+
+	}
+    }
+    
+    article#brassage {
+
+	display: flex;
+	flex-direction: column;
+	
+
+	button#brassageEffectue {
+	    border-radius: 6px;
+	    border-width: 3px;
+	    border-color: $gris6;
+	    
+	    &:enabled {
+		color: $blanc16;
+		background-color: $berdea;
+		padding: .25rem;
+		border-radius: 5px;
+		border-color: $blanc16;
+
+	    }
+	    
+	    &.sauvegardePossible {
+		/* color: $blanc16;
+		   background-color: $berdea;
+		   padding: .25rem;
+		   border-radius: 5px;
+		   border: 2px solid transparent; */
+	    }
+	    
+	}
+
+    }
+
+    section#cadre {
+	margin: .5rem 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	//grid-gap: 1rem;
+	column-gap: 1rem;
+
+	h2 {
+	    color: $blanc16;
+	    font-weight: 700;
+	    user-select: none;
+	    margin-bottom: 1rem;
+	    transition: all .45s ease;
+
+	    /* &:hover {
+	       transform: translateY(-2px);
+	       letter-spacing: -2px;
+	       transition: transform .25s ease-in;
+	       } */
+	}
+    }
+
+    article#equipes {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+    }
+
+    article.equipe {
+
+	margin-bottom: 1rem;
+	
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	@include bordureDefaut;
+	@include bordureArrondi;
+	border-color: $blanc16;
+	background-color: $primary-color-dark; 
+
+	&:hover {
+	    background-color: $primary-color-light;
+	}
+
+
+	span.souhait {
+	    display: inline-block;
+	    font-size: 1.2rem;
+	    color: $blanc16;
+	    width: 8rem;
+	    margin-right: 3rem;
+	    padding-left: .4rem;
+	    text-align: center;
+	    user-select: none;
+	    white-space: nowrap;
+	    overflow: hidden;
+
+	    flex:1;
+
+	    transition: transform .8s;
+
+	    &:hover {
+		transform: translateX(.5rem) translateY(-.2rem) scale(1.3);
+		transition: transform 250ms;
+	    }
+	}
+
+	div.liste {
+	    display: flex;
+	    margin: .25rem;
+	    padding: .3rem .15rem;
+	    align-items: center;
+	    justify-content: space-between;
+	    background-color: transparent;
+
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+
+	    flex: 5;
+	    
+	    button {
+		width: 6rem;
+		height: 4rem;
+		margin: 0 .25rem 0;
+		@include bordureDefaut;
+		@include bordureArrondi;
+		border-color: $blanc16;
+		border-radius: 8px;
+		cursor: pointer;
+		transition: all .125s ease-in;
+
+		&:hover {
+		    transform: scale(0.9) translateY(2px);
+		}
+
+		&.rouge {
+		    background-color: $gorria;
+		    &:hover {
+			background-color: lighten(saturate($gorria, 10%), 10%);
+		    }
+		}
+
+		&.vert {
+		    background-color: $berdea;
+		    &:hover {
+			background-color: lighten(saturate($berdea, 10%), 10%);
+		    }
+		}
+
+		&.bleu {
+		    background-color: $urdina;
+		    &:hover {
+			background-color: lighten(saturate($urdina, 10%), 10%);
+		    }
+		}
+
+		&.jaune {
+		    background-color: $horia;
+		    &:hover {
+			background-color: lighten(saturate($horia, 10%), 10%);
+		    }
+		}
+
+		&.supprimer {
+		    vertical-align: middle;
+		    border: none;
+		    color: #000000;
+		    border-radius: .29rem;
+		    background: #FFFFFF;
+		    position: relative;
+		    width: 3rem;
+		    height: 3rem;
+		    &:hover {
+			background-color: #CC0000;
+		    }
+		    &:active {
+			background: #00CC00;
+		    }
+		    &::before, &::after {
+			content: " ";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 2rem;
+			width: .85rem;
+			color: #CC0000;
+			background-color: #FFFFFF;
+			border: 3px solid #000000;
+		    }
+		    &::before {
+			transform: translate(-50%, -50%) rotate(45deg); }
+		    &::after {
+			transform: translate(-50%, -50%) rotate(-45deg); }
+		}	    
+		
+	    }
+
+	}
+
+    }
+
+    article#poules {
+	//display: grid;
+	//grid-auto-flow: row;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start; //space-between;
+	
+	article.poule {
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+	    border-width: 3px;
+
+	    margin-bottom: 1rem;
+
+	    background-color: $blanc16;
+	   
+
+	    h3.titre {
+		font-size: 1.2rem;
+		text-align: left;
+		user-select: none;
+		span {
+		    padding: .1rem;
+		    &#bat {
+			color: $gorria;
+		    }
+		    &#bi {
+			color: $berdea;
+		    }
+		    &#hiru {
+			color: $urdina;
+		    }
+		    &#lau {
+			color: $horia;
+		    }
+		}
+	    }
+	    //max-width: $largeurMaxi;
+
+	    &#d1 {
+	    }
+	    &#d2 {
+	    }
+	    &#d3{
+	    }
+	    &#d4{
+	    }
+
+	}
+    }
+}
+
+
+main#creationPoules0 {
     background-color: $primary-color-dark; // $alternative-color;
     width: 100vw;
     overflow-x: hidden;
@@ -89,9 +452,7 @@ main#creationPoules {
     }
 }
 
-
-
-main#brassage {
+main#brassage0 {
     background-color: $alternative-color;
     .gorria { color: $gorria;}
     .berdea { color: $berdea;}
@@ -134,7 +495,7 @@ main#brassage {
 
 }
 
-article#selecteurs {
+article#selecteurs0 {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -170,7 +531,7 @@ article#selecteurs {
     }
 }
 
-div.ligne {
+div.ligne0 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -369,6 +730,22 @@ section.poules {
 }
 
 
+@media (min-width: 450px) {
+    section#cadre {
+	grid-template-columns: 1fr 1fr;
+	//max-width: none;
+    }
+
+    article#equipes {
+	grid-column: 1 / 2;
+    }
+
+    article#poules {
+	grid-column: 2 / 3;
+    }
+}
+
+  
 @media screen and (max-width: 800px){
     form {
 	justify-content:space-between;
@@ -386,4 +763,10 @@ section.poules {
 	    width: 1px;
 	}
     }
+
+    section#cadre {
+	display: grid;
+	grid-auto-flow:  row;
+    }
 }
+

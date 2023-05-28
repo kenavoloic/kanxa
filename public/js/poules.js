@@ -53,24 +53,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const clefs = Array.from(liste.keys());
     const valeurs = Array.from(liste.values());
     const tri = [];
-    const seize = Array.from(document.querySelectorAll('.ligne')).map(x => [x.id, ""]);
+    //const seize = Array.from(document.querySelectorAll('.ligne')).map(x => [x.id, ""]);
+    const seize = Array.from(document.querySelectorAll('.equipe')).map(x => [x.id, ""]);
     const equipesInscrites = new Map(seize);
     //console.log([...equipesInscrites.keys()], [...equipesInscrites.values()]);
 
     if(document.querySelector('#equipes')){
 	const equipes = document.querySelector('#equipes').addEventListener('click', (e) => {
 
+	    //console.log('#equipes ', e.srcElement.parentElement);
+
 	    if(e.srcElement.tagName === 'BUTTON'){
 		let idParent = e.srcElement.parentElement.parentElement.id;
 		let souhait = `#${idParent} span`;
 
-		//La div list est retirée du parent 
+		//La div list est retirée du parent
+		// l'article.equipe est retiré du parent
 		let ligneSupprimee = document.getElementById(idParent);
 		ligneSupprimee.remove();
 
 		//retrait de la div.liste de la ligne supprimée
 		//ajout à celle-ci d'un nouvel élément
 		ligneSupprimee.querySelector('div.liste').remove();
+		//ligneSupprimee.querySelector('article.equipe').remove();
 
 		ligneSupprimee.append(couleurUnique(e.srcElement.className));
 		
@@ -87,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if(valeurs.length === equipesInscrites.size){
 		    //console.log("Brassage effectué ligne 86");
-		    document.querySelector("#brassageEffectue").setAttribute('class','sauvegardePossible');
+		    //document.querySelector("#brassageEffectue").setAttribute('class','sauvegardePossible');
 		    document.querySelector("#brassageEffectue").disabled = false;
 		    //document.querySelector("#brassageEffectue").addEventListener('click', (e) => validationPoules(valeurs, equipesInscrites));
 		    let t = equipesInscrites.entries();
-		    //console.log([...t]);
+		    //console.log('ligne 94', [...t]);
 		}
 		document.getElementById(liste.get(e.srcElement.className)).appendChild(ligneSupprimee);
 	    }
@@ -105,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		    let ligneSupprimee = document.getElementById(idParent);
 		    ligneSupprimee.querySelector('div.liste').remove();
+		    //ligneSupprimee.querySelector('article.liste').remove();
 		    ligneSupprimee.append(listeBoutons());
 
 		    if(equipesInscrites.has(idParent)){
@@ -122,10 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	    let genre = document.querySelector('#genre').value;
 
 	    if(valeurs.length === total){
-		let _p1 = document.querySelectorAll('#p1 > .ligne');
-		let _p2 = document.querySelectorAll('#p2 > .ligne');
-		let _p3 = document.querySelectorAll('#p3 > .ligne');
-		let _p4 = document.querySelectorAll('#p4 > .ligne');
+		//let _p1 = document.querySelectorAll('#p1 > .ligne');
+		//let _p2 = document.querySelectorAll('#p2 > .ligne');
+		//let _p3 = document.querySelectorAll('#p3 > .ligne');
+		//let _p4 = document.querySelectorAll('#p4 > .ligne');
+		
+		let _p1 = document.querySelectorAll('#p1 > .equipe');
+		let _p2 = document.querySelectorAll('#p2 > .equipe');
+		let _p3 = document.querySelectorAll('#p3 > .equipe');
+		let _p4 = document.querySelectorAll('#p4 > .equipe');
 
 		let p1 = [..._p1].map(x => `1:${x.id}`);
 		let p2 = [..._p2].map(x => `2:${x.id}`);

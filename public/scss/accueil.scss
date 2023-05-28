@@ -1,0 +1,72 @@
+main {
+
+    border-radius: 0;
+    //height: 98vv;
+
+    display: grid;
+
+    article {
+	@include bordureDefaut;
+	@include bordureArrondi;
+	border-color: $blanc16;
+	background: $primary-color-dark;
+	padding: .5rem;
+	margin: .5rem;
+
+	p {
+	    font-family: "Fira", serif;
+	    color: $blanc16;
+	    line-height: 1.2;
+	    margin: .4rem 0;
+	}
+    }
+    
+
+    &#utilisateur {
+	background-color: $primary-color-inverted;
+
+	#tournoi .primaire{
+	    font-size: 2.5rem;
+	    text-align: center;
+	    transition: color .9s ease;
+
+	    &:hover {
+		transform: scale(0.9);
+		transition: transform .5s ease-in;
+	    }
+	}
+    }
+
+    &#administrateur {
+	background-color: $primary-color-dark;
+    }
+}
+
+
+@media screen and (max-width: 500px){
+
+    .secondaire {
+	display: none;
+    }
+
+    .tertiaire {
+	display: none;
+    }
+}
+
+@media screen and (min-width: 501px){
+    /* grid-template-columns: repeat(2, 1fr);
+       grid-template-rows: repeat(6, 1fr);
+       gap: 1rem;
+
+       article:nth-child(even) {
+       grid-column-start: 1;
+       }
+
+       article:nth-child(odd) {
+       grid-column-start: 2;
+       } */
+
+    grid-template-columns: repeat(2, auto);
+    grid-auto-flow: dense;
+}

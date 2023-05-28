@@ -3,7 +3,7 @@ main#login {
     place-items: center;
     min-height: 90vh;
     padding: 1rem;
-    background: $primary-color-dark; //$primary-color-inverted; // $primary-color-dark; 
+    background: $gris8; //$primary-color-dark; //$primary-color-inverted; // $primary-color-dark; 
     //position: relative;
 
     form {
@@ -18,7 +18,7 @@ main#login {
 	text-align: center;
 	outline-color: $violet10;
 	border-color: $blanc16;
-	background: $primary-color-inverted;
+	background: $gris8; //$primary-color-inverted;
 	border-radius: 7px;
 	padding: 1rem;
 

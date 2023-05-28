@@ -15,6 +15,11 @@ class Poules {
     }
 
 
+    public function getEquipe(array $envoi): string {
+    	return '<article class="equipe" id="'.$envoi['equipeId'].'"><span class="souhait">'.$envoi['souhait'].'</span><div class="liste"><button class="rouge"></button><button class="vert"></button><button class="bleu"></button><button class="jaune"></button></div></article>';
+ }
+
+
     public function affichage(array $envoi): void {
 
 	//$serie = !empty($_SESSION['poules']['serie']) ?? 0;
@@ -50,9 +55,10 @@ class Poules {
 	
 	
 	if(!empty($envoi['liste'])){
-	    echo $this->getComposant('boutonInvisible');
-	    $donnees = array_map([$this,'getLigne'], $envoi['liste']);
-	    //echo implode("\n", $donnees);
+	    //echo $this->getComposant('boutonInvisible');
+	    //$donnees = array_map([$this,'getLigne'], $envoi['liste']);
+		$donnees = array_map([$this,'getEquipe'], $envoi['liste']);
+    //echo implode("\n", $donnees);
 	    echo $this->getComposantTableau('poulesCadre', ['lignes' => implode("\n", $donnees)]);
 	}
 	

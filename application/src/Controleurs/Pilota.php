@@ -12,6 +12,7 @@ class Pilota {
     private $requeteNombreEquipes = "select intNombreEquipeSerieGenre(:serie,:genre);";
     private $requeteNombrePoules = "select intNombrePoule(:serie, :genre);";
     private $requeteListePoule = "select jsonListepoule(:serie, :genre, :poule);";
+    private $requeteClassement = "select jsonSerieGenrePouleClassement(:serie, :genre, :poule);";
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="Pilota"){
 	$this->$methode($this->parametres);
@@ -78,6 +79,25 @@ class Pilota {
 	echo $retour;
     }
 
+    public function classement(array $envoi){
+	$serie_ = $this->queDesChiffres($_POST['classementSerie']);
+	$genre_ = $this->queDesChiffres($_POST['classementGenre']);
+	$poule_ = $this->queDesChiffres($_POST['classementPoule']);
+
+	$serie = intval($serie_);
+	$genre = intval($genre_);
+	$poule = intval($poule_);
+	$valeurs = [':serie' => $serie, ':genre' => $genre, ':poule' => $poule];
+	$reponse = $this->pdo->prepare($this->requeteListePoule);
+	$reponse->execute($valeurs);
+	$liste = $reponse->fetch(\PDO::FETCH_NUM)[0];
+	header('Content-Type: application/json');
+	$retour = json_encode($liste);
+	echo $retour;
+
+    }
+    
+
     public function modifier(array $envoi){
     }
     
@@ -104,14 +124,14 @@ class Pilota {
 	//echo json_encode($liste);
 	//echo json_encode($message);
 	//echo json_encode(['nom' => "Louison Bobet"]);
-	echo json_encode(['nom' => $message]);
-    }
-    
+    echo json_encode(['nom' => $message]);
+}
 
-    public function index(array $envoi): void {
-	$this->redirection('');
-    }
-    
-    
-    
+
+public function index(array $envoi): void {
+    $this->redirection('');
+}
+
+
+
 }

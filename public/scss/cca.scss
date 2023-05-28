@@ -6,12 +6,13 @@
 @import 'textures.scss';
 @import 'effets.scss';
 @import 'validation.scss';
-
+ 
+@import 'accueil.scss';
 @import 'login.scss';
 @import 'inscription.scss';
 @import 'poules.scss';
-      
-             
+@import 'paf.scss';           
+                           
 
 $rupture: 1200px;
 
@@ -79,11 +80,32 @@ nav {
     position: initial;
     width: initial;
 }
-
+ 
+//footer
+footer {
+      
+    @include texture1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     //@include bordureDefaut;
+    border: 3px solid transparent;
+    border-top-color: $blanc16; //$gris6; //$blanc16;
+    p {
+	font-family: "Oleo", serif;
+	font-size: 4rem;
+	color: $blanc16;
+	text-align: center;
+	user-select: none;
+    }
+   
+    
+}
+  
 // Header navbar logo liens menu hamburger
 
 h1.logo {
-    color: $blanc16;
+    color: $gris6;
     font-family: "Oleo";
     font-size: 5rem;
     font-size: clamp(6rem, 4vw, 8rem);
@@ -115,7 +137,7 @@ header {
     height: 7rem;
     @include bordureDefaut;
     //border: $bordureStyle;
-    border-bottom-color: $noir7;
+    border-bottom-color: $blanc16; //$noir7;
     @include texture1;
 }
 
