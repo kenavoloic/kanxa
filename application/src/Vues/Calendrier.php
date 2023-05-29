@@ -25,6 +25,8 @@ class Calendrier {
 
 	echo $this->getComposantTableau('calendrier', $tableau);
 
+	echo '</main>' . PHP_EOL;
+
 	echo $this->getFooterJavaScript('calendrier');
 
 	echo $this->getComposant('basdepage');	

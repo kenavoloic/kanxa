@@ -6,14 +6,16 @@
 @import 'textures.scss';
 @import 'effets.scss';
 @import 'validation.scss';
- 
+       
 @import 'accueil.scss';
 @import 'login.scss';
+
 @import 'inscription.scss';
 @import 'poules.scss';
 @import 'paf.scss';           
 @import 'datesGenerales.scss';                             
-            
+@import 'calendrier.scss';
+ 
 $rupture: 1200px;
 
 /*
@@ -43,7 +45,7 @@ main {
     background: $blanc16;
     width: 100vw;
 }
-
+        
 nav {
     display: flex;
     align-items: center;

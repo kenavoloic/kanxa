@@ -13,7 +13,7 @@ class Accueil {
 
     public function affichage(array $envoi): void{
 
-	var_dump($envoi['datesGenerales']);
+	//var_dump($envoi['datesGenerales']);
 	
 	echo $this->getEntete($envoi['titre']);
 

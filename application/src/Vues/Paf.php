@@ -98,7 +98,9 @@ class Paf {
 	}
 
 	//echo $this->getComposant('pafVide');
-	echo $this->getComposantTableau('pafVide', $tableau);
+	//echo $this->getComposantTableau('pafVide', $tableau);
+	echo '<main id="frais">' . PHP_EOL;
+	echo $this->getComposantTableau('pafSelecteurs', $tableau);
 
 
 	//echo "<select>".implode("\n", $this->getSelectSeries(1))."</select>";
@@ -118,6 +120,8 @@ class Paf {
 	    echo "</table>";
 
 	}
+
+	echo '</main>' . PHP_EOL;
 	
 	echo $this->getFooterJavaScript('paf');
 	echo $this->getComposant('basdepage');

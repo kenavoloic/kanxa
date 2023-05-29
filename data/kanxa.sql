@@ -128,7 +128,7 @@ CREATE TABLE `equipes` (
 
 LOCK TABLES `equipes` WRITE;
 /*!40000 ALTER TABLE `equipes` DISABLE KEYS */;
-INSERT INTO `equipes` VALUES (1,1,1,1,2,'Dalle','Cindy','Cindy.Dalle@Floirac.33.fr','06.xx.99.xx.xx','140336','Siong','Elisabeth','Elisabeth.Siong@Mios.33.fr','06.xx.99.xx.xx','140337',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(2,1,3,1,1,'Lallemand','Ysaline','Ysaline.Lallemand@Cestas.33.fr','06.xx.xx.xx.99','177127','Venet','Amel','Amel.Venet@Gujan_Mestras.33.fr','06.99.xx.xx.xx','177128',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(3,1,1,2,1,'Panier','Enora','Enora.Panier@Léognan.33.fr','06.xx.99.99.xx','150423','Gohier','Matilde','Matilde.Gohier@Saint_André_de_Cubzac.33.fr','06.xx.xx.99.xx','150424',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(4,1,1,1,1,'Goy','Judith','Judith.Goy@Bègles.33.fr','06.xx.99.99.99','140346','Jouve','Berengere','Berengere.Jouve@Saint_André_de_Cubzac.33.fr','06.99.99.99.xx','140347',0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111),(5,1,2,1,1,'Savary','Elise','Elise.Savary@Libourne.33.fr','06.99.xx.xx.99','161311','Hecquet','Marie-Amélie','Marie_Amélie.Hecquet@Le_Taillan_Médoc.33.fr','06.xx.99.xx.99','161312',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(6,1,3,1,3,'Declerck','Kénaëlle','Kénaëlle.Declerck@Gujan_Mestras.33.fr','06.xx.xx.xx.xx','177105','Madi','Manaelle','Manaelle.Madi@Le_Bouscat.33.fr','06.xx.99.99.99','177106',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(7,1,3,1,1,'Defosse','Dahlia','Dahlia.Defosse@Biganos.33.fr','06.xx.99.99.xx','177117','Lutz','Pia','Pia.Lutz@Andernos_les_Bains.33.fr','06.99.99.99.99','177118',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(8,1,3,1,3,'Ibanez','Angelique','Angelique.Ibanez@Eysines.33.fr','06.99.xx.99.xx','177131','Blaise','Shirley','Shirley.Blaise@Léognan.33.fr','06.99.xx.xx.99','177132',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(9,1,2,1,1,'Augier','Andressa','Andressa.Augier@Ambarès_et_Lagrave.33.fr','06.xx.99.99.xx','161331','Diaz','Lùna','Lùna.Diaz@Eysines.33.fr','06.xx.xx.xx.99','161332',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(10,1,2,2,3,'Abbas','Ahlem','Ahlem.Abbas@Mios.33.fr','06.99.99.99.99','175464','Donnet','Violette','Violette.Donnet@Saint_Médard_en_Jalles.33.fr','06.xx.99.99.xx','175465',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(11,1,3,1,3,'Gibert','Anne-Laure','Anne_Laure.Gibert@Saint_Loubès.33.fr','06.xx.99.99.xx','177133','Devienne','Shanys','Shanys.Devienne@La_Teste_de_Buch.33.fr','06.99.99.99.xx','177134',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(12,1,3,1,1,'Falck','Maéva','Maéva.Falck@Le_Haillan.33.fr','06.xx.99.99.99','177125','Guillou','Layan','Layan.Guillou@Léognan.33.fr','06.xx.99.99.99','177126',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(13,1,3,1,2,'Fernandes','Ayana','Ayana.Fernandes@Parempuyre.33.fr','06.xx.99.99.xx','177113','Grau','Sawsane','Sawsane.Grau@Bègles.33.fr','06.99.99.99.99','177114',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(14,1,2,1,2,'Ragot','Laïssa','Laïssa.Ragot@Le_Haillan.33.fr','06.99.xx.99.xx','161333','Lafon','Amélie','Amélie.Lafon@Lormont.33.fr','06.99.99.99.99','161334',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(15,1,2,2,2,'Prin','Marya','Marya.Prin@Bruges.33.fr','06.xx.99.99.99','175470','Dahan','Drucilla','Drucilla.Dahan@Gujan_Mestras.33.fr','06.99.xx.99.xx','175471',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(16,1,2,2,2,'Serres','Ilayda','Ilayda.Serres@Blanquefort.33.fr','06.xx.xx.99.xx','175460','Chau','Shanaëlle','Shanaëlle.Chau@Andernos_les_Bains.33.fr','06.xx.99.xx.99','175461',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(17,1,1,1,2,'Mignon','Alia','Alia.Mignon@Libourne.33.fr','06.xx.99.99.xx','140340','Rapin','Maëlia','Maëlia.Rapin@Mérignac.33.fr','06.xx.xx.99.xx','140341',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(18,1,1,1,3,'Michon','Daniella','Daniella.Michon@Eysines.33.fr','06.xx.99.99.99','140332','Ravier','Morganne','Morganne.Ravier@Talence.33.fr','06.99.xx.99.xx','140333',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(19,1,2,1,3,'Retif','Louise','Louise.Retif@Floirac.33.fr','06.xx.99.xx.xx','161315','Cesar','Aicha','Aicha.Cesar@Parempuyre.33.fr','06.99.xx.xx.xx','161316',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(20,1,1,2,3,'Le cam','Sita','Sita.Le_cam@Villenave_d_Ornon.33.fr','06.xx.99.99.99','150429','Kuhn','Charlyne','Charlyne.Kuhn@Biganos.33.fr','06.99.xx.xx.xx','150430',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(21,1,2,1,3,'Sailly','Emma','Emma.Sailly@Bordeaux.33.fr','06.xx.xx.xx.99','161323','Da Fonseca','Cléophée','Cléophée.Da_Fonseca@Bordeaux.33.fr','06.xx.xx.99.xx','161324',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(22,1,2,2,2,'Jourdain','Lindsay','Lindsay.Jourdain@Saint_André_de_Cubzac.33.fr','06.99.99.99.99','175458','Hennequin','Théodora','Théodora.Hennequin@Le_Bouscat.33.fr','06.xx.xx.xx.xx','175459',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(23,1,1,2,3,'Arab','Méline','Méline.Arab@Villenave_d_Ornon.33.fr','06.xx.99.xx.99','150439','Floquet','Ibaia','Ibaia.Floquet@Bordeaux.33.fr','06.xx.xx.99.xx','150440',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(24,1,2,2,1,'Chassagne','Mei','Mei.Chassagne@Le_Bouscat.33.fr','06.xx.xx.xx.xx','175454','Hamm','Fany','Fany.Hamm@Biganos.33.fr','06.99.xx.99.xx','175455',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(25,1,3,1,1,'Lamarque','Aimée','Aimée.Lamarque@Saint_Médard_en_Jalles.33.fr','06.99.xx.xx.xx','177115','Vanhoutte','Tasnîm','Tasnîm.Vanhoutte@Eysines.33.fr','06.99.xx.xx.99','177116',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(26,1,2,2,3,'Rameau','Loann','Loann.Rameau@Floirac.33.fr','06.99.xx.99.xx','175468','Boisset','Ophélie','Ophélie.Boisset@Le_Bouscat.33.fr','06.99.xx.xx.xx','175469',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(27,1,1,2,1,'Valin','Naissa','Naissa.Valin@Gujan_Mestras.33.fr','06.99.99.99.xx','150431','Desbois','Fantine','Fantine.Desbois@Villenave_d_Ornon.33.fr','06.99.xx.99.xx','150432',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(28,1,3,1,2,'Delannay','Annaëlle','Annaëlle.Delannay@Mios.33.fr','06.xx.xx.xx.xx','177129','Lobry','Sheima','Sheima.Lobry@Eysines.33.fr','06.xx.xx.99.xx','177130',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(29,1,3,1,1,'Huc','Solenn','Solenn.Huc@Parempuyre.33.fr','06.xx.99.xx.99','177119','Bonnet','Annaelle','Annaelle.Bonnet@Le_Bouscat.33.fr','06.99.xx.xx.99','177120',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(30,1,1,1,3,'Crespo','Bianca','Bianca.Crespo@Mérignac.33.fr','06.99.xx.99.xx','140344','Taleb','Lexy','Lexy.Taleb@Blanquefort.33.fr','06.xx.99.xx.99','140345',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(31,1,1,1,3,'Loizeau','Ashley','Ashley.Loizeau@Blanquefort.33.fr','06.xx.99.xx.xx','140320','Assouline','Liséa','Liséa.Assouline@Le_Taillan_Médoc.33.fr','06.xx.99.xx.xx','140321',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(32,1,2,2,1,'Hamon','Leyna','Leyna.Hamon@Cenon.33.fr','06.xx.xx.99.xx','175472','Huet','Trycia','Trycia.Huet@Arcachon.33.fr','06.xx.99.99.xx','175473',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(33,1,3,2,3,'Guilbaud','Yacine','Yacine.Guilbaud@Cenon.33.fr','06.99.xx.xx.xx','192204','Sales','Victoria','Victoria.Sales@Cestas.33.fr','06.xx.99.99.xx','192205',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(34,1,3,2,3,'Bienaime','Lyah','Lyah.Bienaime@Lormont.33.fr','06.xx.xx.xx.xx','192178','Pasquet','Nihal','Nihal.Pasquet@Lormont.33.fr','06.xx.99.99.99','192179',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(35,1,2,1,1,'Jouanne','Oceanne','Oceanne.Jouanne@Bordeaux.33.fr','06.xx.99.99.xx','161327','Migeon','Othilie','Othilie.Migeon@Saint_André_de_Cubzac.33.fr','06.xx.xx.99.xx','161328',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(36,1,1,2,2,'Cottin','Malory','Malory.Cottin@Andernos_les_Bains.33.fr','06.99.99.99.xx','150425','Laborie','Maïly','Maïly.Laborie@Ambarès_et_Lagrave.33.fr','06.99.xx.xx.99','150426',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(37,1,2,1,3,'Fargier','Carina','Carina.Fargier@Le_Haillan.33.fr','06.xx.xx.xx.xx','161321','Menard','Leticia','Leticia.Menard@Biganos.33.fr','06.99.xx.99.xx','161322',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(38,1,2,2,1,'Moinet','Maddie','Maddie.Moinet@Andernos_les_Bains.33.fr','06.xx.99.xx.99','175452','Fevre','Noemie','Noemie.Fevre@Saint_Médard_en_Jalles.33.fr','06.xx.xx.xx.xx','175453',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(39,1,1,1,1,'Carrier','Christiana','Christiana.Carrier@Ambarès_et_Lagrave.33.fr','06.99.xx.xx.99','140334','Baude','Kloé','Kloé.Baude@Floirac.33.fr','06.99.99.99.99','140335',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(40,1,3,1,3,'Gontier','Kassidy','Kassidy.Gontier@Cestas.33.fr','06.99.xx.xx.xx','177121','Dedieu','Maud','Maud.Dedieu@Mérignac.33.fr','06.xx.xx.99.xx','177122',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(41,1,1,2,3,'Diagne','Leyna','Leyna.Diagne@Eysines.33.fr','06.xx.xx.xx.99','150419','Larroque','Laurette','Laurette.Larroque@Arcachon.33.fr','06.99.xx.99.xx','150420',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(42,1,1,2,2,'Barret','Céline','Céline.Barret@Talence.33.fr','06.99.99.99.xx','150417','Gaspard','Lizéa','Lizéa.Gaspard@Bègles.33.fr','06.xx.99.99.99','150418',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(43,1,1,2,1,'Teixeira','Yvonne','Yvonne.Teixeira@Eysines.33.fr','06.99.xx.xx.99','150435','De Carvalho','Abiba','Abiba.De_Carvalho@Le_Taillan_Médoc.33.fr','06.99.xx.99.xx','150436',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(44,1,1,1,3,'Guiet','Keïla','Keïla.Guiet@Saint_André_de_Cubzac.33.fr','06.99.xx.99.xx','140338','Hennequin','Flora','Flora.Hennequin@Saint_André_de_Cubzac.33.fr','06.99.xx.xx.xx','140339',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(45,1,3,2,1,'Francisco','Telma','Telma.Francisco@Parempuyre.33.fr','06.99.99.99.xx','192196','Belmonte','Clara','Clara.Belmonte@Pessac.33.fr','06.xx.99.99.xx','192197',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(46,1,3,2,3,'Fievet','Raïssa','Raïssa.Fievet@Saint_Loubès.33.fr','06.xx.99.xx.xx','192190','Borges','Leonie','Leonie.Borges@Ambarès_et_Lagrave.33.fr','06.99.99.99.99','192191',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(47,1,1,1,3,'Chabot','Laetitia','Laetitia.Chabot@Blanquefort.33.fr','06.xx.xx.99.xx','140350','Aveline','Cléo','Cléo.Aveline@Libourne.33.fr','06.xx.99.xx.xx','140351',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(48,1,2,2,1,'Duteil','Lèna','Lèna.Duteil@Saint_Médard_en_Jalles.33.fr','06.99.99.99.xx','175466','Janin','Suzie','Suzie.Janin@Gradignan.33.fr','06.99.xx.xx.99','175467',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(49,1,3,2,1,'Bulteau','Elora','Elora.Bulteau@Parempuyre.33.fr','06.xx.99.xx.99','192184','Lesage','Angelique','Angelique.Lesage@Libourne.33.fr','06.99.xx.99.xx','192185',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(50,1,2,1,3,'Zerrouki','Cataleya','Cataleya.Zerrouki@Cenon.33.fr','06.99.99.99.xx','161337','Gay','Saioa','Saioa.Gay@Mios.33.fr','06.xx.99.xx.99','161338',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(51,1,1,2,1,'Large','Lindsay','Lindsay.Large@Arcachon.33.fr','06.xx.99.99.xx','150433','Lagache','Lally','Lally.Lagache@Bègles.33.fr','06.99.99.99.xx','150434',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(52,1,1,2,1,'Mosnier','Oriana','Oriana.Mosnier@Mios.33.fr','06.xx.xx.xx.xx','150413','Guille','Athéna','Athéna.Guille@Pessac.33.fr','06.99.99.99.99','150414',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(53,1,3,2,1,'Egea','Sabrina','Sabrina.Egea@Talence.33.fr','06.xx.xx.xx.xx','192198','Carel','Léah','Léah.Carel@Bègles.33.fr','06.99.xx.xx.xx','192199',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(54,1,3,1,1,'Jubert','Zaynab','Zaynab.Jubert@Bègles.33.fr','06.99.99.99.99','177111','Bachelet','Aliya','Aliya.Bachelet@Mérignac.33.fr','06.xx.99.99.99','177112',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(55,1,1,1,2,'Mevel','Naïma','Naïma.Mevel@La_Teste_de_Buch.33.fr','06.xx.xx.xx.xx','140348','Rey','Rym','Rym.Rey@Le_Haillan.33.fr','06.99.99.99.99','140349',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(56,1,2,1,3,'Richard','Dahlia','Dahlia.Richard@Arcachon.33.fr','06.xx.99.xx.99','161329','Chaput','Naïa','Naïa.Chaput@Mérignac.33.fr','06.xx.xx.xx.99','161330',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(57,1,3,2,3,'Fonteneau','Suzon','Suzon.Fonteneau@Mios.33.fr','06.xx.99.99.99','192192','Blaise','Emie','Emie.Blaise@Gradignan.33.fr','06.xx.xx.xx.xx','192193',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(58,1,2,2,3,'Naze','Carine','Carine.Naze@Bordeaux.33.fr','06.xx.xx.99.xx','175446','D’angelo','Annabelle','Annabelle.D_angelo@Talence.33.fr','06.99.99.99.xx','175447',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(59,1,2,1,2,'Gouin','Amanda','Amanda.Gouin@Lormont.33.fr','06.xx.xx.xx.xx','161313','Milesi','Mackenzie','Mackenzie.Milesi@Mérignac.33.fr','06.99.xx.xx.xx','161314',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(60,1,2,2,3,'De Azevedo','Sandra','Sandra.De_Azevedo@Lormont.33.fr','06.99.xx.xx.xx','175448','Huart','Yasmina','Yasmina.Huart@Parempuyre.33.fr','06.xx.99.xx.99','175449',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(61,1,1,1,1,'Michelet','Sandra','Sandra.Michelet@Cestas.33.fr','06.xx.99.xx.xx','140324','Redon','Nancy','Nancy.Redon@Gujan_Mestras.33.fr','06.xx.xx.xx.99','140325',0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,112),(62,1,3,2,2,'Floquet','Tali','Tali.Floquet@Le_Taillan_Médoc.33.fr','06.xx.99.99.99','192188','Boisseau','Ela','Ela.Boisseau@Lormont.33.fr','06.99.xx.99.xx','192189',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(63,1,3,2,3,'Briet','Sloane','Sloane.Briet@Le_Haillan.33.fr','06.99.99.99.xx','192206','Louvel','Kayla','Kayla.Louvel@Biganos.33.fr','06.99.99.99.99','192207',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(64,1,1,1,1,'Cassard','Cataléya','Cataléya.Cassard@Bègles.33.fr','06.99.99.99.xx','140326','Barry','Sabrina','Sabrina.Barry@Libourne.33.fr','06.99.99.99.xx','140327',0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,113),(65,1,3,2,3,'Court','Kimberly','Kimberly.Court@Léognan.33.fr','06.xx.xx.99.xx','192180','Geffroy','Shauna','Shauna.Geffroy@Parempuyre.33.fr','06.99.99.99.99','192181',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(66,1,2,2,3,'Lebourgeois','Maelia','Maelia.Lebourgeois@Gradignan.33.fr','06.99.99.99.99','175462','Guedes','Alma','Alma.Guedes@Libourne.33.fr','06.xx.xx.xx.xx','175463',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(67,1,2,1,2,'Da Silva','Perle','Perle.Da_Silva@Cenon.33.fr','06.99.xx.xx.99','161335','Mahi','Nyna','Nyna.Mahi@Saint_Médard_en_Jalles.33.fr','06.xx.99.99.xx','161336',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(68,1,3,2,3,'Feret','Patricia','Patricia.Feret@Biganos.33.fr','06.xx.99.xx.xx','192194','Bourdet','Lilou','Lilou.Bourdet@Bordeaux.33.fr','06.xx.xx.xx.xx','192195',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(69,1,3,2,3,'Gueye','Maurane','Maurane.Gueye@Le_Taillan_Médoc.33.fr','06.xx.99.99.xx','192182','Sari','Megane','Megane.Sari@Saint_Médard_en_Jalles.33.fr','06.xx.99.xx.xx','192183',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(70,1,3,2,2,'Fasquel','Sanata','Sanata.Fasquel@Le_Haillan.33.fr','06.99.99.99.xx','192208','Breard','Maureen','Maureen.Breard@Talence.33.fr','06.xx.xx.99.xx','192209',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(71,1,2,2,1,'Moritz','Leanne','Leanne.Moritz@Cenon.33.fr','06.99.xx.xx.99','175476','Fasquel','Rachelle','Rachelle.Fasquel@Bruges.33.fr','06.xx.xx.99.xx','175477',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(72,1,1,1,3,'Hamard','Anissa','Anissa.Hamard@Le_Bouscat.33.fr','06.xx.xx.xx.99','140330','Granjon','Fatma','Fatma.Granjon@Bruges.33.fr','06.99.99.99.99','140331',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(73,1,3,1,3,'Lambert','Clémence','Clémence.Lambert@Saint_Loubès.33.fr','06.99.99.99.xx','177103','Vandaele','Molly','Molly.Vandaele@Bègles.33.fr','06.xx.99.xx.xx','177104',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(74,1,1,2,1,'Thevenet','Christiana','Christiana.Thevenet@Le_Bouscat.33.fr','06.xx.99.xx.xx','150411','Colas','Nassima','Nassima.Colas@Bruges.33.fr','06.xx.99.99.99','150412',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(75,1,2,1,1,'Rossignol','Tayna','Tayna.Rossignol@Le_Haillan.33.fr','06.99.xx.xx.xx','161319','Janot','Elia','Elia.Janot@Le_Haillan.33.fr','06.99.xx.xx.99','161320',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(76,1,2,1,2,'Bara','Sohane','Sohane.Bara@Villenave_d_Ornon.33.fr','06.99.99.99.xx','161317','Delord','Milena','Milena.Delord@Pessac.33.fr','06.xx.xx.xx.99','161318',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(77,1,3,2,1,'Gence','Sofya','Sofya.Gence@Mios.33.fr','06.xx.xx.xx.99','192200','Ahmed','Hira','Hira.Ahmed@Floirac.33.fr','06.99.xx.xx.99','192201',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(78,1,2,1,3,'Schaeffer','Ketia','Ketia.Schaeffer@Ambarès_et_Lagrave.33.fr','06.xx.99.99.xx','161341','Delacour','Assa','Assa.Delacour@Saint_Loubès.33.fr','06.99.xx.xx.99','161342',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(79,1,3,1,2,'Goupil','Maelys','Maelys.Goupil@Lormont.33.fr','06.99.xx.99.xx','177109','Dauvergne','Léana','Léana.Dauvergne@Ambarès_et_Lagrave.33.fr','06.xx.99.99.xx','177110',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(80,1,3,2,2,'Firmin','Prescillia','Prescillia.Firmin@Lormont.33.fr','06.99.xx.xx.99','192186','Bonnel','Leyla','Leyla.Bonnel@Pessac.33.fr','06.xx.99.99.xx','192187',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(81,1,2,2,1,'Rollin','Léontine','Léontine.Rollin@Le_Bouscat.33.fr','06.xx.99.xx.xx','175474','Brisset','Taïs','Taïs.Brisset@Saint_André_de_Cubzac.33.fr','06.99.xx.xx.99','175475',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(82,1,1,2,1,'Salvan','Zita','Zita.Salvan@Libourne.33.fr','06.xx.99.99.99','150421','Cheng','Théa','Théa.Cheng@Léognan.33.fr','06.xx.99.xx.xx','150422',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(83,1,2,1,1,'Ledru','Anne-Marie','Anne_Marie.Ledru@Le_Taillan_Médoc.33.fr','06.xx.xx.xx.xx','161339','Mazoyer','Lorenza','Lorenza.Mazoyer@Bègles.33.fr','06.99.xx.99.xx','161340',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(84,1,3,1,1,'Kaba','Ludvina','Ludvina.Kaba@La_Teste_de_Buch.33.fr','06.xx.99.xx.xx','177123','Audureau','Alissia','Alissia.Audureau@La_Teste_de_Buch.33.fr','06.xx.99.99.xx','177124',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(85,1,1,2,3,'Tran','Maëlys','Maëlys.Tran@Le_Bouscat.33.fr','06.99.xx.99.xx','150427','Delplace','Jana','Jana.Delplace@Arcachon.33.fr','06.99.xx.xx.xx','150428',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(86,1,1,1,1,'Grondin','Laika','Laika.Grondin@Villenave_d_Ornon.33.fr','06.xx.99.99.99','140322','Ibrahim','Antinea','Antinea.Ibrahim@Mios.33.fr','06.99.xx.xx.xx','140323',0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,114),(87,1,3,1,2,'Houze','Lea','Lea.Houze@Cestas.33.fr','06.xx.99.xx.99','177107','Borg','Chiara','Chiara.Borg@Gujan_Mestras.33.fr','06.xx.xx.xx.99','177108',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(88,1,2,2,2,'Teboul','Imane','Imane.Teboul@Le_Taillan_Médoc.33.fr','06.99.99.99.xx','175456','Coquet','Thais','Thais.Coquet@Eysines.33.fr','06.xx.xx.99.xx','175457',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(89,1,2,1,2,'Talbot','Leanna','Leanna.Talbot@La_Teste_de_Buch.33.fr','06.xx.xx.xx.99','161325','Gressier','Assya','Assya.Gressier@Libourne.33.fr','06.xx.xx.xx.xx','161326',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(90,1,1,2,1,'Fraysse','Loïs','Loïs.Fraysse@Biganos.33.fr','06.99.99.99.99','150441','Le Guennec','Khadija','Khadija.Le_Guennec@Gujan_Mestras.33.fr','06.xx.xx.xx.xx','150442',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(91,1,1,1,2,'De Azevedo','Coline','Coline.De_Azevedo@Biganos.33.fr','06.99.99.99.xx','140328','Sayah','Katiana','Katiana.Sayah@Biganos.33.fr','06.99.xx.99.xx','140329',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(92,1,1,2,2,'Cantin','Kyana','Kyana.Cantin@Pessac.33.fr','06.xx.99.99.99','150415','Jacob','Lizy','Lizy.Jacob@Floirac.33.fr','06.xx.xx.xx.99','150416',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(93,1,1,2,3,'Longuet','Doriane','Doriane.Longuet@Andernos_les_Bains.33.fr','06.xx.99.xx.xx','150437','Jobert','Merine','Merine.Jobert@Bègles.33.fr','06.99.xx.99.xx','150438',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(94,1,3,2,2,'Delassus','Noah','Noah.Delassus@Andernos_les_Bains.33.fr','06.99.xx.99.xx','192202','Dumaine','Loujayne','Loujayne.Dumaine@Cenon.33.fr','06.xx.xx.99.xx','192203',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(95,1,1,1,3,'Carlos','Maïra','Maïra.Carlos@Le_Haillan.33.fr','06.xx.99.xx.99','140342','Beaudoin','Ophélie','Ophélie.Beaudoin@Léognan.33.fr','06.xx.99.xx.xx','140343',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(96,1,2,2,2,'Rota','Lee-Lou','Lee_Lou.Rota@Le_Bouscat.33.fr','06.xx.xx.99.xx','175450','Bruyere','Soukayna','Soukayna.Bruyere@Le_Haillan.33.fr','06.xx.99.99.xx','175451',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `equipes` VALUES (1,1,3,2,1,'Egea','Sabrina','Sabrina.Egea@Talence.33.fr',NULL,'192198','Carel','Léah','Léah.Carel@Bègles.33.fr',NULL,'192199',0,4,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,341),(2,1,1,2,1,'Salvan','Zita','Zita.Salvan@Libourne.33.fr',NULL,'150421','Cheng','Théa','Théa.Cheng@Léognan.33.fr',NULL,'150422',1,4,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,141),(3,1,2,2,3,'Abbas','Ahlem','Ahlem.Abbas@Mios.33.fr',NULL,'175464','Donnet','Violette','Violette.Donnet@Saint_Médard_en_Jalles.33.fr',NULL,'175465',0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,211),(4,1,3,2,3,'Fonteneau','Suzon','Suzon.Fonteneau@Mios.33.fr',NULL,'192192','Blaise','Emie','Emie.Blaise@Gradignan.33.fr',NULL,'192193',0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311),(5,1,2,1,1,'Savary','Marc-Antoine','Marc_Antoine.Savary@Libourne.33.fr',NULL,'161311','Hecquet','Billy','Billy.Hecquet@Le_Taillan_Médoc.33.fr',NULL,'161312',1,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,232),(6,1,1,1,3,'Michon','Kalvin','Kalvin.Michon@Eysines.33.fr',NULL,'140332','Ravier','Therry','Therry.Ravier@Talence.33.fr',NULL,'140333',1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111),(7,1,2,2,3,'De Azevedo','Sandra','Sandra.De_Azevedo@Lormont.33.fr',NULL,'175448','Huart','Yasmina','Yasmina.Huart@Parempuyre.33.fr',NULL,'175449',0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,212),(8,1,1,1,3,'Carlos','Elidjah','Elidjah.Carlos@Le_Haillan.33.fr',NULL,'140342','Beaudoin','Sébastien','Sébastien.Beaudoin@Léognan.33.fr',NULL,'140343',1,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,112),(9,1,1,2,3,'Le cam','Sita','Sita.Le_cam@Villenave_d_Ornon.33.fr',NULL,'150429','Kuhn','Charlyne','Charlyne.Kuhn@Biganos.33.fr',NULL,'150430',1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111),(10,1,2,2,3,'Rameau','Loann','Loann.Rameau@Floirac.33.fr',NULL,'175468','Boisset','Ophélie','Ophélie.Boisset@Le_Bouscat.33.fr',NULL,'175469',0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,213),(11,1,1,1,3,'Guiet','Dylan','Dylan.Guiet@Saint_André_de_Cubzac.33.fr',NULL,'140338','Hennequin','Brice','Brice.Hennequin@Saint_André_de_Cubzac.33.fr',NULL,'140339',1,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,113),(12,1,2,2,1,'Hamon','Leyna','Leyna.Hamon@Cenon.33.fr',NULL,'175472','Huet','Trycia','Trycia.Huet@Arcachon.33.fr',NULL,'175473',0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,232),(13,1,2,2,2,'Teboul','Imane','Imane.Teboul@Le_Taillan_Médoc.33.fr',NULL,'175456','Coquet','Thais','Thais.Coquet@Eysines.33.fr',NULL,'175457',0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221),(14,1,3,1,1,'Kaba','Kensley','Kensley.Kaba@La_Teste_de_Buch.33.fr',NULL,'177123','Audureau','Lenny','Lenny.Audureau@La_Teste_de_Buch.33.fr',NULL,'177124',1,4,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,341),(15,1,3,1,2,'Fernandes','Devone','Devone.Fernandes@Parempuyre.33.fr',NULL,'177113','Grau','Andréas','Andréas.Grau@Bègles.33.fr',NULL,'177114',1,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,321),(16,1,2,1,3,'Zerrouki','Timéo','Timéo.Zerrouki@Cenon.33.fr',NULL,'161337','Gay','Massi','Massi.Gay@Mios.33.fr',NULL,'161338',0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,211),(17,1,2,2,1,'Chassagne','Mei','Mei.Chassagne@Le_Bouscat.33.fr',NULL,'175454','Hamm','Fany','Fany.Hamm@Biganos.33.fr',NULL,'175455',0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,233),(18,1,2,2,2,'Rota','Lee-Lou','Lee_Lou.Rota@Le_Bouscat.33.fr',NULL,'175450','Bruyere','Soukayna','Soukayna.Bruyere@Le_Haillan.33.fr',NULL,'175451',0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,222),(19,1,3,2,2,'Delassus','Noah','Noah.Delassus@Andernos_les_Bains.33.fr',NULL,'192202','Dumaine','Loujayne','Loujayne.Dumaine@Cenon.33.fr',NULL,'192203',0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,331),(20,1,2,2,1,'Moritz','Leanne','Leanne.Moritz@Cenon.33.fr',NULL,'175476','Fasquel','Rachelle','Rachelle.Fasquel@Bruges.33.fr',NULL,'175477',0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,234),(21,1,2,1,1,'Augier','Johnson','Johnson.Augier@Ambarès_et_Lagrave.33.fr',NULL,'161331','Diaz','Vivien','Vivien.Diaz@Eysines.33.fr',NULL,'161332',0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,233),(22,1,1,2,3,'Longuet','Doriane','Doriane.Longuet@Andernos_les_Bains.33.fr',NULL,'150437','Jobert','Merine','Merine.Jobert@Bègles.33.fr',NULL,'150438',1,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,112),(23,1,1,2,1,'Teixeira','Yvonne','Yvonne.Teixeira@Eysines.33.fr',NULL,'150435','De Carvalho','Abiba','Abiba.De_Carvalho@Le_Taillan_Médoc.33.fr',NULL,'150436',0,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,142),(24,1,1,2,2,'Cottin','Malory','Malory.Cottin@Andernos_les_Bains.33.fr',NULL,'150425','Laborie','Maïly','Maïly.Laborie@Ambarès_et_Lagrave.33.fr',NULL,'150426',0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,121),(25,1,3,2,1,'Gence','Sofya','Sofya.Gence@Mios.33.fr',NULL,'192200','Ahmed','Hira','Hira.Ahmed@Floirac.33.fr',NULL,'192201',0,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,342),(26,1,2,1,3,'Schaeffer','Joaquim','Joaquim.Schaeffer@Ambarès_et_Lagrave.33.fr',NULL,'161341','Delacour','Willyam','Willyam.Delacour@Saint_Loubès.33.fr',NULL,'161342',0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,212),(27,1,3,1,1,'Lamarque','Eyden','Eyden.Lamarque@Saint_Médard_en_Jalles.33.fr',NULL,'177115','Vanhoutte','Medine','Medine.Vanhoutte@Eysines.33.fr',NULL,'177116',1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,333),(28,1,1,1,2,'Mignon','Wilhem','Wilhem.Mignon@Libourne.33.fr',NULL,'140340','Rapin','Mathéis','Mathéis.Rapin@Mérignac.33.fr',NULL,'140341',0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,114),(29,1,3,2,3,'Court','Kimberly','Kimberly.Court@Léognan.33.fr',NULL,'192180','Geffroy','Shauna','Shauna.Geffroy@Parempuyre.33.fr',NULL,'192181',0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,312),(30,1,3,1,3,'Ibanez','Soann','Soann.Ibanez@Eysines.33.fr',NULL,'177131','Blaise','Loan','Loan.Blaise@Léognan.33.fr',NULL,'177132',0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,311),(31,1,2,1,2,'Ragot','Nayan','Nayan.Ragot@Le_Haillan.33.fr',NULL,'161333','Lafon','Antonin','Antonin.Lafon@Lormont.33.fr',NULL,'161334',0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221),(32,1,1,2,1,'Valin','Naissa','Naissa.Valin@Gujan_Mestras.33.fr',NULL,'150431','Desbois','Fantine','Fantine.Desbois@Villenave_d_Ornon.33.fr',NULL,'150432',0,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,143),(33,1,3,2,3,'Bienaime','Lyah','Lyah.Bienaime@Lormont.33.fr',NULL,'192178','Pasquet','Nihal','Nihal.Pasquet@Lormont.33.fr',NULL,'192179',0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,313),(34,1,1,1,3,'Crespo','Jérémy','Jérémy.Crespo@Mérignac.33.fr',NULL,'140344','Taleb','Yanisse','Yanisse.Taleb@Blanquefort.33.fr',NULL,'140345',0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,121),(35,1,2,1,1,'Rossignol','Hendrick','Hendrick.Rossignol@Le_Haillan.33.fr',NULL,'161319','Janot','Evann','Evann.Janot@Le_Haillan.33.fr',NULL,'161320',0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,234),(36,1,3,1,3,'Gibert','Yael','Yael.Gibert@Saint_Loubès.33.fr',NULL,'177133','Devienne','Elyo','Elyo.Devienne@La_Teste_de_Buch.33.fr',NULL,'177134',1,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,312),(37,1,3,2,2,'Firmin','Prescillia','Prescillia.Firmin@Lormont.33.fr',NULL,'192186','Bonnel','Leyla','Leyla.Bonnel@Pessac.33.fr',NULL,'192187',0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,332),(38,1,2,1,1,'Ledru','Cameron','Cameron.Ledru@Le_Taillan_Médoc.33.fr',NULL,'161339','Mazoyer','Devran','Devran.Mazoyer@Bègles.33.fr',NULL,'161340',0,4,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,241),(39,1,3,2,3,'Feret','Patricia','Patricia.Feret@Biganos.33.fr',NULL,'192194','Bourdet','Lilou','Lilou.Bourdet@Bordeaux.33.fr',NULL,'192195',0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,321),(40,1,1,2,3,'Tran','Maëlys','Maëlys.Tran@Le_Bouscat.33.fr',NULL,'150427','Delplace','Jana','Jana.Delplace@Arcachon.33.fr',NULL,'150428',0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,113),(41,1,3,1,1,'Jubert','Danny','Danny.Jubert@Bègles.33.fr',NULL,'177111','Bachelet','Soane','Soane.Bachelet@Mérignac.33.fr',NULL,'177112',1,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,332),(42,1,1,1,2,'De Azevedo','Hendrick','Hendrick.De_Azevedo@Biganos.33.fr',NULL,'140328','Sayah','Fabio','Fabio.Sayah@Biganos.33.fr',NULL,'140329',0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,122),(43,1,2,2,1,'Duteil','Lèna','Lèna.Duteil@Saint_Médard_en_Jalles.33.fr',NULL,'175466','Janin','Suzie','Suzie.Janin@Gradignan.33.fr',NULL,'175467',0,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,242),(44,1,3,1,3,'Lambert','Enrick','Enrick.Lambert@Saint_Loubès.33.fr',NULL,'177103','Vandaele','Aime','Aime.Vandaele@Bègles.33.fr',NULL,'177104',0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,313),(45,1,1,2,3,'Diagne','Leyna','Leyna.Diagne@Eysines.33.fr',NULL,'150419','Larroque','Laurette','Laurette.Larroque@Arcachon.33.fr',NULL,'150420',0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,114),(46,1,2,1,1,'Jouanne','Keryan','Keryan.Jouanne@Bordeaux.33.fr',NULL,'161327','Migeon','Samaël','Samaël.Migeon@Saint_André_de_Cubzac.33.fr',NULL,'161328',0,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,242),(47,1,1,1,3,'Loizeau','Helios','Helios.Loizeau@Blanquefort.33.fr',NULL,'140320','Assouline','Kérane','Kérane.Assouline@Le_Taillan_Médoc.33.fr',NULL,'140321',0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123),(48,1,3,1,3,'Declerck','Fabrice','Fabrice.Declerck@Gujan_Mestras.33.fr',NULL,'177105','Madi','Matthieu','Matthieu.Madi@Le_Bouscat.33.fr',NULL,'177106',0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,314),(49,1,3,2,3,'Guilbaud','Yacine','Yacine.Guilbaud@Cenon.33.fr',NULL,'192204','Sales','Victoria','Victoria.Sales@Cestas.33.fr',NULL,'192205',0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,314),(50,1,1,2,1,'Thevenet','Christiana','Christiana.Thevenet@Le_Bouscat.33.fr',NULL,'150411','Colas','Nassima','Nassima.Colas@Bruges.33.fr',NULL,'150412',0,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,144),(51,1,1,2,3,'Arab','Méline','Méline.Arab@Villenave_d_Ornon.33.fr',NULL,'150439','Floquet','Ibaia','Ibaia.Floquet@Bordeaux.33.fr',NULL,'150440',0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131),(52,1,1,2,2,'Cantin','Kyana','Kyana.Cantin@Pessac.33.fr',NULL,'150415','Jacob','Lizy','Lizy.Jacob@Floirac.33.fr',NULL,'150416',0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,122),(53,1,2,1,2,'Gouin','Lenny','Lenny.Gouin@Lormont.33.fr',NULL,'161313','Milesi','Nolane','Nolane.Milesi@Mérignac.33.fr',NULL,'161314',0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,222),(54,1,3,1,1,'Huc','Ricardo','Ricardo.Huc@Parempuyre.33.fr',NULL,'177119','Bonnet','Paulin','Paulin.Bonnet@Le_Bouscat.33.fr',NULL,'177120',0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,334),(55,1,3,2,1,'Bulteau','Elora','Elora.Bulteau@Parempuyre.33.fr',NULL,'192184','Lesage','Angelique','Angelique.Lesage@Libourne.33.fr',NULL,'192185',0,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,343),(56,1,1,1,1,'Goy','Tyler','Tyler.Goy@Bègles.33.fr',NULL,'140346','Jouve','Pierrick','Pierrick.Jouve@Saint_André_de_Cubzac.33.fr',NULL,'140347',0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,124),(57,1,1,1,1,'Grondin','Ely','Ely.Grondin@Villenave_d_Ornon.33.fr',NULL,'140322','Ibrahim','Arnaud','Arnaud.Ibrahim@Mios.33.fr',NULL,'140323',0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131),(58,1,1,2,2,'Barret','Céline','Céline.Barret@Talence.33.fr',NULL,'150417','Gaspard','Lizéa','Lizéa.Gaspard@Bègles.33.fr',NULL,'150418',0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123),(59,1,3,1,1,'Defosse','Keran','Keran.Defosse@Biganos.33.fr',NULL,'177117','Lutz','Kelvin','Kelvin.Lutz@Andernos_les_Bains.33.fr',NULL,'177118',0,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,342),(60,1,1,2,1,'Fraysse','Loïs','Loïs.Fraysse@Biganos.33.fr',NULL,'150441','Le Guennec','Khadija','Khadija.Le_Guennec@Gujan_Mestras.33.fr',NULL,'150442',0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,124),(61,1,2,1,3,'Retif','Abel','Abel.Retif@Floirac.33.fr',NULL,'161315','Cesar','Luqman','Luqman.Cesar@Parempuyre.33.fr',NULL,'161316',0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,213),(62,1,1,1,3,'Chabot','Jerome','Jerome.Chabot@Blanquefort.33.fr',NULL,'140350','Aveline','Vadim','Vadim.Aveline@Libourne.33.fr',NULL,'140351',1,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,132),(63,1,2,2,2,'Serres','Ilayda','Ilayda.Serres@Blanquefort.33.fr',NULL,'175460','Chau','Shanaëlle','Shanaëlle.Chau@Andernos_les_Bains.33.fr',NULL,'175461',0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,223),(64,1,2,1,2,'Bara','Djayden','Djayden.Bara@Villenave_d_Ornon.33.fr',NULL,'161317','Delord','Virgile','Virgile.Delord@Pessac.33.fr',NULL,'161318',0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,223),(65,1,3,1,3,'Gontier','Arno','Arno.Gontier@Cestas.33.fr',NULL,'177121','Dedieu','Yacine','Yacine.Dedieu@Mérignac.33.fr',NULL,'177122',0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,331),(66,1,1,1,2,'Mevel','Marwane','Marwane.Mevel@La_Teste_de_Buch.33.fr',NULL,'140348','Rey','Lorick','Lorick.Rey@Le_Haillan.33.fr',NULL,'140349',0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,133),(67,1,3,2,2,'Floquet','Tali','Tali.Floquet@Le_Taillan_Médoc.33.fr',NULL,'192188','Boisseau','Ela','Ela.Boisseau@Lormont.33.fr',NULL,'192189',0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,333),(68,1,1,1,1,'Michelet','Adams','Adams.Michelet@Cestas.33.fr',NULL,'140324','Redon','Malonn','Malonn.Redon@Gujan_Mestras.33.fr',NULL,'140325',0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,134),(69,1,2,2,1,'Rollin','Léontine','Léontine.Rollin@Le_Bouscat.33.fr',NULL,'175474','Brisset','Taïs','Taïs.Brisset@Saint_André_de_Cubzac.33.fr',NULL,'175475',0,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,243),(70,1,2,1,2,'Talbot','Jonathan','Jonathan.Talbot@La_Teste_de_Buch.33.fr',NULL,'161325','Gressier','Emre','Emre.Gressier@Libourne.33.fr',NULL,'161326',0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,224),(71,1,2,1,3,'Sailly','Kélian','Kélian.Sailly@Bordeaux.33.fr',NULL,'161323','Da Fonseca','Sovann','Sovann.Da_Fonseca@Bordeaux.33.fr',NULL,'161324',0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,214),(72,1,2,2,3,'Lebourgeois','Maelia','Maelia.Lebourgeois@Gradignan.33.fr',NULL,'175462','Guedes','Alma','Alma.Guedes@Libourne.33.fr',NULL,'175463',0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,214),(73,1,2,2,1,'Moinet','Maddie','Maddie.Moinet@Andernos_les_Bains.33.fr',NULL,'175452','Fevre','Noemie','Noemie.Fevre@Saint_Médard_en_Jalles.33.fr',NULL,'175453',0,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,244),(74,1,3,2,2,'Fasquel','Sanata','Sanata.Fasquel@Le_Haillan.33.fr',NULL,'192208','Breard','Maureen','Maureen.Breard@Talence.33.fr',NULL,'192209',0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,334),(75,1,2,2,2,'Prin','Marya','Marya.Prin@Bruges.33.fr',NULL,'175470','Dahan','Drucilla','Drucilla.Dahan@Gujan_Mestras.33.fr',NULL,'175471',0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,224),(76,1,2,1,2,'Da Silva','Lïam','Lïam.Da_Silva@Cenon.33.fr',NULL,'161335','Mahi','Natty','Natty.Mahi@Saint_Médard_en_Jalles.33.fr',NULL,'161336',0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,231),(77,1,1,1,1,'Cassard','Evan','Evan.Cassard@Bègles.33.fr',NULL,'140326','Barry','Mario','Mario.Barry@Libourne.33.fr',NULL,'140327',0,4,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,141),(78,1,1,2,1,'Panier','Enora','Enora.Panier@Léognan.33.fr',NULL,'150423','Gohier','Matilde','Matilde.Gohier@Saint_André_de_Cubzac.33.fr',NULL,'150424',0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,132),(79,1,1,2,1,'Large','Lindsay','Lindsay.Large@Arcachon.33.fr',NULL,'150433','Lagache','Lally','Lally.Lagache@Bègles.33.fr',NULL,'150434',0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,133),(80,1,3,1,2,'Goupil','Myron','Myron.Goupil@Lormont.33.fr',NULL,'177109','Dauvergne','Alvin','Alvin.Dauvergne@Ambarès_et_Lagrave.33.fr',NULL,'177110',1,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,322),(81,1,3,1,2,'Delannay','Timeo','Timeo.Delannay@Mios.33.fr',NULL,'177129','Lobry','Ibai','Ibai.Lobry@Eysines.33.fr',NULL,'177130',0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,323),(82,1,1,2,1,'Mosnier','Oriana','Oriana.Mosnier@Mios.33.fr',NULL,'150413','Guille','Athéna','Athéna.Guille@Pessac.33.fr',NULL,'150414',0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,134),(83,1,3,2,3,'Fievet','Raïssa','Raïssa.Fievet@Saint_Loubès.33.fr',NULL,'192190','Borges','Leonie','Leonie.Borges@Ambarès_et_Lagrave.33.fr',NULL,'192191',0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,322),(84,1,2,1,3,'Richard','Frederic','Frederic.Richard@Arcachon.33.fr',NULL,'161329','Chaput','Hermès','Hermès.Chaput@Mérignac.33.fr',NULL,'161330',0,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,243),(85,1,3,1,1,'Lallemand','Lohan','Lohan.Lallemand@Cestas.33.fr',NULL,'177127','Venet','Jamil','Jamil.Venet@Gujan_Mestras.33.fr',NULL,'177128',0,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,343),(86,1,3,1,1,'Falck','Esaïe','Esaïe.Falck@Le_Haillan.33.fr',NULL,'177125','Guillou','Mouhammad','Mouhammad.Guillou@Léognan.33.fr',NULL,'177126',0,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,344),(87,1,2,2,3,'Naze','Carine','Carine.Naze@Bordeaux.33.fr',NULL,'175446','D’angelo','Annabelle','Annabelle.D_angelo@Talence.33.fr',NULL,'175447',0,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,231),(88,1,2,2,2,'Jourdain','Lindsay','Lindsay.Jourdain@Saint_André_de_Cubzac.33.fr',NULL,'175458','Hennequin','Théodora','Théodora.Hennequin@Le_Bouscat.33.fr',NULL,'175459',0,4,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,241),(89,1,1,1,1,'Carrier','Nolann','Nolann.Carrier@Ambarès_et_Lagrave.33.fr',NULL,'140334','Baude','Angus','Angus.Baude@Floirac.33.fr',NULL,'140335',0,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,142),(90,1,1,1,2,'Dalle','Maxens','Maxens.Dalle@Floirac.33.fr',NULL,'140336','Siong','Lamine','Lamine.Siong@Mios.33.fr',NULL,'140337',0,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,143),(91,1,1,1,3,'Hamard','Djany','Djany.Hamard@Le_Bouscat.33.fr',NULL,'140330','Granjon','Yoan','Yoan.Granjon@Bruges.33.fr',NULL,'140331',0,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,144),(92,1,2,1,3,'Fargier','Anthony','Anthony.Fargier@Le_Haillan.33.fr',NULL,'161321','Menard','Jack','Jack.Menard@Biganos.33.fr',NULL,'161322',0,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,244),(93,1,3,2,3,'Briet','Sloane','Sloane.Briet@Le_Haillan.33.fr',NULL,'192206','Louvel','Kayla','Kayla.Louvel@Biganos.33.fr',NULL,'192207',0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,323),(94,1,3,2,3,'Gueye','Maurane','Maurane.Gueye@Le_Taillan_Médoc.33.fr',NULL,'192182','Sari','Megane','Megane.Sari@Saint_Médard_en_Jalles.33.fr',NULL,'192183',0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,324),(95,1,3,2,1,'Francisco','Telma','Telma.Francisco@Parempuyre.33.fr',NULL,'192196','Belmonte','Clara','Clara.Belmonte@Pessac.33.fr',NULL,'192197',0,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,344),(96,1,3,1,2,'Houze','Joackim','Joackim.Houze@Cestas.33.fr',NULL,'177107','Borg','Lélio','Lélio.Borg@Gujan_Mestras.33.fr',NULL,'177108',0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,324);
 /*!40000 ALTER TABLE `equipes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,7 +358,7 @@ CREATE TABLE `souhaits` (
 
 LOCK TABLES `souhaits` WRITE;
 /*!40000 ALTER TABLE `souhaits` DISABLE KEYS */;
-INSERT INTO `souhaits` VALUES (1,0,'Indifférent'),(2,1,'Semaine uniquement'),(3,2,'Week-end uniquement');
+INSERT INTO `souhaits` VALUES (1,0,'Indifférent'),(2,1,'Semaine'),(3,2,'Week-end');
 /*!40000 ALTER TABLE `souhaits` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -378,7 +378,7 @@ DELIMITER ;;
 CREATE DEFINER=`claude`@`localhost` FUNCTION `authentification`(utilisateur VARCHAR(255), email VARCHAR(255)) RETURNS varchar(255) CHARSET utf8mb4 COLLATE utf8mb4_general_ci
 BEGIN
 DECLARE retour VARCHAR(255);
-SELECT mpasse INTO retour FROM administrateurs WHERE nom = utilisateur AND  courriel = email limit 1;
+SELECT mpasse INTO retour FROM administrateurs WHERE nom = utilisateur AND courriel = email limit 1;
 RETURN retour;
 END ;;
 DELIMITER ;
@@ -465,6 +465,28 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `intNombreEquipePaf` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `intNombreEquipePaf`() RETURNS int(11)
+    READS SQL DATA
+BEGIN
+DECLARE retour INT DEFAULT 0;
+SET retour = (SELECT COUNT(*) FROM equipes WHERE paf_p = 1);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP FUNCTION IF EXISTS `intNombreEquipeSerieGenre` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -531,6 +553,28 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `intNombrePoule` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `intNombrePoule`(_serie INT, _genre INT) RETURNS int(11)
+    READS SQL DATA
+BEGIN
+DECLARE retour INT DEFAULT 0;
+SET retour = (SELECT COUNT(DISTINCT poule) FROM equipes WHERE serie=_serie AND genre=_genre);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP FUNCTION IF EXISTS `intTournoiId` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -553,6 +597,153 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonBilanPaf` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonBilanPaf`() RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET @nombre = (SELECT COUNT(*) FROM equipes);
+SET @aJour = (SELECT COUNT(*) FROM equipes WHERE paf_p = 1);
+SET @enRetard = (SELECT COUNT(*) FROM equipes WHERE paf_p = 0);
+
+SET @aj11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND paf_p = 1);
+SET @aj12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND paf_p = 1);
+SET @aj21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND paf_p = 1);
+SET @aj22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND paf_p = 1);
+SET @aj31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND paf_p = 1);
+SET @aj32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND paf_p = 1);
+
+SET @r11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND paf_p = 0);
+SET @r12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND paf_p = 0);
+SET @r21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND paf_p = 0);
+SET @r22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND paf_p = 0);
+SET @r31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND paf_p = 0);
+SET @r32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND paf_p = 0);
+
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('nombre',@nombre,'ajour', @aJour, 'retard', @enRetard,'aj11', @aj11, 'r11', @r11,'aj12', @aj12, 'r12', @r12,'aj21', @aj21, 'r21', @r21,'aj22', @aj22, 'r22', @r22,'aj31', @aj31, 'r31', @r31,'aj32', @aj32, 'r32', @r32)));
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonBilanPoules` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonBilanPoules`() RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET @nombreEquipes = (SELECT COUNT(*) FROM equipes);
+SET @sansPoule = (SELECT COUNT(*) FROM equipes WHERE poule = 0);
+SET @avecPoule = (SELECT COUNT(*) FROM equipes WHERE poule <> 0);
+
+SET @sansPoule11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND poule = 0);
+SET @avecPoule11 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=1 AND poule <> 0);
+SET @sansPoule12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND poule = 0);
+SET @avecPoule12 = (SELECT COUNT(*) FROM equipes WHERE serie=1 AND genre=2 AND poule <> 0);
+
+SET @sansPoule21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND poule = 0);
+SET @avecPoule21 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=1 AND poule <> 0);
+SET @sansPoule22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND poule = 0);
+SET @avecPoule22 = (SELECT COUNT(*) FROM equipes WHERE serie=2 AND genre=2 AND poule <> 0);
+
+SET @sansPoule31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND poule = 0);
+SET @avecPoule31 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=1 AND poule <> 0);
+SET @sansPoule32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND poule = 0);
+SET @avecPoule32 = (SELECT COUNT(*) FROM equipes WHERE serie=3 AND genre=2 AND poule <> 0);
+
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('nombre', @nombreEquipes,'sans',@sansPoule,'avec',@avecPoule,'sans11',@sansPoule11,'avec11',@avecPoule11,'sans12',@sansPoule12,'avec12',@avecPoule12,'sans21',@sansPoule21,'avec21',@avecPoule21,'sans22',@sansPoule22,'avec22',@avecPoule22,'sans31',@sansPoule31,'avec31',@avecPoule31,'sans32',@sansPoule32,'avec32',@avecPoule32)));
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonDateDebut` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonDateDebut`() RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',(jour - 1),'annee',annee)) FROM datesGenerales WHERE dateId = 5);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonDateFin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonDateFin`() RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 8);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonDateQuarts` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonDateQuarts`() RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 6);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP FUNCTION IF EXISTS `jsonDatesGenerales` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -566,6 +757,28 @@ CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonDatesGenerales`() RETURNS long
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('dateId',dateId,'evenement',evenement,'jour',jour,'annee',annee)) FROM datesGenerales);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonEquipeComplete` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonEquipeComplete`(_serie INT, _genre INT) RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+set retour=(SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'courriel1',lower(courriel1),'mobile1',mobile1,'licence1',licence1,'nom2',nom2,'prenom2',prenom2,'courriel2',lower(courriel2),'mobile2',mobile2,'licence2',licence2)) FROM equipes WHERE serie=_serie AND genre=_genre);
 RETURN retour;
 END ;;
 DELIMITER ;
@@ -641,6 +854,28 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonEquipeParId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonEquipeParId`(_equipeId INT) RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+set retour=(SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'courriel1',courriel1,'mobile1',mobile1,'licence1',licence1,'nom2',nom2,'prenom2',prenom2,'courriel2',courriel2,'mobile2',mobile2,'licence2',licence2)) FROM equipes WHERE equipeId = _equipeId);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP FUNCTION IF EXISTS `jsonEquipeSerieGenreAvecPoule` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -676,6 +911,28 @@ CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonEquipeSerieGenreSansPoule`(_se
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId', equipeId)) FROM equipes WHERE serie=_serie AND genre=_genre AND poule=0);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonGenres` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonGenres`() RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('genreId',genreId,'intitule', CONCAT(UCASE(LEFT(intitule,1)), SUBSTRING(intitule,2)))) FROM genres WHERE genreId < 3);
 RETURN retour;
 END ;;
 DELIMITER ;
@@ -723,6 +980,28 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonListePoule` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonListePoule`(_serie INT, _genre INT, _poule INT) RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'tournoiId',tournoiId,'equipeId',equipeId,'poule',poule,'pouleId',pouleId,'nom1',nom1,'prenom1',prenom1,'courriel1',lower(courriel1),'licence1',licence1,'mobile1',mobile1,'nom2',nom2,'prenom2',prenom2,'courriel2',lower(courriel2),'licence2',licence2,'mobile2',mobile2)) FROM equipes WHERE serie=_serie AND genre=_genre AND poule=_poule);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 /*!50003 DROP FUNCTION IF EXISTS `jsonPouleListe` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -737,6 +1016,137 @@ CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonPouleListe`(_serie INT, _poule
 BEGIN
 DECLARE retour JSON;
 SELECT JSON_ARRAYAGG(JSON_OBJECT('intitule', intitule)) INTO retour FROM seriePouleNumeroIntitule WHERE serie=_serie and poule=_poule;
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonSerieGenrePaf` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonSerieGenrePaf`(_serie INT, _genre INT) RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'nom1',nom1,'nom2',nom2,'paf_p',paf_p)) FROM equipes WHERE serie = _serie AND genre = _genre AND paf_p = 0);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonSerieGenrePouleClassement` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonSerieGenrePouleClassement`(_serie INT, _genre INT, _poule INT) RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'tournoiId',tournoiId,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2,'j',j,'v',v,'d',d,'p',p,'totalPoints',totalPoints)) FROM equipes WHERE serie = _serie and genre = _genre and poule = _poule);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonSerieGenrePoules` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonSerieGenrePoules`(_serie INT, _genre INT) RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `jsonSeries` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `jsonSeries`() RETURNS longtext CHARSET utf8mb4 COLLATE utf8mb4_bin
+    READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('serieId',serieId,'intitule', CONCAT(UCASE(LEFT(intitule,1)), SUBSTRING(intitule,2)))) FROM series);
+RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP FUNCTION IF EXISTS `planningVide_p` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` FUNCTION `planningVide_p`() RETURNS tinyint(4)
+    READS SQL DATA
+    DETERMINISTIC
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 1;
+DECLARE nombre INT DEFAULT 0;
+SET nombre = (SELECT count(*) FROM planning WHERE libre_p = 0);
+IF nombre > 0 THEN
+SET retour = 0;
+END IF;
 RETURN retour;
 END ;;
 DELIMITER ;
@@ -793,6 +1203,98 @@ IF (nombre > 0) THEN
 SET retour = 1;
 END IF;
 RETURN retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `booleenAjoutTournoiId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` PROCEDURE `booleenAjoutTournoiId`(_serie INT, _genre INT)
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 1;
+BEGIN
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+
+ROLLBACK;
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = '0';
+END;
+
+START TRANSACTION;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 1, 1)), equipe2 = (SELECT intTournoiId(_serie, 1, 2)) WHERE partieId=1 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 1, 1)), equipe2 = (SELECT intTournoiId(_serie, 1, 3)) WHERE partieId=2 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 1, 1)), equipe2 = (SELECT intTournoiId(_serie, 1, 4)) WHERE partieId=3 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 1, 2)), equipe2 = (SELECT intTournoiId(_serie, 1, 3)) WHERE partieId=4 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 1, 2)), equipe2 = (SELECT intTournoiId(_serie, 1, 4)) WHERE partieId=5 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 1, 3)), equipe2 = (SELECT intTournoiId(_serie, 1, 4)) WHERE partieId=6 AND serie=_serie AND genre=_genre;
+
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 2, 1)), equipe2 = (SELECT intTournoiId(_serie, 2, 2)) WHERE partieId=7 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 2, 1)), equipe2 = (SELECT intTournoiId(_serie, 2, 3)) WHERE partieId=8 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 2, 1)), equipe2 = (SELECT intTournoiId(_serie, 2, 4)) WHERE partieId=9 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 2, 2)), equipe2 = (SELECT intTournoiId(_serie, 2, 3)) WHERE partieId=10 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 2, 2)), equipe2 = (SELECT intTournoiId(_serie, 2, 4)) WHERE partieId=11 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 2, 3)), equipe2 = (SELECT intTournoiId(_serie, 2, 4)) WHERE partieId=12 AND serie=_serie AND genre=_genre;
+
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 3, 1)), equipe2 = (SELECT intTournoiId(_serie, 3, 2)) WHERE partieId=13 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 3, 1)), equipe2 = (SELECT intTournoiId(_serie, 3, 3)) WHERE partieId=14 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 3, 1)), equipe2 = (SELECT intTournoiId(_serie, 3, 4)) WHERE partieId=15 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 3, 2)), equipe2 = (SELECT intTournoiId(_serie, 3, 3)) WHERE partieId=16 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 3, 2)), equipe2 = (SELECT intTournoiId(_serie, 3, 4)) WHERE partieId=17 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 3, 3)), equipe2 = (SELECT intTournoiId(_serie, 3, 4)) WHERE partieId=18 AND serie=_serie AND genre=_genre;
+
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 1)), equipe2 = (SELECT intTournoiId(_serie, 4, 2)) WHERE partieId=19 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 1)), equipe2 = (SELECT intTournoiId(_serie, 4, 3)) WHERE partieId=20 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 1)), equipe2 = (SELECT intTournoiId(_serie, 4, 4)) WHERE partieId=21 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 2)), equipe2 = (SELECT intTournoiId(_serie, 4, 3)) WHERE partieId=22 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 2)), equipe2 = (SELECT intTournoiId(_serie, 4, 4)) WHERE partieId=23 AND serie=_serie AND genre=_genre;
+UPDATE parties SET equipe1 = (SELECT intTournoiId(_serie, 4, 3)), equipe2 = (SELECT intTournoiId(_serie, 4, 4)) WHERE partieId=24 AND serie=_serie AND genre=_genre;
+COMMIT;
+
+SELECT retour;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `booleenAnnulationCreationPoule` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` PROCEDURE `booleenAnnulationCreationPoule`(_serie INT, _genre INT, numeroPoule INT, id1 INT, id2 INT, id3 INT, id4 INT)
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 1;
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+ROLLBACK;
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = '0';
+END;
+
+START TRANSACTION;
+UPDATE equipes SET poule=0, pouleId=0, tournoiId=0 WHERE serie=_serie AND genre=_genre AND equipeId=id1;
+UPDATE equipes SET poule=0, pouleId=0, tournoiId=0 WHERE serie=_serie AND genre=_genre AND equipeId=id2;
+UPDATE equipes SET poule=0, pouleId=0, tournoiId=0 WHERE serie=_serie AND genre=_genre AND equipeId=id3;
+UPDATE equipes SET poule=0, pouleId=0, tournoiId=0 WHERE serie=_serie AND genre=_genre AND equipeId=id4;
+COMMIT;
+
+SELECT retour;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -876,6 +1378,51 @@ END WHILE;
 IF (pointeur != premierJour) THEN
 SET retour = 1;
 END IF;
+SELECT retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `booleenCreationPoule` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` PROCEDURE `booleenCreationPoule`(_serie INT, _genre INT, numeroPoule INT, id1 INT, id2 INT, id3 INT, id4 INT)
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 1;
+DECLARE tournoiId1 INT DEFAULT 0;
+DECLARE tournoiId2 INT DEFAULT 0;
+DECLARE tournoiId3 INT DEFAULT 0;
+DECLARE tournoiId4 INT DEFAULT 0;
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+ROLLBACK;
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = '0';
+END;
+
+START TRANSACTION;
+
+SET tournoiId1 = (select intTournoiId(_serie, numeroPoule, 1));
+SET tournoiId2 = (select intTournoiId(_serie, numeroPoule, 2));
+SET tournoiId3 = (select intTournoiId(_serie, numeroPoule, 3));
+SET tournoiId4 = (select intTournoiId(_serie, numeroPoule, 4));
+
+UPDATE equipes SET poule=numeroPoule, pouleId=1, tournoiId=tournoiId1 WHERE serie=_serie AND genre=_genre AND equipeId=id1;
+UPDATE equipes SET poule=numeroPoule, pouleId=2, tournoiId=tournoiId2 WHERE serie=_serie AND genre=_genre AND equipeId=id2;
+UPDATE equipes SET poule=numeroPoule, pouleId=3, tournoiId=tournoiId3 WHERE serie=_serie AND genre=_genre AND equipeId=id3;
+UPDATE equipes SET poule=numeroPoule, pouleId=4, tournoiId=tournoiId4 WHERE serie=_serie AND genre=_genre AND equipeId=id4;
+COMMIT;
+
+
 SELECT retour;
 END ;;
 DELIMITER ;
@@ -977,6 +1524,141 @@ SET finAnnee = (SELECT annee from datesGenerales where dateId = 8);
 END IF;
 
 SELECT retour;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `boolRegularisationParticipation` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` PROCEDURE `boolRegularisationParticipation`(_equipeId INT)
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 0;
+DECLARE nombre INT;
+
+UPDATE equipes SET paf_p = 1 WHERE equipeId = _equipeId;
+SELECT COUNT(*) INTO nombre FROM equipes WHERE equipeId = _equipeId AND paf_p = 1;
+
+IF (nombre = 1) THEN SET retour = 1;
+END IF;
+
+SELECT retour;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `constitutionPoules` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` PROCEDURE `constitutionPoules`(IN chaine VARCHAR(255))
+BEGIN
+
+DECLARE pointeur INT DEFAULT 1;
+SET @virgule = ",";
+SET @deuxPoints = ":";
+PREPARE requete FROM 'UPDATE equipes SET poule = ? WHERE equipeId = ?;';
+
+WHILE CHAR_LENGTH(chaine) > 0 DO
+SET @morceau = SUBSTRING_INDEX(chaine, @virgule, 1);
+SET chaine = SUBSTRING(chaine, CHAR_LENGTH(@morceau) + CHAR_LENGTH(@virgule) + 1);
+SET @_poule = SUBSTRING_INDEX(@morceau, @deuxPoints, 1);
+SET @_equipeId = SUBSTRING_INDEX(@morceau, @deuxPoints, -1);
+
+
+IF @_poule REGEXP '^[\d]+$' AND @_equipeId REGEXP '^[\d]+$' THEN
+EXECUTE requete USING @_poule, @_equipeId;
+END IF;
+
+END WHILE;
+
+DEALLOCATE PREPARE requete;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `constitutionPoulesAttributionPouleId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb3 */ ;
+/*!50003 SET character_set_results = utf8mb3 */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`claude`@`localhost` PROCEDURE `constitutionPoulesAttributionPouleId`(IN chaine LONGTEXT)
+BEGIN
+DECLARE filtreChaine VARCHAR(100) DEFAULT '^[0-9,:|@]+$';
+
+SET @virgule = ",";
+SET @deuxPoints = ":";
+SET @arrowbase = "@";
+SET @barre = "|";
+
+PREPARE requete FROM 'UPDATE equipes SET poule = ? WHERE equipeId = ?;';
+
+IF chaine REGEXP filtreChaine THEN
+SET @partie1 = (SELECT SUBSTRING_INDEX(chaine, @arrowbase, 1));
+SET @partie2 = (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(chaine, @arrowbase, -2), @arrowbase, 1));
+SET @partie3 = (SELECT SUBSTRING_INDEX(chaine, @arrowbase, -1));
+
+SET @serie = (SELECT SUBSTRING_INDEX(@partie1, @virgule, 1));
+SET @genre = (SELECT SUBSTRING_INDEX(@partie1, @virgule, -1));
+
+
+WHILE CHAR_LENGTH(@partie2) > 0 DO
+SET @morceau = SUBSTRING_INDEX(@partie2, @virgule, 1);
+SET @partie2 = SUBSTRING(@partie2, CHAR_LENGTH(@morceau) + CHAR_LENGTH(@virgule) + 1);
+SET @_poule = SUBSTRING_INDEX(@morceau, @deuxPoints, 1);
+SET @_equipeId = SUBSTRING_INDEX(@morceau, @deuxPoints, -1);
+
+EXECUTE requete USING @_poule, @_equipeId;
+END WHILE;
+
+
+
+WHILE CHAR_LENGTH(@partie3) > 0 DO
+
+SET @morceau = SUBSTRING_INDEX(@partie3, @barre, 1);
+SET @partie3 = SUBSTRING(@partie3, CHAR_LENGTH(@morceau) + CHAR_LENGTH(@barre) + 1);
+
+SET @poule = SUBSTRING_INDEX(@morceau, @deuxPoints, 1);
+SET @liste = SUBSTRING_INDEX(@morceau, @deuxPoints, -1);
+
+SET @id1 = SUBSTRING_INDEX(@liste, @virgule, 1);
+SET @id2 = SUBSTRING_INDEX(SUBSTRING_INDEX(@liste, @virgule, 2), @virgule, -1);
+SET @id3 = SUBSTRING_INDEX(SUBSTRING_INDEX(@liste, @virgule, -2), @virgule, 1);
+SET @id4 = SUBSTRING_INDEX(@liste, @virgule, -1);
+
+CALL booleenCreationPoule(@serie, @genre, @poule, @id1, @id2, @id3, @id4);
+END WHILE;
+
+
+END IF;
+
+DEALLOCATE PREPARE requete;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1183,4 +1865,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-15 22:38:48
+-- Dump completed on 2023-05-30  0:43:36

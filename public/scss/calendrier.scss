@@ -1,0 +1,37 @@
+main#gregorien {
+    form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	div.itemFormulaire {
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+	    transition: background-color .5s ease .25s;
+
+	    &:hover {
+		background-color: #F1F1F1;
+		border-color: $gris4; //#FFFFFF;
+		transition: background-color 250ms;
+	    }
+	    
+	    label {
+		flex: 1;
+	    }
+
+	    select {
+		flex: 2;
+	    }
+	}
+    }
+
+    article.liste {
+	height: 0;
+	width: 0;
+    }
+}
+
