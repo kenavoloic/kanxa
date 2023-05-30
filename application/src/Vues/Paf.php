@@ -10,44 +10,15 @@ class Paf {
     public function __construct(private string $titre="K@nx@"){
 
     }
-    /*
-       private function getSelectSeries(int $choix=0): array {
-       $defaut = ['serieId' => 0, 'intitule' => 'Série'];
-       $liste = array_merge($defaut, $_SESSION['series']);
-       return array_map(fn($x) => '<option value="'.$x['serieId'].'">'.$x['intitule'].'</option>', $liste);
-       //$choix = ($choix % count($liste)) + 1;
-       }
-
-
-       private function getSelectGenres(int $choix=0): array {
-       $defaut = ['genreId' => 0, 'intitule' => 'Genre'];
-       $liste = array_merge($defaut, $_SESSION['genres']);
-       return array_map(fn($x) => '<option value="'.$x['genreId'].'">'.$x['intitule'].'</option>', $liste);
-       //$choix = ($choix % count($liste)) + 1;
-       }
-     */
 
     private function extractionDonnees(array $envoi): string {
 	$id = $envoi['equipeId'];
 	$nom1 = $envoi['nom1'];
 	$nom2 = $envoi['nom2'];
 
-	//return '<article><input type="checkbox" name="'.$id.'" id="'.$id.'"><button id="/paf/regularisation/'.$id.'">Ok</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></article>';
-	//return '<form action="/paf/regularisation/'.$id.'" methode="post"><input type="hidden" name="'.$id.'" value="0"><input type="checkbox" name="'.$id.'" id="'.$id.'" value="1"><button>Ok</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
-	//return '<form action="/paf/regularisation/'.$id.'" methode="post"><button>A réglé</button><label for="'.$id.'"><span>'.$nom1.'</span> <span>'.$nom2.'</span></label></form>';
 	return '<tr><td class="nom">'.$nom1.'</td><td class="nom">'.$nom2.'</td><td class="regularisation"><a href="/paf/regularisation/'.$id.'">Régularisation</a></td></tr>';
     }
 
-    /*    
-       private function creationFormulaire(array $envoi): string{
-       $haut = '<form action="/paf/reglements" method="post">';
-       $bouton = '<fieldset><button'; 
-       $bas = '</form>';
-       return "";
-       
-       }
-
-     */
     
     public function affichageListe(?array $envoi): void {
 	//header('Location: /paf/traitement');

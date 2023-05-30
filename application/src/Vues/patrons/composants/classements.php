@@ -1,23 +1,21 @@
-<main id="resultats">
-    <form id="formulaire" action="/resultats" method="post">
+<main id="rankings">
+    <form id="formulaire" action="/classements" method="post">
 	<div class="itemFormulaire">
 	    <label for="serie">Série</label>
-	    <select id="serie" name="resultats[serie]">
+	    <select id="serie" name="classements[serie]">
 		<?= $tableau['series'] ?>
 	    </select>
 	</div>
 
 	<div class="itemFormulaire">
 	    <label for="genre">Genre</label>
-	    <select id="genre" name="resultats[genre]">
+	    <select id="genre" name="classements[genre]">
 		<?= $tableau['genres'] ?>
 	    </select>
 
 	</div>
     </form>
 
-
     <article id="liste">
-	<?php if(isset($liste) && !empty($liste)){ echo $liste;}  ?>
     </article>
-</main>
+

@@ -23,9 +23,9 @@ class Classements {
 
 	echo $this->getComposant('headerUtilisateur');
 
-	echo $this->getComposantTableau('resultats', $tableau);
+	echo $this->getComposantTableau('classements', $tableau);
 
-	echo $this->getFooterJavaScript('resultats');
+	echo $this->getFooterJavaScript('classements');
 
 	echo $this->getComposant('basdepage');	
 

@@ -2,7 +2,7 @@ main#gregorien {
     form {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start; //space-between;
 
 	div.itemFormulaire {
 	    display: flex;
@@ -20,7 +20,16 @@ main#gregorien {
 	    }
 	    
 	    label {
+		color: $blanc16;
 		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		background: $primary-color;
+		border-color: $blanc16;
+		white-space: normal;
+		overflow: hidden;
 	    }
 
 	    select {

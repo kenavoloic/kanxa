@@ -1,65 +1,64 @@
 <main id="utilisateur">
 
-    <article id="tournoi">
-	<h2>Tournoi annuel</h2>
-	<p class="primaire">Dates</p>
-	<p class="secondaire">Soixante-troisième édition</p>
-	<p class="tertiaire">Pala gomme pleine en mur à gauche</p>
-    </article>
-
-    <article id="formats">
-	<h2>Formats</h2>
-	<p class="primaire">3 séries masculines</p>
-	<p class="primaire">3 séries féminines</p>
-	<p class="secondaire">Possibilité d’engager des équipes mixtes dans les tournois masculins</p>
-
-    </article>
+    <dl id="tournoi">
+	<dt>Tournoi annuel</dt>
+	<dd class="primaire">Dates</dd>
+	<dd class="secondaire">Soixante-troisième édition</dd>
+	<dd class="tertiaire">Pala gomme pleine en mur à gauche</dd>
+    </dl>
+   
+    <dl id="formats">
+	<dt>Séries</dt>
+	<dd class="primaire">3 séries masculines</dd>
+	<dd class="primaire">3 séries féminines</dd>
+	<dd class="secondaire">Possibilité d’engager des équipes mixtes dans les tournois masculins</dd>
+    </dl>
 
     
-    <article id="ouverture">
-	<h2>Ouverture des inscriptions</h2>
-	<p class="primaire">Date</p>
-	<p class="secondaire">Réservé aux licenciés de la FFPB</p>
-	<p class="tertiaire">Surclassement possible sur présentatation d’un certificat médical</p>
-    </article>
+    <dl id="ouverture">
+	<dt>Ouverture des inscriptions</dt>
+	<dd class="primaire">Date</dd>
+	<dd class="secondaire">Réservé aux licenciés de la FFPB</dd>
+	<dd class="tertiaire">Surclassement possible sur présentatation d’un certificat médical</dd>
+    </dl>
 
-    <article id="cloture">
-	<h2>Clôture des inscriptions</h2>
-	<p class="primaire">Date</p>
-	<p class="secondaire">Inscription par mail, courrier, sms</p>
-	<p class="tertiaire">30€ de participation aux frais</p>
-	<p class="tertiaire">Possibilité de règlement par chèque ou virement.</p>
-    </article>
+    <dl id="cloture">
+	<dt>Clôture des inscriptions</dt>
+	<dd class="primaire">Date</dd>
+	<dd class="secondaire">Inscription par mail, courrier, sms</dd>
+	<dd class="tertiaire">30€ de participation aux frais</dd>
+	<dd class="tertiaire">Possibilité de règlement par chèque ou virement.</dd>
+    </dl>
 
-    <article id="debut">
-	<h2>Début du tournoi</h2>
-	<p class="primaire">Date</p>
-	<p class="secondaire">Parties en 30 points</p>
-	<p class="tertiaire">Arbitrage assuré de toutes les parties</p>
-	<p class="tertiaire">Possibilité de régler les frais lors de la première partie</p>
-    </article>
+    <dl id="debut">
+	<dt>Début du tournoi</dt>
+	<dd class="primaire">Date</dd>
+	<dd class="secondaire">Parties en 30 points</dd>
+	<dd class="tertiaire">Arbitrage assuré de toutes les parties</dd>
+	<dd class="tertiaire">Possibilité de régler les frais lors de la première partie</dd>
+    </dl>
 
-    <article id="finales">
-	<h2>Finales</h2>
-	<p class="primaire">Date</p>
-	<p class="secondaire">Parties en 35 points</p>
-	<p class="tertiaire">Programme</p>
-    </article>
+    <dl id="finales">
+	<dt>Finales</dt>
+	<dd class="primaire">Date</dd>
+	<dd class="secondaire">Parties en 35 points</dd>
+	<dd class="tertiaire">Programme</dd>
+    </dl>
 
-    <article>
-	<h2>Fronton</h2>
-	<p class="primaire">Pilotari Club Pictave</p>
-	<p class="secondaire">Rue de la Devinière</p>
-	<p class="secondaire">86000 Poitiers</p>
-	<p class="secondaire">05.49.52.35.35</p>
-	<p class="primaire">46.569442, 0.375147</p>
+    <dl>
+	<dt>Fronton</dt>
+	<dd class="primaire">Pilotari Club Pictave</dd>
+	<dd class="secondaire">Rue de la Devinière</dd>
+	<dd class="secondaire">86000 Poitiers</dd>
+	<dd class="secondaire">05.49.52.35.35</dd>
+	<dd class="primaire">46.569442, 0.375147</dd>
 	
-    </article>
+    </dl>
 
-    <article>
-	<h2>Sécurité &amp; Règlements</h2>
-	<p class="primaire">Port obligatoire des lunettes de protection</p>
-	<p class="secondaire">Application des règles de la FFPB pour l’arbitrage</p>
-	<p class="tertiaire">Port du pantalon blanc à partir des demi-finales</p>
-    </article>
+    <dl>
+	<dt>Sécurité &amp; Règlements</dt>
+	<dd class="primaire">Port obligatoire des lunettes de protection</dd>
+	<dd class="secondaire">Application des règles de la FFPB pour l’arbitrage</dd>
+	<dd class="tertiaire">Port du pantalon blanc à partir des demi-finales</dd>
+    </dl>
 </main>

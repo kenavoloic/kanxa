@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -218,12 +219,42 @@ input:disabled {
 .erreur.active {
   padding: .3em; }
 
-main {
+main#administrateur, main#utilisateur {
   border-radius: 0;
   font-size: 1.3rem;
   min-height: calc(100vh - (7rem + 6rem));
   display: grid; }
-  main article {
+  main#administrateur dl, main#utilisateur dl {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    border-color: #301934;
+    border-radius: .7rem;
+    border-width: .4rem;
+    background: #6082B6;
+    padding: .5rem;
+    margin: .5rem; }
+    main#administrateur dl dt, main#utilisateur dl dt {
+      font-size: 1.35rem;
+      color: #FFFFFF;
+      font-weight: 700;
+      text-align: center;
+      margin-top: .5rem;
+      transition: color .9s ease; }
+      main#administrateur dl dt:hover, main#utilisateur dl dt:hover {
+        transform: scale(0.9);
+        transition: transform .5s ease-in; }
+    main#administrateur dl dd, main#utilisateur dl dd {
+      font-family: "Fira", serif;
+      color: #301934;
+      margin: .3rem;
+      user-select: none; }
+    main#administrateur dl dd::before, main#utilisateur dl dd::before {
+      content: '¤ ';
+      font-family: "Oleo";
+      font-size: 1.5rem;
+      width: .4rem;
+      color: #ff6900; }
+  main#administrateur article, main#utilisateur article {
     border: 2px solid transparent;
     border-radius: 5px;
     border-radius: .7rem;
@@ -232,21 +263,21 @@ main {
     background: #6082B6;
     padding: .5rem;
     margin: .5rem; }
-    main article h2 {
+    main#administrateur article h2, main#utilisateur article h2 {
       color: #FFFFFF;
       text-align: center;
       transition: color .9s ease; }
-      main article h2:hover {
+      main#administrateur article h2:hover, main#utilisateur article h2:hover {
         transform: scale(0.9);
         transition: transform .5s ease-in; }
-    main article p {
+    main#administrateur article p, main#utilisateur article p {
       font-family: "Fira", serif;
       color: #FFFFFF;
       line-height: 1.2;
       margin: .4rem 0; }
-  main#utilisateur {
+  main#administrateur#utilisateur, main#utilisateur#utilisateur {
     background-color: #ff6900; }
-  main#administrateur {
+  main#administrateur#administrateur, main#utilisateur#administrateur {
     background-color: #005a99; }
 
 @media screen and (max-width: 500px) {
@@ -270,8 +301,7 @@ main {
        } 
      */
   main {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: minmax(200px, 1fr);
     gap: 1rem; } }
 
 main#login {
@@ -445,19 +475,64 @@ main#login0 {
   main#login button[type=reset] {
     display: none; } }
 
-main#inscription {
-  background: inherit;
-  /* position: relative;
+main#resultats form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  main#resultats form div.itemFormulaire {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: background-color .5s ease .25s; }
+    main#resultats form div.itemFormulaire:hover {
+      background-color: #F1F1F1;
+      border-color: #5d6974;
+      transition: background-color 250ms; }
+    main#resultats form div.itemFormulaire label {
+      color: #FFFFFF;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0096FF;
+      border-color: #FFFFFF;
+      white-space: normal;
+      overflow: hidden; }
+    main#resultats form div.itemFormulaire select {
+      flex: 2; }
 
-       &::before {
-       z-index: -1;
-       content: '';
-       position: absolute;
-       opacity: 1;
-       width: 100%;
-       height: 100%;
-       background-color: $alternative-color;
-       } */ }
+main#rankings form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  main#rankings form div.itemFormulaire {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: background-color .5s ease .25s; }
+    main#rankings form div.itemFormulaire:hover {
+      background-color: #F1F1F1;
+      border-color: #5d6974;
+      transition: background-color 250ms; }
+    main#rankings form div.itemFormulaire label {
+      color: #FFFFFF;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0096FF;
+      border-color: #FFFFFF;
+      white-space: normal;
+      overflow: hidden; }
+    main#rankings form div.itemFormulaire select {
+      flex: 2; }
+
+main#inscription {
+  background: inherit; }
   main#inscription form {
     width: 90%;
     margin: 0 auto;
@@ -585,187 +660,25 @@ main#inscription {
       border-color: #5d6974;
       transition: background-color 250ms; }
 
-main#inscription0 {
-  background: #F28C28;
-  /*
-       form {
-       display: flex;
-       flex-wrap: wrap;
-       flex-direction: column;
-       //background-color: #70a0c7;
-       //background-color: $secondary-color-dark;
-       padding: 1rem;
-       margin: 1rem;
-       border: 2px solid $blanc16;
-       border-radius: 5px;
-       }
-
-       fieldset {
-       display: flex;
-       flex-direction: row;
-       align-items: center;
-       justify-content: space-between;
-       margin: .25rem 0;
-       padding: .25rem;
-       border: 2px groove;
-       border-radius: 6px;
-       }
-
-       legend {
-       font-size: 1.2rem;
-       padding: .15rem;
-       color: $gorria;
-       }
-       
-       label {
-       font-family: sans-serif;
-       font-size: 1.2rem;
-       color: $blanc16;
-       margin-left: .25rem;
-       user-select: none;
-       }
-
-       button {
-       padding: .5rem;
-       margin: .25rem;
-       transition: all .25s ease-in-out;
-
-       &:hover {
-       color: $blanc16;
-       background-color: #0047AB;
-       }
-
-       }
-
-
-       input, select {
-       font-family: monospace;
-       font-size: 1.2rem;
-       padding: .25rem;
-       margin-right: .25rem;
-       border-radius: 4px;
-
-       }
-
-       input[type=text]::placeholder, input[type=email]::placeholder {
-       color: $blanc16;
-       text-align: center;
-       }
-       }
-
-     */ }
-  main#inscription0 form {
-    border-radius: 6px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 1rem;
-    margin: 1rem;
-    border-color: transparent;
-    /*
-	   input[type=text]::placeholder,  input[type=email]::placeholder,  input[type=phone]::placeholder {
-	   color: transparent; //$blanc16;//#cc0000;
-	   text-align: center;
-	   }
-	 */ }
-    main#inscription0 form fieldset {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      margin: .25rem 0;
-      padding: .25rem;
-      border: 2px groove;
-      border-radius: 6px; }
-    main#inscription0 form legend {
-      font-size: 1.2rem;
-      padding: .15rem;
-      color: #CC0000; }
-    main#inscription0 form label {
-      font-family: sans-serif;
-      font-size: 1.2rem;
-      color: #FFFFFF;
-      height: 100%;
-      flex: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-    main#inscription0 form input[type=text], main#inscription0 form input[type=email], main#inscription0 form input[type=phone] {
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      height: 100%;
-      flex: 4; }
-      main#inscription0 form input[type=text]::placeholder, main#inscription0 form input[type=email]::placeholder, main#inscription0 form input[type=phone]::placeholder {
-        color: transparent; }
-    main#inscription0 form input[type=text]#nombreEquipes, main#inscription0 form input[type=email]#nombreEquipes, main#inscription0 form input[type=phone]#nombreEquipes {
-      text-align: center;
-      color: #CC0000; }
-    main#inscription0 form button {
-      padding: .5rem;
-      margin: .25rem;
-      transition: all .25s ease-in-out; }
-      main#inscription0 form button:hover {
-        color: #FFFFFF;
-        background-color: #0047AB; }
-  main#inscription0 select#serie, main#inscription0 select#genre {
-    padding: .25rem .4rem;
-    color: #FFFFFF;
-    background-color: #CC0000;
-    border: 2px solid #dddddd;
-    cursor: pointer;
-    border-radius: 5px; }
-    main#inscription0 select#serie:focus, main#inscription0 select#serie:hover, main#inscription0 select#genre:focus, main#inscription0 select#genre:hover {
-      outline: none;
-      border: 1px solid #bbbbbb; }
-    main#inscription0 select#serie.vert, main#inscription0 select#genre.vert {
-      color: #FFFFFF;
-      background-color: #00CC00; }
-    main#inscription0 select#serie.rouge, main#inscription0 select#genre.rouge {
-      color: #FFFFFF;
-      background-color: #CC0000; }
-    main#inscription0 select#serie option, main#inscription0 select#genre option {
-      color: #FFFFFF;
-      background-color: #CC0000; }
-      main#inscription0 select#serie option:checked, main#inscription0 select#genre option:checked {
-        background-color: #00CC00; }
-
 @media screen and (max-width: 800px) {
-  main#inscription {
-    /*
-	   label[for="genre"], label[for="serie"], label[for="nombreEquipes"],
-	   label[for="nom1"], label[for="prenom1"], label[for="courriel1"], label[for="telephone1"], label[for="licence1"],
-	   label[for="nom2"], label[for="prenom2"], label[for="courriel2"], label[for="telephone2"], label[for="licence2"]
-	 */
-    /* 
-	   label > input[type="text"], label > input[type="phone"], label > select{
-	   border: 0;
-	   clip: rect(0 0 0 0);
-	   height: 1px;
-	   margin: -1px;
-	   overflow: hidden;
-	   padding: 0;
-	   position: absolute;
-	   width: 1px;
-	   } */ }
-    main#inscription fieldset {
-      justify-content: center; }
-    main#inscription label[for="utilisateur"], main#inscription label[for="courriel"], main#inscription label[for="mpasse"],
-    main#inscription label[for="serie"], main#inscription label[for="genre"], main#inscription label[for="nombreEquipes"] {
-      border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px; }
-    main#inscription input[type=text], main#inscription input[type=password] {
-      min-width: 100%;
-      margin: 0 auto; }
-      main#inscription input[type=text]::placeholder, main#inscription input[type=password]::placeholder {
-        color: #FFFFFF;
-        font-size: clamp(2rem, 3vw, 4rem); } }
+  main#inscription fieldset {
+    justify-content: center; }
+  main#inscription label[for="utilisateur"], main#inscription label[for="courriel"], main#inscription label[for="mpasse"],
+  main#inscription label[for="serie"], main#inscription label[for="genre"], main#inscription label[for="nombreEquipes"] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }
+  main#inscription input[type=text], main#inscription input[type=password] {
+    min-width: 100%;
+    margin: 0 auto; }
+    main#inscription input[type=text]::placeholder, main#inscription input[type=password]::placeholder {
+      color: #FFFFFF;
+      font-size: clamp(2rem, 3vw, 4rem); } }
 
 main#creationPoules {
   background-color: #7393B3;
@@ -1319,19 +1232,19 @@ main#frais {
         background-color: #6082B6;
         border-color: #5d6974;
         transition: background-color .25s; }
-    main#frais form select {
-      flex: 2;
-      transition: 0.75s; }
-    main#frais form label {
-      color: #FFFFFF;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0096FF;
-      border-color: #FFFFFF;
-      white-space: normal;
-      overflow: hidden; }
+      main#frais form div.itemFormulaire select {
+        flex: 2;
+        transition: 0.75s; }
+      main#frais form div.itemFormulaire label {
+        color: #FFFFFF;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0096FF;
+        border-color: #FFFFFF;
+        white-space: normal;
+        overflow: hidden; }
   main#frais article#pafBilan {
     margin: .5rem .2rem;
     padding: .4rem 0;
@@ -1402,7 +1315,7 @@ main#generales {
 main#gregorien form {
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: flex-start; }
   main#gregorien form div.itemFormulaire {
     display: flex;
     align-items: center;
@@ -1415,7 +1328,15 @@ main#gregorien form {
       border-color: #5d6974;
       transition: background-color 250ms; }
     main#gregorien form div.itemFormulaire label {
-      flex: 1; }
+      color: #FFFFFF;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0096FF;
+      border-color: #FFFFFF;
+      white-space: normal;
+      overflow: hidden; }
     main#gregorien form div.itemFormulaire select {
       flex: 2; }
 

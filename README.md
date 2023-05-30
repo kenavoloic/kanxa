@@ -123,3 +123,4 @@ Ce dossier ne fait pas partie du projet.
 3. *procedures.sql* => code source des stored procedures.
 4. *fonctions.sql* => code source des functions.
 5. *kanxa.conf* => configuration du serveur Apache.
+6. *kanxa_mcd.pdf* => mcd/uml de la base de données.

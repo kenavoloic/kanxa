@@ -16,6 +16,7 @@ body {
 @mixin bordureArrondi {
     border-radius: 5px;
 }
+
 @mixin bordureDefaut {
     border:2px solid transparent;
 }
@@ -136,3 +137,45 @@ fieldset {
 }
 
 
+
+@mixin selecteurItemFormulaire {
+        form {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	div.itemFormulaire {
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+	    transition: background-color .5s ease .25s;
+
+	    &:hover {
+		background-color: #F1F1F1;
+		border-color: $gris4; //#FFFFFF;
+		transition: background-color 250ms;
+	    }
+	    
+	    label {
+		color: $blanc16;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		background: $primary-color;
+		border-color: $blanc16;
+		white-space: normal;
+		overflow: hidden;
+	    }
+
+	    select {
+		flex: 2;
+	    }
+	}
+    }
+
+}

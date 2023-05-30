@@ -1,56 +1,53 @@
 <main id="administrateur">
 
-    <article>
-	<h2>Score</h2>
-	<p class="primaire">Respectez l’ordre de la feuille de match</p>
-	<p class="primaire">Score de l’équipe 1, puis celui de l’équipe 2</p>
-	<p class="secondaire">En cas d’incident, il est nécessaire d’entrer le score de la partie au moment de l’incident</p>
-	<p class="tertiaire">Si une équipe ne se présente pas, elle aura <em>partie perdue</em>, son score sera de 0. L’équipe adverse sera créditée du score maximum</p>
-    </article>
+    <dl>
+	<dt>Score</dt>
+	<dd class="primaire">Respectez l’ordre de la feuille de match</dd>
+	<dd class="primaire">Score de l’équipe 1, puis celui de l’équipe 2</dd>
+	<dd class="secondaire">En cas d’incident, il est nécessaire d’entrer le score de la partie au moment de l’incident</dd>
+	<dd class="tertiaire">Si une équipe ne se présente pas, elle aura <em>partie perdue</em>, son score sera de 0. L’équipe adverse sera créditée du score maximum</dd>
+    </dl>
 
-    <article>
-	<h2>Liste</h2>
-	<p class="primaire">Présentation sommaire des équipes</p>
-	<p class="secondaire">Les équipes sont réparties selon leur série, genre et poule</p>
-	<p class="tertiaire">Présentation détaillée</p>
-    </article>
+    <dl>
+	<dt>Liste</dt>
+	<dd class="primaire">Présentation sommaire des équipes</dd>
+	<dd class="secondaire">Les équipes sont réparties selon leur série, genre et poule</dd>
+	<dd class="tertiaire">Présentation détaillée</dd>
+    </dl>
 
-    <article>
-	<h2>Planning</h2>
-	<p class="primaire">À n’établir qu’une fois les poules constituées</p>
-	<p class="secondaire">Calendrier des parties au sein de chaque poule</p>
-	<p class="secondaire">Calendrier des parties à élimination directe</p>
-	<p class="tertiaire">Finales</p>
-    </article>
+    <dl>
+	<dt>Planning</dt>
+	<dd class="primaire">À n’établir qu’une fois les poules constituées</dd>
+	<dd class="secondaire">Calendrier des parties au sein de chaque poule</dd>
+	<dd class="secondaire">Calendrier des parties à élimination directe</dd>
+	<dd class="tertiaire">Finales</dd>
+    </dl>
 
-    <article>
-	<h2>Dates</h2>
-	<p class="primaire">Dates générales du tournoi</p>
-	<p class="secondaire">Elles doivent être établies avant d’établir le planning</p>
-	<p class="tertiaire">Dates importantes : début du tournoi et finales</p>
-    </article>
+    <dl>
+	<dt>Dates</dt>
+	<dd class="primaire">Dates générales du tournoi</dd>
+	<dd class="secondaire">Elles doivent être établies avant d’établir le planning</dd>
+	<dd class="tertiaire">Dates importantes : début du tournoi et finales</dd>
+    </dl>
 
-    <article>
-	<h2>Inscriptions</h2>
-	<p class="primaire">Formulaire d’inscription</p>
-	<p class="primaire">Ne pas oublier de sélectionner la série et le genre</p>
-	<p class="secondaire">En rouge ce qui est requis</p>
-	<p class="tertiaire">En vert ce qui est optionnel</p>
-    </article>
+    <dl>
+	<dt>Inscriptions</dt>
+	<dd class="primaire">Formulaire d’inscription</dd>
+	<dd class="primaire">Ne pas oublier de sélectionner la série et le genre</dd>
+	<dd class="secondaire">En rouge ce qui est requis</dd>
+	<dd class="tertiaire">En vert ce qui est optionnel</dd>
+    </dl>
 
-    <article>
-	<h2>Poules</h2>
-	<p class="primaire">4 équipes par poules</p>
-	<p class="secondaire">4 poules par série</p>
-    </article>
+    <dl>
+	<dt>Poules</dt>
+	<dd class="primaire">4 équipes par poules</dd>
+	<dd class="secondaire">4 poules par série</dd>
+    </dl>
 
-    <article>
-	<h2>P.A.F.</h2>
-	<p class="primaire">Participation aux frais</p>
-    </article>
-
-
-
+    <dl>
+	<dt>P.A.F.</dt>
+	<dd class="primaire">Participation aux frais</dd>
+    </dl>
 
     
 </main>

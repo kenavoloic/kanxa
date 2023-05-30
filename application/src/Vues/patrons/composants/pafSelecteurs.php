@@ -6,7 +6,7 @@
 	</select>
     </div>
 
-    <div class="itemformulaire">
+    <div class="itemFormulaire">
 	<label for="genre">Genre</label>
 	<select id="genre" name="paf[genre]">
 	    <?= $tableau['genres'] ?>
