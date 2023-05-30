@@ -55,8 +55,8 @@ main {
 }
 
 @media screen and (min-width: 501px){
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    //display: grid;
+    //grid-template-columns: repeat(3, 1fr);
 /*    
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -69,7 +69,9 @@ main {
     article:nth-child(odd) {
 	grid-column-start: 2;
     } 
-*/
-    //grid-template-columns: repeat(2, auto);
-    //grid-auto-flow: dense;
+ */
+    main {
+	grid-template-columns: repeat(2, auto);
+	grid-auto-flow: dense;
+    }
 }

@@ -44,4 +44,10 @@
 	<p class="secondaire">86000 Poitiers</p>
 	<p class="primaire">GPS 46.569442, 0.375147</p>
     </article>
+
+    <article>
+	<p class="primaire">Port obligatoire des lunettes de protection</p>
+	<p class="secondaire">Application des règles de la FFPB pour l’arbitrage</p>
+	<p class="tertiaire">Port du pantalon blanc à partir des demi-finales</p>
+    </article>
 </main>
