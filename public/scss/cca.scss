@@ -16,8 +16,8 @@
 @import 'datesGenerales.scss';                             
 @import 'calendrier.scss';
  
-$rupture: 1200px;
-
+$rupture: 1200px;    
+      
 /*
    $bordureArrondi: 5px;
    $bordureEpaisseur: 2px;
@@ -82,7 +82,10 @@ nav {
     position: initial;
     width: initial;
 }
- 
+      
+em {
+    font-style: italic;
+}
 //footer
 footer {
       
@@ -90,6 +93,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 6rem;   
      //@include bordureDefaut;
     border: 3px solid transparent;
     border-top-color: $blanc16; //$gris6; //$blanc16;

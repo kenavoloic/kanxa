@@ -1,6 +1,7 @@
 main {
 
     border-radius: 0;
+    font-size: 1.3rem;
     //height: 98vv;
 
     display: grid;
@@ -8,10 +9,26 @@ main {
     article {
 	@include bordureDefaut;
 	@include bordureArrondi;
+	border-radius: .7rem;
+	border-width: .4rem;
 	border-color: $blanc16;
-	background: $primary-color-dark;
+	background: $gris5;//$primary-color-dark;
 	padding: .5rem;
 	margin: .5rem;
+
+	min-height: calc(100vh - (7rem + 6rem));
+	
+	h2{
+	    color: $blanc16;
+	    text-align: center;
+	    transition: color .9s ease;
+
+	    &:hover {
+		transform: scale(0.9);
+		transition: transform .5s ease-in;
+	    }
+	}
+
 
 	p {
 	    font-family: "Fira", serif;
@@ -24,17 +41,6 @@ main {
 
     &#utilisateur {
 	background-color: $primary-color-inverted;
-
-	#tournoi .primaire{
-	    font-size: 2.5rem;
-	    text-align: center;
-	    transition: color .9s ease;
-
-	    &:hover {
-		transform: scale(0.9);
-		transition: transform .5s ease-in;
-	    }
-	}
     }
 
     &#administrateur {

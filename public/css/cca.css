@@ -220,14 +220,25 @@ input:disabled {
 
 main {
   border-radius: 0;
+  font-size: 1.3rem;
   display: grid; }
   main article {
     border: 2px solid transparent;
     border-radius: 5px;
+    border-radius: .7rem;
+    border-width: .4rem;
     border-color: #FFFFFF;
-    background: #005a99;
+    background: #6082B6;
     padding: .5rem;
-    margin: .5rem; }
+    margin: .5rem;
+    min-height: calc(100vh - (7rem + 6rem)); }
+    main article h2 {
+      color: #FFFFFF;
+      text-align: center;
+      transition: color .9s ease; }
+      main article h2:hover {
+        transform: scale(0.9);
+        transition: transform .5s ease-in; }
     main article p {
       font-family: "Fira", serif;
       color: #FFFFFF;
@@ -235,13 +246,6 @@ main {
       margin: .4rem 0; }
   main#utilisateur {
     background-color: #ff6900; }
-    main#utilisateur #tournoi .primaire {
-      font-size: 2.5rem;
-      text-align: center;
-      transition: color .9s ease; }
-      main#utilisateur #tournoi .primaire:hover {
-        transform: scale(0.9);
-        transition: transform .5s ease-in; }
   main#administrateur {
     background-color: #005a99; }
 
@@ -1414,9 +1418,10 @@ main#gregorien form {
     main#gregorien form div.itemFormulaire select {
       flex: 2; }
 
-main#gregorien article.liste {
-  height: 0;
-  width: 0; }
+main#gregorien article#liste {
+  min-height: calc(85vh - (4rem + 3rem));
+  border-radius: 5px;
+  border: 2px solid transparent; }
 
 /*
    $bordureArrondi: 5px;
@@ -1471,12 +1476,16 @@ nav {
   position: initial;
   width: initial; }
 
+em {
+  font-style: italic; }
+
 footer {
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%), linear-gradient(45deg, rgba(0, 0, 0, 0.2) 10%, transparent 10%, transparent 90%, rgba(0, 0, 0, 0.2) 90%);
   background-size: 5px 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 6rem;
   border: 3px solid transparent;
   border-top-color: #FFFFFF; }
   footer p {

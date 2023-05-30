@@ -1,62 +1,56 @@
 <main id="administrateur">
-    <p>
-	Nibh venenatis cras sed felis eget velit aliquet sagittis id?
-    </p>
-    <p>
-	Ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet?
-    </p>
-    <p>
-	Dictum sit amet justo donec enim diam, vulputate ut pharetra.
-    </p>
-    <p>
-	Faucibus ornare suspendisse sed nisi lacus, sed viverra tellus in?
-    </p>
-    <p>
-	Sit amet nisl purus, in mollis nunc sed id semper.
-    </p>
-    <p>
-	Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero.
-    </p>
-    <p>
-	At quis risus sed vulputate odio ut enim blandit volutpat?
-    </p>
-    <p>
-	Nulla aliquet porttitor lacus, luctus accumsan tortor posuere ac ut?
-    </p>
-    <p>
-	Sit amet est placerat in egestas erat imperdiet sed euismod.
-    </p>
-    <p>
-	Eu scelerisque felis imperdiet proin fermentum leo vel orci porta.
-    </p>
-    <p>
-	Et netus et malesuada fames ac turpis egestas sed tempus.
-    </p>
-    <p>
-	Ultricies mi, quis hendrerit dolor magna eget est lorem ipsum?
-    </p>
-    <p>
-	Tempus, urna et pharetra pharetra, massa massa ultricies mi, quis!
-    </p>
-    <p>
-	Non nisi est, sit amet facilisis magna etiam tempor, orci!
-    </p>
-    <p>
-	Consequat, mauris nunc congue nisi, vitae suscipit tellus mauris a.
-    </p>
-    <p>
-	Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim!
-    </p>
-    <p>
-	Lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor!
-    </p>
-    <p>
-	Turpis egestas maecenas pharetra convallis posuere morbi leo urna, molestie.
-    </p>
-    <p>
-	Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi?
-    </p>
-    <p>
-	Interdum varius sit amet, mattis vulputate enim nulla aliquet porttitor.
-    </p>
+
+    <article>
+	<h2>Score</h2>
+	<p class="primaire">Respectez l’ordre de la feuille de match</p>
+	<p class="primaire">Score de l’équipe 1, puis celui de l’équipe 2</p>
+	<p class="secondaire">En cas d’incident, il est nécessaire d’entrer le score de la partie au moment de l’incident</p>
+	<p class="tertiaire">Si une équipe ne se présente pas, elle aura <em>partie perdue</em>, son score sera de 0. L’équipe adverse sera créditée du score maximum</p>
+    </article>
+
+    <article>
+	<h2>Liste</h2>
+	<p class="primaire">Présentation sommaire des équipes</p>
+	<p class="secondaire">Les équipes sont réparties selon leur série, genre et poule</p>
+	<p class="tertiaire">Présentation détaillée</p>
+    </article>
+
+    <article>
+	<h2>Planning</h2>
+	<p class="primaire">À n’établir qu’une fois les poules constituées</p>
+	<p class="secondaire">Calendrier des parties au sein de chaque poule</p>
+	<p class="secondaire">Calendrier des parties à élimination directe</p>
+	<p class="tertiaire">Finales</p>
+    </article>
+
+    <article>
+	<h2>Dates</h2>
+	<p class="primaire">Dates générales du tournoi</p>
+	<p class="secondaire">Elles doivent être établies avant d’établir le planning</p>
+	<p class="tertiaire">Dates importantes : début du tournoi et finales</p>
+    </article>
+
+    <article>
+	<h2>Inscriptions</h2>
+	<p class="primaire">Formulaire d’inscription</p>
+	<p class="primaire">Ne pas oublier de sélectionner la série et le genre</p>
+	<p class="secondaire">En rouge ce qui est requis</p>
+	<p class="tertiaire">En vert ce qui est optionnel</p>
+    </article>
+
+    <article>
+	<h2>Poules</h2>
+	<p class="primaire">4 équipes par poules</p>
+	<p class="secondaire">4 poules par série</p>
+    </article>
+
+    <article>
+	<h2>P.A.F.</h2>
+	<p class="primaire">Participation aux frais</p>
+    </article>
+
+
+
+
+    
 </main>
