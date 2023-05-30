@@ -6,17 +6,20 @@
 @import 'textures.scss';
 @import 'effets.scss';
 @import 'validation.scss';
-              
+
+//utilisateur   
 @import 'accueil.scss';
 @import 'login.scss';
 @import 'resultats.scss';
 @import 'classements.scss';
 
+// administrateur
 @import 'inscription.scss';
 @import 'poules.scss';
 @import 'paf.scss';           
 @import 'datesGenerales.scss';                             
 @import 'calendrier.scss';
+@import 'liste.scss';
 
  
 $rupture: 1200px;    
@@ -291,10 +294,16 @@ ul.navigation {
 	top: 0;
 
 	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-around;
+
+	//align-items: flex-start;
+	//justify-content: space-around;
+
+	align-items: flex-start;     
+	justify-content: space-between;
+
 	flex-wrap: nowrap;
 	margin: 0;
+	margin-bottom: 1rem;
 	transform: translateX(100%);
 	transition: transform .5s ease-in-out;
 

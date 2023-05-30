@@ -249,11 +249,12 @@ main#administrateur, main#utilisateur {
       margin: .3rem;
       user-select: none; }
     main#administrateur dl dd::before, main#utilisateur dl dd::before {
+      color: #FFFFFF;
+      font-size: 2rem;
       content: '¤ ';
       font-family: "Oleo";
       font-size: 1.5rem;
-      width: .4rem;
-      color: #ff6900; }
+      width: .4rem; }
   main#administrateur article, main#utilisateur article {
     border: 2px solid transparent;
     border-radius: 5px;
@@ -277,8 +278,14 @@ main#administrateur, main#utilisateur {
       margin: .4rem 0; }
   main#administrateur#utilisateur, main#utilisateur#utilisateur {
     background-color: #ff6900; }
+    main#administrateur#utilisateur dl, main#utilisateur#utilisateur dl {
+      border-color: #FFFFFF; }
   main#administrateur#administrateur, main#utilisateur#administrateur {
     background-color: #005a99; }
+    main#administrateur#administrateur dl, main#utilisateur#administrateur dl {
+      border-color: #C41E3A; }
+      main#administrateur#administrateur dl dd::before, main#utilisateur#administrateur dl dd::before {
+        color: #C41E3A; }
 
 @media screen and (max-width: 500px) {
   .secondaire {
@@ -1272,6 +1279,32 @@ main#frais {
           color: #ff6900; }
         main#frais article#pafBilan dl dd.avec {
           color: #00CC00; }
+  main#frais table {
+    border: 2px solid transparent;
+    border-color: #FFFFFF;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%; }
+    main#frais table td, main#frais table th {
+      border: 3px solid transparent;
+      padding: 3px 2px; }
+    main#frais table th {
+      background-color: #FFFFFF;
+      border-width: 3px;
+      border-color: #301934; }
+    main#frais table thead th, main#frais table thead td {
+      background-color: #FFFFFF; }
+    main#frais table tr:hover {
+      color: #301934;
+      background-color: #00CC00; }
+    main#frais table td.regularisation {
+      color: #301934;
+      background-color: #005a99; }
+      main#frais table td.regularisation a {
+        text-decoration: none;
+        color: #FFFFFF; }
+      main#frais table td.regularisation:hover {
+        border-color: #00CC00; }
 
 @media screen and (max-width: 800px) {
   form {
@@ -1287,30 +1320,32 @@ main#frais {
     width: 1px; } }
 
 main#generales {
-  background-color: #001e33; }
+  background-color: #005a99; }
   main#generales form {
     color: #FFFFFF; }
     main#generales form select {
+      font-size: 1rem;
       color: #301934; }
     main#generales form fieldset {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       border: 2px solid transparent;
       border-radius: 5px;
+      margin-bottom: 1rem;
       transition: background-color .5s ease .25s; }
       main#generales form fieldset:hover {
-        background-color: #F1F1F1;
-        border-color: #5d6974;
-        transition: background-color 250ms; }
+        border-color: #00CC00;
+        transition: border-color 250ms; }
       main#generales form fieldset button {
         flex: 2; }
     main#generales form legend {
       font-size: 1rem;
       font-weight: 700;
       padding: .15rem;
-      color: #ff6900;
-      margin-bottom: 1rem; }
+      color: #FFFFFF;
+      margin-bottom: 2rem; }
 
 main#gregorien form {
   display: flex;
@@ -1344,6 +1379,40 @@ main#gregorien article#liste {
   min-height: calc(85vh - (4rem + 3rem));
   border-radius: 5px;
   border: 2px solid transparent; }
+
+main#plazaGizon {
+  background-color: #7393B3;
+  width: 98%;
+  overflow-x: hidden;
+  margin: 1rem;
+  padding: 1rem; }
+  main#plazaGizon form form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; }
+    main#plazaGizon form form div.itemFormulaire {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      transition: background-color .5s ease .25s; }
+      main#plazaGizon form form div.itemFormulaire:hover {
+        background-color: #F1F1F1;
+        border-color: #5d6974;
+        transition: background-color 250ms; }
+      main#plazaGizon form form div.itemFormulaire label {
+        color: #FFFFFF;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0096FF;
+        border-color: #FFFFFF;
+        white-space: normal;
+        overflow: hidden; }
+      main#plazaGizon form form div.itemFormulaire select {
+        flex: 2; }
 
 /*
    $bordureArrondi: 5px;
@@ -1535,9 +1604,10 @@ ul.navigation {
     top: 0;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: nowrap;
     margin: 0;
+    margin-bottom: 1rem;
     transform: translateX(100%);
     transition: transform .5s ease-in-out; }
     ul.navigation li {

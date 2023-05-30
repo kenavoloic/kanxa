@@ -87,7 +87,9 @@ class Paf {
 	    //echo '<section class="liste">'.implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste'])).'</section>';
 
 	    echo "<table><tr><th>Nom</th><th>Nom</th><th>Régularisation</th></tr>";
+	    echo "<tbody>" . PHP_EOL;
 	    echo implode("\n", array_map([$this, 'extractionDonnees'], $envoi['liste']));
+	    echo "</tbody>" . PHP_EOL;
 	    echo "</table>";
 
 	}

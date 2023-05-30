@@ -42,6 +42,8 @@ main#administrateur, main#utilisateur {
 
 	dd::before {
 	    //content: url('/images/star-solid.svg');
+	    color: $blanc16;
+	    font-size: 2rem;
 	    content: '¤ '; //'&oplus;';
 	    //text-shadow: 1px 1px 1px $berdea, 2px 2px 1px $gorria;
 	    
@@ -49,7 +51,7 @@ main#administrateur, main#utilisateur {
 	    font-size: 1.5rem;
 	    width: .4rem;
 	    
-	    color: $primary-color-inverted; //$gorria;
+
 	}
 
 	
@@ -94,10 +96,20 @@ main#administrateur, main#utilisateur {
 
     &#utilisateur {
 	background-color: $primary-color-inverted;
+	dl {
+	    border-color: $blanc16;
+	}
     }
 
     &#administrateur {
 	background-color: $primary-color-dark;
+	dl {
+	    border-color: $rouge11;
+	    dd::before {
+		color: $rouge11;
+	    }
+	}
+
     }
 }
 

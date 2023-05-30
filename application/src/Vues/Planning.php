@@ -21,6 +21,8 @@ class Planning {
 	    echo $this->getComposant('headerUtilisateur');
 	}
 
+	echo $this->getComposant('planning');
+
 	echo $this->getFooterJavaScript('planning');
 	echo $this->getComposant('basdepage');
     }

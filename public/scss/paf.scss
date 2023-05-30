@@ -96,6 +96,59 @@ main#frais {
 	}
     }
 
+    table {
+	@include bordureDefaut;
+	border-color: $blanc16;
+	text-align: center;
+	//border-collapse: collapse;
+	border-radius: 5px;
+	width: 100%;
+	
+	td, th {
+	    border: 3px solid transparent;
+	    padding: 3px 2px;
+	}
+
+	th {
+	    background-color: $blanc16;
+	    border-width: 3px;
+	    border-color: $couleurTexte;
+	}
+
+
+	thead {
+	    th, td {
+		background-color: $blanc16;
+	    }
+	}
+
+	tr {
+	    &:hover {
+		color: $couleurTexte;
+		background-color: $berdea;
+	    }
+
+	}
+
+	td.regularisation {
+	    color: $couleurTexte;
+	    
+	    background-color: $primary-color-dark;
+	    a {
+		text-decoration: none;
+		color: $blanc16;
+	    }
+
+	    &:hover {
+		border-color: $berdea;
+		//color: $couleurTexte;
+		//background-color: $berdea;
+	    }
+
+
+	}
+    }
+
 }
 
 @media screen and (max-width: 800px){

@@ -3,6 +3,7 @@ main#generales {
     form {
 	color: $blanc16;
 	select {
+	    font-size: 1rem;
 	    color: $couleurTexte;
 	}
 
@@ -10,16 +11,18 @@ main#generales {
 	    display: flex;
 	    align-items: center;
 	    justify-content: space-between;
+	    flex-wrap: wrap;
 
 	    border: 2px solid transparent;
 	    border-radius: 5px;
+	    margin-bottom: 1rem;
 	    
 	    transition: background-color .5s ease .25s;
 
 	    &:hover {
-		background-color: #F1F1F1;
-		border-color: $gris4; //#FFFFFF;
-		transition: background-color 250ms;
+		//background-color: #F1F1F1;
+		border-color: $berdea; //$gris4; //#FFFFFF;
+		transition: border-color 250ms;
 	    }
 
 	    button {
@@ -32,11 +35,11 @@ main#generales {
 	    font-size: 1rem;
 	    font-weight: 700;
 	    padding: .15rem;
-	    color: $primary-color-inverted; //$blanc16;
-	    margin-bottom: 1rem;
+	    color: $blanc16; //$primary-color-inverted; //$blanc16;
+	    margin-bottom: 2rem;
 	}
 
     }
     
-    background-color: $primary-color-darker;
+    background-color: $primary-color-dark;
 }

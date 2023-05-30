@@ -1,0 +1,11 @@
+main#plazaGizon {
+    background-color: $gris8; 
+    width: 98%;
+    overflow-x: hidden;
+    margin:1rem;
+    padding: 1rem;
+
+    form {
+	@include selecteurItemFormulaire;
+    }
+}
