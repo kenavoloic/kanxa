@@ -48,7 +48,7 @@
 
     <article>
 	<h2>Fronton</h2>
-	<p class="primaire">Club de Pelote de la Devinière</p>
+	<p class="primaire">Pilotari Club Pictave</p>
 	<p class="secondaire">Rue de la Devinière</p>
 	<p class="secondaire">86000 Poitiers</p>
 	<p class="secondaire">05.49.52.35.35</p>
