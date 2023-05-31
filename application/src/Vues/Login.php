@@ -14,6 +14,7 @@ class Login {
 	echo $this->getEntete($this->titre);
 	echo $this->getComposant('headerUtilisateur');
 	echo $this->getComposant('login');
+	echo $this->getComposant('footer');
 	echo $this->getFooterJavaScript('login');
 	echo $this->getComposant('basdepage');
     }

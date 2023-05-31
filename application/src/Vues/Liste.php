@@ -48,8 +48,8 @@ class Liste {
 	if(!empty($envoi['liste'])){
 	    //$donnees = array_map([$this,'getLigne'], $envoi['liste']);
 	    $donnees = array_map([$this,'getDefinitionListe'], $envoi['liste']);
-	    //echo "<article>" . PHP_EOL;
-	    echo '<article id="panneau">' . PHP_EOL;
+	    echo "<article>" . PHP_EOL;
+	    //echo '<article id="panneau">' . PHP_EOL;
 	    echo implode("\n", $donnees);
 	    var_dump($donnees);
 	    echo '</article>' . PHP_EOL;
@@ -57,8 +57,12 @@ class Liste {
 	    
 	}
 
+	echo '<article id="panneau"></article>' . PHP_EOL;
+
 	echo '</main>' . PHP_EOL;
 
+	echo $this->getComposant('footer');
+	
 	echo $this->getFooterJavaScript('liste');
 	
 	echo $this->getComposant('basdepage');

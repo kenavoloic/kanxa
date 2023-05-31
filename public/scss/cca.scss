@@ -10,17 +10,18 @@
 //utilisateur   
 @import 'accueil.scss';
 @import 'login.scss';
+@import 'calendrier.scss';
 @import 'resultats.scss';
 @import 'classements.scss';
-
+   
 // administrateur
 @import 'inscription.scss';
 @import 'poules.scss';
 @import 'paf.scss';           
 @import 'datesGenerales.scss';                             
-@import 'calendrier.scss';
-@import 'liste.scss';
 
+@import 'liste.scss';
+          
  
 $rupture: 1200px;    
       
@@ -203,7 +204,7 @@ ul.navigation {
     background: #9A9A9A;
     padding: 8px 10px;
     margin: 0 clamp(.5rem, 5vw, 2.5rem);
-
+    
     //border: $bordureStyle;
     //border-radius: $bordureArrondi;
     @include bordureDefaut;

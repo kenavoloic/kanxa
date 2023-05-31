@@ -21,6 +21,8 @@ class Score {
 	    echo $this->getComposant('headerUtilisateur');
 	}
 
+	echo $this->getComposant('footer');
+	
 	echo $this->getFooterJavaScript('score');
 	
 	echo $this->getComposant('basdepage');
@@ -28,7 +30,7 @@ class Score {
     }
 
     public function __toString(): string {
-	return "";
+	return "Enregistrement du score d'une partie";
     }
     
     

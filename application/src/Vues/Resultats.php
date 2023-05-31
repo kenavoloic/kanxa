@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace Vues;
 
 class Resultats {
@@ -25,9 +25,9 @@ class Resultats {
 
 	echo $this->getComposantTableau('resultats', $tableau);
 
+	echo $this->getComposant('footer');
 	echo $this->getFooterJavaScript('resultats');
-
-	echo $this->getComposant('basdepage');	
+	echo $this->getComposant('basdepage');
 
     }
     

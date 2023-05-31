@@ -79,10 +79,10 @@ class Pilota {
 	echo $retour;
     }
 
-    public function classement(array $envoi){
-	$serie_ = $this->queDesChiffres($_POST['classementSerie']);
-	$genre_ = $this->queDesChiffres($_POST['classementGenre']);
-	$poule_ = $this->queDesChiffres($_POST['classementPoule']);
+    public function classements(array $envoi){
+	$serie_ = $this->queDesChiffres($_POST['classementsSerie']);
+	$genre_ = $this->queDesChiffres($_POST['classementsGenre']);
+	$poule_ = $this->queDesChiffres($_POST['classementsPoule']);
 
 	$serie = intval($serie_);
 	$genre = intval($genre_);

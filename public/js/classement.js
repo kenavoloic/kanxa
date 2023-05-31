@@ -98,3 +98,10 @@ const ranking = envoi => {
 
     return {dl:df1, tr:df2}
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    ecouteursMenus();
+
+    console.log('chargement écouteurs');
+});

@@ -31,6 +31,8 @@ class Inscription {
 
 	echo $this->getComposantTableau('inscription', $tableau);
 
+	echo $this->getComposant('footer');
+	
 	echo $this->getFooterJavaScript('inscription');
 
 	echo $this->getComposant('basdepage');	

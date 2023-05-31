@@ -64,6 +64,8 @@ class Poules {
 	
 	//echo $this->getComposantTableau('poules', $envoi);
 	echo '</main>' . PHP_EOL;
+
+	echo $this->getComposant('footer');
 	echo $this->getFooterJavaScript('poules');
 	//echo $this->getFooterJavaScript('constitutionPoules');
 	echo $this->getComposant('basdepage');

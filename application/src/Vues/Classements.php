@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace Vues;
 
 class Classements {
@@ -25,15 +25,17 @@ class Classements {
 
 	echo $this->getComposantTableau('classements', $tableau);
 
+	echo $this->getComposant('footer');
+
 	echo $this->getFooterJavaScript('classements');
 
-	echo $this->getComposant('basdepage');	
+	echo $this->getComposant('basdepage');
 
     }
     
 
     public function __toString(): string{
-	return "Formulaire d’inscription";
+	return "Classement dans les poules";
     }
     
     

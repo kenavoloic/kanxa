@@ -33,6 +33,7 @@ class Liste {
 	$genre_ = $_POST['genre'];
 	
 	$liste = $this->modele->getEquipes(intval($serie_), intval($genre_));
+	var_dump($liste);
 	$this->vue->affichage($liste);
     }
 

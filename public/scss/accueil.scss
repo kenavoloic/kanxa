@@ -35,14 +35,14 @@ main#administrateur, main#utilisateur {
 
 	dd {
 	    font-family: "Fira", serif;
-	    color: $couleurTexte; //$blanc16;
+	    color: $blanc16; //$couleurTexte; //$blanc16;
 	    margin: .3rem;
 	    user-select: none;
 	}
 
 	dd::before {
 	    //content: url('/images/star-solid.svg');
-	    color: $blanc16;
+	    color: $berdea; //$blanc16;
 	    font-size: 2rem;
 	    content: '¤ '; //'&oplus;';
 	    //text-shadow: 1px 1px 1px $berdea, 2px 2px 1px $gorria;

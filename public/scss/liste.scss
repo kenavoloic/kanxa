@@ -8,4 +8,13 @@ main#plazaGizon {
     form {
 	@include selecteurItemFormulaire;
     }
+
+    article#panneau {
+	margin: .5rem;
+	padding:.5rem;
+	@include bordureArrondi;
+	@inlcude bordureDefaut;
+
+	background-color: $gris4;
+    }
 }

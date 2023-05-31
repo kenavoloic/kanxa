@@ -27,6 +27,7 @@ class Accueil {
 	    echo $this->getComposant('accueilUtilisateur');
 	}
 
+	echo $this->getComposant('footer');
 	echo $this->getFooterJavaScript('accueil');
 	echo $this->getComposant('basdepage');
     }

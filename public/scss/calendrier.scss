@@ -1,4 +1,6 @@
 main#gregorien {
+
+    background-color: $gris7;
     form {
 	display: flex;
 	align-items: center;
@@ -42,7 +44,70 @@ main#gregorien {
 	min-height: calc(85vh - (4rem + 3rem)) ;
 	@include bordureArrondi;
 	@include bordureDefaut;
-	//width: 100%;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit,  minmax(200px, 1fr));
+	gap: .5rem;
+
+	dl {
+	    
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+	    border-color: $noir4; //$blanc16;
+	    border-radius: .7rem;
+	    border-width: .4rem;
+	    background: $gris5;
+
+	    padding: .5rem;
+	    margin: .5rem;
+
+	    &.homme {
+		//background-color: $primary-color-light;
+		border-color: $urdina;
+	    }
+
+	    &.femme {
+		//background-color: $primary-color-inverted;
+		border-color: $gorria;
+	    }
+
+	    dt {
+		font-size: 1.35rem;
+		color: $blanc16; //$noir5; //$blanc16;
+		font-weight: 700;
+		text-align: center;
+		margin-top: .5rem;
+		transition: color .9s ease;
+		&:hover {
+		    transform: scale(0.9);
+		    transition: transform .5s ease-in;
+		}
+
+		span {
+		    display: inline-block;
+		    @include bordureArrondi;
+		    @include bordureDefaut;
+		    border-color: inherit; //$blanc16;
+		    padding: .4rem;
+		}
+
+	    }
+	    dd {
+		font-family: "Fira", serif;
+		color: $couleurTexte; //$blanc16;
+		margin: .3rem;
+		user-select: none;
+		text-align: center;
+
+		&.jour {
+		    color: $berdea;
+		}
+		&.heure {
+		    color: $gorria;
+		}
+
+	    }
+	}
     }
 }
 

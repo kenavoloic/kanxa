@@ -96,6 +96,7 @@ class Paf {
 
 	echo '</main>' . PHP_EOL;
 	
+	echo $this->getComposant('footer');	
 	echo $this->getFooterJavaScript('paf');
 	echo $this->getComposant('basdepage');
 	
@@ -104,7 +105,7 @@ class Paf {
     
 
     public function __toString(): string {
-	return "Vues\Paf";
+	return "Participation aux frais";
     }
 }
 

@@ -2,7 +2,7 @@
 
     <dl id="tournoi">
 	<dt>Tournoi annuel</dt>
-	<dd class="primaire">Dates</dd>
+	<dd class="primaire" data-date="25 décembre">Dates</dd>
 	<dd class="secondaire">Soixante-troisième édition</dd>
 	<dd class="tertiaire">Pala gomme pleine en mur à gauche</dd>
     </dl>

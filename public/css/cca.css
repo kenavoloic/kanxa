@@ -245,11 +245,11 @@ main#administrateur, main#utilisateur {
         transition: transform .5s ease-in; }
     main#administrateur dl dd, main#utilisateur dl dd {
       font-family: "Fira", serif;
-      color: #301934;
+      color: #FFFFFF;
       margin: .3rem;
       user-select: none; }
     main#administrateur dl dd::before, main#utilisateur dl dd::before {
-      color: #FFFFFF;
+      color: #00CC00;
       font-size: 2rem;
       content: '¤ ';
       font-family: "Oleo";
@@ -481,6 +481,82 @@ main#login0 {
       font-size: clamp(2rem, 3vw, 4rem); }
   main#login button[type=reset] {
     display: none; } }
+
+main#gregorien {
+  background-color: #71797E; }
+  main#gregorien form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; }
+    main#gregorien form div.itemFormulaire {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      transition: background-color .5s ease .25s; }
+      main#gregorien form div.itemFormulaire:hover {
+        background-color: #F1F1F1;
+        border-color: #5d6974;
+        transition: background-color 250ms; }
+      main#gregorien form div.itemFormulaire label {
+        color: #FFFFFF;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0096FF;
+        border-color: #FFFFFF;
+        white-space: normal;
+        overflow: hidden; }
+      main#gregorien form div.itemFormulaire select {
+        flex: 2; }
+  main#gregorien article#liste {
+    min-height: calc(85vh - (4rem + 3rem));
+    border-radius: 5px;
+    border: 2px solid transparent;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: .5rem; }
+    main#gregorien article#liste dl {
+      border: 2px solid transparent;
+      border-radius: 5px;
+      border-color: #301934;
+      border-radius: .7rem;
+      border-width: .4rem;
+      background: #6082B6;
+      padding: .5rem;
+      margin: .5rem; }
+      main#gregorien article#liste dl.homme {
+        border-color: #0022CC; }
+      main#gregorien article#liste dl.femme {
+        border-color: #CC0000; }
+      main#gregorien article#liste dl dt {
+        font-size: 1.35rem;
+        color: #FFFFFF;
+        font-weight: 700;
+        text-align: center;
+        margin-top: .5rem;
+        transition: color .9s ease; }
+        main#gregorien article#liste dl dt:hover {
+          transform: scale(0.9);
+          transition: transform .5s ease-in; }
+        main#gregorien article#liste dl dt span {
+          display: inline-block;
+          border-radius: 5px;
+          border: 2px solid transparent;
+          border-color: inherit;
+          padding: .4rem; }
+      main#gregorien article#liste dl dd {
+        font-family: "Fira", serif;
+        color: #301934;
+        margin: .3rem;
+        user-select: none;
+        text-align: center; }
+        main#gregorien article#liste dl dd.jour {
+          color: #00CC00; }
+        main#gregorien article#liste dl dd.heure {
+          color: #CC0000; }
 
 main#resultats form {
   display: flex;
@@ -1347,39 +1423,6 @@ main#generales {
       color: #FFFFFF;
       margin-bottom: 2rem; }
 
-main#gregorien form {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; }
-  main#gregorien form div.itemFormulaire {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid transparent;
-    border-radius: 5px;
-    transition: background-color .5s ease .25s; }
-    main#gregorien form div.itemFormulaire:hover {
-      background-color: #F1F1F1;
-      border-color: #5d6974;
-      transition: background-color 250ms; }
-    main#gregorien form div.itemFormulaire label {
-      color: #FFFFFF;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0096FF;
-      border-color: #FFFFFF;
-      white-space: normal;
-      overflow: hidden; }
-    main#gregorien form div.itemFormulaire select {
-      flex: 2; }
-
-main#gregorien article#liste {
-  min-height: calc(85vh - (4rem + 3rem));
-  border-radius: 5px;
-  border: 2px solid transparent; }
-
 main#plazaGizon {
   background-color: #7393B3;
   width: 98%;
@@ -1413,6 +1456,12 @@ main#plazaGizon {
         overflow: hidden; }
       main#plazaGizon form form div.itemFormulaire select {
         flex: 2; }
+  main#plazaGizon article#panneau {
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 5px;
+    @inlcude bordureDefaut;
+    background-color: #5d6974; }
 
 /*
    $bordureArrondi: 5px;

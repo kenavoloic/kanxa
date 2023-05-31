@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace Vues;
 
 class Calendrier {
@@ -25,17 +25,14 @@ class Calendrier {
 
 	echo $this->getComposantTableau('calendrier', $tableau);
 
-	echo '</main>' . PHP_EOL;
-
+	echo $this->getComposant('footer');
 	echo $this->getFooterJavaScript('calendrier');
-
 	echo $this->getComposant('basdepage');	
-
     }
     
 
     public function __toString(): string{
-	return "Formulaire d’inscription";
+	return "Calendrier des parties";
     }
     
     
