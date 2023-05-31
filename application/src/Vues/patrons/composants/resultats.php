@@ -14,10 +14,18 @@
 	    </select>
 
 	</div>
+
+	<div class="itemFormulaire">
+	    <label for="poule">Poule</label>
+	    <select id="poule" name="<?= $tableau['controleur']?>[poule]">
+		<option value="0" selected disabled>Poule</option>
+	    </select>
+	</div>
+
     </form>
 
 
     <article id="liste">
-	<?php if(isset($liste) && !empty($liste)){ echo $liste;}  ?>
+
     </article>
 </main>

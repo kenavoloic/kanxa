@@ -1,4 +1,17 @@
 main#resultats {
     
     @include selecteurItemFormulaire;
+
+    
+}
+
+@media screen and (max-width: 500px){
+
+    .secondaire {
+	display: none;
+    }
+
+    .tertiaire {
+	display: none;
+    }
 }

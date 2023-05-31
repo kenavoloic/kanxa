@@ -13,7 +13,7 @@ main#plazaGizon {
 	margin: .5rem;
 	padding:.5rem;
 	@include bordureArrondi;
-	@inlcude bordureDefaut;
+	@include bordureDefaut;
 
 	background-color: $gris4;
     }

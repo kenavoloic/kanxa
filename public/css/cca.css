@@ -586,6 +586,12 @@ main#resultats form {
     main#resultats form div.itemFormulaire select {
       flex: 2; }
 
+@media screen and (max-width: 500px) {
+  .secondaire {
+    display: none; }
+  .tertiaire {
+    display: none; } }
+
 main#rankings form {
   display: flex;
   align-items: center;
@@ -1460,7 +1466,7 @@ main#plazaGizon {
     margin: .5rem;
     padding: .5rem;
     border-radius: 5px;
-    @inlcude bordureDefaut;
+    border: 2px solid transparent;
     background-color: #5d6974; }
 
 /*
