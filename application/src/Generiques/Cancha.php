@@ -13,7 +13,7 @@ interface Cancha {
 	// routes pour administrateurs	
 	'login' => ['index', 'connexion', 'deconnexion'],
 	'score' => ['index'],
-	'generales' => ['index','affichage'],
+	'generales' => ['index','ecriture'],//'affichage'],
 	'inscriptions' => ['index', 'ajout', 'liste', 'modification','nombre'],
 	'inscription' => ['index', 'ajout','modification'],
 	'poules' => ['index', 'traitement','liste','composition'],

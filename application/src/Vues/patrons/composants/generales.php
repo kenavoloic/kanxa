@@ -1,5 +1,5 @@
 <main id="generales">
-    <form id="datesGenerales" action="" method="post">
+    <form id="datesGenerales" action="/generales/ecriture" method="post">
 
 	<fieldset>
 	    <legend>Ouverture des inscriptions</legend>

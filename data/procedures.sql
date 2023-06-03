@@ -17,14 +17,15 @@ DROP PROCEDURE IF EXISTS constitutionPoules;
 
 DROP PROCEDURE IF EXISTS constitutionPoulesAttributionPouleId;
 
+DROP PROCEDURE IF EXISTS changerDate;
 DROP PROCEDURE IF EXISTS changerDateOuvertureInscriptions;
--- DROP FUNCTION IF EXISTS changerDateClotureInscriptions;
--- DROP FUNCTION IF EXISTS changerDateConstitutionPoules;
--- DROP FUNCTION IF EXISTS changerDateEnvoiListesPoules;
--- DROP FUNCTION IF EXISTS changerDateDebut;
--- DROP FUNCTION IF EXISTS changerDateQuarts;
--- DROP FUNCTION IF EXISTS changerDateDemiFinales;
--- DROP FUNCTION IF EXISTS changerDateFin;
+DROP PROCEDURE IF EXISTS changerDateClotureInscriptions;
+DROP PROCEDURE IF EXISTS changerDateConstitutionPoules;
+DROP PROCEDURE IF EXISTS changerDateEnvoiListesPoules;
+DROP PROCEDURE IF EXISTS changerDateDebut;
+DROP PROCEDURE IF EXISTS changerDateQuarts;
+DROP PROCEDURE IF EXISTS changerDateDemiFinales;
+DROP PROCEDURE IF EXISTS changerDateFin;
 
 
 
@@ -439,29 +440,119 @@ END;
 $$
 
 DELIMITER $$
--- DROP FUNCTION IF EXISTS changerDate;
-CREATE PROCEDURE changerDateOuvertureInscriptions(_jour INT, _annee INT)
+CREATE PROCEDURE changerDate(chaine VARCHAR(12), _dateId INT)
 BEGIN
-DECLARE retour TINYINT(1) DEFAULT 1;
+DECLARE retour TINYINT(1) DEFAULT 0;
+DECLARE expReg VARCHAR(50);
+DECLARE _jour INT DEFAULT 0;
+DECLARE _annee INT DEFAULT 0;
 DECLARE jour0 INT DEFAULT 0;
 DECLARE annee0 INT DEFAULT 0;
-
 DECLARE jour1 INT DEFAULT 0;
 DECLARE annee1 INT DEFAULT 0;
 
-SELECT jour INTO jour0 FROM datesGenerales WHERE dateID = 1;
-SELECT annee INTO annee0 FROM datesGenerales WHERE dateId = 1;
+SET expReg = '^[0-9]{4}-[0-9]{2}-[0-9]{2}$';
 
-UPDATE datesGenerales set jour = _jour, annee = _annee WHERE dateId=1;
+IF (chaine REGEXP expReg) THEN
+SELECT jour INTO jour0 FROM datesGenerales WHERE dateID = _dateId;
+SELECT annee INTO annee0 FROM datesGenerales WHERE dateId = _dateId;
 
-SELECT jour INTO jour1 FROM datesGenerales WHERE dateID = 1;
-SELECT annee INTO annee1 FROM datesGenerales WHERE dateId = 1;
+-- SET _jour = SELECT DAYOFYEAR(chaine);
+-- SET _annee = SELECT YEAR(chaine);
+SELECT DAYOFYEAR(chaine) INTO _jour;
+SELECT YEAR(chaine) INTO _annee;
 
-IF (jour1 = jour0 AND annee1 = annee0) THEN
-SET retour = 0;
+IF (_jour <> jour0 AND _annee <> annee0) THEN 
+UPDATE datesGenerales SET jour = _jour, annee = _annee WHERE dateId = _dateId;
 END IF;
 
-SELECT retour;
+END IF;
 
+-- SELECT retour;
 END;
 $$
+
+-- DELIMITER $$
+-- -- DROP FUNCTION IF EXISTS changerDate;
+-- CREATE PROCEDURE changerDateOuvertureInscriptions(_jour INT, _annee INT)
+-- BEGIN
+-- DECLARE retour TINYINT(1) DEFAULT 1;
+-- DECLARE jour0 INT DEFAULT 0;
+-- DECLARE annee0 INT DEFAULT 0;
+
+-- DECLARE jour1 INT DEFAULT 0;
+-- DECLARE annee1 INT DEFAULT 0;
+
+-- SELECT jour INTO jour0 FROM datesGenerales WHERE dateID = 1;
+-- SELECT annee INTO annee0 FROM datesGenerales WHERE dateId = 1;
+
+-- UPDATE datesGenerales set jour = _jour, annee = _annee WHERE dateId=1;
+
+-- SELECT jour INTO jour1 FROM datesGenerales WHERE dateID = 1;
+-- SELECT annee INTO annee1 FROM datesGenerales WHERE dateId = 1;
+
+-- IF (jour1 = jour0 AND annee1 = annee0) THEN
+-- SET retour = 0;
+-- END IF;
+
+-- SELECT retour;
+
+-- END;
+-- $$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateOuvertureInscriptions(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 1);
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateClotureInscriptions(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 2);
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateConstitutionPoules(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 3);
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateEnvoiListePoules(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 4);
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateDebut(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 5);
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateQuarts(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 6);
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateDemiFinales(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 7);
+END;
+$$
+
+DELIMITER $$
+CREATE PROCEDURE changerDateFin(chaine VARCHAR(12))
+BEGIN
+CALL changerDate(chaine, 8);
+END;
+$$
+

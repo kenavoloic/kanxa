@@ -211,8 +211,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateOuvertureInscriptions() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 1);
@@ -224,8 +222,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateClotureInscriptions() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 2);
@@ -237,8 +233,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateConstitutionPoules() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 3);
@@ -250,8 +244,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateEnvoiListesPoules() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 4);
@@ -264,8 +256,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateDebut() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 5);
@@ -277,8 +267,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateQuarts() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 
 BEGIN
 DECLARE retour JSON;
@@ -291,8 +279,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateDemiFinales() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 
 BEGIN
 DECLARE retour JSON;
@@ -306,8 +292,6 @@ DELIMITER $$
 CREATE FUNCTION jsonDateFin() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
 
 BEGIN
 DECLARE retour JSON;
@@ -315,9 +299,6 @@ SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM 
 RETURN retour;
 END;
 $$
-
-
-
 
 DELIMITER $$
 CREATE FUNCTION jsonEquipeId(_serie INT, _genre INT) RETURNS JSON NOT DETERMINISTIC READS SQL DATA
