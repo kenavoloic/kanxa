@@ -8,9 +8,14 @@ DROP FUNCTION IF EXISTS tournoi_p;
 DROP FUNCTION IF EXISTS planningVide_p;
 
 DROP FUNCTION IF EXISTS jsonDatesGenerales;
+DROP FUNCTION IF EXISTS jsonDateOuvertureInscriptions;
+DROP FUNCTION IF EXISTS jsonDateClotureInscriptions;
+DROP FUNCTION IF EXISTS jsonDateConstitutionPoules;
+DROP FUNCTION IF EXISTS jsonDateEnvoiListesPoules;
 DROP FUNCTION IF EXISTS jsonDateDebut;
-DROP FUNCTION IF EXISTS jsonDateFin;
 DROP FUNCTION IF EXISTS jsonDateQuarts;
+DROP FUNCTION IF EXISTS jsonDateDemiFinales;
+DROP FUNCTION IF EXISTS jsonDateFin;
 
 DROP FUNCTION IF EXISTS jsonEquipeId;
 DROP FUNCTION IF EXISTS jsonEquipeIdNom;
@@ -36,7 +41,7 @@ DROP FUNCTION IF EXISTS jsonBilanPaf;
 DROP FUNCTION IF EXISTS jsonBilanPoules;
 DROP FUNCTION IF EXISTS jsonBilanListe;
 DROP FUNCTION IF EXISTS jsonSerieGenrePaf;
-DROP FUNCTION IF EXISTS jsonSerieGenrePouleClassement
+DROP FUNCTION IF EXISTS jsonSerieGenrePouleClassement;
 
 DROP FUNCTION IF EXISTS intTournoiId;
 
@@ -59,7 +64,7 @@ END IF;
 IF valeurSerie > 3 THEN SET valeurSerie = serieParDefaut;
 END IF;
 
-SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2)) into retour FROM listePairesJoueurs  where genre = valeurGenre and serie = valeurSerie;
+SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2)) INTO retour FROM listePairesJoueurs  WHERE genre = valeurGenre AND serie = valeurSerie;
 
 RETURN retour;
 END;
@@ -192,6 +197,70 @@ END;
 $$
 
 DELIMITER $$
+CREATE FUNCTION jsonDatesGenerales() RETURNS JSON READS SQL DATA
+-- retourne la liste des dates
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('dateId',dateId,'evenement',evenement,'jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales);
+RETURN retour;
+END;
+$$
+
+
+DELIMITER $$
+CREATE FUNCTION jsonDateOuvertureInscriptions() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 1);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonDateClotureInscriptions() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 2);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonDateConstitutionPoules() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 3);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonDateEnvoiListesPoules() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 4);
+RETURN retour;
+END;
+$$
+
+
+DELIMITER $$
 CREATE FUNCTION jsonDateDebut() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour mariadb le premier jour de l'année est 1
 -- pour php le premier jour de l'année est 0
@@ -199,21 +268,7 @@ CREATE FUNCTION jsonDateDebut() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- donc de php vers mariadb : -1
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',(jour - 1),'annee',annee)) FROM datesGenerales WHERE dateId = 5);
-RETURN retour;
-END;
-$$
-
-DELIMITER $$
-CREATE FUNCTION jsonDateFin() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
--- pour mariadb le premier jour de l'année est 1
--- pour php le premier jour de l'année est 0
--- donc de mariadb vers php : +1
--- donc de php vers mariadb : -1
-
-BEGIN
-DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 8);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 5);
 RETURN retour;
 END;
 $$
@@ -231,6 +286,36 @@ SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM 
 RETURN retour;
 END;
 $$
+
+DELIMITER $$
+CREATE FUNCTION jsonDateDemiFinales() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 7);
+RETURN retour;
+END;
+$$
+
+
+DELIMITER $$
+CREATE FUNCTION jsonDateFin() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
+-- pour mariadb le premier jour de l'année est 1
+-- pour php le premier jour de l'année est 0
+-- donc de mariadb vers php : +1
+-- donc de php vers mariadb : -1
+
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 8);
+RETURN retour;
+END;
+$$
+
 
 
 
@@ -450,15 +535,6 @@ RETURN retour;
 END;
 $$
 
-DELIMITER $$
-CREATE FUNCTION jsonDatesGenerales() RETURNS JSON READS SQL DATA
--- retourne la liste des dates
-BEGIN
-DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('dateId',dateId,'evenement',evenement,'jour',jour,'annee',annee)) FROM datesGenerales);
-RETURN retour;
-END;
-$$
 
 DELIMITER $$
 CREATE FUNCTION jsonSerieGenrePaf(_serie INT, _genre INT) RETURNS JSON READS SQL DATA

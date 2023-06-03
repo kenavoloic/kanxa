@@ -12,14 +12,17 @@ class Generales {
     private $donnees;
     private $liste;
     private $toutes;
-    
-    public function __construct(private string $titre, private array $json){
+
+    public function __construct(private string $titre="Dates Générales"){
+    }
+/*    
+    public function aconstruct(private string $titre, private array $json){
 	$this->donnees = array_map([$this, 'nettoyageJson'],json_decode($json['resultat'], true));
 	$this->liste = array_map([$this, 'getDateTime'], $this->donnees);
 	$this->toutes = array_map([$this, 'getJJMMAAAA'], $this->liste);
 	$this->affichage($this->titre, $this->toutes);
     }
-
+*/
     private function getJJMMAAAA(\DateTime $envoi): array {
 	$jj = intval($envoi->format('d'));
 	$mm = intval($envoi->format('m'));
@@ -52,9 +55,22 @@ class Generales {
 	$annee = filter_var($envoi['annee'], FILTER_SANITIZE_NUMBER_INT);
 	return ['dateId' => $dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee];
     }
+
+    public function affichage(array $envoi): void {
+	$titre = $envoi['titre'];
+	$tableau = $envoi['tableau'];
+
+	//var_dump($tableau);
+	echo $this->getEntete($titre);
+	echo $this->getComposant('headerAdministrateur');
+	echo $this->getComposantTableau('generales', $tableau);
+	echo $this->getComposant('footer');
+	echo $this->getFooterJavaScript('generales');
+	echo $this->getComposant('basdepage');
+    }
     
 
-    public function affichage(string $titre, array $listeJours){
+    public function affichage0(string $titre, array $listeJours){
 	$tableau = [	    
 	    'oi' => $listeJours[0],
 	    'ci' => $listeJours[1],

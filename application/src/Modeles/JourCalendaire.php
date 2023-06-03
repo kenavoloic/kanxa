@@ -26,13 +26,34 @@ class JourCalendaire {
     private \IntlDateFormatter $nomDateMoisAnnee;
     private \IntlDateFormatter $nomMois;
 
-    public function __construct(private string $aaaa, private string $mm, private string $jj, private ?string $numeroJour=null){
-	$this->jour = $this->initialisations([$this->aaaa, $this->mm, $this->jj, $this->numeroJour]);
+    /* 
+     *     public function __construct(private string $aaaa, private string $mm, private string $jj, private ?string $numeroJour=null){
+     * 	$this->jour = $this->initialisations([$this->aaaa, $this->mm, $this->jj, $this->numeroJour]);
+     * 	$this->nomJourSemaine = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE');
+     * 	$this->nomDateMois = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE d MMMM');
+     * 	$this->nomDateMoisAnnee = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE d MMMM Y');
+     * 	$this->nomMois = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'MMMM');
+     *     } */
+
+    public function __construct(private ?string $chaine){
+	if(is_null($chaine)){
+	    $this->jour = new \DateTime();	    
+	}
+
+	if(!is_null($chaine)){
+	    $renverse = implode('-', explode('-', $chaine));
+	    $this->jour = new \DateTime($renverse);
+	}
+
 	$this->nomJourSemaine = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE');
 	$this->nomDateMois = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE d MMMM');
 	$this->nomDateMoisAnnee = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE d MMMM Y');
 	$this->nomMois = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'MMMM');
+	
     }
+
+
+
 
     private function initialisations(array $envoi): \DateTime {
 	// Si les valeurs contenues dans le tableau ne permettent pas de créer l'objet DateTimeimmutable
@@ -74,12 +95,12 @@ class JourCalendaire {
 	// jour : 1 -> 31
 	return intval(($this->jour)->format('d'));
     }
-    
+
     public function getMois(): int {
 	// mois : 1 -> 12
 	return intval(($this->jour)->format('m'));
     }
-    
+
     public function getAnnee(): int {
 	// Année en quatre chiffres
 	//return $this->annee;
@@ -100,7 +121,7 @@ class JourCalendaire {
 	// Nom du mois en français
 	return $this->nomMois->format($this->jour);
     }
-    
+
     public function getNomDateMois(): string{
 	// dimanche 26 mars
 	return $this->nomDateMois->format($this->jour);	

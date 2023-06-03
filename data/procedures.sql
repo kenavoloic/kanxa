@@ -17,6 +17,17 @@ DROP PROCEDURE IF EXISTS constitutionPoules;
 
 DROP PROCEDURE IF EXISTS constitutionPoulesAttributionPouleId;
 
+DROP PROCEDURE IF EXISTS changerDateOuvertureInscriptions;
+-- DROP FUNCTION IF EXISTS changerDateClotureInscriptions;
+-- DROP FUNCTION IF EXISTS changerDateConstitutionPoules;
+-- DROP FUNCTION IF EXISTS changerDateEnvoiListesPoules;
+-- DROP FUNCTION IF EXISTS changerDateDebut;
+-- DROP FUNCTION IF EXISTS changerDateQuarts;
+-- DROP FUNCTION IF EXISTS changerDateDemiFinales;
+-- DROP FUNCTION IF EXISTS changerDateFin;
+
+
+
 DELIMITER $$
 CREATE PROCEDURE creationTournoi(IN _serie INT, IN _genre INT)
 BEGIN
@@ -424,5 +435,33 @@ END WHILE;
 END IF;
 
 DEALLOCATE PREPARE requete;
+END;
+$$
+
+DELIMITER $$
+-- DROP FUNCTION IF EXISTS changerDate;
+CREATE PROCEDURE changerDateOuvertureInscriptions(_jour INT, _annee INT)
+BEGIN
+DECLARE retour TINYINT(1) DEFAULT 1;
+DECLARE jour0 INT DEFAULT 0;
+DECLARE annee0 INT DEFAULT 0;
+
+DECLARE jour1 INT DEFAULT 0;
+DECLARE annee1 INT DEFAULT 0;
+
+SELECT jour INTO jour0 FROM datesGenerales WHERE dateID = 1;
+SELECT annee INTO annee0 FROM datesGenerales WHERE dateId = 1;
+
+UPDATE datesGenerales set jour = _jour, annee = _annee WHERE dateId=1;
+
+SELECT jour INTO jour1 FROM datesGenerales WHERE dateID = 1;
+SELECT annee INTO annee1 FROM datesGenerales WHERE dateId = 1;
+
+IF (jour1 = jour0 AND annee1 = annee0) THEN
+SET retour = 0;
+END IF;
+
+SELECT retour;
+
 END;
 $$

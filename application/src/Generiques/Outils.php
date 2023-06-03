@@ -21,6 +21,22 @@ trait Outils {
     public function ucfirst_utf8(string $chaine): string {
 	return mb_convert_case($chaine, MB_CASE_TITLE, "UTF-8");
     }
+    // Conversion date
+    // PHP : 1er janvier 2023 = 0 2023
+    // MYSQL : 1er janvier 2023 = 1 2023
+
+    //php => mysql : +1
+    //mysql => php : -1
+
+    public function dayOfYearPhpMysql(array $jourAnnee): array{
+	$jour = $jourAnnee['jour'] + 1;
+	$annee = $jourAnnee['annee'];
+	return ['jour' => $jour, 'annee', $annee];
+    }
+
+    public function dayOfYearMysqlPhp(array $jourAnnee): \JourCalendaire {
+	return new \JourCalendaire($jourAnnee['annee'], '', '', $jourAnnee['jour']);
+    }
 
     // Validations
     public function remplaceApostropheDroiteParApostropheTypograpique(string $envoi): string {
@@ -43,7 +59,7 @@ trait Outils {
 	$retour = $this->remplaceApostropheDroiteParApostropheTypograpique(trim($envoi));
 	return htmlspecialchars($retour);
     }
-    
+
     // Prédicats
     public function courriel_p(string $envoi): bool{
 	return preg_match("/^[^@\s]+@[^@\s]+\.[^@\s]+$/", $envoi);

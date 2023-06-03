@@ -13,7 +13,10 @@ class Accueil {
 
     public function affichage(array $envoi): void{
 
+	//$this->vue->affichage(['titre' => $this->titre, 'datesGenerales' => $this->datesGenerales, 'predicat' => $this->datesEtablies_p]);
+
 	//var_dump($envoi['datesGenerales']);
+	//var_dump($envoi);
 	
 	echo $this->getEntete($envoi['titre']);
 
