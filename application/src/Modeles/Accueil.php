@@ -24,7 +24,12 @@ class Accueil {
         $reponse->execute();
         $retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
         $liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
-        return $liste;
+	//$chaines = array_map(fn(x) => (new \Modeles\JourCalendaire(x['chaine']))->getNomDateMois(), $liste);
+	$listeJours = array_map(fn($x) => new \Modeles\JourCalendaire($x['chaine']), $liste);
+	$chaines = array_map(fn($x) => $x->getNomDateMoisAnnee(), $listeJours);
+	$retour = ['ouverture' => $chaines[0], 'cloture' => $chaines[1], 'debut' => $chaines[4], 'finales' => $chaines[7]];
+	
+        return $retour;
     }
     
 }

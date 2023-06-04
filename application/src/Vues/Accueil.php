@@ -13,11 +13,6 @@ class Accueil {
 
     public function affichage(array $envoi): void{
 
-	//$this->vue->affichage(['titre' => $this->titre, 'datesGenerales' => $this->datesGenerales, 'predicat' => $this->datesEtablies_p]);
-
-	//var_dump($envoi['datesGenerales']);
-	//var_dump($envoi);
-	
 	echo $this->getEntete($envoi['titre']);
 
 	if($this->administrateur_p()){
@@ -27,7 +22,7 @@ class Accueil {
 
 	if(!$this->administrateur_p()){
 	    echo $this->getComposant('headerUtilisateur');
-	    echo $this->getComposant('accueilUtilisateur');
+	    echo $this->getComposantTableau('accueilUtilisateur', $envoi['datesGenerales']);
 	}
 
 	echo $this->getComposant('footer');

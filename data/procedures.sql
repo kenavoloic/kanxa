@@ -452,7 +452,7 @@ DECLARE annee0 INT DEFAULT 0;
 DECLARE jour1 INT DEFAULT 0;
 DECLARE annee1 INT DEFAULT 0;
 
-SET expReg = '^[0-9]{4}-[0-9]{2}-[0-9]{2}$';
+SET expReg = '^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$';
 
 IF (chaine REGEXP expReg) THEN
 SELECT jour INTO jour0 FROM datesGenerales WHERE dateID = _dateId;
@@ -474,33 +474,6 @@ SELECT retour;
 END;
 $$
 
--- DELIMITER $$
--- -- DROP FUNCTION IF EXISTS changerDate;
--- CREATE PROCEDURE changerDateOuvertureInscriptions(_jour INT, _annee INT)
--- BEGIN
--- DECLARE retour TINYINT(1) DEFAULT 1;
--- DECLARE jour0 INT DEFAULT 0;
--- DECLARE annee0 INT DEFAULT 0;
-
--- DECLARE jour1 INT DEFAULT 0;
--- DECLARE annee1 INT DEFAULT 0;
-
--- SELECT jour INTO jour0 FROM datesGenerales WHERE dateID = 1;
--- SELECT annee INTO annee0 FROM datesGenerales WHERE dateId = 1;
-
--- UPDATE datesGenerales set jour = _jour, annee = _annee WHERE dateId=1;
-
--- SELECT jour INTO jour1 FROM datesGenerales WHERE dateID = 1;
--- SELECT annee INTO annee1 FROM datesGenerales WHERE dateId = 1;
-
--- IF (jour1 = jour0 AND annee1 = annee0) THEN
--- SET retour = 0;
--- END IF;
-
--- SELECT retour;
-
--- END;
--- $$
 
 -- call changerHuitDates('2022-01-01', '2022-02-15', '2022-03-18', '2022-03-25', '2022-04-09', '2022-05-27', '2022-08-03', '2022-06-10');
 -- call changerHuitDates('2023-01-01', '2023-02-15', '2023-03-18', '2023-03-25', '2023-04-09', '2023-05-27', '2023-08-03', '2023-06-10');
@@ -509,7 +482,8 @@ DELIMITER $$
 CREATE PROCEDURE changerHuitDates(d1 VARCHAR(12), d2 VARCHAR(12), d3 VARCHAR(12), d4 VARCHAR(12), d5 VARCHAR(12), d6 VARCHAR(12), d7 VARCHAR(12), d8 VARCHAR(12))
 
 BEGIN
-DECLARE expReg VARCHAR(50) DEFAULT '^[0-9]{4}-[0-9]{2}-[0-9]{2}$';
+DECLARE expReg VARCHAR(50) DEFAULT '^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$';
+
 DECLARE c1 VARCHAR(20) DEFAULT CURDATE();
 DECLARE c2 VARCHAR(20) DEFAULT CURDATE();
 DECLARE c3 VARCHAR(20) DEFAULT CURDATE();
@@ -521,8 +495,6 @@ DECLARE c8 VARCHAR(20) DEFAULT CURDATE();
 
 
 START TRANSACTION;
-
-SET expReg = '^[0-9]{4}-[0-9]{2}-[0-9]{2}$';
 
 IF (d1 REGEXP expReg) THEN
 SET c1 = d1;

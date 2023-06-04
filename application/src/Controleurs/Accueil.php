@@ -20,9 +20,6 @@ class Accueil {
     }
 
     public function index(): void{
-	//$datesGenerales = $this->modele->getDatesGenerales();
-	//$this->vue->affichage($this->titre);
-	//echo 'établies ? ' . $this->datesEtablies_p;
 	$this->vue->affichage(['titre' => $this->titre, 'datesGenerales' => $this->datesGenerales, 'predicat' => $this->datesEtablies_p]);
     }
     

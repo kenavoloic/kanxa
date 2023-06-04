@@ -2,7 +2,8 @@
 
     <dl id="tournoi">
 	<dt>Tournoi annuel</dt>
-	<dd class="primaire" data-date="25 décembre">Dates</dd>
+	<dd class="primaire"><span><?= $tableau['debut']?></span></dd>
+	<dd class="primaire"><span><?= $tableau['finales']?></span></dd>
 	<dd class="secondaire">Soixante-troisième édition</dd>
 	<dd class="tertiaire">Pala gomme pleine en mur à gauche</dd>
     </dl>
@@ -17,14 +18,14 @@
     
     <dl id="ouverture">
 	<dt>Ouverture des inscriptions</dt>
-	<dd class="primaire">Date</dd>
+	<dd class="primaire"><span><?= $tableau['ouverture'] ?></span></dd>
 	<dd class="secondaire">Réservé aux licenciés de la FFPB</dd>
 	<dd class="tertiaire">Surclassement possible sur présentatation d’un certificat médical</dd>
     </dl>
 
     <dl id="cloture">
 	<dt>Clôture des inscriptions</dt>
-	<dd class="primaire">Date</dd>
+	<dd class="primaire"><span><?= $tableau['cloture'] ?></span></dd>
 	<dd class="secondaire">Inscription par mail, courrier, sms</dd>
 	<dd class="tertiaire">30€ de participation aux frais</dd>
 	<dd class="tertiaire">Possibilité de règlement par chèque ou virement.</dd>
@@ -32,7 +33,7 @@
 
     <dl id="debut">
 	<dt>Début du tournoi</dt>
-	<dd class="primaire">Date</dd>
+	<dd class="primaire"><span><?= $tableau['debut'] ?></span></dd>
 	<dd class="secondaire">Parties en 30 points</dd>
 	<dd class="tertiaire">Arbitrage assuré de toutes les parties</dd>
 	<dd class="tertiaire">Possibilité de régler les frais lors de la première partie</dd>
@@ -40,7 +41,7 @@
 
     <dl id="finales">
 	<dt>Finales</dt>
-	<dd class="primaire">Date</dd>
+	<dd class="primaire"><span><?= $tableau['finales'] ?></span></dd>
 	<dd class="secondaire">Parties en 35 points</dd>
 	<dd class="tertiaire">Programme</dd>
     </dl>

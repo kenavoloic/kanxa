@@ -7,14 +7,6 @@ class Generales {
     use \Generiques\Outils;
     use OutilsControleurs;
     
-    //private $tableau;
-    //private $requete = "select jsonDatesGenerales() as resultat;";
-    /* private $r2 = "select jsonEquipeSerieGenreAvecPoule(:p1,:p2);";
-     * private $r3 = "select jsonEquipeSerieGenreSansPoule(:p1,:p2);"; */
-    //private $lecture;
-    //private $toutes;
-    //private $json;
-
     private $modele;
     private $vue;
 
@@ -38,11 +30,7 @@ class Generales {
     
 
     public function ecriture(?array $envoi){
-	//echo "Vaya con Dios" . PHP_EOL;
-	//print_r($envoi);
-	//print_r($_POST['dates']);
 	$dates = $_POST['dates'];
-	//print_r($dates);
 	$retour = [];
 	$retour[] = $this->jjmmaaaa($dates['ouvertureInscriptions']);
 	$retour[] = $this->jjmmaaaa($dates['clotureInscriptions']);
@@ -52,27 +40,18 @@ class Generales {
 	$retour[] = $this->jjmmaaaa($dates['quarts']);
 	$retour[] = $this->jjmmaaaa($dates['demi']);
 	$retour[] = $this->jjmmaaaa($dates['finales']);
+
 	$this->modele->ecriture($retour);
-	$lecture = $this->modele->lecture();
-	$this->vue->affichage(['titre' => $this->titre, 'tableau' => $lecture]);
 
-
-	//var_dump($retour);
-	//var_dump(array_keys($dates));
-	//echo count(array_keys($dates));
+	$this->redirection('generales');
     }
     
 
 
     private function index(): void {
-	//$modele = $this->
 	$lecture = $this->modele->lecture();
 	$this->vue->affichage(['titre' => $this->titre, 'tableau' => $lecture]);
-	
     }
-    
-    
-    
 
     public function __string(): string {
 	return "Détermination  des dates générales du tournoi.";

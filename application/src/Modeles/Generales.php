@@ -109,6 +109,10 @@ class Generales {
 
 
     public function ecriture(array $huit){
+	//echo "écriture Modèle" . PHP_EOL;
+	//print_r($huit);
+	//echo "---------------------" . PHP_EOL;
+	
 	$requete = $this->pdo->prepare($this->req8);
 	$valeurs = [':c1' => $huit[0], ':c2' => $huit[1], ':c3' => $huit[2], ':c4' => $huit[3], ':c5' => $huit[4], ':c6' => $huit[5], ':c7' => $huit[6], ':c8' => $huit[7]];
 	$requete->execute($valeurs);	
