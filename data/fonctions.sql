@@ -213,7 +213,7 @@ CREATE FUNCTION jsonDateOuvertureInscriptions() RETURNS JSON NOT DETERMINISTIC R
 -- pour php le premier jour de l'année est 0
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 1);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 1);
 RETURN retour;
 END;
 $$
@@ -224,7 +224,7 @@ CREATE FUNCTION jsonDateClotureInscriptions() RETURNS JSON NOT DETERMINISTIC REA
 -- pour php le premier jour de l'année est 0
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 2);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 2);
 RETURN retour;
 END;
 $$
@@ -235,7 +235,7 @@ CREATE FUNCTION jsonDateConstitutionPoules() RETURNS JSON NOT DETERMINISTIC READ
 -- pour php le premier jour de l'année est 0
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 3);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 3);
 RETURN retour;
 END;
 $$
@@ -246,7 +246,7 @@ CREATE FUNCTION jsonDateEnvoiListesPoules() RETURNS JSON NOT DETERMINISTIC READS
 -- pour php le premier jour de l'année est 0
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 4);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 4);
 RETURN retour;
 END;
 $$
@@ -258,7 +258,7 @@ CREATE FUNCTION jsonDateDebut() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 -- pour php le premier jour de l'année est 0
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 5);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 5);
 RETURN retour;
 END;
 $$
@@ -270,7 +270,7 @@ CREATE FUNCTION jsonDateQuarts() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 6);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 6);
 RETURN retour;
 END;
 $$
@@ -282,7 +282,7 @@ CREATE FUNCTION jsonDateDemiFinales() RETURNS JSON NOT DETERMINISTIC READS SQL D
 
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 7);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 7);
 RETURN retour;
 END;
 $$
@@ -295,7 +295,7 @@ CREATE FUNCTION jsonDateFin() RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 
 BEGIN
 DECLARE retour JSON;
-SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee)) FROM datesGenerales WHERE dateId = 8);
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('jour',jour,'annee',annee, 'chaine', STR_TO_DATE(CONCAT(annee, ' ', jour), '%Y %j'))) FROM datesGenerales WHERE dateId = 8);
 RETURN retour;
 END;
 $$

@@ -18,6 +18,15 @@ class Generales {
 
     
     private $requeteDatesGenerales = "select jsonDatesGenerales() as resultat;";
+    private $requeteOI = "call changerDateOuvertureInscriptions(:chaine);";
+    private $requeteCI = "call changerDateClotureInscriptions(:chaine);";
+    private $requeteCP = "call changerDateConstitutionPoules(:chaine);";
+    private $requeteELP = "call changerDateEnvoiListesPoules(:chaine);";
+    private $requeteDT = "call changerDateDebutTournoi(:chaine);";
+    private $requeteQ = "call changerDateQuarts(:chaine);";
+    private $requeteD = "call changerDateDemi(:chaine);";
+    private $requeteFin = "call changerDateFin(:chaine);";
+    private $req8 = "call changerHuitDates(:c1, :c2, :c3, :c4, :c5, :c6, :c7, :c8);";
     
 
     public function __construct(private \PDO $pdo){
@@ -51,7 +60,8 @@ class Generales {
 	//return $j->getNomDateMois();
 	//return implode('-',[$j->getJour(), $j->getMois(), $j->getAnnee()]);
 	//return $j->getNomJour() . ', ' .implode('-',[$j->getJour(), $j->getMois(), $j->getAnnee()]);
-	return $j->getNomJour() . ', ' .implode(' ',[$j->getJour(), $j->getNomMois(), $j->getAnnee()]);
+	//return $j->getNomJour() . ', ' .implode(' ',[$j->getJour(), $j->getNomMois(), $j->getAnnee()]);
+	return [$j->getJour(), $j->getMois(), $j->getAnnee()];
     }
     
     
@@ -81,9 +91,9 @@ class Generales {
 	$liste = array_map([$this, 'getJourCalendaire'], $donnees);
 	$toutes = array_map([$this, 'getJJMMAAAA'], $liste);
 
-	echo "modèle lecture => " . PHP_EOL;
+	//echo "modèle lecture => " . PHP_EOL;
 
-	var_dump($toutes);
+	//var_dump($toutes);
 	return $toutes;
 	//var_dump($retour);
 
@@ -98,7 +108,10 @@ class Generales {
     }
 
 
-    public function ecriture(){
+    public function ecriture(array $huit){
+	$requete = $this->pdo->prepare($this->req8);
+	$valeurs = [':c1' => $huit[0], ':c2' => $huit[1], ':c3' => $huit[2], ':c4' => $huit[3], ':c5' => $huit[4], ':c6' => $huit[5], ':c7' => $huit[6], ':c8' => $huit[7]];
+	$requete->execute($valeurs);	
     }
     
 

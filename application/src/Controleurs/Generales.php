@@ -4,6 +4,7 @@ namespace Controleurs;
 
 class Generales {
 
+    use \Generiques\Outils;
     use OutilsControleurs;
     
     //private $tableau;
@@ -21,6 +22,44 @@ class Generales {
 	$this->vue = new \Vues\Generales($this->titre);
 	$this->modele = new \Modeles\Generales($this->pdo);
 	$this->$methode($this->parametres);
+    }
+
+    private function jjmmaaaa(array $envoi): string{
+	//return new \Modeles\JourCalendaire($envoi['annee'] .'-'. $envoi['mois'] .'-'. $envoi['annee']);
+	//return $envoi['annee'] .'-'. $envoi['mois'] .'-'. $envoi['jour'];
+	$annee = $this->chiffre_p($envoi['annee']) ? $envoi['annee'] : (new \Modeles\JourCalendaire())->getAnnee();
+	$mois = $this->chiffre_p($envoi['mois']) ? $envoi['mois'] : (new \Modeles\JourCalendaire())->getMois();
+	$jour = $this->chiffre_p($envoi['jour']) ? $envoi['jour'] : (new \Modeles\JourCalendaire())->getJour();
+	$chaine = implode('-', [$annee, $mois, $jour]);
+	$j = new \Modeles\JourCalendaire($chaine); //->getAAAAMMJJ();
+	return $j->getAAAAMMJJ();
+	//return $j->getJJMMAAAA();
+    }
+    
+
+    public function ecriture(?array $envoi){
+	//echo "Vaya con Dios" . PHP_EOL;
+	//print_r($envoi);
+	//print_r($_POST['dates']);
+	$dates = $_POST['dates'];
+	//print_r($dates);
+	$retour = [];
+	$retour[] = $this->jjmmaaaa($dates['ouvertureInscriptions']);
+	$retour[] = $this->jjmmaaaa($dates['clotureInscriptions']);
+	$retour[] = $this->jjmmaaaa($dates['constitutionPoules']);
+	$retour[] = $this->jjmmaaaa($dates['envoiListePoules']);
+	$retour[] = $this->jjmmaaaa($dates['debutTournoi']);
+	$retour[] = $this->jjmmaaaa($dates['quarts']);
+	$retour[] = $this->jjmmaaaa($dates['demi']);
+	$retour[] = $this->jjmmaaaa($dates['finales']);
+	$this->modele->ecriture($retour);
+	$lecture = $this->modele->lecture();
+	$this->vue->affichage(['titre' => $this->titre, 'tableau' => $lecture]);
+
+
+	//var_dump($retour);
+	//var_dump(array_keys($dates));
+	//echo count(array_keys($dates));
     }
     
 

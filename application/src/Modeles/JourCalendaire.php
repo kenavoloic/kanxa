@@ -41,8 +41,9 @@ class JourCalendaire {
 	}
 
 	if(!is_null($chaine)){
-	    $renverse = implode('-', explode('-', $chaine));
-	    $this->jour = new \DateTime($renverse);
+	    //$renverse = implode('-', explode('-', $chaine));
+	    //$this->jour = new \DateTime($renverse);
+	    $this->jour = new \DateTime($chaine);
 	}
 
 	$this->nomJourSemaine = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'EEEE');
@@ -51,9 +52,6 @@ class JourCalendaire {
 	$this->nomMois = new \IntlDateFormatter("fr_FR", \IntlDateFormatter::FULL, \IntlDateFormatter::FULL, 'Europe/Paris', \IntlDateFormatter::GREGORIAN, 'MMMM');
 	
     }
-
-
-
 
     private function initialisations(array $envoi): \DateTime {
 	// Si les valeurs contenues dans le tableau ne permettent pas de créer l'objet DateTimeimmutable
@@ -132,34 +130,44 @@ class JourCalendaire {
 	return $this->nomDateMoisAnnee->format($this->jour);	
     }
 
-    public function weekend_p(): bool {
-	//prédicat : 
-	//est-ce un samedi ou un dimanche ?
-	return preg_match('/samedi|dimanche/', $this->getNomJour()) ;
+    public function getJJMMAAAA(): string {
+	return implode('-',[$this->getJour(), $this->getMois(), $this->getAnnee()]);	
     }
 
-    public function getHeure(): string {	
-	return ($this->jour)->format('H:i:s');
+    public function getAAAAMMJJ(): string {
+	return implode('-',[$this->getAnnee(), $this->getMois(), $this->getJour()]);	
     }
+    
+	
 
-    public function getHeures(): int {
-	return intval(($this->jour)->format('h'));
+	public function weekend_p(): bool {
+	    //prédicat : 
+	    //est-ce un samedi ou un dimanche ?
+	    return preg_match('/samedi|dimanche/', $this->getNomJour()) ;
+	}
+
+	public function getHeure(): string {	
+	    return ($this->jour)->format('H:i:s');
+	}
+
+	public function getHeures(): int {
+	    return intval(($this->jour)->format('h'));
+	}
+
+	public function getMinutes(): int {
+	    return intval(($this->jour)->format('i'));
+	}
+
+	public function getSecondes(): int {
+	    return intval(($this->jour)->format('s'));
+	}
+
+	public function plusUnJour(): void{
+	    $this->jour->modify('+ 1 day');
+	}
+
+	public function __toString(): string{
+	    return $this->jour->format('Y-z');
+	}
+
     }
-
-    public function getMinutes(): int {
-	return intval(($this->jour)->format('i'));
-    }
-
-    public function getSecondes(): int {
-	return intval(($this->jour)->format('s'));
-    }
-
-    public function plusUnJour(): void{
-	$this->jour->modify('+ 1 day');
-    }
-
-    public function __toString(): string{
-	return $this->jour->format('Y-z');
-    }
-
-}

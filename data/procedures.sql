@@ -18,6 +18,7 @@ DROP PROCEDURE IF EXISTS constitutionPoules;
 DROP PROCEDURE IF EXISTS constitutionPoulesAttributionPouleId;
 
 DROP PROCEDURE IF EXISTS changerDate;
+DROP PROCEDURE IF EXISTS changerHuitDates;
 DROP PROCEDURE IF EXISTS changerDateOuvertureInscriptions;
 DROP PROCEDURE IF EXISTS changerDateClotureInscriptions;
 DROP PROCEDURE IF EXISTS changerDateConstitutionPoules;
@@ -464,11 +465,12 @@ SELECT YEAR(chaine) INTO _annee;
 
 IF (_jour <> jour0 AND _annee <> annee0) THEN 
 UPDATE datesGenerales SET jour = _jour, annee = _annee WHERE dateId = _dateId;
+SET retour = 1;
 END IF;
 
 END IF;
 
--- SELECT retour;
+SELECT retour;
 END;
 $$
 
@@ -500,6 +502,75 @@ $$
 -- END;
 -- $$
 
+-- call changerHuitDates('2022-01-01', '2022-02-15', '2022-03-18', '2022-03-25', '2022-04-09', '2022-05-27', '2022-08-03', '2022-06-10');
+-- call changerHuitDates('2023-01-01', '2023-02-15', '2023-03-18', '2023-03-25', '2023-04-09', '2023-05-27', '2023-08-03', '2023-06-10');
+
+DELIMITER $$
+CREATE PROCEDURE changerHuitDates(d1 VARCHAR(12), d2 VARCHAR(12), d3 VARCHAR(12), d4 VARCHAR(12), d5 VARCHAR(12), d6 VARCHAR(12), d7 VARCHAR(12), d8 VARCHAR(12))
+
+BEGIN
+DECLARE expReg VARCHAR(50) DEFAULT '^[0-9]{4}-[0-9]{2}-[0-9]{2}$';
+DECLARE c1 VARCHAR(20) DEFAULT CURDATE();
+DECLARE c2 VARCHAR(20) DEFAULT CURDATE();
+DECLARE c3 VARCHAR(20) DEFAULT CURDATE();
+DECLARE c4 VARCHAR(20) DEFAULT CURDATE();
+DECLARE c5 VARCHAR(20) DEFAULT CURDATE();
+DECLARE c6 VARCHAR(20) DEFAULT CURDATE();
+DECLARE c7 VARCHAR(20) DEFAULT CURDATE();
+DECLARE c8 VARCHAR(20) DEFAULT CURDATE();
+
+
+START TRANSACTION;
+
+SET expReg = '^[0-9]{4}-[0-9]{2}-[0-9]{2}$';
+
+IF (d1 REGEXP expReg) THEN
+SET c1 = d1;
+END IF;
+
+IF (d2 REGEXP expReg) THEN
+SET c2 = d2;
+END IF;
+
+IF (d3 REGEXP expReg) THEN
+SET c3 = d3;
+END IF;
+
+IF (d4 REGEXP expReg) THEN
+SET c4 = d4;
+END IF;
+
+IF (d5 REGEXP expReg) THEN
+SET c5 = d5;
+END IF;
+
+IF (d6 REGEXP expReg) THEN
+SET c6 = d6;
+END IF;
+
+IF (d7 REGEXP expReg) THEN
+SET c7 = d7;
+END IF;
+
+IF (d1 REGEXP expReg) THEN
+SET c8 = d8;
+END IF;
+
+
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c1), annee =  YEAR(c1) WHERE dateId = 1;
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c2), annee =  YEAR(c2) WHERE dateId = 2;
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c3), annee =  YEAR(c3) WHERE dateId = 3;
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c4), annee =  YEAR(c4) WHERE dateId = 4;
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c5), annee =  YEAR(c5) WHERE dateId = 5;
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c6), annee =  YEAR(c6) WHERE dateId = 6;
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c7), annee =  YEAR(c7) WHERE dateId = 7;
+UPDATE datesGenerales SET jour =  DAYOFYEAR(c8), annee =  YEAR(c8) WHERE dateId = 8;
+
+COMMIT;
+END;
+$$
+
+
 DELIMITER $$
 CREATE PROCEDURE changerDateOuvertureInscriptions(chaine VARCHAR(12))
 BEGIN
@@ -522,7 +593,7 @@ END;
 $$
 
 DELIMITER $$
-CREATE PROCEDURE changerDateEnvoiListePoules(chaine VARCHAR(12))
+CREATE PROCEDURE changerDateEnvoiListesPoules(chaine VARCHAR(12))
 BEGIN
 CALL changerDate(chaine, 4);
 END;

@@ -15,14 +15,14 @@ class Generales {
 
     public function __construct(private string $titre="Dates Générales"){
     }
-/*    
-    public function aconstruct(private string $titre, private array $json){
-	$this->donnees = array_map([$this, 'nettoyageJson'],json_decode($json['resultat'], true));
-	$this->liste = array_map([$this, 'getDateTime'], $this->donnees);
-	$this->toutes = array_map([$this, 'getJJMMAAAA'], $this->liste);
-	$this->affichage($this->titre, $this->toutes);
-    }
-*/
+    /*    
+       public function aconstruct(private string $titre, private array $json){
+       $this->donnees = array_map([$this, 'nettoyageJson'],json_decode($json['resultat'], true));
+       $this->liste = array_map([$this, 'getDateTime'], $this->donnees);
+       $this->toutes = array_map([$this, 'getJJMMAAAA'], $this->liste);
+       $this->affichage($this->titre, $this->toutes);
+       }
+     */
     private function getJJMMAAAA(\DateTime $envoi): array {
 	$jj = intval($envoi->format('d'));
 	$mm = intval($envoi->format('m'));
@@ -59,7 +59,24 @@ class Generales {
     public function affichage(array $envoi): void {
 	$titre = $envoi['titre'];
 	$tableau = $envoi['tableau'];
+	$listeJours = $envoi['tableau'];
 
+	//var_dump($envoi);
+	//print_r($envoi);
+
+	$tableau = [	    
+	    'oi' => $listeJours[0],
+	    'ci' => $listeJours[1],
+	    'cp' => $listeJours[2],
+	    'elp' => $listeJours[3],
+	    'dt' => $listeJours[4],
+	    'quarts' => $listeJours[5],
+	    'demi' => $listeJours[6],
+	    'finales' => $listeJours[7]
+	];
+	
+
+	//echo "Vue affichage => " . PHP_EOL;
 	//var_dump($tableau);
 	echo $this->getEntete($titre);
 	echo $this->getComposant('headerAdministrateur');

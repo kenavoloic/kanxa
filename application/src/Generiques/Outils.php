@@ -86,6 +86,10 @@ trait Outils {
 	return preg_match("/^[\d\s.:\/-]+$", $envoi);
     }
 
+    public function date_p(string $envoi): bool {
+	return preg_match("/^[\d\s.:\/-]+$", $envoi);
+    }
+
     // 1, 1a, 1b, 2, 2a, 2b, 3 ...
     public function serie_p(string $envoi): bool {
 	return preg_match("/^[1-9][ab]$/", $envoi);
