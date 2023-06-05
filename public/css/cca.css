@@ -248,6 +248,8 @@ main#administrateur, main#utilisateur {
       color: #FFFFFF;
       margin: .3rem;
       user-select: none; }
+      main#administrateur dl dd span, main#utilisateur dl dd span {
+        color: #00CC00; }
     main#administrateur dl dd::before, main#utilisateur dl dd::before {
       color: #00CC00;
       font-size: 2rem;

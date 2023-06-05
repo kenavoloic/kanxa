@@ -38,6 +38,10 @@ main#administrateur, main#utilisateur {
 	    color: $blanc16; //$couleurTexte; //$blanc16;
 	    margin: .3rem;
 	    user-select: none;
+
+	    span {
+		color: $berdea;
+	    }
 	}
 
 	dd::before {
