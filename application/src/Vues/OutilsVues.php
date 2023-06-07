@@ -91,10 +91,24 @@ trait OutilsVues {
 	$retour[$index] = '<option value="' .$liste[$index]['genreId'] . '"  selected>' . $liste[$index]['intitule'] . '</option>';
 	return implode("\n", $retour);
     }
+
+    // Pour l'établissement du planning des parties
+    public function getHoraires(int $valeur=9): string {
+	$minimum = 9;
+	$maximum = 20;
+	$valeur = ($valeur < $minimum | $valeur > $maximum) ? $minimum : $valeur;
+	$hvaleur =  'h'.str_pad($valeur, 2, "0", STR_PAD_LEFT);
+	$clefs = array_map(fn($x) => 'h'.str_pad($x, 2, "0", STR_PAD_LEFT), range($minimum, $maximum));
+	$options = array_map(fn($x) => '<option value="'.str_pad($x, 2, "0", STR_PAD_LEFT).'">'.$x.'h00</option>', range($minimum, $maximum));
+	$liste0 = array_combine($clefs, $options);
+	$liste = array_merge(['h00' => '<option value="0" disabled>Heure</option>'], $liste0);
+	$liste[$hvaleur] = '<option value="'.$valeur.'" selected>'.str_pad($valeur, 2, "0", STR_PAD_LEFT).'h00<"/option>';
+	return implode("\n", $liste);
+    }
     
 
     // En lieu et place  des input dates
-    // créatioin des options pour le select "jour"
+    // création des options pour le select "jour"
     public function getJours(int $valeur=1): string {
 	$valeur = ($valeur < 1 | $valeur > 31) ? 1 : $valeur;
 	$liste = array_map(fn($x) => '<option value="' . $x .'">'.str_pad($x, 2, "0", STR_PAD_LEFT).'</option>', range(1,31));

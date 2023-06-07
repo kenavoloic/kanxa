@@ -334,6 +334,12 @@ main#login {
   min-height: 90vh;
   padding: 1rem;
   background: #7393B3; }
+  main#login .valide {
+    color: #FFFFFF;
+    background-color: #00CC00; }
+  main#login .invalide {
+    color: #FFFFFF;
+    background-color: #CC0000; }
   main#login form {
     width: 90%;
     margin: 0 auto;

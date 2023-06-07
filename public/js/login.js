@@ -11,13 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	utilisateur.focus({focusVisible: true});
     }
 
-    /*
+    
     utilisateur.addEventListener('invalid', (e) => {
 	document.getElementById(e.srcElement.id).setCustomValidity('Au moins une lettre.');
     });
 
     utilisateur.addEventListener('valid', (e) => {
 	document.getElementById(e.srcElement.id).setCustomValidity('');
+	document.getElementById(e.srcElement.id).setAttribute('class','valide');
     });
 
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     courriel.addEventListener('valid', (e) => {
 	document.getElementById(e.srcElement.id).setCustomValidity('');
+	document.getElementById(e.srcElement.id).setAttribute('class','valide');
     });
 
 
@@ -36,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mpasse.addEventListener('valid', (e) => {
 	document.getElementById(e.srcElement.id).setCustomValidity('');
+	document.getElementById(e.srcElement.id).setAttribute('class','valide');
     });
-*/
+
     
 });

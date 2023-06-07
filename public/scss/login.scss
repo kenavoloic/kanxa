@@ -6,6 +6,17 @@ main#login {
     background: $gris8; //$primary-color-dark; //$primary-color-inverted; // $primary-color-dark; 
     //position: relative;
 
+    .valide {
+	color: $blanc16;
+	background-color: $berdea;
+    }
+
+    .invalide {
+	color: $blanc16;
+	background-color: $gorria;
+    }
+    
+
     form {
 
 	//position: absolute;
