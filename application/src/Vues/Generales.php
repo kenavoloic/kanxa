@@ -78,6 +78,7 @@ class Generales {
 
 	//echo "Vue affichage => " . PHP_EOL;
 	//var_dump($tableau);
+
 	echo $this->getEntete($titre);
 	echo $this->getComposant('headerAdministrateur');
 	echo $this->getComposantTableau('generales', $tableau);

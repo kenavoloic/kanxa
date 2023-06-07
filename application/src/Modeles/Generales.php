@@ -39,6 +39,9 @@ class Generales {
 	$annee = filter_var($envoi['annee'], FILTER_SANITIZE_NUMBER_INT);
 	$chaine = htmlspecialchars($envoi['chaine']);
 
+	// 'jour' => $jour - 1
+	// parce que pour mysql le 1er janvier est le jour 1
+	// parce que pour php le 1er janvier est le jour 0
 	return ['dateId' => $dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee, 'chaine' => $chaine];
     }
 
@@ -55,7 +58,7 @@ class Generales {
 	return new \Modeles\JourCalendaire($envoi['chaine']);
     }
 
-    private function getJJMMAAAA(\Modeles\JourCalendaire $j){
+    private function __getJJMMAAAA(\Modeles\JourCalendaire $j){
 	//return $j->getNomDateMoisAnnee();
 	//return $j->getNomDateMois();
 	//return implode('-',[$j->getJour(), $j->getMois(), $j->getAnnee()]);
@@ -64,32 +67,20 @@ class Generales {
 	return [$j->getJour(), $j->getMois(), $j->getAnnee()];
     }
     
-    
-    
-    /* 
-     *     private function getDateTime0(array $envoi): \DateTime {
-     * 	$retour = null;
-     * 	try {
-     * 	    $retour =  \DateTime::createFromFormat('Y z', $envoi['annee'] . ' ' . $envoi['jour']);
-     * 	    $retour->setTimeZone(new \DateTimeZone('Europe/Paris'));
-     * 	}
-     * 	catch(\Exception $exception){
-     * 	    $retour = new \DateTime('now', new \DateTimeZone('Europe/Paris'));	    
-     * 	}
-     * 	return $retour;	
-     *     }
-     *  */
-
-
     public function lecture(): array{
 	$req = $this->pdo->prepare($this->requeteDatesGenerales);
 	$req->execute();
 	$retour_ = $req->fetchAll(\PDO::FETCH_ASSOC)[0];
 	//$retour = $this->nettoyageJson($retour_[0]);
 	$donnees = array_map([$this, 'nettoyageJson'],json_decode($retour_['resultat'], true));
+	//var_dump($donnees);
 	//$liste = array_map([$this, 'getDateTime'], $donnees);
-	$liste = array_map([$this, 'getJourCalendaire'], $donnees);
-	$toutes = array_map([$this, 'getJJMMAAAA'], $liste);
+	//$liste = array_map([$this, 'getJourCalendaire'], $donnees);
+	$liste = array_map(fn($x) => new \Modeles\JourCalendaire($x['chaine']), $donnees);
+	//$toutes = array_map([$this, 'getJJMMAAAA'], $liste);
+	//$toutes = array_map(fn($x) => $x->getJJMMAAAA(), $liste);
+	//$toutes = array_map(fn($x) => array_merge($x->getJJMMAAAA(), [$x->getNomDateMois(), $x->getNomDateMoisAnnee()]), $liste);
+	$toutes = array_map(fn($x) => ['jour' => $x->getJour(), 'mois' => $x->getMois(), 'annee' => $x->getAnnee(), 'court' => $x->getNomDateMois(), 'long' => $x->getNomDateMoisAnnee() ], $liste);
 
 	//echo "modèle lecture => " . PHP_EOL;
 

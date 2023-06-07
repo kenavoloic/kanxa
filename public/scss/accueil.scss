@@ -40,7 +40,24 @@ main#administrateur, main#utilisateur {
 	    user-select: none;
 
 	    span {
+		display: inline-block;
 		color: $berdea;
+		background-color: $blanc16;
+		padding: .2rem;
+
+		@include bordureDefaut;
+		@include bordureArrondi;
+		border-radius: .4rem;
+		border-width: .25rem;
+		border-color: $berdea;
+
+		/*
+		&::before {
+		   content: attr(data-long);
+		   font-size: 2rem;
+		   color: red;
+		}
+		*/
 	    }
 	}
 

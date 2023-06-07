@@ -26,6 +26,7 @@ class Inscription {
 	$equipe = $_POST['equipe'];
 	$equipe['nom1'] = $this->nettoyageSimple($equipe['nom1']);
 	$equipe['prenom1'] = $this->nettoyageSimple($equipe['prenom1']);
+	echo "Controleurs Inscription ajout => " . PHP_EOL;
 	var_dump($equipe);
 	
     }

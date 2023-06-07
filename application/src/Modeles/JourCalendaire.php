@@ -69,25 +69,67 @@ class JourCalendaire {
 	// dimanche 26 mars
 	
 	// Si c'est le 1er du mois
-	$remplacement = fn($x) => str_replace(" 1 ", " 1<sup>er</sup> ", $x);
-	return ($this->getJour() === 1) ? $remplacement($this->nomDateMois->format($this->jour)) : $this->nomDateMois->format($this->jour);;
+	$remplacement = fn($x) => str_replace("1", " 1<sup>er</sup> ", $x);
+	$chaine = $this->nomDateMois->format($this->jour);
+	$jj = $this->getJour() === 1 ? $remplacement($this->getJour()) : $this->getJour();
+	$mm = $this->getNomMois();
+	$aaaa = $this->getAnnee();
+
+	return "$chaine $jj $mm $aaaa";
+
+	//return ($this->getJour() === 1) ? $remplacement($this->nomDateMois->format($this->jour)) : $this->nomDateMois->format($this->jour);
+	//return ($this->getJour() === 1) ? $remplacement($chaine) : $chaine;
+	
     }
 
     public function getNomDateMoisAnnee(): string{
 	// dimanche 26 mars 2023
 
 	// Si c'est le 1er du mois
-	$remplacement = fn($x) => str_replace(" 1 ", " 1<sup>er</sup> ", $x);
+	$remplacement = fn($x) => str_replace("1", " 1<sup>er</sup> ", $x);
+	//$chaine = $this->nomDateMoisAnnee->format($this->jour);
+	$chaine = $this->nomJourSemaine->format($this->jour);
 
-	return ($this->getJour() === 1) ? $remplacement($this->nomDateMoisAnnee->format($this->jour)) : $this->nomDateMoisAnnee->format($this->jour);;
+	/* echo "===> " . $chaine . PHP_EOL;
+	   echo "===> " . $this->getAnnee() . PHP_EOL;
+	   echo "===> " . $this->nomJourSemaine->format($this->jour) . PHP_EOL; */
+
+	// conversion de l'année sans raison, 2022 au lieu de 2023
+	// création chaîne à la main
+	//$jj = $remplacement($this->getJour());
+	$jj = $this->getJour() === 1 ? $remplacement($this->getJour()) : $this->getJour();
+	$mm = $this->getNomMois(); //$this->getMois();
+	$aaaa = $this->getAnnee();
+	/* $retour = $this->nomJourSemaine->format($this->jour);
+	   $retour .= " ";
+	   $retour .= $this->getJour();
+	   $retour .= " ";
+	   $retour .= $this->getMois();
+	   $retour .= " ";
+	   $retour .= $this->getAnnee();
+	   $retour = $remplacement($retour); */
+	//echo "aaaa $aaaa" . PHP_EOL;
+	//echo "???? " . $retour . PHP_EOL;
+	//return ($this->getJour() === 1) ? $remplacement($this->nomDateMoisAnnee->format($this->jour)) : $this->nomDateMoisAnnee->format($this->jour);
+	//return ($this->getJour() === 1) ? $remplacement($chaine) : $chaine;
+	return "$chaine $jj $mm $aaaa";
     }
 
-    public function getJJMMAAAA(): string {
+
+    public function getChaineJJMMAAAA(): string {
 	return implode('-',[$this->getJour(), $this->getMois(), $this->getAnnee()]);	
     }
+    
+    public function getJJMMAAAA(): array {
+	return [$this->getJour(), $this->getMois(), $this->getAnnee()];	
+    }
 
-    public function getAAAAMMJJ(): string {
+    public function getChaineAAAAMMJJ(): string {
 	return implode('-',[$this->getAnnee(), $this->getMois(), $this->getJour()]);	
+    }
+    
+    public function getAAAAMMJJ(): array {
+	return [$this->getAnnee(), $this->getMois(), $this->getJour()];	
     }
     
     public function weekend_p(): bool {
@@ -130,7 +172,8 @@ class JourCalendaire {
     }
 
     public function __toString(): string{
-	return $this->jour->format('Y-z');
+	//return $this->jour->format('Y-z');
+	return $this->jour->format('Y-m-d');
     }
 
 }

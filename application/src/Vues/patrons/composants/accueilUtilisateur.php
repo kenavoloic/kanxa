@@ -2,8 +2,8 @@
 
     <dl id="tournoi">
 	<dt>Tournoi annuel</dt>
-	<dd class="primaire"><span><?= ucfirst($tableau['debut']->getNomDateMoisAnnee()) ?> &ndash; <?= $tableau['finales']->getNomDateMoisAnnee()?></span></dd>
-	<dd class="primaire"><span><?= ucfirst($tableau['finales']->getNomDateMoisAnnee()) ?></span></dd>
+	<dd class="primaire" data-court="<?= $tableau['debut']->getChaineJJMMAAAA() ?>"  data-long="<?= ucfirst($tableau['debut']->getNomDateMoisAnnee()) ?>" ><span><?= ucfirst($tableau['debut']->getNomDateMoisAnnee()) ?></span></dd>
+	<dd class="primaire" data-court="<?= $tableau['finales']->getChaineJJMMAAAA() ?>" data-long="<?= ucfirst($tableau['finales']->getNomDateMoisAnnee()) ?>"><span><?= ucfirst($tableau['finales']->getNomDateMoisAnnee()) ?></span></dd>
 	<dd class="secondaire">Soixante-troisième édition</dd>
 	<dd class="tertiaire">Pala gomme pleine en mur à gauche</dd>
     </dl>
@@ -18,7 +18,7 @@
     
     <dl id="ouverture">
 	<dt>Ouverture des inscriptions</dt>
-	<dd class="primaire"><span><?= ucfirst($tableau['ouverture']->getNomDateMoisAnnee()) ?></span></dd>
+	<dd class="primaire" data-court="<?= $tableau['ouverture']->getChaineJJMMAAAA() ?>" data-long="<?= ucfirst($tableau['ouverture']->getNomDateMoisAnnee()) ?>"><span><?= ucfirst($tableau['ouverture']->getNomDateMoisAnnee()) ?></span></dd>
 	<dd class="secondaire">Réservé aux licenciés de la FFPB</dd>
 	<dd class="tertiaire">Surclassement possible sur présentatation d’un certificat médical</dd>
     </dl>

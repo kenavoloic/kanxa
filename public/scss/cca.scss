@@ -67,7 +67,7 @@ nav {
     //gap: var(--gap, 1rem); // si --gap pas défini, alors gap = 1rem;
 }
 
-
+    
 .visuallyHidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -78,7 +78,7 @@ nav {
     position: absolute;
     width: 1px;
 }
-
+       
 .undoVisuallyHidden {
     border: initial;
     clip: initial;
@@ -93,15 +93,27 @@ nav {
 em {
     font-style: italic;
 }
+
+em em {
+    font-style: normal;
+}
+ 
+sup {
+    font-size:.85rem;
+    line-height:1.9;
+    vertical-align:top;
+}
+
+   
 //footer
 footer {
-      
+    
     @include texture1;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 6rem;   
-     //@include bordureDefaut;
+    //@include bordureDefaut;
     border: 3px solid transparent;
     border-top-color: $blanc16; //$gris6; //$blanc16;
     p {
@@ -111,10 +123,10 @@ footer {
 	text-align: center;
 	user-select: none;
     }
-   
+    
     
 }
-  
+
 // Header navbar logo liens menu hamburger
 
 h1.logo {

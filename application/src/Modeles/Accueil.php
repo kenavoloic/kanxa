@@ -28,7 +28,13 @@ class Accueil {
 	//$chaines = array_map(fn($x) => $x->getNomDateMoisAnnee() .' ' . $x->getHeure(), $listeJours);
 	//$retour = ['ouverture' => $chaines[0], 'cloture' => $chaines[1], 'debut' => $chaines[4], 'finales' => $chaines[7]];
 	$retour = ['ouverture' => $listeJours[0], 'cloture' => $listeJours[1], 'debut' => $listeJours[4], 'finales' => $listeJours[7]];
-	
+
+	/* echo "modeles Accueil getdatesgenerales => " . PHP_EOL;
+	   echo $retour['ouverture']->getnomDateMoisAnnee() . PHP_EOL;
+	   echo $retour['cloture']->getnomDateMoisAnnee() . PHP_EOL;
+	   echo $retour['debut']->getnomDateMoisAnnee() . PHP_EOL;
+	   echo $retour['finales']->getnomDateMoisAnnee() . PHP_EOL; */
+	//print_r($retour);
         return $retour;
     }
     

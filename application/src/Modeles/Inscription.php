@@ -8,6 +8,7 @@ class Inscription {
     }
 
     public function ajout(array $equipe){
+	echo "Inscription modèles =>ajout " . PHP_EOL;
 	var_dump($equipe);
     }
     
