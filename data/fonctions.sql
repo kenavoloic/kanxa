@@ -44,7 +44,7 @@ DROP FUNCTION IF EXISTS jsonSerieGenrePaf;
 DROP FUNCTION IF EXISTS jsonSerieGenrePouleClassement;
 
 DROP FUNCTION IF EXISTS intTournoiId;
-
+DROP FUNCTION IF EXISTS jsonSerieGenreTournoi;
 DELIMITER $$
 CREATE FUNCTION jsonGenreSerie(valeurGenre INT, valeurSerie INT) RETURNS JSON NOT DETERMINISTIC READS SQL DATA
 BEGIN
@@ -533,6 +533,16 @@ CREATE FUNCTION jsonSerieGenrePouleClassement(_serie INT, _genre INT, _poule INT
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'serie',serie,'genre',genre,'tournoiId',tournoiId,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2,'j',j,'v',v,'d',d,'p',p,'totalPoints',totalPoints)) FROM equipes WHERE serie = _serie and genre = _genre and poule = _poule);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonSerieGenreTournoi(_serie INT, _genre INT) RETURNS JSON READS SQL DATA
+-- select equipeId, tournoiId, pouleId, poule, nom1, nom2, s.intitule from equipes e inner join souhaits s on e.souhait = s.souhaitId where serie=1 and genre=2 order by poule;
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'tournoiId',tournoiId,'poule',poule,'pouleId',pouleId,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2,'souhait',s.intitule)) FROM equipes e INNER JOIN souhaits s on e.souhait = s.souhaitId WHERE serie=_serie AND genre=_genre ORDER BY poule);
 RETURN retour;
 END;
 $$

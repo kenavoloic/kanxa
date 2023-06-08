@@ -7,10 +7,39 @@ class Planning {
     private $requeteJourDebut = "select jsonDateDebut();";
     private $requeteJourQuarts = "select jsonDateQuarts();";
     private $requeteJourFin = " select jsonDateFin();";
+    private $requeteTournoi = "select jsonSerieGenreTournoi(:serie,:genre);";
+    private $requeteNombrePoules = "select intNombrePoule(:serie, :genre);";
 
+    private JourCalendaire $debut;
+    private JourCalendaire $fin;
+    private PeriodeCalendaire $periode;
+    
     public function __construct(private \PDO $pdo){
+	$this->debut = new JourCalendaire($this->getJourDebut()['chaine']);
+	$this->fin = new JourCalendaire($this->getJourFin()['chaine']);
+	$this->periode = new PeriodeCalendaire($this->debut, $this->fin);
     }
 
+    public function getNombrePoules(int $serie, int $genre): array {
+	$valeurs = [':serie' => $serie, ':genre' => $genre];
+	$reponse = $this->pdo->prepare($this->requeteNombrePoules);
+	$reponse->execute($valeurs);
+	$nombre = $reponse->fetch(\PDO::FETCH_NUM)[0];
+	//$retour = json_encode(range(1,$nombre));
+	return range(1,$nombre);
+    }
+    
+    
+    public function getTournoi(int $serie, int $genre): array {
+	$valeurs = [':serie' => $serie, ':genre' => $genre];
+	$reponse = $this->pdo->prepare($this->requeteTournoi);
+	$reponse->execute($valeurs);
+	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
+	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
+	$retour = ['serie' => $serie, 'genre' => $genre, 'liste' => $liste];
+	return $retour;
+    }
+    
 
     public function getJourQuarts(): array {
 	$reponse = $this->pdo->prepare($this->requeteJourDebut);
@@ -41,9 +70,8 @@ class Planning {
     }
 
     public function __toString(): string {
-
 	return "Planning général du tournoi";
     }
-    
-    
+
+
 }

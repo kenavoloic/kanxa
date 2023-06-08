@@ -11,17 +11,19 @@ class Planning {
     }
 
     public function affichage(?array $envoi): void {
+	$tableau = $envoi['tableau']['liste'];
+	
 	echo $this->getEntete($this->titre);
 
-	if($this->administrateur_p()){
+	//if($this->administrateur_p()){
 	    echo $this->getComposant('headerAdministrateur');
-	}
+	//}
 
-	if(!$this->administrateur_p()){
-	    echo $this->getComposant('headerUtilisateur');
-	}
+	/* if(!$this->administrateur_p()){
+	   echo $this->getComposant('headerUtilisateur');
+	   } */
 
-	echo $this->getComposant('planning');
+	echo $this->getComposantTableau('planning', $tableau);
 
 	echo $this->getComposant('footer');
 	echo $this->getFooterJavaScript('planning');
