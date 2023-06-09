@@ -21,6 +21,6 @@ interface Cancha {
 	'planning' => ['index'],
 	'paf' => ['index', 'liste', 'regularisation', 'traitement'],
 	// ajax
-	'pilota' => ['index','nombres','inscription','inscriptions','liste','modifier','equipes','paf','classements']
+	'pilota' => ['index','nombres','inscription','tournoi','inscriptions','liste','modifier','equipes','paf','classements']
     ];
 }

@@ -29,17 +29,17 @@ const ecouteurs = () => {
 
     if(_serie > 0  && _genre > 0){
 	let fdata = new FormData();
-	fdata.append('listeSerie', _serie);
-	fdata.append('listeGenre', _genre);
+	fdata.append('planningSerie', _serie);
+	fdata.append('planningGenre', _genre);
 
-	fetch('/pilota/liste', {
+	fetch('/pilota/tournoi', {
 	    method: 'POST',
 	    mode: 'no-cors',
 	    headers: {"Content-Type": "application/json"},
 	    body: fdata
 	})
 	    .then(reponse => reponse.json())
-	    .then(reponse => getOptionsPoules(reponse, ecouteurPoule))
+	    .then(reponse => document.querySelector('#liste').replaceChildren(reponse))
     }
 };
 
@@ -84,22 +84,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const genre = document.querySelector('#genre');
     const panneau = document.querySelector('#panneau');
 
-   // serie.addEventListener('change', ecouteurs);
-    //genre.addEventListener('change', ecouteurs);
+    serie.addEventListener('change', ecouteurs);
+    genre.addEventListener('change', ecouteurs);
+    
     const liste_ = document.querySelector('#liste').textContent;
     const liste = JSON.parse(liste_);
-    //console.log(JSON.parse(liste_));
 
+    const triPoule = (a,b) => a.pouleId - b.pouleId; 
+    const _getPoule = x => y => x.has(y) ? x.get(y).sort(triPoule) : 'vide';
+
+    const reducteurListe = (retour, x) => {
+	let nom = 'p'+`${x.poule}`.padStart(2, '0');
+	return retour.has(nom) ? retour.set(nom,  [x, ...retour.get(nom)]) : retour.set(nom, [x]);	
+    };
+
+    const poules = liste.reduce(reducteurListe, new Map());
+    
+    /*    
     const poules = liste.reduce((retour, x) => {
 	let nom = 'p'+`${x.poule}`.padStart(2, '0');
 	return retour.has(nom) ? retour.set(nom,  [x, ...retour.get(nom)]) : retour.set(nom, [x]);
     }, new Map());
+    */
 
-    console.log(poules);
+    const getPoule = _getPoule(poules);
 
-    /* let equipes = liste.map(x => x.equipeId);
-     * console.log(equipes);
+    //console.log(getPoule('p01'));
+    //console.log(getPoule('p03'));
 
-     */
+
     
 });
