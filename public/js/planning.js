@@ -84,8 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const genre = document.querySelector('#genre');
     const panneau = document.querySelector('#panneau');
 
-    serie.addEventListener('change', ecouteurs);
-    genre.addEventListener('change', ecouteurs);
+    //serie.addEventListener('change', ecouteurs);
+    //genre.addEventListener('change', ecouteurs);
     
     const liste_ = document.querySelector('#liste').textContent;
     const liste = JSON.parse(liste_);
@@ -100,13 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const poules = liste.reduce(reducteurListe, new Map());
     
-    /*    
-    const poules = liste.reduce((retour, x) => {
-	let nom = 'p'+`${x.poule}`.padStart(2, '0');
-	return retour.has(nom) ? retour.set(nom,  [x, ...retour.get(nom)]) : retour.set(nom, [x]);
-    }, new Map());
-    */
-
     const getPoule = _getPoule(poules);
 
     //console.log(getPoule('p01'));

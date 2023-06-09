@@ -23,7 +23,9 @@ class Planning {
 	   echo $this->getComposant('headerUtilisateur');
 	   } */
 
-	echo $this->getComposantTableau('planning', $tableau);
+	echo $this->getDivCachee('liste', $tableau);
+	echo $this->getComposant('planning');
+	//echo $this->getComposantTableau('planning', $tableau);
 
 	echo $this->getComposant('footer');
 	echo $this->getFooterJavaScript('planning');

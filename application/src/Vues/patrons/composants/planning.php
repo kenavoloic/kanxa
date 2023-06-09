@@ -73,7 +73,4 @@
 	</fieldset>
 	
     </form>
-    <div id="liste" hidden>
-	<?php echo json_encode($tableau, JSON_UNESCAPED_UNICODE) ?>
-    </div>
 </main>

@@ -15,6 +15,16 @@ trait OutilsVues {
        return ['dateId' => dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee];
      * } */
 
+    public function getDivCachee(string $identifiant, array $tableau): string{
+	ob_start();
+	echo "<div id=\"$identifiant\" hidden>" . PHP_EOL;
+	echo json_encode($tableau, JSON_UNESCAPED_UNICODE) . PHP_EOL;
+	echo '</div>' . PHP_EOL;
+	$retour = ob_get_contents();
+	ob_get_clean();
+	return $retour;
+    }
+    
     public function getFooterJavaScript(string $fichier){
 	// Contrairement à un fichier php, il ne s'agit pas ici de charger le contenu du fichier
 	// mais simplement de créer une chaîne qui sera interprétée par le client, donc dans le dossier 'public'
