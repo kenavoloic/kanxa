@@ -1,0 +1,70 @@
+main#timetable {
+    background-color: $gris8; 
+    width: 98%;
+    overflow-x: hidden;
+    margin:1rem;
+    padding: 1rem;
+
+        form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-width: 3px;
+
+	div.itemFormulaire {
+
+	    @include bordureDefaut;
+	    @include bordureArrondi;
+	    
+	    flex: 1;
+
+	    display: flex;
+	    align-items: center;
+	    justify-content: flex-start;
+	    transition: background-color .75s ease;
+
+	    &:hover {
+		background-color: $gris5;
+		border-color: $gris4;
+		transition: background-color .25s;
+	    }
+
+
+
+	    select {
+		flex: 2;
+		transition: 0.75s;
+
+	    }
+
+	    label {
+		color: $blanc16;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		background: $primary-color;
+		border-color: $blanc16;
+		white-space: normal;
+		overflow: hidden;
+	    }
+	}
+	}
+
+    article#equipes {
+	@include bordureArrondi;
+	@include bordureDefaut;
+	padding: .5rem;
+	margin: .5rem;
+
+	border-color: $blanc16;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1rem;
+	
+	background-color: $gris5;
+    }
+
+}

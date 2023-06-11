@@ -1,6 +1,6 @@
 <main id="brassage">
     <article id="selecteurs" class="selecteurs">
-	<div id="itemFormulaire">
+	<div class="itemFormulaire">
 	<label for="serie">Série</label>
 	<select id="serie" name="serie">
 	    <option value="1">Première</option>
@@ -9,7 +9,7 @@
 	</select>
 	</div>
 
-	<div id="itemFormulaire">
+	<div class="itemFormulaire">
 	<label for="genre">Genre</label>
 	<select id="genre" name="genre">
 	    <option value="1">Homme</option>
