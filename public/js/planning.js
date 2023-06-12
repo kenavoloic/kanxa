@@ -131,9 +131,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //serie.addEventListener('change', ecouteurs);
     //genre.addEventListener('change', ecouteurs);
-    
-    const liste_ = document.querySelector('#liste').textContent;
-    const liste = JSON.parse(liste_);
+
+    const ppp_ = JSON.parse(document.querySelector('#partiesParPoule').textContent, true).resultat;
+    const liste_ = JSON.parse(document.querySelector('#liste').textContent);
+
+    console.log('ppp => ', ppp_);
+    //console.log(liste_);
+    //const liste = JSON.parse(liste_).liste;
+
+    const liste = liste_.liste;
+    const listeSerie = liste_.serie;
+    const listeGenre = liste_.genre;
+
+    //console.log(listeSerie, listeGenre);
+
 
     const triPoule = (a,b) => a.pouleId - b.pouleId; 
     const _getPoule = x => y => x.has(y) ? x.get(y).sort(triPoule) : 'vide';

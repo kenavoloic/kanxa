@@ -11,12 +11,24 @@ class Planning {
     }
 
     public function affichage(?array $envoi): void {
-	$tableau = $envoi['tableau']['liste'];
+	//$tableau = $envoi['tableau']['liste'];
+	$tableau = $envoi['tournoi'];
+	$titre = $envoi['titre'];
+	$parties = $envoi['parties'];
+	//$tableau = $envoi['tableau'];
+	//$parties = $envoi['tableau']['partiesParPoule'];
+	//echo "Planning Vues affichage => " . PHP_EOL;
+	//var_dump(json_decode($parties, true));
+	//var_dump($parties);
+	//var_dump($tableau);
+	//print_r($parties);
+	//print_r($tableau);
 	
-	echo $this->getEntete($this->titre);
+	//echo $this->getEntete($this->titre);
+	echo $this->getEntete($titre);
 
 	//if($this->administrateur_p()){
-	    echo $this->getComposant('headerAdministrateur');
+	echo $this->getComposant('headerAdministrateur');
 	//}
 
 	/* if(!$this->administrateur_p()){
@@ -24,6 +36,8 @@ class Planning {
 	   } */
 
 	echo $this->getDivCachee('liste', $tableau);
+	//echo $this->getDivCachee('partiesParPoule', json_decode($parties));
+	echo $this->getDivCachee('partiesParPoule', $parties);
 	echo $this->getComposant('planning');
 	//echo $this->getComposantTableau('planning', $tableau);
 

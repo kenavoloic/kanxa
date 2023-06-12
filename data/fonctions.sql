@@ -17,6 +17,8 @@ DROP FUNCTION IF EXISTS jsonDateQuarts;
 DROP FUNCTION IF EXISTS jsonDateDemiFinales;
 DROP FUNCTION IF EXISTS jsonDateFin;
 
+DROP FUNCTION IF EXISTS jsonCorrespondancePouleParties;
+
 DROP FUNCTION IF EXISTS jsonEquipeId;
 DROP FUNCTION IF EXISTS jsonEquipeIdNom;
 DROP FUNCTION IF EXISTS jsonEquipeComplete;
@@ -543,6 +545,15 @@ CREATE FUNCTION jsonSerieGenreTournoi(_serie INT, _genre INT) RETURNS JSON READS
 BEGIN
 DECLARE retour JSON;
 SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipeId',equipeId,'tournoiId',tournoiId,'poule',poule,'pouleId',pouleId,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2,'souhait',s.intitule)) FROM equipes e INNER JOIN souhaits s on e.souhait = s.souhaitId WHERE serie=_serie AND genre=_genre ORDER BY poule);
+RETURN retour;
+END;
+$$
+
+DELIMITER $$
+CREATE FUNCTION jsonCorrespondancePouleParties(nombre INT) RETURNS JSON READS SQL DATA
+BEGIN
+DECLARE retour JSON;
+SET retour = (SELECT JSON_ARRAYAGG(JSON_OBJECT('equipe1',equipe1,'equipe2',equipe2)) FROM pouleParties WHERE equipesParPoule = nombre);
 RETURN retour;
 END;
 $$

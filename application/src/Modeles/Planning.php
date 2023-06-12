@@ -7,8 +7,10 @@ class Planning {
     private $requeteJourDebut = "select jsonDateDebut();";
     private $requeteJourQuarts = "select jsonDateQuarts();";
     private $requeteJourFin = " select jsonDateFin();";
-    private $requeteTournoi = "select jsonSerieGenreTournoi(:serie,:genre);";
-    private $requeteNombrePoules = "select intNombrePoule(:serie, :genre);";
+    private $requeteTournoi = "select jsonSerieGenreTournoi(:serie,:genre) as resultat;";
+    private $requeteNombrePoules = "select intNombrePoule(:serie, :genre) as resultat;";
+
+    private $requetePartiesPoule = "select jsonCorrespondancePouleParties(:equipesParPoule) as resultat;";
 
     private JourCalendaire $debut;
     private JourCalendaire $fin;
@@ -20,6 +22,20 @@ class Planning {
 	$this->periode = new PeriodeCalendaire($this->debut, $this->fin);
     }
 
+    public function getPartiesPoule(int $nombre): array {
+	$valeurs = [':equipesParPoule' => $nombre];
+	$reponse = $this->pdo->prepare($this->requetePartiesPoule);
+	$reponse->execute($valeurs);
+	return $reponse->fetchAll(\PDO::FETCH_ASSOC)[0];
+	//$liste = $reponse->fetch(\PDO::FETCH_NUM);
+	
+	//$retour = json_encode($liste);
+	//return $retour;
+	//return json_decode($liste[0], true);
+	//return $reponse->fetch(\PDO::FETCH_NUM)[0];
+    }
+
+    
     public function getNombrePoules(int $serie, int $genre): array {
 	$valeurs = [':serie' => $serie, ':genre' => $genre];
 	$reponse = $this->pdo->prepare($this->requeteNombrePoules);

@@ -31,4 +31,7 @@
 
     <article id="equipes">
     </article>
+
+    <article id="parties">
+    </article>
 </main>

@@ -107,3 +107,23 @@ ALTER TABLE parties ADD FOREIGN KEY (genre) REFERENCES genres (genreId) ON DELET
 ALTER TABLE parties ADD FOREIGN KEY (phase) REFERENCES phases (phaseId) ON DELETE SET NULL;
 ALTER TABLE parties ADD FOREIGN KEY (planning) REFERENCES planning (planningId) ON DELETE SET NULL;
 
+DROP TABLE IF EXISTS pouleParties;
+CREATE TABLE pouleParties(
+ppId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+equipesParPoule INT NOT NULL,
+equipe1 INT NOT NULL,
+equipe2 INT NOT NULL
+);
+
+INSERT INTO pouleParties(equipesParPoule, equipe1, equipe2) VALUES
+(3, 1, 2),
+(3, 1, 3),
+(3, 2, 3),
+(4, 1, 2),
+(4, 1, 3),
+(4, 1, 4),
+(4, 2, 3),
+(4, 2, 4),
+(4, 3, 4);
+
+

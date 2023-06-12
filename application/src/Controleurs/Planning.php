@@ -41,7 +41,8 @@ class Planning {
     }
 
     public function index(array $envoi): void {
-	$this->vue->affichage(['titre' => $this->titre, 'tableau' => $this->modele->getTournoi(1,1)]);
+	//$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1)]);
+	$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4)]);
     }
 
     public function __toString(): string {
