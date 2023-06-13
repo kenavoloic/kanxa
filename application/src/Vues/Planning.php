@@ -15,6 +15,8 @@ class Planning {
 	$tableau = $envoi['tournoi'];
 	$titre = $envoi['titre'];
 	$parties = $envoi['parties'];
+	$listeSerie = $tableau['serie'];
+	$listeGenre = $tableau['genre'];
 	//$tableau = $envoi['tableau'];
 	//$parties = $envoi['tableau']['partiesParPoule'];
 	//echo "Planning Vues affichage => " . PHP_EOL;
@@ -35,9 +37,11 @@ class Planning {
 	   echo $this->getComposant('headerUtilisateur');
 	   } */
 
-	echo $this->getDivCachee('liste', $tableau);
+	echo $this->getDivCachee('listeSerie', $listeSerie);
+	echo $this->getDivCachee('listeGenre', $listeGenre);
+	echo $this->getDivCacheeTableau('liste', $tableau);
 	//echo $this->getDivCachee('partiesParPoule', json_decode($parties));
-	echo $this->getDivCachee('partiesParPoule', $parties);
+	echo $this->getDivCacheeTableau('partiesParPoule', $parties);
 	echo $this->getComposant('planning');
 	//echo $this->getComposantTableau('planning', $tableau);
 

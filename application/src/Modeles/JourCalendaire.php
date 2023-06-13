@@ -13,7 +13,8 @@ class JourCalendaire {
 
     public function __construct(private ?string $chaine){
 
-	$this->jour = preg_match('/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/', $chaine) ? new \DateTime($chaine) : new \DateTime();
+	//$this->jour = preg_match('/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/', $chaine) ? new \DateTime($chaine) : new \DateTime();
+	$this->jour = is_null($chaine) ? new \DateTime() : (preg_match('/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/', $chaine) ? new \DateTime($chaine) : new \DateTime());
 
 	$this->jour->setTime(9,0); // heure par défaut 9:00:00
 

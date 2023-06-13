@@ -22,7 +22,7 @@ class Planning {
 	$this->periode = new PeriodeCalendaire($this->debut, $this->fin);
     }
 
-    public function getPartiesPoule(int $nombre): array {
+    public function _getPartiesPoule(int $nombre): array {
 	$valeurs = [':equipesParPoule' => $nombre];
 	$reponse = $this->pdo->prepare($this->requetePartiesPoule);
 	$reponse->execute($valeurs);
@@ -44,6 +44,17 @@ class Planning {
 	//$retour = json_encode(range(1,$nombre));
 	return range(1,$nombre);
     }
+
+    public function getPartiesPoule(int $nombre=4): array {
+	$valeurs = [':equipesParPoule' => $nombre];
+	$reponse = $this->pdo->prepare($this->requetePartiesPoule);
+	$reponse->execute($valeurs);
+	$retour =  $reponse->fetchAll(\PDO::FETCH_ASSOC);
+	$liste = !is_null(array_values($retour[0])[0]) ? json_decode(array_values($retour[0])[0], true) : null;
+	return ['liste' => $liste];
+	
+    }
+    
     
     
     public function getTournoi(int $serie, int $genre): array {

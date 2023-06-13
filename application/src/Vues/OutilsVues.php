@@ -15,10 +15,20 @@ trait OutilsVues {
        return ['dateId' => dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee];
      * } */
 
-    public function getDivCachee(string $identifiant, array $tableau): string{
+    public function getDivCachee(string $identifiant, int $singleton): string{
 	ob_start();
 	echo "<div id=\"$identifiant\" hidden>" . PHP_EOL;
-	echo json_encode($tableau, JSON_UNESCAPED_UNICODE) . PHP_EOL;
+	echo json_encode($singleton, JSON_UNESCAPED_UNICODE) . PHP_EOL;
+	echo '</div>' . PHP_EOL;
+	$retour = ob_get_contents();
+	ob_get_clean();
+	return $retour;
+    }
+
+    public function getDivCacheeTableau(string $identifiant, array $tableau): string{
+	ob_start();
+	echo "<div id=\"$identifiant\" hidden>" . PHP_EOL;
+	echo json_encode($tableau['liste'], JSON_UNESCAPED_UNICODE) . PHP_EOL;
 	echo '</div>' . PHP_EOL;
 	$retour = ob_get_contents();
 	ob_get_clean();
