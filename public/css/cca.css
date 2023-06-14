@@ -895,7 +895,7 @@ main#creationPoules {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between; }
+    justify-content: flex-start; }
   main#creationPoules article.equipe {
     margin-bottom: 1rem;
     display: flex;
@@ -1528,7 +1528,7 @@ main#timetable {
         border-color: #FFFFFF;
         white-space: normal;
         overflow: hidden; }
-  main#timetable article {
+  main#timetable article#equipes {
     border-radius: 5px;
     border: 2px solid transparent;
     padding: .5rem;

@@ -164,6 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 		/* .then(reponse => reponse.json())
 		   .then(reponse => console.log(reponse)); */
+
+		// devrait fonctionner 
+		document.querySelector("#brassageEffectue").removeEventListener('click', (e) => {
+		    document.querySelector("#brassageEffectue").disabled = false;
+		});
+
 	    }
 	});
     }

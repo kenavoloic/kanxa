@@ -136,12 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const liste = JSON.parse(document.querySelector('#liste').textContent);
 
     //console.log('ppp => ', ppp_);
-    //console.log(liste_);
+    console.log('liste => ', liste);
     //const liste = JSON.parse(liste_).liste;
 
     //const liste = liste_;
     //console.log(liste);
-    console.log(ppp);
+    //    console.log(ppp);
+    
     const listeSerie_ = document.querySelector('#listeSerie').textContent;
     const listeGenre_ = document.querySelector('#listeGenre').textContent;
     const listeSerie = nombre_p(listeSerie_) ? listeSerie : 1; // par défaut, première série
@@ -184,9 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     //const identifiantsPoule = [...new Set(liste.map(x => 'p'+`${x.poule}`.padStart(2, '0')))];
-    const identifiantsPoule = [...new Set(liste.map(x => nomPoule(x.poule)))].map((x,index) => ({nom:x, numero: index+1}));
+    //const identifiantsPoule = [...new Set(liste.map(x => nomPoule(x.poule)))].map((x,index) => ({nom:x, numero: index+1}));
+    const identifiantsPoule = [...new Set(liste.map(x => nomPoule(x.poule)))].sort().map((x,index) => ({nom:x, numero: index+1}));
     //const identifiantsPoule = [...new Set(liste.map(x => ({numero:x.poule, nom:nomPoule(x.poule)})))];
-    //console.log(identifiantsPoule);
+    console.log('identifiantsPoule => ', identifiantsPoule);
     
     const poules = liste.reduce(reducteurListe, new Map());
 
