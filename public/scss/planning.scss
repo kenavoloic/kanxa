@@ -5,7 +5,64 @@ main#timetable {
     margin:1rem;
     padding: 1rem;
 
-        form {
+    dl {
+	@include bordureArrondi;
+	@include bordureDefaut;
+	
+	background-color: $blanc16;;
+	border-color: $noir5;//$blanc16;
+	//font-size: .9rem;
+
+	dt {
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    //color: $blanc16;
+	    span {
+		color: $vert6;
+	    }
+	    &.tournoiId {
+		color: $rouge8;
+	    }
+	}
+
+	dd {
+	    background-color: $gris9;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+
+	    margin: .4rem .2rem;
+	    padding: .3rem;
+
+
+	    &.souhait {
+		color: $vert6;
+		background-color: $blanc16;
+	    }
+
+	    &.equipe {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		column-gap: .3rem;
+		margin: .4rem .2rem;
+		padding: .3rem;
+		background-color: transparent;
+		span {
+		    display: inline-block;
+		    background: $primary-color-dark;
+		    color: $blanc16;
+		    padding: .2rem;
+		    @include bordureArrondi;
+		    @include bordureDefaut;
+		}
+	    }
+	    
+	}
+    }
+
+    form {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -29,12 +86,9 @@ main#timetable {
 		transition: background-color .25s;
 	    }
 
-
-
 	    select {
 		flex: 2;
 		transition: 0.75s;
-
 	    }
 
 	    label {
@@ -50,7 +104,7 @@ main#timetable {
 		overflow: hidden;
 	    }
 	}
-	}
+    }
 
     article#equipes {
 	@include bordureArrondi;
@@ -65,6 +119,67 @@ main#timetable {
 	gap: 1rem;
 	
 	background-color: $gris5;
+    }
+
+    article#parties {
+	@include bordureArrondi;
+	@include bordureDefaut;
+
+	padding: .5rem;
+	margin: .5rem;
+	
+	border-color: $blanc16;
+
+	background-color: $gris5;
+
+	span {
+	    display: inline-block;
+	    color: $blanc16;
+	    padding: .2rem;
+	    border-radius: .4rem;
+	}
+
+	select, label {
+	    height: 2.4rem;
+	}
+
+	dl {
+
+	    @include bordureArrondi;
+	    @include bordureDefaut;
+
+	    background-color: transparent;
+	    
+	    /* dd.partie {
+	       display: flex;
+	       align-items: center;
+	       justify-content: flex-start;
+	       background-color: $transparent; //$blanc16;
+	       } */
+
+	    dd.partie {
+		display: flex;
+		align-items: center;
+
+		@include bordureArrondi;
+		@include bordureDefaut;
+		border-radius: 7px;
+		border-color: $blanc16;
+
+		div {
+		    margin: 0 .3rem;
+		    padding: 0.5rem 0.4rem;
+		    display: flex;
+		    align-items: center;
+		    justify-content: flex-start;
+		    flex-wrap: wrap;
+		}
+	    }
+	}
+	
+
+
+
     }
 
 }

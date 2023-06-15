@@ -18,10 +18,14 @@ const reducteurTableau = (retour, x) => {
     dl.setAttribute('data-equipeId',equipeId);
     
     const dt = document.createElement('dt');
+    dt.setAttribute('class','tournoiId');
     const dd1 = document.createElement('dd');
     const dd2 = document.createElement('dd');
+    dd1.setAttribute('class','equipe');
+    dd2.setAttribute('class','equipe');
 
     const dds = document.createElement('dd');
+    dds.setAttribute('class','souhait');
     
     const sp1n = document.createElement('span');
     const sp1p = document.createElement('span');
@@ -120,6 +124,8 @@ const getOptionsPoules = (tableau, ecouteur) => {
 const creationPartie = (equipe1, equipe2, index) => {
     //let {equipe1, equipe2} = x;
     let nom = `${equipe1.tournoiId}_${equipe2.tournoiId}`;
+
+    let affiche = `${equipe1.tournoiId} &ndash; ${equipe2.tournoiId}`;
     
     const dd = document.createElement('dd');
     dd.setAttribute('class','partie');
@@ -152,7 +158,9 @@ const creationPartie = (equipe1, equipe2, index) => {
     const _choix = document.createElement('label');
 
     choix.setAttribute('id', `choix_${nom}`);
-    choix.setAttribute('type','checkbox');    
+    choix.setAttribute('type','checkbox');
+    choix.setAttribute('class','carre');
+    
     _choix.setAttribute('for',`choix_${nom}`);
     _choix.appendChild(document.createTextNode("Oui"));
 
