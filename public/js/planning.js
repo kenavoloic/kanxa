@@ -3,6 +3,12 @@ import {nombre_p} from './modules/predicats.js';
 
 //const nombre_p = /\d+/;
 
+const triPoule = (a,b) => a.pouleId - b.pouleId; 
+const _getPoule = x => y => x.has(y) ? x.get(y).sort(triPoule) : 'vide';
+//const nomPoule = chaine => 'p'+`${chaine}`.padStart(2, '0');
+const nomPoule = chaine => 'p'.concat(`${chaine}`.padStart(2,'0'));
+
+
 const reducteurTableau = (retour, x) => {
     let {equipeId, tournoiId, pouleId, nom1, prenom1, nom2, prenom2, souhait} = x;
 
@@ -57,6 +63,7 @@ const reducteurTableau = (retour, x) => {
 };
 
 const ecouteurPoule = (tableau, fonction) => {
+    //console.log('écouteurPoule => ', tableau);
     let liste = tableau.reduce(fonction, new DocumentFragment());
 
     //const equipes = document.createElement('article');
@@ -93,7 +100,6 @@ const option = valeur => {
     return retour;
 }
 
-
 const getOptionsPoules = (tableau, ecouteur) => {
     let selecteur = document.querySelector('#poule');
     // Suppression des poules qui existeraient
@@ -129,6 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const poule = document.querySelector('#poule');
     const parties = document.querySelector('#parties');
 
+    let listeEquipes = null;
+
     //serie.addEventListener('change', ecouteurs);
     //genre.addEventListener('change', ecouteurs);
 
@@ -136,20 +144,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const liste = JSON.parse(document.querySelector('#liste').textContent);
 
     //console.log('ppp => ', ppp_);
-    console.log('liste => ', liste);
+    //console.log('liste => ', liste);
     //const liste = JSON.parse(liste_).liste;
 
     //const liste = liste_;
     //console.log(liste);
-    //    console.log(ppp);
+    //console.log('ppp => ', ppp);
     
     const listeSerie_ = document.querySelector('#listeSerie').textContent;
     const listeGenre_ = document.querySelector('#listeGenre').textContent;
     const listeSerie = nombre_p(listeSerie_) ? listeSerie : 1; // par défaut, première série
     const listeGenre = nombre_p(listeGenre_) ? listeGenre : 1; // par défaut, tournoi masculin
 
-    const creationPartie = (x, index) => {
-	let {equipe1, equipe2} = x;
+    const creationPartie = (equipe1, equipe2, index) => {
+	//let {equipe1, equipe2} = x;
 	
 	const dd = document.createElement('dd');
 	dd.setAttribute('class','partie');
@@ -158,9 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	const sp1 = document.createElement('span');
 	const sp2 = document.createElement('span');
 	sp1.setAttribute('class','e1');
+	sp1.setAttribute('data-equipe', equipe1.equipeId);
+	sp1.setAttribute('data-poule', equipe1.pouleId);
 	sp2.setAttribute('class','e2');
-	sp1.appendChild(document.createTextNode(equipe1));
-	sp2.appendChild(document.createTextNode(equipe2));
+	sp2.setAttribute('data-equipe', equipe2.equipeId);
+	sp2.setAttribute('data-poule', equipe2.pouleId);
+	sp1.appendChild(document.createTextNode(equipe1.tournoiId));
+	sp2.appendChild(document.createTextNode(equipe2.tournoiId));
 	dd.appendChild(sp1);
 	dd.appendChild(sp2);
 	return dd;
@@ -169,11 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-    const triPoule = (a,b) => a.pouleId - b.pouleId; 
-    const _getPoule = x => y => x.has(y) ? x.get(y).sort(triPoule) : 'vide';
-
-    //const nomPoule = chaine => 'p'+`${chaine}`.padStart(2, '0');
-    const nomPoule = chaine => 'p'.concat(`${chaine}`.padStart(2,'0'));
 
     const reducteurListe = (retour, x) => {
 	//let nom = 'p'+`${x.poule}`.padStart(2, '0');
@@ -188,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //const identifiantsPoule = [...new Set(liste.map(x => nomPoule(x.poule)))].map((x,index) => ({nom:x, numero: index+1}));
     const identifiantsPoule = [...new Set(liste.map(x => nomPoule(x.poule)))].sort().map((x,index) => ({nom:x, numero: index+1}));
     //const identifiantsPoule = [...new Set(liste.map(x => ({numero:x.poule, nom:nomPoule(x.poule)})))];
-    console.log('identifiantsPoule => ', identifiantsPoule);
+    //console.log('identifiantsPoule => ', identifiantsPoule);
     
     const poules = liste.reduce(reducteurListe, new Map());
 
@@ -217,13 +224,27 @@ document.addEventListener('DOMContentLoaded', () => {
     //let t = ppp.map(creationPartie);
     //console.log(t);
 
-    const creationListeParties = envoi => {
+    const creationListeParties = (envoi, teams) => {
 	let df = new DocumentFragment();
 	const dl = document.createElement('dl');
+	let pouleIds = teams.reduce((retour, x) => {
+	    retour.set(x.pouleId, x);
+	    return retour;
+	}, new Map());
+
+	//console.log('ids => ', pouleIds);
+	//console.log('1 => ', pouleIds.get(1));
+
+	//console.log('équipes => ', teams);
 	//const tous = envoi.map((x, index) => creationPartie(x,index));
 	//dl.appendChild([...tous]);
 	envoi.forEach((x,index) => {
-	    let dd = creationPartie(x,index);
+	    //console.log('créationListeParties => ', x);
+	    let {equipe1, equipe2} = x;
+	    console.log(pouleIds.get(equipe1).tournoiId, pouleIds.get(equipe2).tournoiId);
+	    //console.log('creationListeParties => ', equipe1, equipe2);
+	    //let dd = creationPartie(x,index);
+	    let dd = creationPartie(pouleIds.get(equipe1), pouleIds.get(equipe2), index);
 	    dl.appendChild(dd);
 	});
 	df.appendChild(dl);
@@ -236,15 +257,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     poule.addEventListener('change', (e) => {
 	let valeur = e.srcElement.value;
+	console.log('poule ===> ', valeur);
 	//console.log(e.target, e.srcElement);
 	//console.log(e.srcElement.options[e.srcElement.selectedIndex].text);
 	//console.log(getPoule(valeur));
 	//console.log(e.srcElement.value);
-	ecouteurPoule(getPoule(valeur), reducteurTableau);
+	listeEquipes = getPoule(valeur);
+	console.log('listeEquipes => ', listeEquipes);
+	//ecouteurPoule(getPoule(valeur), reducteurTableau);
+	ecouteurPoule(listeEquipes, reducteurTableau);
     });
 
     poule.dispatchEvent(new Event('change'));
 
-    parties.replaceChildren(creationListeParties(ppp));
+    parties.replaceChildren(creationListeParties(ppp, listeEquipes));
 
 });
