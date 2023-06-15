@@ -119,11 +119,50 @@ const getOptionsPoules = (tableau, ecouteur) => {
 
 const creationPartie = (equipe1, equipe2, index) => {
     //let {equipe1, equipe2} = x;
+    let nom = `${equipe1.tournoiId}_${equipe2.tournoiId}`;
     
     const dd = document.createElement('dd');
     dd.setAttribute('class','partie');
-    //dd.setAttribute('id', `partie${index}`);
     dd.setAttribute('id', 'partie'.concat(`${index}`.padStart(4,'0')));
+
+    const horaire = document.createElement('div');
+    horaire.setAttribute('id', nom);
+    
+    const jj = document.createElement('select');
+    const _jj = document.createElement('label');
+
+    jj.setAttribute('id', `jj_${nom}`);
+    _jj.setAttribute('for',`jj_${nom}`);
+    _jj.appendChild(document.createTextNode("Jour"));
+    _jj.setAttribute('data-court', 'J');
+    _jj.setAttribute('data-long', 'Jour');
+
+    
+    const hh = document.createElement('select');
+    const _hh = document.createElement('label');
+
+    hh.setAttribute('id', `hh_${nom}`);
+    _hh.setAttribute('for',`hh_${nom}`);
+    _hh.appendChild(document.createTextNode("Heure"));
+    _hh.setAttribute('data-court', 'H');
+    _hh.setAttribute('data-long', 'Heure');
+    
+    
+    const choix = document.createElement('input');
+    const _choix = document.createElement('label');
+
+    choix.setAttribute('id', `choix_${nom}`);
+    choix.setAttribute('type','checkbox');    
+    _choix.setAttribute('for',`choix_${nom}`);
+    _choix.appendChild(document.createTextNode("Oui"));
+
+    horaire.appendChild(_jj);
+    horaire.appendChild(jj);
+    horaire.appendChild(_hh);
+    horaire.appendChild(hh);
+    horaire.appendChild(_choix);
+    horaire.appendChild(choix);
+    
     const sp1 = document.createElement('span');
     const sp2 = document.createElement('span');
     sp1.setAttribute('class','e1');
@@ -136,6 +175,8 @@ const creationPartie = (equipe1, equipe2, index) => {
     sp2.appendChild(document.createTextNode(equipe2.tournoiId));
     dd.appendChild(sp1);
     dd.appendChild(sp2);
+    dd.appendChild(horaire);
+    
     return dd;
 };
 
