@@ -63,14 +63,8 @@ const reducteurTableau = (retour, x) => {
 };
 
 const ecouteurPoule = (tableau, fonction) => {
-    //console.log('écouteurPoule => ', tableau);
     let liste = tableau.reduce(fonction, new DocumentFragment());
-
-    //const equipes = document.createElement('article');
-    //equipes.appendChild(liste);
-    //document.querySelector('#timetable').appendChild(equipes);
     document.querySelector('#equipes').replaceChildren(liste);
-    
 };
 
 const ecouteurs = () => {
@@ -107,7 +101,6 @@ const getOptionsPoules = (tableau, ecouteur) => {
     while(selecteur.options.length > 0){
 	selecteur.remove(0);
     }
-
     
     let zero = document.createElement('option');
     zero.value = 0;
@@ -122,6 +115,72 @@ const getOptionsPoules = (tableau, ecouteur) => {
     options.forEach(x => df.appendChild(x));
     selecteur.append(df);
     selecteur.addEventListener('change', ecouteur);
+};
+
+const creationPartie = (equipe1, equipe2, index) => {
+    //let {equipe1, equipe2} = x;
+    
+    const dd = document.createElement('dd');
+    dd.setAttribute('class','partie');
+    //dd.setAttribute('id', `partie${index}`);
+    dd.setAttribute('id', 'partie'.concat(`${index}`.padStart(4,'0')));
+    const sp1 = document.createElement('span');
+    const sp2 = document.createElement('span');
+    sp1.setAttribute('class','e1');
+    sp1.setAttribute('data-equipe', equipe1.equipeId);
+    sp1.setAttribute('data-poule', equipe1.pouleId);
+    sp2.setAttribute('class','e2');
+    sp2.setAttribute('data-equipe', equipe2.equipeId);
+    sp2.setAttribute('data-poule', equipe2.pouleId);
+    sp1.appendChild(document.createTextNode(equipe1.tournoiId));
+    sp2.appendChild(document.createTextNode(equipe2.tournoiId));
+    dd.appendChild(sp1);
+    dd.appendChild(sp2);
+    return dd;
+};
+
+const reducteurListe = (retour, x) => {
+    //let nom = 'p'+`${x.poule}`.padStart(2, '0');
+    let nom = nomPoule(x.poule);
+    //console.log([...retour]);
+    //console.log(x);
+    //console.log(nom);
+    return retour.has(nom) ? retour.set(nom,  [x, ...retour.get(nom)]) : retour.set(nom, [x]);	
+};
+
+const creationOptionPoule = ({nom, numero}) => {
+    let option = document.createElement('option');
+    option.setAttribute('value', nom);
+    option.appendChild(document.createTextNode(numero));
+    return option;
+};
+
+const creationOptions = liste => {
+    let df = new DocumentFragment();
+    let options = liste.map(creationOptionPoule);
+    options.forEach(x => df.appendChild(x));
+    //df.appendChild(options);
+    return df;
+};
+
+const creationListeParties = (envoi, teams) => {
+    let df = new DocumentFragment();
+
+    const dl = document.createElement('dl');
+
+    let pouleIds = teams.reduce((retour, x) => {
+	retour.set(x.pouleId, x);
+	return retour;
+    }, new Map());
+
+    envoi.forEach((x,index) => {
+	let {equipe1, equipe2} = x;
+	let dd = creationPartie(pouleIds.get(equipe1), pouleIds.get(equipe2), index);
+	dl.appendChild(dd);
+    });
+    
+    df.appendChild(dl);
+    return df;
 };
 
 
@@ -143,133 +202,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const ppp = JSON.parse(document.querySelector('#partiesParPoule').textContent);
     const liste = JSON.parse(document.querySelector('#liste').textContent);
 
-    //console.log('ppp => ', ppp_);
-    //console.log('liste => ', liste);
-    //const liste = JSON.parse(liste_).liste;
-
-    //const liste = liste_;
-    //console.log(liste);
-    //console.log('ppp => ', ppp);
-    
     const listeSerie_ = document.querySelector('#listeSerie').textContent;
     const listeGenre_ = document.querySelector('#listeGenre').textContent;
     const listeSerie = nombre_p(listeSerie_) ? listeSerie : 1; // par défaut, première série
     const listeGenre = nombre_p(listeGenre_) ? listeGenre : 1; // par défaut, tournoi masculin
 
-    const creationPartie = (equipe1, equipe2, index) => {
-	//let {equipe1, equipe2} = x;
-	
-	const dd = document.createElement('dd');
-	dd.setAttribute('class','partie');
-	//dd.setAttribute('id', `partie${index}`);
-	dd.setAttribute('id', 'partie'.concat(`${index}`.padStart(4,'0')));
-	const sp1 = document.createElement('span');
-	const sp2 = document.createElement('span');
-	sp1.setAttribute('class','e1');
-	sp1.setAttribute('data-equipe', equipe1.equipeId);
-	sp1.setAttribute('data-poule', equipe1.pouleId);
-	sp2.setAttribute('class','e2');
-	sp2.setAttribute('data-equipe', equipe2.equipeId);
-	sp2.setAttribute('data-poule', equipe2.pouleId);
-	sp1.appendChild(document.createTextNode(equipe1.tournoiId));
-	sp2.appendChild(document.createTextNode(equipe2.tournoiId));
-	dd.appendChild(sp1);
-	dd.appendChild(sp2);
-	return dd;
-    }
-    //console.log(listeSerie, listeGenre);
-    
-
-
-
-    const reducteurListe = (retour, x) => {
-	//let nom = 'p'+`${x.poule}`.padStart(2, '0');
-	let nom = nomPoule(x.poule);
-	//console.log([...retour]);
-	//console.log(x);
-	//console.log(nom);
-	return retour.has(nom) ? retour.set(nom,  [x, ...retour.get(nom)]) : retour.set(nom, [x]);	
-    };
-
-    //const identifiantsPoule = [...new Set(liste.map(x => 'p'+`${x.poule}`.padStart(2, '0')))];
-    //const identifiantsPoule = [...new Set(liste.map(x => nomPoule(x.poule)))].map((x,index) => ({nom:x, numero: index+1}));
     const identifiantsPoule = [...new Set(liste.map(x => nomPoule(x.poule)))].sort().map((x,index) => ({nom:x, numero: index+1}));
-    //const identifiantsPoule = [...new Set(liste.map(x => ({numero:x.poule, nom:nomPoule(x.poule)})))];
-    //console.log('identifiantsPoule => ', identifiantsPoule);
     
     const poules = liste.reduce(reducteurListe, new Map());
-
-    //console.log([...poules]);
-
-    //console.log(liste);
-    
     const getPoule = _getPoule(poules);
 
-    const creationOptionPoule = ({nom, numero}) => {
-	let option = document.createElement('option');
-	option.setAttribute('value', nom);
-	option.appendChild(document.createTextNode(numero));
-	return option;
-    };
-
-    const creationOptions = liste => {
-	let df = new DocumentFragment();
-	let options = liste.map(creationOptionPoule);
-	options.forEach(x => df.appendChild(x));
-	//df.appendChild(options);
-	return df;
-    };
-
-    //const creationParties =
-    //let t = ppp.map(creationPartie);
-    //console.log(t);
-
-    const creationListeParties = (envoi, teams) => {
-	let df = new DocumentFragment();
-	const dl = document.createElement('dl');
-	let pouleIds = teams.reduce((retour, x) => {
-	    retour.set(x.pouleId, x);
-	    return retour;
-	}, new Map());
-
-	//console.log('ids => ', pouleIds);
-	//console.log('1 => ', pouleIds.get(1));
-
-	//console.log('équipes => ', teams);
-	//const tous = envoi.map((x, index) => creationPartie(x,index));
-	//dl.appendChild([...tous]);
-	envoi.forEach((x,index) => {
-	    //console.log('créationListeParties => ', x);
-	    let {equipe1, equipe2} = x;
-	    console.log(pouleIds.get(equipe1).tournoiId, pouleIds.get(equipe2).tournoiId);
-	    //console.log('creationListeParties => ', equipe1, equipe2);
-	    //let dd = creationPartie(x,index);
-	    let dd = creationPartie(pouleIds.get(equipe1), pouleIds.get(equipe2), index);
-	    dl.appendChild(dd);
-	});
-	df.appendChild(dl);
-	return df;
-    };
-    //document.querySelector('#poule').replaceChildren(creationOptions(identifiantsPoule));
     poule.replaceChildren(creationOptions(identifiantsPoule));
-    //console.log(getPoule('p01'));
-    //console.log(getPoule('p03'));
 
     poule.addEventListener('change', (e) => {
 	let valeur = e.srcElement.value;
-	console.log('poule ===> ', valeur);
-	//console.log(e.target, e.srcElement);
 	//console.log(e.srcElement.options[e.srcElement.selectedIndex].text);
 	//console.log(getPoule(valeur));
 	//console.log(e.srcElement.value);
-	listeEquipes = getPoule(valeur);
-	console.log('listeEquipes => ', listeEquipes);
-	//ecouteurPoule(getPoule(valeur), reducteurTableau);
+	let listeEquipes = getPoule(valeur);
+	//console.log('listeEquipes => ', listeEquipes);
+
 	ecouteurPoule(listeEquipes, reducteurTableau);
+	parties.replaceChildren(creationListeParties(ppp, listeEquipes));
     });
 
     poule.dispatchEvent(new Event('change'));
 
-    parties.replaceChildren(creationListeParties(ppp, listeEquipes));
+    //parties.replaceChildren(creationListeParties(ppp, listeEquipes));
 
 });
