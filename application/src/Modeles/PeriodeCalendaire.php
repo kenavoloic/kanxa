@@ -75,6 +75,14 @@ class PeriodeCalendaire {
         return array_filter($envoi, function($x) { return !preg_match('/samedi|dimanche/', $x['nomJour']);});
     }
 
+    public function getNomsJJMMAAAA(): array {
+	$lambda = fn($x) => $x['jj'] === 1 ?
+			  $x['nomJour'].' '. $x['jj'] .'<sup>er</sup> '. $x['mois'] .' '.$x['aaaa']
+			: $x['nomJour'].' '. $x['jj'] .' '. $x['mois'] .' '.$x['aaaa'];
+	return array_map($lambda, $this->listeJours);
+    }
+    
+
     private function _getListeNomsJour(JourCalendaire $envoi, int $debut, int $fin): array{
         // fonction lambda locale à cette méthode
         $lambda = function(JourCalendaire $j){

@@ -11,14 +11,23 @@ class Planning {
     private $modele;
     //private int $jourDebut;
     //private int $jourFin;
-    //private $debut;
-    //private $fin;
+    private $debut;
+    private $quarts;
+    private $fin;
+    private $periode;
     //private $periode;
 
     public function __construct(private \PDO $pdo, private string $methode, private array $parametres, private string $titre="Planning des parties"){
 
 	$this->modele = new \Modeles\Planning($this->pdo);
 	$this->vue = new \Vues\Planning($this->titre);
+	$this->debut = new \Modeles\JourCalendaire($this->modele->getJourDebut()['chaine']);
+	$this->quarts = new \Modeles\JourCalendaire($this->modele->getJourQuarts()['chaine']);
+	$this->periode = new \Modeles\PeriodeCalendaire($this->debut, $this->quarts);
+	//echo "Planning controleur => " . PHP_EOL;
+	//var_dump($this->periode->getListeNomsJour());
+	//print_r($this->periode->getListeNomsJour());
+	//print_r($this->periode->getNomsJJMMAAAA());
 	$this->$methode($parametres);
 
 	//$_SESSION['planning']['debut'] = $this->modele->getJourDebut();
@@ -42,7 +51,8 @@ class Planning {
 
     public function index(array $envoi): void {
 	//$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1)]);
-	$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4)]);
+	//$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4), 'debut' => $this->modele->getJourDebut(), 'quarts' => $this->modele->getJourQuarts()]);
+	$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4), 'debut' => $this->modele->getJourDebut(), 'quarts' => $this->modele->getJourQuarts(), 'periode' => $this->periode->getNomsJJMMAAAA()]);
     }
 
     public function __toString(): string {

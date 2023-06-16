@@ -15,6 +15,17 @@ trait OutilsVues {
        return ['dateId' => dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee];
      * } */
 
+    public function getOptionsPlanning(array $envoi) {
+	$lambda = fn($index, $x) => '<option value="'.$index.'">'.ucfirst($x).'</option>';
+	ob_start();
+	echo "<option selected disabled>Jour</option>" . PHP_EOL;
+	$chaine = implode(PHP_EOL, array_map($lambda, array_keys($envoi), $envoi));
+	echo $chaine . PHP_EOL;
+	$retour = ob_get_contents();
+	ob_get_clean();
+	return $retour;
+    }
+    
     public function getDivCachee(string $identifiant, int $singleton): string{
 	ob_start();
 	echo "<div id=\"$identifiant\" hidden>" . PHP_EOL;

@@ -17,6 +17,20 @@ class Planning {
 	$parties = $envoi['parties'];
 	$listeSerie = $tableau['serie'];
 	$listeGenre = $tableau['genre'];
+	$periode = $envoi['periode'];
+
+	//var_dump($envoi['debut']);
+	$debutTournoi = new \Modeles\JourCalendaire($envoi['debut']['chaine']);
+	$debutQuarts = new \Modeles\JourCalendaire($envoi['quarts']['chaine']);
+	$anneeDebut = $debutTournoi->getAnnee();
+	$anneeQuarts = $debutQuarts->getAnnee();
+
+	//echo $anneeDebut;
+	//echo $anneeQuarts;
+
+	//var_dump($debutTournoi);
+
+	//var_dump($debutQuarts);
 	//$tableau = $envoi['tableau'];
 	//$parties = $envoi['tableau']['partiesParPoule'];
 	//echo "Planning Vues affichage => " . PHP_EOL;
@@ -39,6 +53,13 @@ class Planning {
 
 	echo $this->getDivCachee('listeSerie', $listeSerie);
 	echo $this->getDivCachee('listeGenre', $listeGenre);
+	echo $this->getOptionsPlanning($periode);
+	/* 
+	 * 	if(!is_null($debutTournoi)) { echo $this->getDivCachee('debut', $debutTournoi->getJour());}
+	 * 	if(!is_null($debutTournoi)) { echo $this->getDivCachee('anneeDebut', $debutTournoi->getAnnee());}
+	 * 	if(!is_null($debutQuarts)) { echo $this->getDivCachee('quarts', $debutQuarts->getJour());}
+	 * 	if(!is_null($debutQuarts)) { echo $this->getDivCachee('anneeQuarts', $debutQuarts->getAnnee());} */
+	
 	echo $this->getDivCacheeTableau('liste', $tableau);
 	//echo $this->getDivCachee('partiesParPoule', json_decode($parties));
 	echo $this->getDivCacheeTableau('partiesParPoule', $parties);

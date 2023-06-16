@@ -35,14 +35,18 @@ class Generales {
     private function nettoyageJson(array $envoi): array {
 	$dateId = htmlspecialchars($envoi['dateId']);
 	$evenement = htmlspecialchars($envoi['evenement']);
-	$jour = filter_var($envoi['jour'], FILTER_SANITIZE_NUMBER_INT);
+	// vilain hack
+	// c'était $jour = filter_var($envoi['jour'], FILTER_SANITIZE_NUMBER_INT);
+	$jour = !is_null(filter_var($envoi['jour'], FILTER_SANITIZE_NUMBER_INT)) ? filter_var($envoi['jour'], FILTER_SANITIZE_NUMBER_INT) : 0;
 	$annee = filter_var($envoi['annee'], FILTER_SANITIZE_NUMBER_INT);
-	$chaine = htmlspecialchars($envoi['chaine']);
+	$chaine = !is_null($envoi['chaine']) ? htmlspecialchars($envoi['chaine']) : '';
 
 	// 'jour' => $jour - 1
 	// parce que pour mysql le 1er janvier est le jour 1
 	// parce que pour php le 1er janvier est le jour 0
-	return ['dateId' => $dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee, 'chaine' => $chaine];
+	//return ['dateId' => $dateId, 'evenement' => $evenement, 'jour' => $jour - 1, 'annee' => $annee, 'chaine' => $chaine];
+	// vilain hack intval($jour - 1);
+	return ['dateId' => $dateId, 'evenement' => $evenement, 'jour' => intval($jour) - 1, 'annee' => $annee, 'chaine' => $chaine];
     }
 
     private function _getJJMMAAAA(\DateTime $envoi): array {

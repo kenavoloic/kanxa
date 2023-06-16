@@ -24,7 +24,7 @@ class Generales {
 	$jour = $this->chiffre_p($envoi['jour']) ? $envoi['jour'] : (new \Modeles\JourCalendaire())->getJour();
 	$chaine = implode('-', [$annee, $mois, $jour]);
 	$j = new \Modeles\JourCalendaire($chaine); //->getAAAAMMJJ();
-	return $j->getAAAAMMJJ();
+	return $j->getChaineAAAAMMJJ();
 	//return $j->getJJMMAAAA();
     }
     

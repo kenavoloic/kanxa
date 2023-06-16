@@ -69,7 +69,7 @@ class Planning {
     
 
     public function getJourQuarts(): array {
-	$reponse = $this->pdo->prepare($this->requeteJourDebut);
+	$reponse = $this->pdo->prepare($this->requeteJourQuarts);
 	$reponse->execute();
 	$retour_ = $reponse->fetchAll(\PDO::FETCH_ASSOC);
 	$liste = !is_null(array_values($retour_[0])[0]) ? json_decode(array_values($retour_[0])[0], true) : null;
