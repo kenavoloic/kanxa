@@ -5,70 +5,7 @@ main#timetable {
     margin:1rem;
     padding: 1rem;
 
-    dl {
-	@include bordureArrondi;
-	@include bordureDefaut;
-	
-	background-color: $blanc16;;
-	border-color: $noir5;//$blanc16;
-	//font-size: .9rem;
-
-	dt {
-	    display: flex;
-	    align-items: center;
-	    justify-content: space-between;
-	    //color: $blanc16;
-	    span {
-		color: $vert6;
-	    }
-	    &.tournoiId {
-		color: $rouge8;
-	    }
-	}
-
-	dd {
-	    background-color: $gris9;
-	    display: flex;
-	    align-items: center;
-	    justify-content: space-between;
-
-	    margin: .4rem .2rem;
-	    padding: .3rem;
-
-
-	    &.souhait {
-		color: $vert6;
-		background-color: $blanc16;
-	    }
-
-	    &.equipe {
-		display: flex;
-		align-items: flex-start;
-		justify-content: flex-start;
-		column-gap: .3rem;
-		margin: .4rem .2rem;
-		padding: .3rem;
-		background-color: transparent;
-		span {
-		    display: inline-block;
-		    background: $primary-color-dark;
-		    color: $blanc16;
-		    padding: .2rem;
-		    @include bordureArrondi;
-		    @include bordureDefaut;
-		}
-	    }
-	    
-	}
-    }
-
-    form {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	border-width: 3px;
-
-	div.itemFormulaire {
+    	div.itemFormulaire {
 
 	    @include bordureDefaut;
 	    @include bordureArrondi;
@@ -103,7 +40,147 @@ main#timetable {
 		white-space: normal;
 		overflow: hidden;
 	    }
+
+	    input[type=checkbox]{
+		flex: 2;
+	    }
 	}
+    
+    span {
+	display: inline-block;
+	@include bordureArrondi;
+	@include bordureDefaut;
+	padding: .25rem;
+	border-radius: .4rem;
+
+	&.e1, &.e2 {
+	    color: $primary-color; //$vert6;
+	    border-color:  $primary-color; // $vert6;
+	    background-color: $blanc16;
+	}
+
+
+	&.spid {
+	    color: $primary-color; // $vert6;
+	    border-color: $primary-color; // $vert6;
+	    width: 100%;
+	    text-align: center;
+	    background-color: $blanc16;
+	}
+
+	&.sps {
+	    //color: $primary-color-inverted;
+	    //border-color: $primary-color-inverted;
+	    color: $secondary-color;
+	    border-color: $secondary-color;
+	    background-color: $blanc16;
+	}
+
+	&.nom {
+	    color: $blanc16;
+	    border-color: $blanc16;
+	    background-color: $primary-color;
+	}
+
+	&.prenom {
+	    //color: $primary-color-inverted;
+	    //background-color: $blanc16;
+
+	    //color: $tertiary-color;
+	    //border-color: $tertiary-color;
+
+	    color: $blanc16;
+	    border-color: $blanc16;
+
+
+	}
+
+	
+    }
+
+
+    dl {
+	@include bordureArrondi;
+	@include bordureDefaut;
+
+	border-radius: .7rem;
+	
+	//background-color: $blanc16;;
+	//border-color: $noir5;
+
+	background-color: transparent;
+	border-color: $blanc16;
+	//$blanc16;
+	//font-size: .9rem;
+
+	user-select: none;
+	
+
+	dt {
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    //color: $blanc16;
+	    /* span {
+	       color: $vert6;
+	       }
+	       &.tournoiId {
+	       color: $rouge8;
+	       } */
+	}
+
+	dd {
+	    background-color: $gris9;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+
+	    margin: .4rem .2rem;
+	    padding: .3rem;
+
+
+	    &.souhait {
+		color: $vert6;
+		//background-color: $blanc16;
+		background-color: transparent;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	    }
+
+	    &.equipe {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		column-gap: .3rem;
+		margin: .4rem .2rem;
+		padding: .3rem;
+		background-color: transparent;
+		/* span {
+		   display: inline-block;
+		   background: $primary-color;
+		   color: $blanc16;
+		   padding: .25rem;
+		   @include bordureArrondi;
+		   @include bordureDefaut;
+
+		   /* &.prenom {
+		   color: $primary-color-inverted;
+		   } */
+		// } 
+		
+	    }
+	    
+	}
+    }
+
+    form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-width: 3px;
+
+
     }
 
     article#equipes {
@@ -132,23 +209,17 @@ main#timetable {
 
 	background-color: $gris5;
 
-	span {
-	    display: inline-block;
-	    color: $blanc16;
-	    padding: .2rem;
-	    border-radius: .4rem;
-	}
-
-	select, label {
-	    height: 2.4rem;
-	}
-
+	/* select, label {
+	   height: 2.4rem;
+	   }
+	 */
 	dl {
 
 	    @include bordureArrondi;
 	    @include bordureDefaut;
 
 	    background-color: transparent;
+	    //background-color: $primary-color;
 	    
 	    /* dd.partie {
 	       display: flex;
@@ -161,12 +232,30 @@ main#timetable {
 		display: flex;
 		align-items: center;
 
+		justify-content: space-between; //flex-start;
+		flex-wrap: wrap;
+		column-gap: 3rem;
+
 		@include bordureArrondi;
 		@include bordureDefaut;
 		border-radius: 7px;
 		border-color: $blanc16;
+		//background-color: $primary-color;
 
-		div {
+		div.rencontre {
+		    display: flex;
+		    align-items: center;
+		    justify-content: flex-start;
+		    margin: 0 2rem;
+
+		    column-gap: 1rem;
+
+		    /* span.e1 {
+		       margin-right: .5rem;
+		       } */
+		}
+
+		div.horaire {
 		    margin: 0 .3rem;
 		    padding: 0.5rem 0.4rem;
 		    display: flex;

@@ -26,6 +26,9 @@ const reducteurTableau = (retour, x) => {
 
     const dds = document.createElement('dd');
     dds.setAttribute('class','souhait');
+
+    const spid = document.createElement('span');
+    const sps = document.createElement('span');
     
     const sp1n = document.createElement('span');
     const sp1p = document.createElement('span');
@@ -33,13 +36,19 @@ const reducteurTableau = (retour, x) => {
     const sp2n = document.createElement('span');
     const sp2p = document.createElement('span');
 
-    dt.appendChild(document.createTextNode(tournoiId));
+    //dt.appendChild(document.createTextNode(tournoiId));
+
+    spid.setAttribute('class','spid');
+    sps.setAttribute('class','sps');
 
     sp1n.setAttribute('class','nom');
     sp1p.setAttribute('class','prenom');
     
     sp2n.setAttribute('class','nom');
     sp2p.setAttribute('class','prenom');
+
+    spid.appendChild(document.createTextNode(tournoiId));
+    sps.appendChild(document.createTextNode(souhait));
 
     sp1n.appendChild(document.createTextNode(nom1));
     sp1p.appendChild(document.createTextNode(prenom1));
@@ -53,7 +62,9 @@ const reducteurTableau = (retour, x) => {
     dd2.appendChild(sp2n);
     dd2.appendChild(sp2p);
 
-    dds.appendChild(document.createTextNode(souhait));
+    //dds.appendChild(document.createTextNode(souhait));
+    dds.appendChild(sps);
+    dt.appendChild(spid);
 
     dl.appendChild(dt);
     dl.appendChild(dds);
@@ -132,7 +143,16 @@ const creationPartie = (equipe1, equipe2, index) => {
     dd.setAttribute('id', 'partie'.concat(`${index}`.padStart(4,'0')));
 
     const horaire = document.createElement('div');
+    horaire.setAttribute('class','horaire');
+    horaire.setAttribute('class','horaire');
     horaire.setAttribute('id', nom);
+
+    const djj = document.createElement('div');
+    const dhh = document.createElement('div');
+    const dchoix = document.createElement('div');
+    djj.setAttribute('class','itemFormulaire');
+    dhh.setAttribute('class','itemFormulaire');
+    dchoix.setAttribute('class','itemFormulaire');
     
     const jj = document.createElement('select');
     const _jj = document.createElement('label');
@@ -143,6 +163,9 @@ const creationPartie = (equipe1, equipe2, index) => {
     _jj.setAttribute('data-court', 'J');
     _jj.setAttribute('data-long', 'Jour');
 
+    djj.appendChild(_jj);
+    djj.appendChild(jj);
+
     
     const hh = document.createElement('select');
     const _hh = document.createElement('label');
@@ -152,6 +175,9 @@ const creationPartie = (equipe1, equipe2, index) => {
     _hh.appendChild(document.createTextNode("Heure"));
     _hh.setAttribute('data-court', 'H');
     _hh.setAttribute('data-long', 'Heure');
+
+    dhh.appendChild(_hh);
+    dhh.appendChild(hh);
     
     
     const choix = document.createElement('input');
@@ -164,13 +190,15 @@ const creationPartie = (equipe1, equipe2, index) => {
     _choix.setAttribute('for',`choix_${nom}`);
     _choix.appendChild(document.createTextNode("Oui"));
 
-    horaire.appendChild(_jj);
-    horaire.appendChild(jj);
-    horaire.appendChild(_hh);
-    horaire.appendChild(hh);
-    horaire.appendChild(_choix);
-    horaire.appendChild(choix);
-    
+    dchoix.appendChild(_choix);
+    dchoix.appendChild(choix);
+
+    horaire.appendChild(djj);
+    horaire.appendChild(dhh);
+    horaire.appendChild(dchoix);
+
+    const rencontre = document.createElement('div');
+    rencontre.setAttribute('class','rencontre');
     const sp1 = document.createElement('span');
     const sp2 = document.createElement('span');
     sp1.setAttribute('class','e1');
@@ -181,8 +209,11 @@ const creationPartie = (equipe1, equipe2, index) => {
     sp2.setAttribute('data-poule', equipe2.pouleId);
     sp1.appendChild(document.createTextNode(equipe1.tournoiId));
     sp2.appendChild(document.createTextNode(equipe2.tournoiId));
-    dd.appendChild(sp1);
-    dd.appendChild(sp2);
+    rencontre.appendChild(sp1);
+    rencontre.appendChild(sp2);
+    dd.appendChild(rencontre);
+    //dd.appendChild(sp1);
+    //dd.appendChild(sp2);
     dd.appendChild(horaire);
     
     return dd;
