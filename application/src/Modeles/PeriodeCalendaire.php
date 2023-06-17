@@ -81,46 +81,52 @@ class PeriodeCalendaire {
 			: $x['nomJour'].' '. $x['jj'] .' '. $x['mois'] .' '.$x['aaaa'];
 	return array_map($lambda, $this->listeJours);
     }
-    
+
+    public function getNumeroJourAnneeJJMMAAAA(): array {
+	$lambda = fn($x) => $x['jj'] === 1 ?
+			  ['numero' => $x['numeroJour'], 'annee' => $x['aaaa'], 'jjmmaaaa' => $x['nomJour'].' '. $x['jj'] .'<sup>er</sup> '. $x['mois'] .' '.$x['aaaa']]
+			: ['numero' => $x['numeroJour'], 'annee' => $x['aaaa'], 'jjmmaaaa' => $x['nomJour'].' '. $x['jj'] .' '. $x['mois'] .' '.$x['aaaa']];
+	return array_map($lambda, $this->listeJours);
+    }
 
     private function _getListeNomsJour(JourCalendaire $envoi, int $debut, int $fin): array{
-        // fonction lambda locale à cette méthode
-        $lambda = function(JourCalendaire $j){
-            return function() use ($j){
-                $j->plusUnJour();
-                return ['nomJour' => $j->getNomJour(),
-                        'numeroJour' => $j->getNumeroJour(),
-                        'jj' => $j->getJour(),
-                        'mm' => $j->getMois(),
-                        'mois' => $j->getNomMois(),
-                        'aaaa' => $j->getAnnee()];
-            };
-        };
+	// fonction lambda locale à cette méthode
+	$lambda = function(JourCalendaire $j){
+	    return function() use ($j){
+		$j->plusUnJour();
+		return ['nomJour' => $j->getNomJour(),
+			'numeroJour' => $j->getNumeroJour(),
+			'jj' => $j->getJour(),
+			'mm' => $j->getMois(),
+			'mois' => $j->getNomMois(),
+			'aaaa' => $j->getAnnee()];
+	    };
+	};
 
-        $mu = $lambda($envoi);
+	$mu = $lambda($envoi);
 	
-        $retour = array_map($mu, range($debut, $fin));
-        return $retour;
+	$retour = array_map($mu, range($debut, $fin));
+	return $retour;
     }
     
     public function getNomPremierJour(): string{
-        return $this->debut->getNomJour();
+	return $this->debut->getNomJour();
     }
 
     public function getNumeroPremierJour(): int {
-        return $this->debut->getNumeroJour();
+	return $this->debut->getNumeroJour();
     }
 
     public function getNomDernierJour(): string{
-        return $this->fin->getNomJour();
+	return $this->fin->getNomJour();
     }
 
     public function getNumeroDernierJour(): int {
-        return $this->fin->getNomJour();
+	return $this->fin->getNomJour();
     }
 
     public function __toString(): string {
-        return "$this->nombreJours";
+	return "$this->nombreJours";
     }
     
 }

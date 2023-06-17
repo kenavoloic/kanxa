@@ -13,7 +13,7 @@ class Planning {
     //private int $jourFin;
     private $debut;
     private $quarts;
-    private $fin;
+    //private $fin;
     private $periode;
     //private $periode;
 
@@ -28,6 +28,7 @@ class Planning {
 	//var_dump($this->periode->getListeNomsJour());
 	//print_r($this->periode->getListeNomsJour());
 	//print_r($this->periode->getNomsJJMMAAAA());
+	//print_r($this->periode->getNumeroJourAnneeJJMMAAAA());
 	$this->$methode($parametres);
 
 	//$_SESSION['planning']['debut'] = $this->modele->getJourDebut();
@@ -52,7 +53,11 @@ class Planning {
     public function index(array $envoi): void {
 	//$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1)]);
 	//$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4), 'debut' => $this->modele->getJourDebut(), 'quarts' => $this->modele->getJourQuarts()]);
-	$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4), 'debut' => $this->modele->getJourDebut(), 'quarts' => $this->modele->getJourQuarts(), 'periode' => $this->periode->getNomsJJMMAAAA()]);
+	//$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4), 'debut' => $this->modele->getJourDebut(), 'quarts' => $this->modele->getJourQuarts(), 'periode' => $this->periode->getNomsJJMMAAAA()]);
+
+	//$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4),  'periode' => $this->periode->getNomsJJMMAAAA()]);
+
+	$this->vue->affichage(['titre' => $this->titre, 'tournoi' => $this->modele->getTournoi(1,1), 'parties' => $this->modele->getPartiesPoule(4),  'periode' => $this->periode->getNumeroJourAnneeJJMMAAAA()]);
     }
 
     public function __toString(): string {

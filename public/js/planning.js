@@ -3,6 +3,8 @@ import {nombre_p} from './modules/predicats.js';
 
 //const nombre_p = /\d+/;
 
+const range = nombre => [...Array(nombre).keys()];
+
 const triPoule = (a,b) => a.pouleId - b.pouleId; 
 const _getPoule = x => y => x.has(y) ? x.get(y).sort(triPoule) : 'vide';
 //const nomPoule = chaine => 'p'+`${chaine}`.padStart(2, '0');
@@ -35,8 +37,6 @@ const reducteurTableau = (retour, x) => {
 
     const sp2n = document.createElement('span');
     const sp2p = document.createElement('span');
-
-    //dt.appendChild(document.createTextNode(tournoiId));
 
     spid.setAttribute('class','spid');
     sps.setAttribute('class','sps');
@@ -132,11 +132,16 @@ const getOptionsPoules = (tableau, ecouteur) => {
     selecteur.addEventListener('change', ecouteur);
 };
 
-const creationPartie = (equipe1, equipe2, index) => {
-    //let {equipe1, equipe2} = x;
+const creationPartie = (equipe1, equipe2, index, _options, ecouteur) => {
+
+    // _options est cloné à chaque fois pour créer des options qui peupleront chacun des six select.
+    // sans cela, impossible de peupler les six select.
+    
+    const options = _options.cloneNode(true);
+
     let nom = `${equipe1.tournoiId}_${equipe2.tournoiId}`;
 
-    let affiche = `${equipe1.tournoiId} &ndash; ${equipe2.tournoiId}`;
+    let affiche = `${equipe1.tournoiId} &mdash; ${equipe2.tournoiId}`;
     
     const dd = document.createElement('dd');
     dd.setAttribute('class','partie');
@@ -155,6 +160,14 @@ const creationPartie = (equipe1, equipe2, index) => {
     dchoix.setAttribute('class','itemFormulaire');
     
     const jj = document.createElement('select');
+    let zero = document.createElement('option');
+    zero.setAttribute('disabled', true);
+    zero.setAttribute('selected', true);
+    zero.appendChild(document.createTextNode('Jour'));
+
+    jj.appendChild(zero);
+    jj.appendChild(options);
+    
     const _jj = document.createElement('label');
 
     jj.setAttribute('id', `jj_${nom}`);
@@ -165,7 +178,6 @@ const creationPartie = (equipe1, equipe2, index) => {
 
     djj.appendChild(_jj);
     djj.appendChild(jj);
-
     
     const hh = document.createElement('select');
     const _hh = document.createElement('label');
@@ -176,10 +188,11 @@ const creationPartie = (equipe1, equipe2, index) => {
     _hh.setAttribute('data-court', 'H');
     _hh.setAttribute('data-long', 'Heure');
 
+    hh.appendChild(creationHeures());
+
     dhh.appendChild(_hh);
     dhh.appendChild(hh);
-    
-    
+      
     const choix = document.createElement('input');
     const _choix = document.createElement('label');
 
@@ -215,6 +228,8 @@ const creationPartie = (equipe1, equipe2, index) => {
     //dd.appendChild(sp1);
     //dd.appendChild(sp2);
     dd.appendChild(horaire);
+
+    jj.addEventListener('change', ecouteur);
     
     return dd;
 };
@@ -239,13 +254,12 @@ const creationOptions = liste => {
     let df = new DocumentFragment();
     let options = liste.map(creationOptionPoule);
     options.forEach(x => df.appendChild(x));
-    //df.appendChild(options);
     return df;
 };
 
-const creationListeParties = (envoi, teams) => {
-    let df = new DocumentFragment();
+const creationListeParties = (envoi, teams, options, ecouteur) => {
 
+    let df = new DocumentFragment();
     const dl = document.createElement('dl');
 
     let pouleIds = teams.reduce((retour, x) => {
@@ -255,7 +269,8 @@ const creationListeParties = (envoi, teams) => {
 
     envoi.forEach((x,index) => {
 	let {equipe1, equipe2} = x;
-	let dd = creationPartie(pouleIds.get(equipe1), pouleIds.get(equipe2), index);
+	//let dd = creationPartie(pouleIds.get(equipe1), pouleIds.get(equipe2), index);
+	let dd = creationPartie(pouleIds.get(equipe1), pouleIds.get(equipe2), index, options, ecouteur);
 	dl.appendChild(dd);
     });
     
@@ -263,7 +278,81 @@ const creationListeParties = (envoi, teams) => {
     return df;
 };
 
+const _getOptionsPlanning = (envoi) => {
 
+    let df = new DocumentFragment();
+
+    envoi.forEach(x => {
+	df.appendChild(getOptionPlanning(x));
+    });
+    //df.appendChild(envoi);
+    return df;
+    
+    //let {numero, annee, jjmmaaaa} = envoi;
+    //console.log('getOptionsPlanning => ',jjmmaaaa);
+    //let df = new DocumentFragment();
+    /* let option = document.createElement('option');
+     * option.setAttribute('data-numero',numero);
+     * option.setAttribute('data-annee', annee);
+     * option.setAttribute('value', numero);
+     * option.setAttribute('text', jjmmaaaa); */
+    //option.appendChild(document.createTextNode(jjmmaaaa));
+    //return option;
+};
+
+const getOptionsPlanning = (envoi) => {
+    let df = new DocumentFragment();
+    //console.log('getoptionsplanning => ', envoi);
+    let options = envoi.map(getOptionPlanning);
+    options.forEach(x => df.appendChild(x));
+    return df;
+};
+
+const getOptionPlanning = (envoi) => {
+    let {numero, annee, jjmmaaaa} = envoi;
+    //console.log('getOptionPlanning => ', numero, annee, jjmmaaaa);
+    let option = document.createElement('option');
+    option.setAttribute('data-numero',numero);
+    option.setAttribute('data-annee', annee);
+    option.setAttribute('value', numero);
+    //option.setAttribute('text', jjmmaaaa);
+    option.appendChild(document.createTextNode(jjmmaaaa));
+    //console.log(option);
+    return option;
+};
+
+const creationHeures = () => {
+    const df = new DocumentFragment();
+    let zero = document.createElement('option');
+    zero.setAttribute('selected', true);
+    zero.setAttribute('disabled', true);
+    zero.appendChild(document.createTextNode('H:00'));
+    df.appendChild(zero);
+    
+    let nombre = 11;
+    const liste = range(nombre).map(x => x + 9);
+    const options  = liste.map(x => {
+	let d = document.createElement('option');
+	d.setAttribute('value', x);
+	d.appendChild(document.createTextNode(`${x}`.padStart(2,'0').concat('h00')));
+	return d;
+    });
+
+    console.log(options);
+    options.forEach(x => df.appendChild(x));
+    return df;
+}
+
+const ecouteurDate = (e) => {
+    //console.log('écouteurDate => ', e.srcElement, e.target, e.selectedOptions[0]);
+    //console.log('écouteurDate => ', e.srcElement.selectedOptions[e.selectedIndex]);
+    //console.log(e.parent.selectedOptions[0]);
+    //=> numéroJour et année
+    let numero = e.target.value;
+    let annee = e.srcElement.selectedOptions[0].dataset.annee;
+    //console.log(e.target.value, e.srcElement.selectedOptions[0].dataset.annee);
+    console.log(`${numero} ${annee}`);
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     ecouteursMenus();
@@ -274,13 +363,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const poule = document.querySelector('#poule');
     const parties = document.querySelector('#parties');
 
-    let listeEquipes = null;
+    //let listeEquipes = null;
 
     //serie.addEventListener('change', ecouteurs);
     //genre.addEventListener('change', ecouteurs);
 
     const ppp = JSON.parse(document.querySelector('#partiesParPoule').textContent);
     const liste = JSON.parse(document.querySelector('#liste').textContent);
+
+    const journees = JSON.parse(document.querySelector('#journees').textContent);
+    //const optionsJours = getOptionsPlanning(journees);
+    //const optionsJours = journees.map(getOptionsPlanning);
+    const optionsJours = getOptionsPlanning(journees);
+    //const clones = range(8).map(x => optionsJours.cloneNode(true));
+    
+    //console.log(optionsJours);
+    //console.log(journees);
 
     const listeSerie_ = document.querySelector('#listeSerie').textContent;
     const listeGenre_ = document.querySelector('#listeGenre').textContent;
@@ -303,11 +401,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	//console.log('listeEquipes => ', listeEquipes);
 
 	ecouteurPoule(listeEquipes, reducteurTableau);
-	parties.replaceChildren(creationListeParties(ppp, listeEquipes));
+	parties.replaceChildren(creationListeParties(ppp, listeEquipes, optionsJours, ecouteurDate));
     });
 
     poule.dispatchEvent(new Event('change'));
-
-    //parties.replaceChildren(creationListeParties(ppp, listeEquipes));
 
 });

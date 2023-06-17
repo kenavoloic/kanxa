@@ -19,11 +19,14 @@ class Planning {
 	$listeGenre = $tableau['genre'];
 	$periode = $envoi['periode'];
 
+
+	//var_dump(json_encode($periode, JSON_UNESCAPED_UNICODE));
+
 	//var_dump($envoi['debut']);
-	$debutTournoi = new \Modeles\JourCalendaire($envoi['debut']['chaine']);
-	$debutQuarts = new \Modeles\JourCalendaire($envoi['quarts']['chaine']);
-	$anneeDebut = $debutTournoi->getAnnee();
-	$anneeQuarts = $debutQuarts->getAnnee();
+	//$debutTournoi = new \Modeles\JourCalendaire($envoi['debut']['chaine']);
+	//$debutQuarts = new \Modeles\JourCalendaire($envoi['quarts']['chaine']);
+	//$anneeDebut = $debutTournoi->getAnnee();
+	//$anneeQuarts = $debutQuarts->getAnnee();
 
 	//echo $anneeDebut;
 	//echo $anneeQuarts;
@@ -53,7 +56,9 @@ class Planning {
 
 	echo $this->getDivCachee('listeSerie', $listeSerie);
 	echo $this->getDivCachee('listeGenre', $listeGenre);
-	echo $this->getOptionsPlanning($periode);
+	echo $this->getDivCacheeTableau('journees', ['liste' => $periode]);
+	//print_r($periode);
+	//echo $this->getOptionsPlanning($periode);
 	/* 
 	 * 	if(!is_null($debutTournoi)) { echo $this->getDivCachee('debut', $debutTournoi->getJour());}
 	 * 	if(!is_null($debutTournoi)) { echo $this->getDivCachee('anneeDebut', $debutTournoi->getAnnee());}
