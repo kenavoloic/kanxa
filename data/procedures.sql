@@ -153,7 +153,7 @@ SET debutJour = (SELECT jour from datesGenerales where dateId = 5);
 SET debutAnnee = (SELECT annee from datesGenerales where dateId = 8);
 SET finJour = (SELECT jour from datesGenerales where dateId = 8);
 SET finAnnee = (SELECT annee from datesGenerales where dateId = 8);
--- SET retour = CALL booleenCreationPlanning(debutJour, finJour, finAnnee);
+SET retour = CALL booleenCreationPlanning(debutJour, finJour, finAnnee);
 
 -- DECLARE pointeur INT DEFAULT debutJour;
 

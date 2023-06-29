@@ -278,31 +278,8 @@ const creationListeParties = (envoi, teams, options, ecouteur) => {
     return df;
 };
 
-const _getOptionsPlanning = (envoi) => {
-
-    let df = new DocumentFragment();
-
-    envoi.forEach(x => {
-	df.appendChild(getOptionPlanning(x));
-    });
-    //df.appendChild(envoi);
-    return df;
-    
-    //let {numero, annee, jjmmaaaa} = envoi;
-    //console.log('getOptionsPlanning => ',jjmmaaaa);
-    //let df = new DocumentFragment();
-    /* let option = document.createElement('option');
-     * option.setAttribute('data-numero',numero);
-     * option.setAttribute('data-annee', annee);
-     * option.setAttribute('value', numero);
-     * option.setAttribute('text', jjmmaaaa); */
-    //option.appendChild(document.createTextNode(jjmmaaaa));
-    //return option;
-};
-
 const getOptionsPlanning = (envoi) => {
     let df = new DocumentFragment();
-    //console.log('getoptionsplanning => ', envoi);
     let options = envoi.map(getOptionPlanning);
     options.forEach(x => df.appendChild(x));
     return df;
@@ -310,14 +287,13 @@ const getOptionsPlanning = (envoi) => {
 
 const getOptionPlanning = (envoi) => {
     let {numero, annee, jjmmaaaa} = envoi;
-    //console.log('getOptionPlanning => ', numero, annee, jjmmaaaa);
     let option = document.createElement('option');
     option.setAttribute('data-numero',numero);
     option.setAttribute('data-annee', annee);
     option.setAttribute('value', numero);
-    //option.setAttribute('text', jjmmaaaa);
-    option.appendChild(document.createTextNode(jjmmaaaa));
-    //console.log(option);
+    //option.appendChild(document.createTextNode(jjmmaaaa));
+    //le choix de innerHTML permet l'affichage de 1er alors qu'avec createTextNode => 1<sup>er</sup>
+    option.innerHTML = jjmmaaaa;
     return option;
 };
 
@@ -326,7 +302,7 @@ const creationHeures = () => {
     let zero = document.createElement('option');
     zero.setAttribute('selected', true);
     zero.setAttribute('disabled', true);
-    zero.appendChild(document.createTextNode('H:00'));
+    zero.appendChild(document.createTextNode('HH:00'));
     df.appendChild(zero);
     
     let nombre = 11;
@@ -338,7 +314,7 @@ const creationHeures = () => {
 	return d;
     });
 
-    console.log(options);
+   // console.log(options);
     options.forEach(x => df.appendChild(x));
     return df;
 }

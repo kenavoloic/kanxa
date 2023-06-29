@@ -54,9 +54,13 @@ main#timetable {
 	border-radius: .4rem;
 
 	&.e1, &.e2 {
+	    //height: 3rem;
+	    width: 48%;
+	    font-size: 2rem;
 	    color: $primary-color; //$vert6;
 	    border-color:  $primary-color; // $vert6;
 	    background-color: $blanc16;
+	    padding: 1rem;
 	}
 
 

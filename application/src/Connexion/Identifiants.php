@@ -50,7 +50,7 @@ class Identifiants {
     }
     
     public function __toString(): string {
-	return "Cette classe crée une connexion à la base de données et retourn une instanciation d’un objet PDO.";
+	return "Cette classe crée une connexion à la base de données et retourne une instanciation d’un objet PDO.";
     }
     
 }

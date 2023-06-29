@@ -103,12 +103,14 @@ em em {
 }
  
 sup {
-    font-size:.85rem;
-    line-height:1.9;
-    vertical-align:top;
+    font-size: .85rem;
+    line-height: 1.9;
+    vertical-align: top;
+    color: $blanc16;
+    background-color: $primary-color;
 }
 
-   
+                   
 //footer
 footer {
     
@@ -127,8 +129,6 @@ footer {
 	text-align: center;
 	user-select: none;
     }
-    
-    
 }
 
 // Header navbar logo liens menu hamburger

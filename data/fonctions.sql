@@ -66,7 +66,7 @@ END IF;
 IF valeurSerie > 3 THEN SET valeurSerie = serieParDefaut;
 END IF;
 
-SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2)) INTO retour FROM listePairesJoueurs  WHERE genre = valeurGenre AND serie = valeurSerie;
+SELECT JSON_ARRAYAGG(JSON_OBJECT('serie',serie,'genre',genre,'nom1',nom1,'prenom1',prenom1,'nom2',nom2,'prenom2',prenom2)) INTO retour FROM equipes  WHERE genre = valeurGenre AND serie = valeurSerie;
 
 RETURN retour;
 END;
